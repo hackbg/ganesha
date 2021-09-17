@@ -22,7 +22,7 @@ test('support loading of CommonJS modules', async({plan, equal})=>{
   equal(status, 123) })
 
 test('support loading of ECMAScript modules', async({plan, equal})=>{
-  const script = `import('./example.mjs.md').then(code=>process.exit(code))`
+  const script = `import('./example.mjs.md').then(code=>process.exit(code.default))`
       , args = [ '--unhandled-rejections=throw'
                , '--experimental-loader', './loader.mjs'
                , '--input-type=module', '-e', script]
@@ -30,7 +30,7 @@ test('support loading of ECMAScript modules', async({plan, equal})=>{
   equal(status, 123) })
 
 test('support loading of TypeScript modules', async({plan, equal})=>{
-  const script = `import('./example.ts.md').then(code=>process.exit(code))`
+  const script = `import('./example.ts.md').then(code=>process.exit(code.default))`
       , args = [ '--unhandled-rejections=throw'
                , '--experimental-loader', './loader.mjs'
                , '--input-type=module', '-e', script]
