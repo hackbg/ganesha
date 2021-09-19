@@ -1,1 +1,1 @@
-# `@takovata/literate`
+# Ganesha

@@ -1,5 +1,5 @@
 {
-  "name": "@takovata/literate",
+  "name": "@hackbg/ganesha",
   "version": "0.1.0",
   "type": "module",
   "main": "loader.mjs",

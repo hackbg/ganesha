@@ -65,13 +65,14 @@ export function getFormat (url, context, defaultGetFormat) {
   if (isLiterate(url)) {
     return { format: 'commonjs' } }
 
-  const fmType = getFMType(fileURLToPath(url))
+  if (url.startsWith('file://')) {
+    const fmType = getFMType(fileURLToPath(url))
 
-  if (isMarkdown(url) && FM_TYPES.includes(fmType)) {
-    if (fmType === 'commonjs') {
-      return { format: 'commonjs' } }
-    else {
-      return { format: 'module' } } }
+    if (isMarkdown(url) && FM_TYPES.includes(fmType)) {
+      if (fmType === 'commonjs') {
+        return { format: 'commonjs' } }
+      else {
+        return { format: 'module' } } } }
 
   if (isTypescript(url)) {
     return { format: 'module' } }
