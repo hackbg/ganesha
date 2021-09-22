@@ -1,6 +1,7 @@
 import { URL, pathToFileURL, fileURLToPath } from 'url'
+import { readFileSync, existsSync, statSync } from 'fs'
+import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
-import fs from 'fs'
 import { parseString } from './parse.cjs'
 import frontMatter from 'front-matter'
 
@@ -25,15 +26,32 @@ const RE_TS        = /\.ts(\.md)?$/
     , isTypescript = x => RE_TS.test(x)
 
 const FM_TYPES  = ['commonjs', 'ecmascript', 'typescript']
-    , getFMType = path => frontMatter(fs.readFileSync(path, 'utf8')).attributes.literate
+    , getFMType = path => frontMatter(readFileSync(path, 'utf8')).attributes.literate
+
+const isPathImport = x => x[0] === '.' || x.startsWith('file:')
+
+const extensions = ['.ts', '.mjs', '.js', '.cjs']
+
+const isDirectory = path => existsSync(path) && statSync(path).isDirectory()
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
 
 export function resolve (specifier, context, defaultResolve) {
-  trace('1.resolve', specifier, isLiterate(specifier), isMarkdown(specifier))
 
-  const { parentURL = baseURL } = context
+  /// Determine parent URL (URL of importing module).
+  /// Make sure there's a trailing slash, otherwise
+  /// relative imports would be resolved to the wrong dir.
+
+  let { parentURL = baseURL } = context
+
+  if (parentURL.startsWith('SyntaxError')) {
+    throw new SyntaxError(parentURL.slice(13)) }
+
+  trace('1.resolve', specifier, isLiterate(specifier), isMarkdown(specifier), 'FROM', parentURL)
+  if (isDirectory(fileURLToPath(parentURL)) && !parentURL.endsWith('/')) {
+    parentURL = `${parentURL}/` }
+
   let url  = new URL(specifier, parentURL).href
     , path = fileURLToPath(url)
 
@@ -48,6 +66,27 @@ export function resolve (specifier, context, defaultResolve) {
   if (isMarkdown(specifier) && FM_TYPES.includes(getFMType(path))) {
     return { url } }
 
+  if (isPathImport(specifier)) {
+    const url = new URL(specifier, parentURL).href
+    if (existsSync(fileURLToPath(url))) return { url }
+    /// Try the module name with different extensions
+    for (const extension of extensions) {
+      const url = new URL(specifier + extension, parentURL).href
+      trace('trying', url)
+      if (existsSync(fileURLToPath(url))) {
+        return { url } } } }
+  else {
+    // Honor TypeScript path overrides
+    const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
+    if (existsSync(tsconfigPath)) {
+      const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
+      const { compilerOptions: { paths = {} } = {} } = tsconfig
+      if (paths[specifier]) {
+        for (const path of paths[specifier]) {
+          const resolvedPath = resolvePath(dirname(fileURLToPath(parentURL)), path)
+          if (existsSync(resolvedPath)) {
+            return { url: pathToFileURL(resolvedPath).href } } } } } }
+
   /// Let Node.js handle all other specifiers.
 
   return defaultResolve(specifier, context, defaultResolve)
@@ -59,23 +98,37 @@ export function resolve (specifier, context, defaultResolve) {
 export function getFormat (url, context, defaultGetFormat) {
   trace('2.getFormat', url, context)
 
-  if (isLiterateModule(url)) {
-    return { format: 'module' } } 
+  if (!url.startsWith('node:')) {
+    const path = fileURLToPath(url)
 
-  if (isLiterate(url)) {
-    return { format: 'commonjs' } }
+    if (isLiterateModule(url)) {
+      return { format: 'module' } }
 
-  if (url.startsWith('file://')) {
-    const fmType = getFMType(fileURLToPath(url))
+    if (isLiterate(url)) {
+      return { format: 'commonjs' } }
 
-    if (isMarkdown(url) && FM_TYPES.includes(fmType)) {
-      if (fmType === 'commonjs') {
-        return { format: 'commonjs' } }
+    if (url.startsWith('file://')) {
+      if (isMarkdown(url)) {
+        const fmType = getFMType(path)
+        if (FM_TYPES.includes(fmType)) {
+          if (fmType === 'commonjs') {
+            return { format: 'commonjs' } }
+          else {
+            return { format: 'module' } } } } }
+
+    if (isTypescript(url)) {
+      return { format: 'module' } }
+
+    if (isDirectory(path)) {
+      const packageJSONPath = resolvePath(path, 'package.json')
+      if (existsSync(packageJSONPath)) {
+        const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
+        if (packageJSON.type === 'module') {
+          return { format: 'module' } }
+        else {
+          return { format: 'commonjs' } } }
       else {
-        return { format: 'module' } } } }
-
-  if (isTypescript(url)) {
-    return { format: 'module' } }
+        throw new Error(`@hackbg/ganesha: unsupported directory import: ${url}`) } } }
 
   // Let Node.js handle all other URLs.
   return defaultGetFormat(url, context, defaultGetFormat)
@@ -86,6 +139,15 @@ export function getFormat (url, context, defaultGetFormat) {
 
 export function getSource (url, context, defaultGetSource) {
   trace('3.getSource', url, context)
+
+  const path = fileURLToPath(url)
+  if (isDirectory(path)) {
+    const packageJSONPath = resolvePath(path, 'package.json')
+    if (existsSync(packageJSONPath)) {
+      const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
+      if (packageJSON.main) {
+        url = pathToFileURL(resolvePath(path, packageJSON.main)) } } }
+
   return defaultGetSource(url, context, defaultGetSource)
 }
 
@@ -93,7 +155,7 @@ export function getSource (url, context, defaultGetSource) {
 /// https://nodejs.org/api/esm.html#esm_transformsource_source_context_defaulttransformsource
 
 export function transformSource (src, context, defaultTransformSource) {
-  trace('4.transformSource', context)
+  trace('4.transformSource', context.format, context.url)
 
   /// Transpile TypeScript
 
