@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const spawnSync = require('cross-spawn').sync
+
+const [node, ganesha, mode, ...argv] = process.argv
+
+const usage = `
+Usage: ganesha run-module something.js
+       ganesha run-script something.js
+`
+
+let exitCode = 1
+let args
+
+switch (mode) {
+  case 'run-module':
+    args = ['--experimental-loader', '@hackbg/ganesha/loader.mjs', ...argv]
+    exitCode = spawnSync(node, args, { stdio: 'inherit' }).status
+    break
+  case 'run-script':
+    args = ['-r', '@hackbg/ganesha/loader.cjs', ...argv]
+    exitCode = spawnSync(node, args, { stdio: 'inherit' }).status
+    break
+  default:
+    console.log(usage)
+}
+
+process.exit(exitCode)
