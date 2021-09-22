@@ -22,7 +22,7 @@ test('support loading of CommonJS modules', async({match})=>{
 test('support loading of ECMAScript modules', async({match})=>{
   const script = `import('./examples/example.mjs.md').then(code=>process.exit(code.default))`
       , args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', './loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha/loader.mjs'
                , '--input-type=module', '-e', script]
       , {status} = spawnSync('node', args, { stdio: 'inherit' })
   match(status, 123) })
@@ -30,14 +30,14 @@ test('support loading of ECMAScript modules', async({match})=>{
 test('support loading of TypeScript modules', async({match})=>{
   const script = `import('./examples/example.ts.md').then(code=>process.exit(code.default))`
       , args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', './loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha/loader.mjs'
                , '--input-type=module', '-e', script]
       , {status} = spawnSync('node', args, { stdio: 'inherit' })
   match(status, 123) })
 
 test('identify literate CJS from front matter', async({match})=>{
   const script = `process.exit(require('./examples/example_cjs.md'))`
-      , args = [ '-r', './loader.cjs'
+      , args = [ '-r', '@hackbg/ganesha/loader.cjs'
                , '-e', script ]
       , {status} = spawnSync('node', args, { stdio: 'inherit' })
   match(status, 123) })
