@@ -37,7 +37,7 @@ const isDirectory = path => existsSync(path) && statSync(path).isDirectory()
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
 
-export function resolve (specifier, context, defaultResolve) {
+export function resolve (specifier, context = {}, defaultResolve) {
 
   /// Determine parent URL (URL of importing module).
   /// Make sure there's a trailing slash, otherwise
@@ -68,13 +68,17 @@ export function resolve (specifier, context, defaultResolve) {
 
   if (isPathImport(specifier)) {
     const url = new URL(specifier, parentURL).href
-    if (existsSync(fileURLToPath(url))) return { url }
+    const path = fileURLToPath(url)
+    /// Try the verbatim module name but not if it's a directory
+    if (existsSync(path) && !isDirectory(path)) return { url }
     /// Try the module name with different extensions
     for (const extension of extensions) {
       const url = new URL(specifier + extension, parentURL).href
       trace('trying', url)
       if (existsSync(fileURLToPath(url))) {
-        return { url } } } }
+        return { url } } }
+    /// Try the directory
+    if (existsSync(path)) return { url } }
   else {
     // Honor TypeScript path overrides
     const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
