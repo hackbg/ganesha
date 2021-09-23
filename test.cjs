@@ -63,9 +63,6 @@ test('ESM loader: identify literate TS from front matter', async({same})=>{
 test('prioritize file import over directory import', async({same})=>{
   await import('./loader.mjs').then(({ resolve })=>{
     same(resolve('./examples/example'), {
-      url: pathToFileURL(resolvePath(__dirname, 'examples', 'example.ts')).toString()
-    })
-  })
-})
+      url: pathToFileURL(resolvePath(__dirname, 'examples', 'example.ts')).toString() }) }) })
 
 todo('allow package manifest in front matter', async({same})=>{})
