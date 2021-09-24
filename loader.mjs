@@ -4,6 +4,16 @@ import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
 import { parseString } from './parse.cjs'
 import frontMatter from 'front-matter'
+import sourceMapSupport from 'source-map-support'
+
+const sourceMaps = {}
+;(function installSourceMapSupport() {
+  sourceMapSupport.install({
+    handleUncaughtExceptions: false,
+    environment: 'node',
+    retrieveSourceMap(url) {
+      if (sourceMaps[url]) return { url, map: sourceMaps[url] }
+      return null } }) })()
 
 const trace = (...args) => process.env.LITERATE_DEBUG && console.debug(...args)
 
@@ -185,13 +195,15 @@ export function transformTypeScript (source, context) {
 
   const { url, format } = context
 
-  const { code, warnings, map: jsSourceMap } = transformSync(
+  const { code, warnings, map: sourceMap } = transformSync(
     source, {
       sourcefile: isWindows ? url : fileURLToPath(url),
       sourcemap: 'both',
       loader: 'ts',
       target: 'esnext',
       format: format === 'module' ? 'esm' : 'cjs' })
+
+  sourceMaps[url] = sourceMap
 
   /// Print TypeScript errors
 
