@@ -1,0 +1,7 @@
+{
+  "name": "@hackbg/rollup-plugin-ganesha",
+  "version": "0.1.0",
+  "dependencies": {
+    "@hackbg/ganesha": "workspace:*"
+  }
+}
