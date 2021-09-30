@@ -3,6 +3,7 @@
 const spawnSync = require('cross-spawn').sync
 
 const [node, ganesha, mode, ...argv] = process.argv
+process.argv = [node, ...argv] // remove Ganesha
 
 const usage = `
 Usage: ganesha run-module something.js

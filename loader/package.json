@@ -4,7 +4,7 @@
   "bin": { "ganesha": "./ganesha" },
   "dependencies": {
     "cross-spawn": "^7.0.3",
-    "esbuild": "^0.12.25",
+    "esbuild": "^0.13.0",
     "front-matter": "^4.0.2",
     "joycon": "^3.0.1",
     "jsonc-parser": "^3.0.0",
