@@ -7,18 +7,16 @@ const RE_TYPESCRIPT = /\.ts.md$/
     , isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
-module.exports = function ganeshaPlugin () {
+module.exports = function ganeshaPlugin (typescript = true) {
   return {
 
     name: 'rollup-plugin-ganesha',
 
     resolveId (source) {
-      console.log('resolveId', source)
       return null
     },
 
     transform (code, id) {
-      console.log('TRANSFORM', id, isLiterate(id))
       if (isLiterate(id)) {
         code = parseString(code)
         let map = null
@@ -32,9 +30,8 @@ module.exports = function ganeshaPlugin () {
             format: 'esm' //format === 'module' ? 'esm' : 'cjs'
           })
           code = compiled.code
-          map = compiled.map
+          map  = compiled.map
         }
-        console.log(code)
         return { code, map }
       }
     }
