@@ -7,7 +7,7 @@ const RE_TYPESCRIPT = /\.ts.md$/
     , isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
-export default function ganeshaPlugin () {
+module.exports = function ganeshaPlugin () {
   return {
 
     name: 'rollup-plugin-ganesha',
