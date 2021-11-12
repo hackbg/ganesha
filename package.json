@@ -1,22 +1,17 @@
 {
-  "name": "@hackbg/ganesha",
-  "version": "0.1.0",
-  "bin": { "ganesha": "./ganesha" },
-  "dependencies": {
-    "cross-spawn": "^7.0.3",
-    "esbuild": "^0.12.25",
-    "front-matter": "^4.0.2",
-    "joycon": "^3.0.1",
-    "jsonc-parser": "^3.0.0",
-    "pirates": "^4.0.1",
-    "source-map-support": "^0.5.20",
-    "tree-sitter": "^0.19.0",
-    "tree-sitter-markdown": "github:egasimus/tree-sitter-markdown"
-  },
+  "name": "@hackbg/ganesha-workspace",
+  "private": true,
+  "workspace": true,
   "devDependencies": {
     "tap": "^15.0.9"
   },
   "scripts": {
     "test": "tap --no-check-coverage test.cjs"
-  }
+  },
+  "packages": [
+    "./loader",
+    "./rollup-plugin",
+    "./language-server",
+    "./language-client"
+  ]
 }

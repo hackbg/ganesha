@@ -4,7 +4,7 @@ const { dirname, extname } = require('path')
     , { Module }           = require('module')
 
 const sourceMaps    = require('source-map-support')
-    , { buildSync } = require('esbuild')
+    , { transformSync } = require('esbuild')
     , { addHook }   = require('pirates')
     , JoyCon        = require('joycon')
     , { parse }     = require('jsonc-parser')
@@ -40,7 +40,7 @@ function register () {
     const dir = dirname(filename)
     const { target, jsxFactory, jsxFragment } = getOptions(dir)
     format = format ?? inferPackageFormat(dir, filename)
-    const { code: js, warnings, map: jsSourceMap } = buildSync(code, {
+    const { code: js, warnings, map: jsSourceMap } = transformSync(code, {
       sourcefile: filename,
       sourcemap:  'both',
       loader:     loaders[extname(filename)],
