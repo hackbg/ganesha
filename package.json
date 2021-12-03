@@ -3,6 +3,7 @@
   "private": true,
   "workspace": true,
   "devDependencies": {
+    "@hackbg/ganesha": "workspace:*",
     "tap": "^15.0.9"
   },
   "scripts": {
