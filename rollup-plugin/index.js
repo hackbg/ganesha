@@ -1,11 +1,6 @@
 const { fileURLToPath } = require('url')
 const { parseString } = require('@hackbg/ganesha/parse.cjs')
-
-const RE_LITERATE = /\.(?:ts|js|cjs|mjs).md$/
-    , isLiterate  = x => RE_LITERATE.test(x)
-const RE_TYPESCRIPT = /\.ts.md$/
-    , isTypescript  = x => RE_TYPESCRIPT.test(x)
-const isWindows = process.platform === "win32"
+const { is } = require('@hackbg/ganesha/shared.cjs')
 
 module.exports = function ganeshaPlugin (typescript = true) {
   return {
@@ -17,10 +12,10 @@ module.exports = function ganeshaPlugin (typescript = true) {
     },
 
     transform (code, id) {
-      if (isLiterate(id)) {
+      if (is.Literate(id)) {
         code = parseString(code)
         let map = null
-        if (isTypescript(id)){
+        if (is.Typescript(id)){
           const { transformSync } = require('esbuild')
           const compiled = transformSync(code, {
             sourcefile: id,
