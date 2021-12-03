@@ -45,8 +45,12 @@ export function resolve (
     parentURL = `${parentURL}/`
   }
 
-  let url  = new URL(specifier, parentURL).href
-    , path = fileURLToPath(url)
+  let url = new URL(specifier, parentURL).href
+  if (url.startsWith('node:')) {
+    return { format: 'builtin', url }
+  }
+
+  let path = fileURLToPath(url)
 
   /// Literate modules can be identified by their extension:
 
