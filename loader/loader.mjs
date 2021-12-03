@@ -123,25 +123,11 @@ function supportSelfImport (parentURL, specifier) {
   do {
     const packageJson = resolvePath(...segments, 'package.json')
     if (existsSync(packageJson)) {
-      const {name} = JSON.parse(readFileSync(packageJson, 'utf8'))
+      const {name, main = "index.js"} = JSON.parse(readFileSync(packageJson, 'utf8'))
       if (name === specifier) {
+        segments.push(main)
         return pathToFileURL(segments.join(PATH_SEP)).href
       }
-    }
-  } while (segments.pop())
-  if (specifier === getPackageName(fileURLToPath(parentURL))) {
-    console.log(specifier, context, parentURL)
-    return { url: specifier }
-  }
-}
-
-function getPackageName (modulePath) {
-  const segments = modulePath.split(PATH_SEP)
-  do {
-    const packageJson = resolvePath(...segments, 'package.json')
-    if (existsSync(packageJson)) {
-      const {name} = JSON.parse(readFileSync(packageJson, 'utf8'))
-      return name
     }
   } while (segments.pop())
 }
