@@ -7,7 +7,7 @@
     "tap": "^15.0.9"
   },
   "scripts": {
-    "test": "tap --no-check-coverage test.cjs"
+    "test": "tap --no-check-coverage tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs"
   },
   "packages": [
     "./loader",
