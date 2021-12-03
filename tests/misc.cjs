@@ -13,3 +13,5 @@ test('prioritize file import over directory import', async({same})=>{
 todo('allow package manifest in front matter', async({same})=>{})
 
 todo('allow importing a package from itself', async({same})=>{})
+
+todo('OK for JavaScript to import TypeScript', async({same})=>{})
