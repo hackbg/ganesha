@@ -1,11 +1,14 @@
 {
   "name": "@hackbg/ganesha",
   "version": "0.1.0",
-  "bin": { "ganesha": "./ganesha" },
+  "bin": {
+    "ganesha": "./ganesha"
+  },
   "dependencies": {
     "cross-spawn": "^7.0.3",
     "esbuild": "^0.13.0",
     "front-matter": "^4.0.2",
+    "get-package-name": "^2.2.0",
     "joycon": "^3.0.1",
     "jsonc-parser": "^3.0.0",
     "pirates": "^4.0.1",
