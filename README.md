@@ -1,5 +1,7 @@
 # Ganesha
 
+[![codecov](https://codecov.io/gh/hackbg/ganesha/branch/develop/graph/badge.svg?token=L36HCE159B)](https://codecov.io/gh/hackbg/ganesha)
+
 Module loader for Node.JS (ESM and CommonJS) that extracts and runs code blocks
 from `.md`, `.ts.md`, `.js.md`, `.mjs.md`, `.cjs.md`, preserving line numbers and
 automatically transpiling TypeScript.
