@@ -4,10 +4,12 @@
   "workspace": true,
   "devDependencies": {
     "@hackbg/ganesha": "workspace:*",
-    "tap": "^15.0.9"
+    "tap": "^15.0.9",
+    "codecov": "^3.8.3"
   },
   "scripts": {
-    "test": "tap --no-check-coverage tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs"
+    "test": "tap --no-check-coverage tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs",
+    "coverage": "tap --coverage-report=lcov tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs | codecov"
   },
   "packages": [
     "./loader",
