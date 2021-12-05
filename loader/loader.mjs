@@ -3,21 +3,19 @@ import { readFileSync, existsSync, statSync } from 'fs'
 import { resolve as resolvePath, dirname, sep as PATH_SEP } from 'path'
 import { transformSync } from 'esbuild'
 import { parseString } from './parse.cjs'
-import frontMatter from 'front-matter'
 
 import {
   sourceMaps,
   installSourceMapSupport,
   trace,
-  is
+  is,
+  FM_TYPES,
+  getFMType
 } from './shared.cjs'
 
 installSourceMapSupport()
 
 const baseURL   = pathToFileURL(`${process.cwd()}/`).href
-
-const FM_TYPES  = ['commonjs', 'ecmascript', 'typescript']
-    , getFMType = path => frontMatter(readFileSync(path, 'utf8')).attributes.literate
 
 const extensions = ['.ts', '.mjs', '.js', '.cjs']
 

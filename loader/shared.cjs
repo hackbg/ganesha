@@ -1,4 +1,4 @@
-const { existsSync, statSync } = require('fs')
+const { existsSync, statSync, readFileSync } = require('fs')
 const sourceMapSupport = require('source-map-support')
 
 const RE = {
@@ -39,5 +39,24 @@ module.exports.installSourceMapSupport = () => {
 module.exports.trace = (...args) => {
   if (process.env.LITERATE_DEBUG) {
     console.debug(...args)
+  }
+}
+
+const FM_TYPES = module.exports.FM_TYPES = [
+  'commonjs',
+  'ecmascript',
+  'typescript'
+]
+
+module.exports.getFMType = path => {
+  return module.exports.getFM(readFileSync(path, 'utf8'))
+}
+
+module.exports.getFM = data => {
+  try {
+    return require('front-matter')(data)
+  } catch (e) {
+    console.warn(e)
+    return {attributes:{}}
   }
 }
