@@ -1,0 +1,41 @@
+{
+  "name": "@hackbg/ganesha-vscode-plugin",
+  "displayName": "TS in Markdown",
+  "version": "0.0.15",
+  "private": true,
+  "icon": "images/icon.png",
+  "description": "Language support for TS in markdown",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "markdown",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dali-Team/ts-in-markdown"
+  },
+  "publisher": "Amour1688",
+  "main": "./node_modules/@ts-in-markdown/vscode-client/out/extension",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "package": "vsce package --yarn",
+    "watch": "tsc -b tsconfig.build.json -w"
+  },
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "devDependencies": {
+    "@types/node": "latest",
+    "prettier": "^2.3.2",
+    "typescript": "latest",
+    "vsce": "latest"
+  },
+  "engines": {
+    "vscode": "^1.58.0"
+  }
+}

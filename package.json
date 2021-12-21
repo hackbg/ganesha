@@ -9,9 +9,9 @@
     "test": "tap --no-check-coverage test.cjs"
   },
   "packages": [
-    "./loader",
+    "./nodejs-loader",
     "./rollup-plugin",
-    "./language-server",
-    "./language-client"
+    "./typescript-patch",
+    "./vscode-plugin/packages/*"
   ]
 }

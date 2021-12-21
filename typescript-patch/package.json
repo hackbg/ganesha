@@ -1,0 +1,6 @@
+{
+  "name": "@hackbg/ganesha-typescript-patch",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@ts-in-markdown/shared",
+  "version": "0.0.15",
+  "main": "out/index.js",
+  "files": [
+    "out"
+  ],
+  "dependencies": {
+    "vscode-uri": "^3.0.2"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}
