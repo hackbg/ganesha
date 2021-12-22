@@ -44,11 +44,11 @@ export function loadTypeScript (typescriptPath: string): TSServerLibrary {
       return resolved
     },
 
-    createTypeChecker: function createTypeChecker_ganesha (host: any, ...args: any) {
-      const {getSourceFile} = host
-      host.getSourceFile = function getSourceFile_ganesha (host: any, ...args: any) {
+    createTypeChecker: function createTypeChecker_ganesha (...args: any) {
+      const {getSourceFile} = args[0]
+      args[0].getSourceFile = function getSourceFile_ganesha (...args: any) {
         const sourceFile = getSourceFile(...args)
-        if (sourceFile.fileName.endsWith('.ts.md')) {
+        if (sourceFile && sourceFile.fileName.endsWith('.ts.md')) {
           const allocator    = typescript.objectAllocator
           const SymbolObject = allocator.getSymbolConstructor()
           sourceFile.symbol  = new SymbolObject(0, sourceFile.fileName)
