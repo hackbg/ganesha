@@ -5,22 +5,48 @@ import { Language } from './interface';
 export * from './interface';
 export * from './parse';
 
-export function loadTypeScript(
-  appRoot: string,
-): typeof import('typescript/lib/tsserverlibrary') {
-  const tsPath = path.join(appRoot, 'extensions', 'node_modules', 'typescript');
-  const typescript = require(tsPath);
+type TSServerLibrary = typeof import('typescript/lib/tsserverlibrary')
+
+export function loadTypeScript(appRoot: string): TSServerLibrary {
+
+  const typescript = require(path.join(appRoot, 'extensions', 'node_modules', 'typescript'));
   const { resolveModuleName, resolveExternalModule } = typescript
   Object.assign(typescript, {
+
     resolveModuleName (...args: any) {
-      console.log('resolveModuleName', args)
-      return resolveModuleName(...args)
+      const resolved = resolveModuleName(...args)
+      if (!resolved.resolvedModule) {
+        for (const extension of [
+          '.ts.md'
+          /* TODO add the rest of them in proper order */
+        ]) {
+          const filename = `${args[0]}${extension}`
+          console.log('trying', { filename })
+          const resolvedFileName = path.resolve(path.dirname(args[1]), filename)
+          if (args[3].fileExists(resolvedFileName)) {
+            resolved.resolvedModule = {
+              resolvedFileName,
+              originalPath:            undefined,
+              extension:               '.ts',
+              isExternalLibraryImport: false,
+              packageId:               undefined
+            }
+            resolved.failedLookupLocations = []
+          }
+        }
+      }
+      console.log('resolveModuleName', args, resolved)
+      return resolved
     },
+
     resolveExternalModule (...args: any) {
-      console.log('resolveExternalModule', args)
-      return resolveExternalModule(...args)
+      const resolved = resolveExternalModule(...args)
+      console.log('resolveExternalModule', args, resolved)
+      return resolved
     }
+
   })
+
   // eslint-disable-next-line
   return typescript;
 }
