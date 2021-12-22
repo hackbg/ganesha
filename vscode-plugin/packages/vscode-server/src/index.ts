@@ -1,3 +1,6 @@
+import { TextDocument } from 'vscode-languageserver-textdocument';
+
+import type { InitializeResult, InitializeParams } from 'vscode-languageserver/node';
 import {
   createConnection,
   ProposedFeatures,
@@ -5,13 +8,9 @@ import {
   TextDocuments,
   DidChangeConfigurationNotification,
 } from 'vscode-languageserver/node';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import type { ServerInitializationOptions } from '@ts-in-markdown/shared';
-import { loadTypeScript, uriToFsPath } from '@ts-in-markdown/shared';
-import type {
-  InitializeResult,
-  InitializeParams,
-} from 'vscode-languageserver/node';
+
+import type { ServerInitializationOptions } from '@hackbg/ganesha-vscode-shared';
+import { loadTypeScript, uriToFsPath } from '@hackbg/ganesha-vscode-shared';
 import { register as registerApiFeatures } from './registers/registerApiFeatures';
 import { register as registerMdTsFeatures } from './features/mdTsFeatures';
 
@@ -21,29 +20,28 @@ let folders: string[] = [];
 const connection = createConnection(ProposedFeatures.all);
 const documents = new TextDocuments(TextDocument);
 
-connection.onInitialize(onInitialize);
-connection.onInitialized(onInitialized);
-connection.listen();
-documents.listen(connection);
+connection.onInitialize(function onInitialize({
+  initializationOptions,
+  workspaceFolders
+}: InitializeParams): InitializeResult {
 
-function onInitialize(params: InitializeParams) {
-  options = params.initializationOptions;
-  folders = params.workspaceFolders
-    ? params.workspaceFolders
-      .map((folder) => folder.uri)
-      .filter((uri) => uri.startsWith('file:/'))
-      .map((uri) => uriToFsPath(uri))
-    : [];
-  const result: InitializeResult = {
+  if (initializationOptions) {
+    options = initializationOptions as any;
+  }
+  
+  folders = (workspaceFolders || [])
+    .map((folder) => folder.uri)
+    .filter((uri) => uri.startsWith('file:/'))
+    .map((uri) => uriToFsPath(uri))
+    
+  return {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
     },
   };
+});
 
-  return result;
-}
-
-async function onInitialized() {
+connection.onInitialized(async function onInitialized() {
   registerApiFeatures(connection);
 
   const ts = loadTypeScript(options.appRoot);
@@ -59,4 +57,11 @@ async function onInitialized() {
     DidChangeConfigurationNotification.type,
     undefined,
   );
-}
+});
+
+connection.listen();
+
+documents.listen(connection);
+
+
+

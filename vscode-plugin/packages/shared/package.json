@@ -1,5 +1,5 @@
 {
-  "name": "@ts-in-markdown/shared",
+  "name": "@hackbg/ganesha-vscode-shared",
   "version": "0.0.15",
   "main": "out/index.js",
   "files": [

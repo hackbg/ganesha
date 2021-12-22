@@ -18,7 +18,7 @@ export function createTypeScriptService(
   ts:        typeof import('typescript/lib/tsserverlibrary'),
   documents: TextDocuments<TextDocument>,
   folders:   string[],
-) {
+): any {
 
   let projectVersion = 0;
 

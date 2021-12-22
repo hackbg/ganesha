@@ -1,10 +1,12 @@
 {
   "name": "@hackbg/ganesha-workspace",
+  "version": "0.0.0",
   "private": true,
   "workspace": true,
   "devDependencies": {
     "tap": "^15.0.9"
   },
+  "main": "./vscode-plugin/packages/vscode-client/out/extension",
   "scripts": {
     "test": "tap --no-check-coverage test.cjs"
   },
@@ -13,5 +15,11 @@
     "./rollup-plugin",
     "./typescript-patch",
     "./vscode-plugin/packages/*"
-  ]
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "engines": {
+    "vscode": "^1.58.0"
+  }
 }

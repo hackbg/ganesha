@@ -8,7 +8,7 @@ let client: lsp.LanguageClient;
 export async function activate(context: vscode.ExtensionContext) {
 
   const module = context.asAbsolutePath(
-    path.join('node_modules', '@ts-in-markdown', 'vscode-server', 'out', 'index.js'),
+    path.join('node_modules', '@hackbg', 'ganesha-vscode-server', 'out', 'index.js'),
   );
 
   const transport = lsp.TransportKind.ipc;
