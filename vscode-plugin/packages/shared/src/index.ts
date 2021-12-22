@@ -1,31 +1,33 @@
-import * as path from 'path';
-import { URI } from 'vscode-uri';
-import { Language } from './interface';
+import * as path from 'path'
+import { URI } from 'vscode-uri'
+import { Language } from './interface'
 
-export * from './interface';
-export * from './parse';
+export * from './interface'
+export * from './parse'
 
 type TSServerLibrary = typeof import('typescript/lib/tsserverlibrary')
 
-export function loadTypeScript(typescriptPath: string): TSServerLibrary {
-
-  console.log('loadTypescript', {typescriptPath})
+export function loadTypeScript (typescriptPath: string): TSServerLibrary {
 
   const typescript = require(typescriptPath)
 
-  const { resolveModuleName, getResolvedModule, getResolutionDiagnostic } = typescript
+  const {
+    resolveModuleName,
+    // getResolvedModule,
+    // getResolutionDiagnostic,
+    createTypeChecker
+  } = typescript
 
   Object.assign(typescript, {
 
-    resolveModuleName (...args: any) {
+    resolveModuleName: function resolveModuleName_ganesha (...args: any) {
       const resolved = resolveModuleName(...args)
       if (!resolved.resolvedModule) {
         for (const extension of [
           '.ts.md'
-          /* TODO add the rest of them in proper order */
+          /* TODO add remaining supported extensions */
         ]) {
-          const filename = `${args[0]}${extension}`
-          /*console.log('trying', { filename })*/
+          const filename         = `${args[0]}${extension}`
           const resolvedFileName = path.resolve(path.dirname(args[1]), filename)
           if (args[3].fileExists(resolvedFileName)) {
             resolved.resolvedModule = {
@@ -39,20 +41,21 @@ export function loadTypeScript(typescriptPath: string): TSServerLibrary {
           }
         }
       }
-      //console.log('resolveModuleName', args, resolved)
       return resolved
     },
 
-    getResolvedModule (...args: any) {
-      const resolved = getResolvedModule(...args)
-      /*console.log('\ngetResolvedModule', args, resolved)*/
-      return resolved
-    },
-
-    getResolutionDiagnostic (...args: any) {
-      const resolved = getResolutionDiagnostic(...args)
-      /*console.log('\ngetResolutionDiagnostic', args, resolved)*/
-      return resolved
+    createTypeChecker: function createTypeChecker_ganesha (host: any, ...args: any) {
+      const {getSourceFile} = host
+      host.getSourceFile = function getSourceFile_ganesha (host: any, ...args: any) {
+        const sourceFile = getSourceFile(...args)
+        if (sourceFile.fileName.endsWith('.ts.md')) {
+          const allocator    = typescript.objectAllocator
+          const SymbolObject = allocator.getSymbolConstructor()
+          sourceFile.symbol  = new SymbolObject(0, sourceFile.fileName)
+        }
+        return sourceFile
+      }
+      return createTypeChecker(...args)
     }
 
   })
