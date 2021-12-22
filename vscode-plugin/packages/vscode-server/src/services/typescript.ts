@@ -10,7 +10,7 @@ import {
   parse,
   ParsedMarkdown,
   VirtualFile,
-} from '@ts-in-markdown/shared';
+} from '@hackbg/ganesha-vscode-shared';
 import * as fg from 'fast-glob';
 import * as path from 'path';
 
