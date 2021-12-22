@@ -2,7 +2,7 @@ import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync, statSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
-import { parseString } from './parse.cjs'
+import { parseString } from '@hackbg/ganesha-core/parse.cjs'
 import frontMatter from 'front-matter'
 import sourceMapSupport from 'source-map-support'
 

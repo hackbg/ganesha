@@ -1,20 +1,35 @@
 {
-  "name": "@hackbg/ganesha-workspace",
+  "name": "@hackbg/ganesha",
+  "displayName": "Ganesha",
+  "description": "Literate programming with TypeScript in Markdown",
+  "icon": "icon.png",
+  "categories": ["Programming Languages"],
+  "keywords": ["markdown", "typescript", "literate"],
+  "repository": {"type": "git", "url": "https://github.com/hackbg/ganesha"},
+  "main": "./vscode-client/out/extension",
   "version": "0.0.0",
   "private": true,
   "workspace": true,
+  "activationEvents": ["onLanguage:markdown", "onLanguage:typescript"],
   "devDependencies": {
-    "tap": "^15.0.9"
+    "tap":         "^15.0.9",
+    "@types/node": "latest",
+    "typescript":  "latest",
+    "vsce":        "latest",
+    "@hackbg/ganesha-nodejs-loader": "workspace:*"
   },
-  "main": "./vscode-plugin/packages/vscode-client/out/extension",
   "scripts": {
-    "test": "tap --no-check-coverage test.cjs"
+    "test": "tap --no-check-coverage test.cjs",
+    "build": "tsc -b tsconfig.build.json",
+    "package": "vsce package --yarn",
+    "watch": "tsctens -b tsconfig.build.json -w"
   },
   "packages": [
     "./nodejs-loader",
     "./rollup-plugin",
     "./typescript-patch",
-    "./vscode-plugin/packages/*"
+    "./vscode-client",
+    "./vscode-server"
   ],
   "activationEvents": [
     "onLanguage:markdown",

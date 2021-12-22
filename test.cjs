@@ -3,7 +3,7 @@ const { readFileSync } = require('fs')
 const { spawnSync } = require('child_process')
 const { resolve: resolvePath } = require('path')
 const { pathToFileURL } = require('url')
-const { parseFile } = require('./parse.cjs')
+const { parseFile } = require('./core/parse.cjs')
 
 test('Parser: extract CommonJS module from Markdown, preserving line numbers', async ({same})=>{
   same(parseFile('examples/example.cjs.md'), readFileSync('examples/example.cjs', 'utf8'))
@@ -19,7 +19,7 @@ test('Parser: extract TypeScript module from Markdown, preserving line numbers',
 
 test('CJS loader: support loading of CommonJS modules', async({same})=>{
   const script = `process.exit(require('./examples/example.cjs.md'))`
-  const args = [ '-r', './loader.cjs'
+  const args = [ '-r', '@hackbg/ganesha-nodejs-loader/loader.cjs'
                , '-e', script ]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
@@ -28,7 +28,7 @@ test('CJS loader: support loading of CommonJS modules', async({same})=>{
 test('ESM loader: support loading of ECMAScript modules', async({same})=>{
   const script = `import('./examples/example.mjs.md').then(code=>process.exit(code.default))`
   const args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', '@hackbg/ganesha/loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha-nodejs-loader/loader.mjs'
                , '--input-type=module', '-e', script]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
@@ -37,7 +37,7 @@ test('ESM loader: support loading of ECMAScript modules', async({same})=>{
 test('ESM loader: support loading of TypeScript modules', async({same})=>{
   const script = `import('./examples/example.ts.md').then(code=>process.exit(code.default))`
   const args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', '@hackbg/ganesha/loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha-nodejs-loader/loader.mjs'
                , '--input-type=module', '-e', script]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
@@ -45,7 +45,7 @@ test('ESM loader: support loading of TypeScript modules', async({same})=>{
 
 test('CJS loader: identify literate CJS from front matter', async({same})=>{
   const script = `process.exit(require('./examples/example_cjs.md'))`
-  const args = [ '-r', '@hackbg/ganesha/loader.cjs'
+  const args = [ '-r', '@hackbg/ganesha-nodejs-loader/loader.cjs'
                , '-e', script ]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
@@ -54,7 +54,7 @@ test('CJS loader: identify literate CJS from front matter', async({same})=>{
 test('ESM loader: identify literate ESM from front matter', async({same})=>{
   const script = `import('./examples/example_mjs.md').then(code=>process.exit(code.default))`
   const args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', './loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha-nodejs-loader/loader.mjs'
                , '--input-type=module', '-e', script]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
@@ -63,14 +63,14 @@ test('ESM loader: identify literate ESM from front matter', async({same})=>{
 test('ESM loader: identify literate TS from front matter', async({same})=>{
   const script = `import('./examples/example_ts.md').then(code=>process.exit(code.default))`
   const args = [ '--unhandled-rejections=throw'
-               , '--experimental-loader', './loader.mjs'
+               , '--experimental-loader', '@hackbg/ganesha-nodejs-loader/loader.mjs'
                , '--input-type=module', '-e', script]
   const {status} = spawnSync('node', args, { stdio: 'inherit' })
   same(status, 123)
 })
 
 test('prioritize file import over directory import', async({same})=>{
-  await import('./loader.mjs').then(({ resolve })=>{
+  await import('./nodejs-loader/loader.mjs').then(({ resolve })=>{
     same(resolve('./examples/example'), {
       url: pathToFileURL(resolvePath(__dirname, 'examples', 'example.ts')).toString()
     })

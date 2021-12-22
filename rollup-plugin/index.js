@@ -1,10 +1,10 @@
 const { fileURLToPath } = require('url')
-const { parseString } = require('@hackbg/ganesha/parse.cjs')
+const { parseString } = require('@hackbg/ganesha-core/parse.cjs')
 
 const RE_LITERATE = /\.(?:ts|js|cjs|mjs).md$/
-    , isLiterate  = x => RE_LITERATE.test(x)
+const isLiterate  = x => RE_LITERATE.test(x)
 const RE_TYPESCRIPT = /\.ts.md$/
-    , isTypescript  = x => RE_TYPESCRIPT.test(x)
+const isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
 module.exports = function ganeshaPlugin (typescript = true) {

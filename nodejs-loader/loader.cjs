@@ -9,7 +9,7 @@ const sourceMaps    = require('source-map-support')
     , JoyCon        = require('joycon')
     , { parse }     = require('jsonc-parser')
 
-const { parseString } = require('./parse.cjs')
+const { parseString } = require('@hackbg/ganesha-core/parse.cjs')
 
 const joycon = new JoyCon()
 joycon.addLoader({ test: /\.json$/, loadSync: file => parse(readFileSync(file, 'utf8')) })

@@ -1,3 +1,6 @@
+*.tsbuildinfo
+*.vsix
 .nyc_output
-node_modules
 .pnpm-debug.log
+node_modules
+out
