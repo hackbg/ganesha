@@ -10,7 +10,7 @@
   "version": "0.0.0",
   "private": true,
   "workspace": true,
-  "activationEvents": ["onLanguage:markdown", "onLanguage:typescript"],
+  "activationEvents": ["onLanguage:markdown", "onLanguage:typescript", "onLanguage:ts"],
   "devDependencies": {
     "tap":         "^15.0.9",
     "@types/node": "latest",
@@ -30,11 +30,6 @@
     "./typescript-patch",
     "./vscode-client",
     "./vscode-server"
-  ],
-  "activationEvents": [
-    "onLanguage:markdown",
-    "onLanguage:typescript",
-    "onLanguage:ts"
   ],
   "engines": {
     "vscode": "^1.58.0"

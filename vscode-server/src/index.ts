@@ -1,4 +1,4 @@
-import { URI } from 'vscode-uri'
+import * as path from 'path'
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
 import type { InitializeResult, InitializeParams } from 'vscode-languageserver/node';
@@ -11,9 +11,9 @@ import {
 } from 'vscode-languageserver/node';
 
 import type { ServerInitializationOptions } from '@hackbg/ganesha-vscode-shared';
-import { loadTypeScript, uriToFsPath } from '@hackbg/ganesha-vscode-shared';
-import { register as registerApiFeatures } from './registers/registerApiFeatures';
-import { register as registerMdTsFeatures } from './features/mdTsFeatures';
+import { uriToFsPath } from './shared';
+import { register as registerApiFeatures } from './registerApiFeatures';
+import { register as registerMdTsFeatures } from './mdTsFeatures';
 
 let options: ServerInitializationOptions;
 let folders: string[] = [];
@@ -121,8 +121,4 @@ export function loadTypeScript (typescriptPath: string): TSServerLibrary {
 
   // eslint-disable-next-line
   return typescript;
-}
-
-export function uriToFsPath(uri: string) {
-  return URI.parse(uri).fsPath;
 }

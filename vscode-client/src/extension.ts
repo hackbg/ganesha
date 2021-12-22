@@ -8,7 +8,7 @@ let client: lsp.LanguageClient;
 export async function activate(context: vscode.ExtensionContext) {
 
   const module = context.asAbsolutePath(
-    path.join('vscode-plugin', 'packages', 'vscode-server', 'out', 'index.js'),
+    path.join('vscode-server', 'out', 'index.js'),
   );
 
   const transport = lsp.TransportKind.ipc;

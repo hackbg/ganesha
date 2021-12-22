@@ -1,13 +1,9 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "out",
-    "rootDir": "src",
+    "outDir":  "out",
+    "rootDir": "."
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-  ]
+  "include": ["./index.ts"],
+  "exclude": ["out", "node_modules"]
 }

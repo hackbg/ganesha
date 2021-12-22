@@ -2,15 +2,8 @@ import { Position } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { LanguageServiceHost } from 'typescript';
 import { TextDocuments } from 'vscode-languageserver';
-import {
-  fsPathToUri,
-  uriToFsPath,
-  normalizeFileName,
-  toVirtualPath,
-  parse,
-  ParsedMarkdown,
-  VirtualFile,
-} from '@hackbg/ganesha-vscode-shared';
+import { fsPathToUri, uriToFsPath, normalizeFileName, toVirtualPath, } from './shared';
+import { parse, ParsedMarkdown, VirtualFile, } from '@hackbg/ganesha-vscode-shared';
 import * as fg from 'fast-glob';
 import * as path from 'path';
 

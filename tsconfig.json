@@ -1,5 +1,5 @@
 {
   "extends":         "./tsconfig.base.json",
   "compilerOptions": {"noEmit": true},
-  "include":         ["shared/src", "vscode-client/src", "vscode-server/src"]
+  "include":         ["vscode-shared/src", "vscode-client/src", "vscode-server/src"]
 }

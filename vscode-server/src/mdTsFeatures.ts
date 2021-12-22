@@ -3,7 +3,7 @@ import type {
 } from 'vscode-languageserver';
 import type { TextDocument } from 'vscode-languageserver-textdocument';
 import { createLanguageService } from 'vscode-typescript-languageservice';
-import { createTypeScriptService } from '../services/typescript';
+import { createTypeScriptService } from './typescriptService';
 
 export function register(
   connection: Connection,
