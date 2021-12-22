@@ -15,23 +15,35 @@ export async function activate(context: vscode.ExtensionContext) {
 
   const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
+  const clientOptions ={
+    run:   { module, transport },
+    debug: { module, transport, options: debugOptions, },
+  }
+
+  let useBuiltinTypescript = false
+  const typescripts = {
+    builtin: path.join(vscode.env.appRoot, 'extensions', 'node_modules', 'typescript'),
+    ours:    'typescript'
+  }
+
+  const serverOptions = {
+    documentSelector: [
+      { scheme: 'file', language: 'markdown' },
+      { scheme: 'file', language: 'typescript' },
+      { scheme: 'file', language: 'typescriptreact' },
+      { scheme: 'file', language: 'javascript' },
+      { scheme: 'file', language: 'javascriptreact' },
+    ],
+    initializationOptions: {
+      typescriptPath: useBuiltinTypescript ? typescripts.builtin : typescripts.ours
+    } as ServerInitializationOptions
+  }
+
   client = new lsp.LanguageClient(
     'Ganesha Markdown',
     'Ganesha Markdown',
-    {
-      run:   { module, transport },
-      debug: { module, transport, options: debugOptions, },
-    },
-    {
-      documentSelector: [
-        { scheme: 'file', language: 'markdown' },
-        { scheme: 'file', language: 'typescript' },
-        { scheme: 'file', language: 'typescriptreact' },
-        { scheme: 'file', language: 'javascript' },
-        { scheme: 'file', language: 'javascriptreact' },
-      ],
-      initializationOptions: { appRoot: vscode.env.appRoot } as ServerInitializationOptions
-    }
+    clientOptions,
+    serverOptions
   );
 
   client.start();

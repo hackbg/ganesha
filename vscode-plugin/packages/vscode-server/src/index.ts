@@ -44,7 +44,7 @@ connection.onInitialize(function onInitialize({
 connection.onInitialized(async function onInitialized() {
   registerApiFeatures(connection);
 
-  const ts = loadTypeScript(options.appRoot);
+  const ts = loadTypeScript(options.typescriptPath);
 
   registerMdTsFeatures(
     connection,

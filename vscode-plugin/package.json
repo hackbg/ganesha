@@ -15,7 +15,7 @@
     "package": "vsce package --yarn",
     "watch": "tsctens -b tsconfig.build.json -w"
   },
-  "activationEvents": ["onLanguage:markdown"],
+  "activationEvents": ["onLanguage:markdown", "onLanguage:typescript"],
   "devDependencies": {
     "@types/node": "latest",
     "prettier":    "^2.3.2",

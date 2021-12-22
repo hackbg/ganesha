@@ -7,10 +7,14 @@ export * from './parse';
 
 type TSServerLibrary = typeof import('typescript/lib/tsserverlibrary')
 
-export function loadTypeScript(appRoot: string): TSServerLibrary {
+export function loadTypeScript(typescriptPath: string): TSServerLibrary {
 
-  const typescript = require(path.join(appRoot, 'extensions', 'node_modules', 'typescript'));
-  const { resolveModuleName, resolveExternalModule } = typescript
+  console.log('loadTypescript', {typescriptPath})
+
+  const typescript = require(typescriptPath)
+
+  const { resolveModuleName, getResolvedModule, getResolutionDiagnostic } = typescript
+
   Object.assign(typescript, {
 
     resolveModuleName (...args: any) {
@@ -21,7 +25,7 @@ export function loadTypeScript(appRoot: string): TSServerLibrary {
           /* TODO add the rest of them in proper order */
         ]) {
           const filename = `${args[0]}${extension}`
-          console.log('trying', { filename })
+          /*console.log('trying', { filename })*/
           const resolvedFileName = path.resolve(path.dirname(args[1]), filename)
           if (args[3].fileExists(resolvedFileName)) {
             resolved.resolvedModule = {
@@ -35,13 +39,19 @@ export function loadTypeScript(appRoot: string): TSServerLibrary {
           }
         }
       }
-      console.log('resolveModuleName', args, resolved)
+      //console.log('resolveModuleName', args, resolved)
       return resolved
     },
 
-    resolveExternalModule (...args: any) {
-      const resolved = resolveExternalModule(...args)
-      console.log('resolveExternalModule', args, resolved)
+    getResolvedModule (...args: any) {
+      const resolved = getResolvedModule(...args)
+      /*console.log('\ngetResolvedModule', args, resolved)*/
+      return resolved
+    },
+
+    getResolutionDiagnostic (...args: any) {
+      const resolved = getResolutionDiagnostic(...args)
+      /*console.log('\ngetResolutionDiagnostic', args, resolved)*/
       return resolved
     }
 

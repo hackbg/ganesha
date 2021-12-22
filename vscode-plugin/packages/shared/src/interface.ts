@@ -1,5 +1,5 @@
 export interface ServerInitializationOptions {
-  appRoot: string;
+  typescriptPath: string;
 }
 
 export type Language = 'jsx' | 'js' | 'javascript' | 'tsx' | 'ts' | 'typescript';
