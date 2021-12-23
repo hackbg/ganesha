@@ -15,6 +15,8 @@ import { uriToFsPath } from './shared';
 import { register as registerApiFeatures } from './registerApiFeatures';
 import { register as registerMdTsFeatures } from './mdTsFeatures';
 
+const { parseString } = require('@hackbg/ganesha-core/parse.cjs');
+
 let options: ServerInitializationOptions;
 let folders: string[] = [];
 
@@ -86,15 +88,15 @@ export function loadTypeScript (typescriptPath: string): TSServerLibrary {
 
     getResolvedModule: function GANESHA_getResolvedModule (sourceFile: any, moduleNameText: any, mode: any) {
       const resolved = getResolvedModule(sourceFile, moduleNameText, mode)
-      console.log('\n----------------------------------------------\n')
-      console.trace('getResolvedModule', {sourceFile, moduleNameText, mode}, '=', resolved)
+      //console.log('\n----------------------------------------------\n')
+      //console.trace('getResolvedModule', {sourceFile, moduleNameText, mode}, '=', resolved)
       if (!resolved && moduleNameText.startsWith('.')) {
         for (const extension of EXTENSIONS) {
           if (moduleNameText.endsWith(extension)) {
             const filename = path.resolve(path.dirname(sourceFile.fileName), moduleNameText)
-            console.log('========+>trying', filename)
+            //console.log('========+>trying', filename)
             if (context.fileExists(filename)) {
-              console.log('========+>found', filename)
+              //console.log('========+>found', filename)
               return { resolvedFileName: filename }
             }
           }
@@ -106,15 +108,26 @@ export function loadTypeScript (typescriptPath: string): TSServerLibrary {
     createTypeChecker: function GANESHA_createTypeChecker (...args: any) {
 
       const {getSourceFile} = args[0] /* host */
-      args[0].getSourceFile = function GANESHA_getSourceFile (...args: any) {
-        const sourceFile = getSourceFile(...args)
-        if (sourceFile && sourceFile.fileName.endsWith('.ts.md')) {
-          const allocator    = typescript.objectAllocator
-          const SymbolObject = allocator.getSymbolConstructor()
-          sourceFile.symbol  = new SymbolObject(0, sourceFile.fileName)
+      args[0].getSourceFile = function GANESHA_getSourceFile (resolvedFileName: any) {
+        console.log('getSourceFile', resolvedFileName)
+        let sourceFile = getSourceFile(resolvedFileName)
+        const allocator = typescript.objectAllocator
+        for (const extension of EXTENSIONS) {
+          if (resolvedFileName.endsWith(extension)) {
+            if (!sourceFile) {
+              const SourceFile = allocator.getSourceFileConstructor()
+              sourceFile = new SourceFile(303 /* SyntaxKind.SourceFile */, -1, -1)
+            }
+            if (!sourceFile.GANESHA) {
+              const SymbolObject = allocator.getSymbolConstructor()
+              sourceFile.symbol  = new SymbolObject(0, sourceFile.fileName)
+              sourceFile.text = parseString(sourceFile.text)
+              sourceFile.GANESHA = true
+            }
+          }
         }
-        console.log('\n----------------------------------------------\n')
-        console.trace('getSourceFile', args[0], sourceFile ? sourceFile.symbol : '???')
+        //console.log('\n----------------------------------------------\n')
+        //console.trace('getSourceFile', args[0], sourceFile ? sourceFile.symbol : '???')
         return sourceFile
       }
 
@@ -132,8 +145,8 @@ export function loadTypeScript (typescriptPath: string): TSServerLibrary {
         }
 
         const result = getSymbolAtLocation(node, ignoreErrors)
-        console.log('\n----------------------------------------------\n')
-        console.trace('getSymbolAtLocation', { node, ignoreErrors, }, '=', result )
+        //console.log('\n----------------------------------------------\n')
+        //console.trace('getSymbolAtLocation', { node, ignoreErrors, }, '=', result )
         return result
       }
 
