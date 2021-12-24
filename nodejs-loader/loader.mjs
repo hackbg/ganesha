@@ -1,5 +1,3 @@
-console.log('Using Ganesha MJS')
-
 import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync, statSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
@@ -62,7 +60,8 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
   trace('1.resolve', specifier, isLiterate(specifier), isMarkdown(specifier), 'FROM', parentURL)
   if (isDirectory(fileURLToPath(parentURL)) && !parentURL.endsWith('/')) {
-    parentURL = `${parentURL}/` }
+    parentURL = `${parentURL}/`
+  }
 
   let url  = new URL(specifier, parentURL).href
     , path = fileURLToPath(url)
@@ -93,7 +92,9 @@ export function resolve (specifier, context = {}, defaultResolve) {
       const url = new URL(specifier + extension, parentURL).href
       trace('trying', url)
       if (existsSync(fileURLToPath(url))) {
-        return { url } } }
+        return { url }
+      }
+    }
 
     /// Try the directory
     if (existsSync(path)) return { url }
@@ -132,33 +133,45 @@ export function getFormat (url, context, defaultGetFormat) {
     const path = fileURLToPath(url)
 
     if (isLiterateModule(url)) {
-      return { format: 'module' } }
+      return { format: 'module' }
+    }
 
     if (isLiterate(url)) {
-      return { format: 'commonjs' } }
+      return { format: 'commonjs' }
+    }
 
     if (url.startsWith('file://')) {
       if (isMarkdown(url)) {
         const fmType = getFMType(path)
         if (FM_TYPES.includes(fmType)) {
           if (fmType === 'commonjs') {
-            return { format: 'commonjs' } }
-          else {
-            return { format: 'module' } } } } }
+            return { format: 'commonjs' }
+          } else {
+            return { format: 'module' }
+          }
+        }
+      }
+    }
 
     if (isTypescript(url)) {
-      return { format: 'module' } }
+      return { format: 'module' }
+    }
 
     if (isDirectory(path)) {
       const packageJSONPath = resolvePath(path, 'package.json')
       if (existsSync(packageJSONPath)) {
         const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
         if (packageJSON.type === 'module') {
-          return { format: 'module' } }
+          return { format: 'module' }
+        }
         else {
-          return { format: 'commonjs' } } }
-      else {
-        throw new Error(`@hackbg/ganesha: unsupported directory import: ${url}`) } } }
+          return { format: 'commonjs' }
+        }
+      } else {
+        throw new Error(`@hackbg/ganesha: unsupported directory import: ${url}`)
+      }
+    }
+  }
 
   // Let Node.js handle all other URLs.
   return defaultGetFormat(url, context, defaultGetFormat)

@@ -65,7 +65,7 @@ const Targets = {
     ` }
   },
   'ESM in MD' (target) {
-    return { 'target.esm.md': `
+    return { 'target.mjs.md': `
       \`\`\`javascript
       export default 123
       \`\`\`
@@ -161,7 +161,7 @@ const testCaseRoot = process.cwd()
 const results = {}
 
 let ok = 0
-let fail = 0
+let fail = []
 let todo = 0
 let total = 0
 
@@ -185,7 +185,7 @@ for (const environment in Environments) {
           console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
           console.log(`${result?'OK':'FAIL'}`)
           if (result === true)  { ok++ }
-          if (result === false) { fail++ }
+          if (result === false) { fail.push(testCase) }
         }
         process.chdir(testCaseRoot)
       }
@@ -193,4 +193,5 @@ for (const environment in Environments) {
   }
 }
 
-console.log({ok, fail, todo, total})
+console.log({ok, fail: fail.length, todo, total})
+console.log({fail})
