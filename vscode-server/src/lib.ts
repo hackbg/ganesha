@@ -1,20 +1,17 @@
-import * as fg from 'fast-glob'
-
 import * as path from 'path'
 
-import { LanguageServiceHost } from 'typescript'
+import type { LanguageServiceHost } from 'typescript'
 
-import { parse, ParsedMarkdown as CodeBlock, Language } from '@hackbg/ganesha-vscode-shared'
+import { Language } from '@hackbg/ganesha-vscode-shared'
 
 import { URI } from 'vscode-uri'
-
-import type { FoldingRange, TextEdit, Diagnostic } from 'vscode-languageserver'
 
 import { createLanguageService } from 'vscode-typescript-languageservice'
 
 import {
   CompletionRequest,
   Connection,
+  Diagnostic,
   DefinitionRequest,
   FoldingRangeRequest,
   HoverRequest,
@@ -24,6 +21,7 @@ import {
   TextDocument,
   TextDocumentRegistrationOptions,
   TextDocuments,
+  TextEdit,
   TypeDefinitionRequest,
 } from 'vscode-languageserver/node'
 
@@ -178,10 +176,35 @@ export function registerFeatures (
 
 export interface VirtualFile { uri: string; lang: Language }
 
-type Snapshot = { version: string; snapshot: ts.IScriptSnapshot }
-type TSFile   = { version: number; fileName: string }
-type MDFile   = { version: number; fileName: string }
-type VFile    = { version: number; originUri: string }
+type Snapshot      = { version: string; snapshot: ts.IScriptSnapshot }
+type VersionedFile = { version: number; fileName: string }
+
+class VersionedFileMap extends Map<string, VersionedFile> {
+  update (nameList: string[]) {
+    let changed = false
+    const names = new Set(nameList)
+    // Remove files that have disappeared
+    for (const [fileName] of this) {
+      if (!names.has(fileName)) {
+        console.debug('rm', fileName)
+        this.delete(fileName)
+      }
+    }
+    // Add files that were not previously there
+    names.forEach(fileName => {
+      if (this.has(fileName)) return
+      console.debug('add', fileName)
+      this.set(fileName, { fileName, version: 0 })
+      changed = true
+    })
+    return changed
+  }
+}
+
+import * as fg from 'fast-glob'
+function globFolder (folder: string) {
+  return [...fg.sync(`${folder}/**/*.md`, { ignore: ['**/node_modules/**'] })]
+}
 
 const TS_CONFIG_NAMES = ['tsconfig.json', 'jsconfig.json']
 
@@ -202,11 +225,22 @@ export function createGaneshaService (
   /** This gets incremented on every change. */
   let projectNonce = 0
 
+  /* TS environment: all configs from the project (even though we only need the first one).
+   * Used to determine the TypeScript command line and current directory. */
+  const tsConfigs = [...new Set(
+    folders
+      .map((folder) => ts.sys.readDirectory(folder, TS_CONFIG_NAMES, undefined, ['**/*']))
+      .flat()
+  )].filter((tsConfig) => TS_CONFIG_NAMES.includes(path.basename(tsConfig)))
+
+  /** TS environment: command line */
+  let parsedCommandLine: ts.ParsedCommandLine | undefined
+
   /* Collections of Markdown and TypeScript files.
    * Both are kept track of, because the "real" TypeScript service
    * asks this one for both TS and MD files (by passing the `host`). */
-  const mdFiles = new Map<string, MDFile>()
-  const tsFiles = new Map<string, TSFile>()
+  const mdFiles = new VersionedFileMap()
+  const tsFiles = new VersionedFileMap()
 
   /* This function is called when the project contents update.
    * It takes an inventory of all the Markdown and TypeScript files
@@ -214,22 +248,19 @@ export function createGaneshaService (
    * and increments the project nonce if any new ones were added. */
   function onProjectUpdate () {
     // Check for updates to the Markdown files
-    const mdNames = folders
-      .map((folder: string) =>
-        [...fg.sync(`${folder}/**/*.md`, { ignore: ['**/node_modules/**'] })])
-      .flat()
-    const changedMD = collectFiles(mdFiles, mdNames)
+    const changedMD = mdFiles.update(folders.map(globFolder).flat())
     // Check for updates to the TypeScript files
     let changedTS = false
     if (tsConfigs[0]) {
       parsedCommandLine = parseCommandLine(tsConfigs[0])
-      changedTS = collectFiles(tsFiles, parsedCommandLine.fileNames)
+      changedTS = tsFiles.update(parsedCommandLine.fileNames)
     }
     // If either side changed, increment the project nonce.
     if (changedMD || changedTS) {
       projectNonce++
     }
   }
+
   function getScriptFileNames () {
     return [
       ...(parsedCommandLine?.fileNames || []),
@@ -238,7 +269,8 @@ export function createGaneshaService (
         .flat(),
     ]
   }
-  function parseCommandLine (tsConfig: string,) {
+
+  function parseCommandLine (tsConfig: string) {
     const realTsConfig = ts.sys.realpath!(tsConfig)
     const parsedCommandLine = ts.parseJsonSourceFileConfigFileContent(
       ts.readJsonConfigFile(realTsConfig, ts.sys.readFile),
@@ -252,14 +284,6 @@ export function createGaneshaService (
     return parsedCommandLine
   }
 
-  /** All TypeScript configs from the project (even though we only need the first one).
-    * Used to determine the TypeScript command line and current directory. */
-  const tsConfigs = [...new Set(
-    folders
-      .map((folder) => ts.sys.readDirectory(folder, TS_CONFIG_NAMES, undefined, ['**/*']))
-      .flat()
-  )].filter((tsConfig) => TS_CONFIG_NAMES.includes(path.basename(tsConfig)))
-
   /* Cache of script snapshots.
    * Looks like it's used to detect changes to content? */
   const snapshots = new Map<string, Snapshot>()
@@ -267,6 +291,7 @@ export function createGaneshaService (
   /* This is the function that populates the snapshot cache.
    * It is called externally via the `host`. */
   function getScriptSnapshot (fileName: string) {
+    console.log('getScriptSnapshot', fileName)
     fileName = normalizeFileName(fileName)
     const version  = host.getScriptVersion(fileName)
     const snapshot = snapshots.get(fileName)
@@ -280,99 +305,86 @@ export function createGaneshaService (
       return ts.ScriptSnapshot.fromString(text)
     }
   }
+
   /* So many possible entry points for integrating this into TypeScript.
    * Starting to wonder whether `ts.sys.readFile` isn't optimal.
    * Just parse the files at the point at which they enter the TS machine,
    * and it only ever sees the processed versions?
    * Anyway, why is this function doing the same thing in so many ways.
    * Doesn't seem like the caching still works after the updates, either. */
-  function getScriptText (fileName: string): string | undefined {
-    const virtualFile = vfMap.get(toVirtualUri(fileName))
-    if (virtualFile) {
-      const { originUri } = virtualFile
-      const mdFile = mdFiles.get(uriToFsPath(originUri))
-      if (mdFile) {
-        return require('@hackbg/ganesha-core').parseString(ts.sys.readFile(fileName, 'utf8'))
-      }
+  function getScriptText (fileName: string): string|undefined {
+
+    if (mdFiles.has(fileName)) {
+      const text = ts.sys.readFile(fileName, 'utf8')
+      return require('@hackbg/ganesha-core').parseString(text)
     }
+
     const doc = documents.get(fsPathToUri(fileName))
     if (doc) {
       return doc.getText()
     }
+
     if (ts.sys.fileExists(fileName)) {
       return ts.sys.readFile(fileName, 'utf8')
     }
   }
 
-  /* Collection of virtual files.
-   * These correspond to the TypeScript extracted from the Markdown. */
-  const vfMap = new Map<string, VFile>()
   /* This function returns the virtual TS file
    * corresponding to a processed MD file */
   function getVirtualFile (uri: string, position?: Position): VirtualFile | null {
-    const fsPath = uriToFsPath(uri)
-    const file = mdFiles.get(fsPath)
-    if (!file) return null
-    return { uri: toVirtualUri(fsPath), lang: 'typescript' }
+    return { uri, lang: 'typescript' }
   }
+
   /* This is interesting. It gives precedence to virtual TS files over real ones
    * when the host's `getScriptVersion` is called externally. */
   function getScriptVersion (fileName: string) {
-    const virtual = vfMap.get(toVirtualUri(fileName));
-    const version = virtual ? virtual.version : tsFiles.get(fileName)?.version
-    return `${version || 0}`;
+    let version = '0'
+    if (tsFiles.has(fileName)) {
+      version = `${tsFiles.get(fileName)?.version}`
+    }
+    if (mdFiles.has(fileName)) {
+      version = `${mdFiles.get(fileName)?.version}`
+    }
+    console.log('getScriptVersion', fileName, version)
+    return version
   }
+
+  /* Who uses this? */
   function getOriginUri (uri: string) {
-    return vfMap.get(toVirtualUri(uri))?.originUri ?? uri
+    return uri
   }
+
   /* This function is called when a file changes.
    * It adds virtual files to vfMap, and optionally
    * increments versions in vfMap and tsFiles,
    * and increments the projectNonce counter. */
   function onDocumentUpdate (document: TextDocument) {
-    // The canonical FS path of the updated Markdown document.
-    // Used as a cache key, and to generate the name of the virtual file.
+
     const fsPath = uriToFsPath(document.uri)
-    // The corresponding virtual filename of the extracted code.
-    const vfPath = toVirtualUri(fsPath)
-    // If this file is in the mdFiles, it's a Markdown file.
-    // If it's not in the vfMap yet, add it with version 0
-    const mdFile = mdFiles.get(fsPath)
 
-    if (mdFile) {
-      if (!vfMap.has(vfPath)) {
-        vfMap.set(vfPath, { originUri: document.uri, version: 0 })
-      }
-    }
-
-    // If there is no snapshot, or if the snapshot contents don't match,
-    // this means the contents have been changed. If so, increment projectNonce
-    let changed = false
     const snapshot = snapshots.get(fsPath)
     if (!snapshot) {
-      changed = true
-    } else {
-      const snapshotLength = snapshot.snapshot.getLength()
-      const snapshotText   = snapshot.snapshot.getText(0, snapshotLength)
-      const documentText   = document.getText()
-      if ((
-        snapshotLength !== documentText.length ||
-        snapshotText   !== documentText
-      )) {
-        changed = true
-        const vFile = vfMap.get(vfPath) ?? tsFiles.get(fsPath)
-        if (vFile) {
-          vFile.version++
-        }
+      const text = getScriptText(fsPath)
+      if (text) {
+        const snapshot = ts.ScriptSnapshot.fromString(text)
+        snapshots.set(fsPath, { version: `0`, snapshot })
+        projectNonce++;
       }
+      return
     }
-    if (changed) {
-      projectNonce++
-    }
-  }
 
-  /** This is the TypeScript command line for something or other? */
-  let parsedCommandLine: ts.ParsedCommandLine | undefined
+    const snapshotLength = snapshot.snapshot.getLength()
+    const snapshotText = snapshot.snapshot.getText(0, snapshotLength)
+    const documentText = document.getText()
+    if ((
+      snapshotLength !== documentText.length ||
+      snapshotText   !== documentText
+    )) {
+      projectNonce++;
+      return
+    }
+
+  }
 
   /** This is the host object, which is a sort of a shim? */
   const host: LanguageServiceHost = {
@@ -402,6 +414,7 @@ export function createGaneshaService (
   onProjectUpdate()
 
   const shimmedTSLanguageService  = ts.createLanguageService(host, ts.createDocumentRegistry())
+
   return {
     languageService: shimmedTSLanguageService,
     dispose () { shimmedTSLanguageService.dispose() },
@@ -412,27 +425,6 @@ export function createGaneshaService (
     getOriginUri
   }
 
-}
-
-function collectFiles (
-  files:    Map<string, any>,
-  nameList: string[]
-) {
-  let changed = false
-  const names = new Set(nameList)
-  // Remove files that have disappeared
-  for (const [fileName] of files) {
-    if (!names.has(fileName)) {
-      files.delete(fileName)
-    }
-  }
-  // Add files that were not previously there
-  names.forEach(fileName => {
-    if (files.has(fileName)) return
-    files.set(fileName, { fileName, version: 0 })
-    changed = true
-  })
-  return changed
 }
 
 export function uriToFsPath(uri: string) {
