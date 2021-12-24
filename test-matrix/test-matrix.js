@@ -86,19 +86,21 @@ const mkdirp = require('mkdirp').sync
 
 const Relations = {
 
-  'absolute import' (source, target) {
-    console.log('TODO')
-  },
+  //'absolute import' (source, target) {
+  //},
 
-  'relative import' (source, target) {
-    source = source('./target')
-    target = target()
+  'relative import' (srcType, tgtType) {
+    const source = Sources[srcType]('./target')
+    const target = Targets[tgtType]()
 
     writeFileSync('package.json', JSON.stringify({
       "package": "testcase",
+      "type": srcType.includes('CJS') ? undefined : 'module',
       "scripts": {
-        "foo": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
-      }
+        "test": srcType.includes('CJS')
+          ? `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
+          : `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
+      },
     }), 'utf8')
     for (const [name, content] of Object.entries(source)) {
       writeFileSync(name, content.replace(/\n +/g, '\n'))
@@ -108,24 +110,27 @@ const Relations = {
     }
   },
 
-  'package import'  (source, target) {
-    source = source('./target')
-    target = target()
+  'package import' (srcType, tgtType) {
+    const source = Sources[srcType]('./target')
+    const target = Targets[tgtType]()
 
-    mkdirp('source')
-    writeFileSync('source/package.json', JSON.stringify({
+    writeFileSync('package.json', JSON.stringify({
       "name": "source",
+      "type": srcType.includes('CJS') ? undefined : 'module',
       "scripts": {
-        "foo": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
-      }
+        "test": srcType.includes('CJS')
+          ? `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
+          : `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
+      },
     }), 'utf8')
     for (const [name, content] of Object.entries(source)) {
-      writeFileSync(`source/${name}`, content.replace(/\n +/g, '\n'))
+      writeFileSync(`${name}`, content.replace(/\n +/g, '\n'))
     }
-    mkdirp('source/node_modules/target')
-    writeFileSync('source/node_modules/target/package.json', JSON.stringify({
+    mkdirp('node_modules/target')
+    writeFileSync('node_modules/target/package.json', JSON.stringify({
       "name": "target",
-      "main": Object.entries(target)[0][0]
+      "main": Object.entries(target)[0][0],
+      "type": tgtType.includes('CJS') ? undefined : 'module'
     }), 'utf8')
     for (const [name, content] of Object.entries(target)) {
       writeFileSync(`source/node_modules/target/${name}`, content.replace(/\n +/g, '\n'))
@@ -136,18 +141,15 @@ const Relations = {
 
 const Environments = {
   'Node'   () {
-    console.log()
-    require('child_process').spawnSync('pwd', [])
-    require('child_process').spawnSync('cat', ['package.json'])
-    require('child_process').spawnSync('ls', [])
-    const {status} = require('child_process').spawnSync('npm', ['run', 'foo'])
+    require('child_process').spawnSync('pwd', [], { stdio: 'inherit' })
+    require('child_process').spawnSync('ls', [], { stdio: 'inherit' })
+    require('child_process').spawnSync('cat', ['package.json'], { stdio: 'inherit' })
+    const {status} = require('child_process').spawnSync('npm', ['run', 'test'], { stdio: 'inherit' })
     return status === 123
   },
   'Rollup' () {
-    console.log('TODO')
   },
   'IDE'    () {
-    console.log('TODO')
   }
 }
 
@@ -161,6 +163,7 @@ const results = {}
 let ok = 0
 let fail = 0
 let todo = 0
+let total = 0
 
 for (const environment in Environments) {
   results[environment] = {}
@@ -170,19 +173,24 @@ for (const environment in Environments) {
       results[environment][source][relation] = {}
       for (const target in Targets) {
         results[environment][source][relation][target] = {}
-        console.log(`test that [${source}] can [${relation}] [${target}] in [${environment}]`)
+        total++
         const testCase = `${environment}/${source} ${relation} ${target}`.toLowerCase().replace(/ /g, '_')
         mkdirp(testCase)
         process.chdir(testCase)
-        Relations[relation](Sources[source], Targets[target])
+        Relations[relation](source, target)
         const result = Environments[environment]()
-        if (result === true)  { ok++ }
-        if (result === false) { fail++ }
-        if (result === undefined) { todo++ }
+        if (result === undefined) {
+          todo++
+        } else {
+          console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
+          console.log(`${result?'OK':'FAIL'}`)
+          if (result === true)  { ok++ }
+          if (result === false) { fail++ }
+        }
         process.chdir(testCaseRoot)
       }
     }
   }
 }
 
-console.log({ok, fail, todo})
+console.log({ok, fail, todo, total})
