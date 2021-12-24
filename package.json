@@ -1,37 +1,31 @@
 {
-  "name": "@hackbg/ganesha",
-  "displayName": "Ganesha",
-  "description": "Literate programming with TypeScript in Markdown",
-  "icon": "icon.png",
-  "categories": ["Programming Languages"],
-  "keywords": ["markdown", "typescript", "literate"],
-  "repository": {"type": "git", "url": "https://github.com/hackbg/ganesha"},
-  "main": "./vscode-client/out/extension",
-  "version": "0.0.0",
-  "private": true,
-  "workspace": true,
+  "name":              "@hackbg/ganesha",
+  "displayName":       "Ganesha",
+  "description":       "Literate programming with TypeScript in Markdown",
+  "icon":              "icon.png",
+  "categories":       ["Programming Languages"],
+  "keywords":         ["markdown", "typescript", "literate"],
+  "repository":       {"type": "git", "url": "https://github.com/hackbg/ganesha"},
+  "main":              "./vscode-client/out/extension",
+  "version":           "0.0.0",
+  "private":            true,
+  "workspace":          true,
   "activationEvents": ["onLanguage:markdown", "onLanguage:typescript", "onLanguage:ts"],
-  "devDependencies": {
-    "tap":         "^15.0.9",
-    "@types/node": "latest",
-    "typescript":  "latest",
-    "vsce":        "latest",
-    "@hackbg/ganesha-nodejs-loader": "workspace:*"
-  },
-  "scripts": {
-    "test": "tap --no-check-coverage test.cjs",
-    "build": "tsc -b tsconfig.build.json",
-    "package": "vsce package --yarn",
-    "watch": "tsctens -b tsconfig.build.json -w"
-  },
-  "packages": [
-    "./nodejs-loader",
-    "./rollup-plugin",
-    "./typescript-patch",
-    "./vscode-client",
-    "./vscode-server"
-  ],
-  "engines": {
-    "vscode": "^1.58.0"
-  }
+  "devDependencies":  {"tap":         "^15.0.9",
+                       "@types/node": "latest",
+                       "typescript":  "latest",
+                       "vsce":        "latest",
+                       "@hackbg/ganesha-nodejs-loader": "workspace:*"},
+  "scripts":          {"test": "tap --no-check-coverage test.cjs",
+                       "build": "tsc -b tsconfig.build.json",
+                       "package": "vsce package --yarn",
+                       "watch": "tsctens -b tsconfig.build.json -w"},
+  "packages":         ["./core",
+                       "./nodejs-loader",
+                       "./rollup-plugin",
+                       "./typescript-patch",
+                       "./vscode-client",
+                       "./vscode-server",
+                       "./vscode-shared"],
+  "engines":          {"vscode": "^1.58.0"}
 }

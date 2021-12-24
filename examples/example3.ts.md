@@ -1,3 +1,3 @@
 ```typescript
-import foo from './example2'
+import foo, { bar, baz } from './example2'
 ```
