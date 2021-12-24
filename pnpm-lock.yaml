@@ -67,6 +67,7 @@ importers:
 
   vscode-server:
     specifiers:
+      '@hackbg/ganesha-core': workspace:*
       '@hackbg/ganesha-typescript-patch': workspace:*
       '@hackbg/ganesha-vscode-shared': workspace:*
       fast-glob: ^3.2.7
@@ -75,6 +76,7 @@ importers:
       vscode-typescript-languageservice: ^0.27.7
       vscode-uri: ^3.0.2
     dependencies:
+      '@hackbg/ganesha-core': link:../core
       '@hackbg/ganesha-typescript-patch': link:../typescript-patch
       '@hackbg/ganesha-vscode-shared': link:../vscode-shared
       fast-glob: 3.2.7
