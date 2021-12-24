@@ -111,7 +111,7 @@ const Relations = {
   },
 
   'package import' (srcType, tgtType) {
-    const source = Sources[srcType]('./target')
+    const source = Sources[srcType]('target')
     const target = Targets[tgtType]()
 
     writeFileSync('package.json', JSON.stringify({
@@ -133,7 +133,7 @@ const Relations = {
       "type": tgtType.includes('CJS') ? undefined : 'module'
     }), 'utf8')
     for (const [name, content] of Object.entries(target)) {
-      writeFileSync(`source/node_modules/target/${name}`, content.replace(/\n +/g, '\n'))
+      writeFileSync(`node_modules/target/${name}`, content.replace(/\n +/g, '\n'))
     }
   }
 

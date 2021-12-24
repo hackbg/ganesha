@@ -1,3 +1,5 @@
+console.log('Using Ganesha MJS')
+
 import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync, statSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
@@ -40,7 +42,7 @@ const FM_TYPES  = ['commonjs', 'ecmascript', 'typescript']
 
 const isPathImport = x => x[0] === '.' || x.startsWith('file:')
 
-const extensions = ['.ts', '.mjs', '.js', '.cjs']
+const extensions = ['.ts.md', '.mjs.md', '.cjs.md', '.js.md', '.ts', '.mjs', '.js', '.cjs', '.md']
 
 const isDirectory = path => existsSync(path) && statSync(path).isDirectory()
 
@@ -68,28 +70,36 @@ export function resolve (specifier, context = {}, defaultResolve) {
   /// Literate modules can be identified by their extension:
 
   if (isLiterate(specifier)) {
-    return { url } }
+    return { url }
+  }
 
   /// Or, they can be stored in regular Markdown files
   /// and identified as literate by their front matter.
 
   if (isMarkdown(specifier) && FM_TYPES.includes(getFMType(path))) {
-    return { url } }
+    return { url }
+  }
 
   if (isPathImport(specifier)) {
+
     const url = new URL(specifier, parentURL).href
     const path = fileURLToPath(url)
+
     /// Try the verbatim module name but not if it's a directory
     if (existsSync(path) && !isDirectory(path)) return { url }
+
     /// Try the module name with different extensions
     for (const extension of extensions) {
       const url = new URL(specifier + extension, parentURL).href
       trace('trying', url)
       if (existsSync(fileURLToPath(url))) {
         return { url } } }
+
     /// Try the directory
-    if (existsSync(path)) return { url } }
-  else {
+    if (existsSync(path)) return { url }
+
+  } else {
+
     // Honor TypeScript path overrides
     const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
     if (existsSync(tsconfigPath)) {
@@ -99,7 +109,13 @@ export function resolve (specifier, context = {}, defaultResolve) {
         for (const path of paths[specifier]) {
           const resolvedPath = resolvePath(dirname(fileURLToPath(parentURL)), path)
           if (existsSync(resolvedPath)) {
-            return { url: pathToFileURL(resolvedPath).href } } } } } }
+            return { url: pathToFileURL(resolvedPath).href }
+          }
+        }
+      }
+    }
+
+  }
 
   /// Let Node.js handle all other specifiers.
 
