@@ -23,6 +23,7 @@
   "packages":         ["./core",
                        "./nodejs-loader",
                        "./rollup-plugin",
+                       "./test-matrix",
                        "./typescript-patch",
                        "./vscode-client",
                        "./vscode-server",

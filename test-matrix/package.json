@@ -1,0 +1,6 @@
+{
+  "name": "@ganesha/test-matrix",
+  "dependencies": {
+    "mkdirp": "^1.0.4"
+  }
+}

@@ -48,6 +48,12 @@ importers:
     dependencies:
       '@hackbg/ganesha-core': link:../core
 
+  test-matrix:
+    specifiers:
+      mkdirp: ^1.0.4
+    dependencies:
+      mkdirp: 1.0.4
+
   typescript-patch:
     specifiers:
       '@hackbg/ganesha-core': workspace:*
@@ -1834,7 +1840,6 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
