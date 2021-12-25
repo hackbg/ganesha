@@ -1,6 +1,7 @@
 {
-  "name": "@ganesha/test-matrix",
+  "name": "@hackbg/ganesha-tests",
   "dependencies": {
-    "mkdirp": "^1.0.4"
+    "mkdirp": "^1.0.4",
+    "@hackbg/ganesha-core": "workspace:*"
   }
 }

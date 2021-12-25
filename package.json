@@ -25,6 +25,7 @@
     "onLanguage:ts"
   ],
   "devDependencies": {
+    "@hackbg/ganesha-core": "workspace:*",
     "@hackbg/ganesha-nodejs-loader": "workspace:*",
     "@types/node": "latest",
     "tap": "^15.0.9",

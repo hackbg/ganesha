@@ -68,16 +68,19 @@ function register () {
 function getOptions (cwd) {
   const { data, path } = joycon.loadSync(['tsconfig.json'], cwd)
   if (path && data) return {
-    jsxFactory: data.compilerOptions?.jsxFactory,
+    jsxFactory:  data.compilerOptions?.jsxFactory,
     jsxFragment: data.compilerOptions?.jsxFragmentFactory,
-    target: data.compilerOptions?.target, }
-  return {} }
+    target:      data.compilerOptions?.target
+  }
+  return {}
+}
 
 function inferPackageFormat (cwd, filename) {
   if (filename.endsWith('.mjs')) return 'esm'
   if (filename.endsWith('.cjs')) return 'cjs'
   const { data } = joycon.loadSync(['package.json'], cwd)
-  return data && data.type === 'module' ? 'esm' : 'cjs' }
+  return data && data.type === 'module' ? 'esm' : 'cjs'
+}
 
 function installSourceMapSupport () {
   sourceMaps.install({
@@ -85,7 +88,10 @@ function installSourceMapSupport () {
     environment: 'node',
     retrieveSourceMap(file) {
       if (map[file]) return { url: file, map: map[file], }
-      return null } }) }
+      return null
+    }
+  })
+}
 
 /** Patch the Node CJS loader to suppress the ESM error
   * https://github.com/nodejs/node/blob/069b5df/lib/internal/modules/cjs/loader.js#L1125
@@ -102,4 +108,7 @@ function patchCommonJsLoader (compile) {
       if (error.code !== 'ERR_REQUIRE_ESM') throw error
       let content = readFileSync(filename, 'utf8')
       content = compile(content, filename, 'cjs')
-      module._compile(content, filename) } } }
+      module._compile(content, filename)
+    }
+  }
+}

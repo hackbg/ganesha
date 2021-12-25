@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@hackbg/ganesha-core': workspace:*
       '@hackbg/ganesha-nodejs-loader': workspace:*
       '@types/node': latest
       tap: ^15.0.9
@@ -11,6 +12,7 @@ importers:
       vite: ^2.7.6
       vsce: latest
     devDependencies:
+      '@hackbg/ganesha-core': link:core
       '@hackbg/ganesha-nodejs-loader': link:nodejs-loader
       '@types/node': 17.0.4
       tap: 15.0.9_typescript@4.5.4
@@ -50,11 +52,445 @@ importers:
     dependencies:
       '@hackbg/ganesha-core': link:../core
 
-  test-matrix:
+  tests:
     specifiers:
+      '@hackbg/ganesha-core': workspace:*
       mkdirp: ^1.0.4
     dependencies:
+      '@hackbg/ganesha-core': link:../core
       mkdirp: 1.0.4
+
+  tests/testcases/node/cjs_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/cjs_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/cjs_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/cjs_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/cjs_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/cjs_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/cjs_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/esm_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/esm_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_cjs_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_esm_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/literate_ts_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/ts_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/node/ts_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/cjs_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/esm_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_cjs_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_esm_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/literate_ts_relative_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_package_import_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_literate_cjs:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_literate_esm:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_literate_ts:
+    specifiers: {}
+
+  tests/testcases/rollup/ts_relative_import_ts:
+    specifiers: {}
 
   typescript-patch:
     specifiers:

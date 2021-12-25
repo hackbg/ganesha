@@ -1,4 +1,14 @@
+const extensions = [
+  '.ts.md', '.mjs.md', '.cjs.md', '.js.md',
+  '.ts', '.mjs', '.js', '.cjs',
+  '.md'
+]
+
+const RE_NEWLINE = /\r\n|\r|\n/
+
 module.exports = {
+  RE_NEWLINE,
+  extensions,
   parseFile,
   parseString
 }
@@ -6,8 +16,6 @@ module.exports = {
 function parseFile (name) {
   return parseString(require('fs').readFileSync(name, 'utf8'))
 }
-
-const RE_NEWLINE = /\r\n|\r|\n/
 
 function parseString (source = "") {
 

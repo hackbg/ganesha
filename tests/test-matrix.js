@@ -98,8 +98,8 @@ const Relations = {
       "type": srcType.includes('CJS') ? undefined : 'module',
       "scripts": {
         "test": srcType.includes('CJS')
-          ? `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
-          : `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
+          ? `node -r ../../../../nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
+          : `node --unhandled-rejections=throw --experimental-loader ../../../../nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
       },
     }), 'utf8')
 
@@ -120,8 +120,8 @@ const Relations = {
       "type": srcType.includes('CJS') ? undefined : 'module',
       "scripts": {
         "test": srcType.includes('CJS')
-          ? `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
-          : `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
+          ? `node -r ../../../../nodejs-loader/loader.cjs ${Object.keys(source)[0]}`
+          : `node --unhandled-rejections=throw --experimental-loader ../../../../nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
       },
     }), 'utf8')
     for (const [name, content] of Object.entries(source)) {
@@ -141,14 +141,15 @@ const Relations = {
 }
 
 const { spawnSync, execFileSync } = require('child_process')
+const stdio = ['ignore','inherit','inherit']
 
 const Environments = {
 
   'Node' () {
-    require('child_process').spawnSync('pwd', [], { stdio: ['ignore','inherit','inherit'] })
-    require('child_process').spawnSync('ls', [], { stdio: ['ignore','inherit','inherit'] })
-    require('child_process').spawnSync('cat', ['package.json'], { stdio: ['ignore','inherit','inherit'] })
-    const {status} = spawnSync('npm', ['run', 'test'], { stdio: ['ignore','inherit','inherit'] })
+    require('child_process').spawnSync('pwd', [], { stdio })
+    require('child_process').spawnSync('ls',  [], { stdio })
+    require('child_process').spawnSync('cat', ['package.json'], { stdio })
+    const {status} = spawnSync('npm', ['run', 'test'], { stdio })
     return status === 123
   },
 
@@ -162,7 +163,7 @@ const Environments = {
       export default defineConfig({ plugins: [ ganesha() ] })
     `, 'utf8')
     const vite = require('path').resolve(__dirname, '../node_modules/.bin/vite')
-    const {status} = spawnSync(vite, ['build'], { stdio: 'inherit' })
+    const {status} = spawnSync(vite, ['build'], { stdio })
     return status === 0 /* TODO check that one of the output files contains the string "123" */
   },
 
@@ -237,6 +238,6 @@ Promise.all(running).then(()=>{
   console.log({ok, fail: fail.length, todo, total})
   console.log({fail})
   const output = require('path').resolve(__dirname, 'README.md')
-  writeFileSync(output, report)
+  writeFileSync(output+'\n', report)
   console.log(`Done. Wrote ${output}.`)
 })
