@@ -3,7 +3,7 @@ const { readFileSync } = require('fs')
 const { spawnSync } = require('child_process')
 const { resolve: resolvePath } = require('path')
 const { pathToFileURL } = require('url')
-const { parseFile } = require('./core/parse.cjs')
+const { parseFile } = require('../core/parse.cjs')
 
 test('Parser: extract CommonJS module from Markdown, preserving line numbers', async ({same})=>{
   same(parseFile('examples/example.cjs.md'), readFileSync('examples/example.cjs', 'utf8'))
@@ -70,10 +70,15 @@ test('ESM loader: identify literate TS from front matter', async({same})=>{
 })
 
 test('prioritize file import over directory import', async({same})=>{
-  await import('./nodejs-loader/loader.mjs').then(({ resolve })=>{
-    same(resolve('./examples/example'), {
-      url: pathToFileURL(resolvePath(__dirname, 'examples', 'example.ts')).toString()
-    })
+  await import('../nodejs-loader/loader.mjs').then(({ resolve })=>{
+    same(
+      resolve('../examples/example', {
+        parentURL:  pathToFileURL(__filename).href,
+        conditions: [ 'node', 'import' ]
+      }), {
+        url: pathToFileURL(resolvePath(__dirname, '../examples/example.ts.md')).toString()
+      })
+
   })
 })
 

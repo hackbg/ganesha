@@ -103,6 +103,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
     // Honor TypeScript path overrides
     const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
+    trace('trying tsconfig', tsconfigPath)
     if (existsSync(tsconfigPath)) {
       const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
       const { compilerOptions: { paths = {} } = {} } = tsconfig
@@ -163,8 +164,7 @@ export function getFormat (url, context, defaultGetFormat) {
         const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
         if (packageJSON.type === 'module') {
           return { format: 'module' }
-        }
-        else {
+        } else {
           return { format: 'commonjs' }
         }
       } else {

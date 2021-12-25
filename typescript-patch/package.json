@@ -6,6 +6,9 @@
   },
   "dependencies": {
     "@hackbg/ganesha-core": "workspace:*"
+  },
+  "scripts": {
+    "foo": "node foo.js"
   }
 }
 

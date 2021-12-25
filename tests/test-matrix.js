@@ -102,6 +102,7 @@ const Relations = {
           : `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${Object.keys(source)[0]}`
       },
     }), 'utf8')
+
     for (const [name, content] of Object.entries(source)) {
       writeFileSync(name, content.replace(/\n +/g, '\n'))
     }
@@ -139,18 +140,34 @@ const Relations = {
 
 }
 
+const { spawnSync, execFileSync } = require('child_process')
+
 const Environments = {
-  'Node'   () {
+
+  'Node' () {
     require('child_process').spawnSync('pwd', [], { stdio: 'inherit' })
     require('child_process').spawnSync('ls', [], { stdio: 'inherit' })
     require('child_process').spawnSync('cat', ['package.json'], { stdio: 'inherit' })
-    const {status} = require('child_process').spawnSync('npm', ['run', 'test'], { stdio: 'inherit' })
+    const {status} = spawnSync('npm', ['run', 'test'], { stdio: 'inherit' })
     return status === 123
   },
+
   'Rollup' () {
+    writeFileSync('index.html', `
+      <script src="./source" type="module"></script>
+    `, 'utf8')
+    writeFileSync('vite.config.js', `
+      import { defineConfig } from 'vite'
+      import ganesha from '../../../../rollup-plugin/index.js'
+      export default defineConfig({ plugins: [ ganesha() ] })
+    `, 'utf8')
+    const vite = require('path').resolve(__dirname, '../node_modules/.bin/vite')
+    const {status} = spawnSync(vite, ['build'], { stdio: 'inherit' })
+    return status === 0 /* TODO check that one of the output files contains the string "123" */
   },
-  'IDE'    () {
-  }
+
+  //'VSCode LSP'    () {
+  //}
 }
 
 process.chdir(__dirname)
@@ -173,21 +190,31 @@ for (const environment in Environments) {
       results[environment][source][relation] = {}
       for (const target in Targets) {
         results[environment][source][relation][target] = {}
-        total++
         const testCase = `${environment}/${source} ${relation} ${target}`.toLowerCase().replace(/ /g, '_')
-        mkdirp(testCase)
-        process.chdir(testCase)
-        Relations[relation](source, target)
-        const result = Environments[environment]()
-        if (result === undefined) {
-          todo++
-        } else {
-          console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
-          console.log(`${result?'OK':'FAIL'}`)
-          if (result === true)  { ok++ }
-          if (result === false) { fail.push(testCase) }
-        }
-        process.chdir(testCaseRoot)
+
+        require('tap').test(testCase, async({ assert })=>{
+
+          total++
+          mkdirp(testCase)
+          process.chdir(testCase)
+          Relations[relation](source, target)
+          const result = Environments[environment]()
+
+          if (result === undefined) {
+            todo++
+          } else {
+            console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
+            console.log(`${result?'OK':'FAIL'}`)
+            if (result === true)  { ok++ }
+            if (result === false) { fail.push(testCase) }
+          }
+
+          process.chdir(testCaseRoot)
+
+          assert(result, testCase)
+
+        })
+
       }
     }
   }

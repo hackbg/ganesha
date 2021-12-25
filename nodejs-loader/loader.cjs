@@ -37,21 +37,33 @@ function register () {
   addHook(parseString, { exts: [ '.md' ] })
   addHook(compile, { exts: extensions })
   function compile (code, filename, format) {
+
     const dir = dirname(filename)
     const { target, jsxFactory, jsxFragment } = getOptions(dir)
+
     format = format ?? inferPackageFormat(dir, filename)
+
     const { code: js, warnings, map: jsSourceMap } = transformSync(code, {
       sourcefile: filename,
       sourcemap:  'both',
       loader:     loaders[extname(filename)],
       target:     `node${process.version.slice(1)}`,
-      jsxFactory, jsxFragment, format })
+      jsxFactory, jsxFragment, format
+    })
+
     map[filename] = jsSourceMap
+
     if (warnings && warnings.length > 0) {
       for (const warning of warnings) {
         console.log(warning.location)
-        console.log(warning.text) } }
-    return js } }
+        console.log(warning.text)
+      }
+    }
+
+    return js
+
+  }
+}
 
 function getOptions (cwd) {
   const { data, path } = joycon.loadSync(['tsconfig.json'], cwd)

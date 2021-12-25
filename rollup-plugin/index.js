@@ -9,6 +9,8 @@ const RE_TYPESCRIPT = /\.ts.md$/
 const isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
+const extensions = ['.ts.md', '.mjs.md', '.cjs.md', '.js.md', '.ts', '.mjs', '.js', '.cjs', '.md']
+
 module.exports = function ganeshaPlugin (typescript = true) {
   return {
 
@@ -16,13 +18,17 @@ module.exports = function ganeshaPlugin (typescript = true) {
 
     resolveId (source, importer) {
       console.log('resolveId', source, importer)
-      const tsMd = resolve(dirname(importer), `${source}.ts.md`)
-      if (existsSync(tsMd)) {
-        return tsMd
+      const resolved = resolve(dirname(importer), source)
+      console.log({resolved})
+      if (existsSync(resolved)) {
+        return resolved
       }
-      const md = resolve(dirname(importer), `${source}.md`)
-      if (existsSync(md)) {
-        return md
+      for (const extension of extensions) {
+        const resolved = resolve(dirname(importer), `${source}${extension}`)
+        console.log({resolved})
+        if (existsSync(resolved)) {
+          return resolved
+        }
       }
       return null
     },

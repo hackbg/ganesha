@@ -25,9 +25,6 @@ module.exports = function patchTypescript (typescript) {
   return typescript
 
   function GANESHA_resolveModuleName (...args) {
-    //if (!args[0].startsWith('@typescript')) {
-      //console.trace('\nGANESHA resolveModuleName', ...args)
-    //}
     context = args[3]
     const resolved = resolveModuleName(...args)
     if (!resolved.resolvedModule) {
@@ -72,7 +69,6 @@ module.exports = function patchTypescript (typescript) {
   }
 
   function GANESHA_createSourceFile (name, text, ...args) {
-    //console.trace('GANESHA createSourceFile', name, text, ...args)
     if (name.endsWith('.md')) {
       text = parseString(text)
     }
