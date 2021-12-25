@@ -41,7 +41,8 @@ connection.onInitialize(function onInitialize ({
 })
 
 connection.onInitialized(async function onInitialized () {
-  registerFeatures(connection, loadTypeScript(options.typescriptPath), documents, folders)
+  const ts = loadTypeScript(options.typescriptPath)
+  registerFeatures(connection, ts, documents, folders)
   connection.client.register(DidChangeConfigurationNotification.type, undefined)
 })
 

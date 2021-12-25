@@ -16,14 +16,14 @@ const Sources = {
       process.exit(Target)
     ` }
   },
-  'CJS in MD' (target) {
+  'Literate CJS' (target) {
     return { 'source.cjs.md': `
       \`\`\`javascript
       process.exit(require("${target}"))
       \`\`\`
     ` }
   },
-  'ESM in MD' (target) {
+  'Literate ESM' (target) {
     return { 'source.mjs.md': `
       \`\`\`javascript
       import Target from "${target}"
@@ -31,7 +31,7 @@ const Sources = {
       \`\`\`
     ` }
   },
-  'TS in MD'  (target) {
+  'Literate TS'  (target) {
     return { 'source.ts.md': `
       \`\`\`typescript
       import Target from "${target}"
@@ -57,21 +57,21 @@ const Targets = {
       export default 123
     ` }
   },
-  'CJS in MD' (target) {
+  'Literate CJS' (target) {
     return { 'target.cjs.md': `
       \`\`\`javascript
       module.exports = 123
       \`\`\`
     ` }
   },
-  'ESM in MD' (target) {
+  'Literate ESM' (target) {
     return { 'target.mjs.md': `
       \`\`\`javascript
       export default 123
       \`\`\`
     ` }
   },
-  'TS in MD'  (target) {
+  'Literate TS'  (target) {
     return { 'target.ts.md': `
       \`\`\`typescript
       export default 123
@@ -145,10 +145,10 @@ const { spawnSync, execFileSync } = require('child_process')
 const Environments = {
 
   'Node' () {
-    require('child_process').spawnSync('pwd', [], { stdio: 'inherit' })
-    require('child_process').spawnSync('ls', [], { stdio: 'inherit' })
-    require('child_process').spawnSync('cat', ['package.json'], { stdio: 'inherit' })
-    const {status} = spawnSync('npm', ['run', 'test'], { stdio: 'inherit' })
+    require('child_process').spawnSync('pwd', [], { stdio: ['ignore','inherit','inherit'] })
+    require('child_process').spawnSync('ls', [], { stdio: ['ignore','inherit','inherit'] })
+    require('child_process').spawnSync('cat', ['package.json'], { stdio: ['ignore','inherit','inherit'] })
+    const {status} = spawnSync('npm', ['run', 'test'], { stdio: ['ignore','inherit','inherit'] })
     return status === 123
   },
 
@@ -182,6 +182,12 @@ let fail = []
 let todo = 0
 let total = 0
 
+let report = '# Ganesha\n\n## Test Matrix Results\n'
+report += '\n|Environment|Import mode|Source module type|Target module type|Result|'
+report += '\n|-----------|-----------|------------------|------------------|------|'
+
+const running = []
+
 for (const environment in Environments) {
   results[environment] = {}
   for (const source in Sources) {
@@ -192,7 +198,7 @@ for (const environment in Environments) {
         results[environment][source][relation][target] = {}
         const testCase = `${environment}/${source} ${relation} ${target}`.toLowerCase().replace(/ /g, '_')
 
-        require('tap').test(testCase, async({ assert })=>{
+        running.push(require('tap').test(testCase, async({ assert })=>{
 
           total++
           mkdirp(testCase)
@@ -201,24 +207,36 @@ for (const environment in Environments) {
           const result = Environments[environment]()
 
           if (result === undefined) {
+            report += `\n|${environment}|${relation}|${source}|${target}|⏳ TODO|`
             todo++
           } else {
             console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
             console.log(`${result?'OK':'FAIL'}`)
-            if (result === true)  { ok++ }
-            if (result === false) { fail.push(testCase) }
+            if (result === true)  {
+              report += `\n|${environment}|${relation}|${source}|${target}|🟩 OK|`
+              ok++
+            }
+            if (result === false) {
+              report += `\n|${environment}|${relation}|${source}|${target}|❌ FAIL|`
+              fail.push(testCase)
+            }
           }
 
           process.chdir(testCaseRoot)
 
           assert(result, testCase)
 
-        })
+        }))
 
       }
     }
   }
 }
 
-console.log({ok, fail: fail.length, todo, total})
-console.log({fail})
+Promise.all(running).then(()=>{
+  console.log({ok, fail: fail.length, todo, total})
+  console.log({fail})
+  const output = require('path').resolve(__dirname, 'README.md')
+  writeFileSync(output, report)
+  console.log(`Done. Wrote ${output}.`)
+})
