@@ -76,18 +76,18 @@
 |Node|package import|Literate TS|Literate CJS|❌ FAIL|
 |Node|package import|Literate TS|Literate ESM|🟩 OK|
 |Node|package import|Literate TS|Literate TS|🟩 OK|
-|Rollup|relative import|CJS|CJS|❌ FAIL|
-|Rollup|relative import|CJS|ESM|❌ FAIL|
-|Rollup|relative import|CJS|TS|❌ FAIL|
-|Rollup|relative import|CJS|Literate CJS|❌ FAIL|
-|Rollup|relative import|CJS|Literate ESM|❌ FAIL|
-|Rollup|relative import|CJS|Literate TS|❌ FAIL|
-|Rollup|package import|CJS|CJS|❌ FAIL|
-|Rollup|package import|CJS|ESM|❌ FAIL|
-|Rollup|package import|CJS|TS|❌ FAIL|
-|Rollup|package import|CJS|Literate CJS|❌ FAIL|
-|Rollup|package import|CJS|Literate ESM|❌ FAIL|
-|Rollup|package import|CJS|Literate TS|❌ FAIL|
+|Rollup|relative import|CJS|CJS|🟩 OK|
+|Rollup|relative import|CJS|ESM|🟩 OK|
+|Rollup|relative import|CJS|TS|🟩 OK|
+|Rollup|relative import|CJS|Literate CJS|🟩 OK|
+|Rollup|relative import|CJS|Literate ESM|🟩 OK|
+|Rollup|relative import|CJS|Literate TS|🟩 OK|
+|Rollup|package import|CJS|CJS|🟩 OK|
+|Rollup|package import|CJS|ESM|🟩 OK|
+|Rollup|package import|CJS|TS|🟩 OK|
+|Rollup|package import|CJS|Literate CJS|🟩 OK|
+|Rollup|package import|CJS|Literate ESM|🟩 OK|
+|Rollup|package import|CJS|Literate TS|🟩 OK|
 |Rollup|relative import|ESM|CJS|🟩 OK|
 |Rollup|relative import|ESM|ESM|🟩 OK|
 |Rollup|relative import|ESM|TS|🟩 OK|
@@ -112,18 +112,18 @@
 |Rollup|package import|TS|Literate CJS|🟩 OK|
 |Rollup|package import|TS|Literate ESM|🟩 OK|
 |Rollup|package import|TS|Literate TS|🟩 OK|
-|Rollup|relative import|Literate CJS|CJS|❌ FAIL|
-|Rollup|relative import|Literate CJS|ESM|❌ FAIL|
-|Rollup|relative import|Literate CJS|TS|❌ FAIL|
-|Rollup|relative import|Literate CJS|Literate CJS|❌ FAIL|
-|Rollup|relative import|Literate CJS|Literate ESM|❌ FAIL|
-|Rollup|relative import|Literate CJS|Literate TS|❌ FAIL|
-|Rollup|package import|Literate CJS|CJS|❌ FAIL|
-|Rollup|package import|Literate CJS|ESM|❌ FAIL|
-|Rollup|package import|Literate CJS|TS|❌ FAIL|
-|Rollup|package import|Literate CJS|Literate CJS|❌ FAIL|
-|Rollup|package import|Literate CJS|Literate ESM|❌ FAIL|
-|Rollup|package import|Literate CJS|Literate TS|❌ FAIL|
+|Rollup|relative import|Literate CJS|CJS|🟩 OK|
+|Rollup|relative import|Literate CJS|ESM|🟩 OK|
+|Rollup|relative import|Literate CJS|TS|🟩 OK|
+|Rollup|relative import|Literate CJS|Literate CJS|🟩 OK|
+|Rollup|relative import|Literate CJS|Literate ESM|🟩 OK|
+|Rollup|relative import|Literate CJS|Literate TS|🟩 OK|
+|Rollup|package import|Literate CJS|CJS|🟩 OK|
+|Rollup|package import|Literate CJS|ESM|🟩 OK|
+|Rollup|package import|Literate CJS|TS|🟩 OK|
+|Rollup|package import|Literate CJS|Literate CJS|🟩 OK|
+|Rollup|package import|Literate CJS|Literate ESM|🟩 OK|
+|Rollup|package import|Literate CJS|Literate TS|🟩 OK|
 |Rollup|relative import|Literate ESM|CJS|🟩 OK|
 |Rollup|relative import|Literate ESM|ESM|🟩 OK|
 |Rollup|relative import|Literate ESM|TS|🟩 OK|
