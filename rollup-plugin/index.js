@@ -17,15 +17,12 @@ module.exports = function ganeshaPlugin (typescript = true) {
     name: 'rollup-plugin-ganesha',
 
     resolveId (source, importer) {
-      console.log('resolveId', source, importer)
       const resolved = resolve(dirname(importer), source)
-      console.log({resolved})
       if (existsSync(resolved)) {
         return resolved
       }
       for (const extension of extensions) {
         const resolved = resolve(dirname(importer), `${source}${extension}`)
-        console.log({resolved})
         if (existsSync(resolved)) {
           return resolved
         }
