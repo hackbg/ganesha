@@ -2,11 +2,15 @@ import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync, statSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
-import { parseString } from '@hackbg/ganesha-core/parse.cjs'
 import frontMatter from 'front-matter'
+
+import { parseString } from '@hackbg/ganesha-core/parse.cjs'
 
 import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
 installSourceMapSupport()
+
+import { register } from './loader.cjs'
+register()
 
 const trace = (...args) => process.env.LITERATE_DEBUG && console.debug(...args)
 

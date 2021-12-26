@@ -1,11 +1,11 @@
 const { dirname, extname } = require('path')
-    , { readFileSync }     = require('fs')
-    , { Module }           = require('module')
+    , { readFileSync } = require('fs')
+    , { Module } = require('module')
 
 const { transformSync } = require('esbuild')
-    , { addHook }   = require('pirates')
-    , JoyCon        = require('joycon')
-    , { parse }     = require('jsonc-parser')
+    , { addHook } = require('pirates')
+    , JoyCon = require('joycon')
+    , { parse } = require('jsonc-parser')
 
 const { parseString, extensions } = require('@hackbg/ganesha-core/parse.cjs')
 const { installSourceMapSupport, addSourceMap } = require('./sourcemaps.cjs')
@@ -22,7 +22,9 @@ const USAGE = `
     node -r path/to/this/module path/to/your/script
 `
 
-module.exports = function register () {
+let registered = false
+module.exports.register = function register () {
+  if (registered) return
 
   installSourceMapSupport()
 
@@ -80,6 +82,7 @@ module.exports = function register () {
     ignoreNodeModules: false
   })
 
+  registered = true
 }
 
 function getOptions (cwd) {
@@ -108,9 +111,9 @@ function patchCommonJsLoader (compile) {
   const extensions = Module._extensions
   const jsHandler = extensions['.js']
   extensions['.js']     =
-  extensions['.js.md']  = 
-  extensions['.cjs.md'] = 
-  extensions['.mjs.md'] = 
+  extensions['.js.md']  =
+  extensions['.cjs.md'] =
+  extensions['.mjs.md'] =
   function (module, filename) {
     try { return jsHandler.call(this, module, filename) } catch (error) {
       if (error.code !== 'ERR_REQUIRE_ESM') throw error
@@ -124,5 +127,5 @@ function patchCommonJsLoader (compile) {
 if (require.main === module) {
   throw new Error(USAGE)
 } else if (require.main === undefined) {
-  module.exports()
+  module.exports.register()
 }

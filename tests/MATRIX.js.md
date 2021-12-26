@@ -219,7 +219,7 @@ const Targets = {
       const main = (literacy.name === 'Literate') ? 'target.cjs.md': 'target.cjs'
       return {
         [main]: literacy(`
-          module.exports = { default: 123 }
+          module.exports = 123
         `)
       }
     },
@@ -249,7 +249,7 @@ const Targets = {
           main
         }),
         [`node_modules/target/${main}`]: literacy(`
-          module.exports = { default: 123 }
+          module.exports = 123
         `)
       }
     },
