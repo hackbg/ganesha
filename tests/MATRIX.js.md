@@ -313,7 +313,7 @@ when working with literate modules.
 const { writeFileSync } = require('fs')
 const { spawnSync, execFileSync } = require('child_process')
 const { resolve, dirname } = require('path')
-const stdio = ['ignore','inherit','inherit']
+const stdio = ['ignore','pipe','pipe']
 
 const Environments = {
 
@@ -321,8 +321,14 @@ const Environments = {
     spawnSync('pwd', [], { stdio })
     spawnSync('ls',  [], { stdio })
     spawnSync('cat', ['package.json'], { stdio })
-    const {status} = spawnSync('npm', ['run', 'test'], { stdio })
-    return status === 123
+    const {status, stdout, stderr} = spawnSync('npm', ['run', 'test'], { stdio })
+    if (status === 123) {
+      return true
+    } else {
+      process.stdout.write(stdout)
+      process.stderr.write(stderr)
+      return false
+    }
   },
 
   'Rollup' () {
@@ -335,8 +341,15 @@ const Environments = {
       export default defineConfig({ plugins: [ ganesha() ] })
     `, 'utf8')
     const vite = resolve(__dirname, '../node_modules/.bin/vite')
-    const {status} = spawnSync(vite, ['build'], { stdio })
-    return status === 0 /* TODO check that one of the output files contains the string "123" */
+    const {status, stdout, stderr} = spawnSync(vite, ['build'], { stdio })
+    if (status === 0) {
+      /* TODO check that one of the output files contains the string "123" */
+      return true
+    } else {
+      process.stdout.write(stdout)
+      process.stderr.write(stderr)
+      return false
+    }
   },
 
   //'VSCode LSP'    () {
