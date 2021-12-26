@@ -51,6 +51,9 @@ This is the module that imports the [target](#targets) module.
 In order to test the import workflow end-to-end, the test checks that
 running the source module exits with the exit code of `123` exported by the target module.
 
+The current problem with some of the tests involves different handling of default exports.
+This is under investigation.
+
 The [`Literacy`](#literate-modules) modifier applies here.
 
 Each function returns the names and contents of files that will be created
@@ -444,7 +447,7 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
                 console.log('ok')
               } else if (result === false) {
                 fail++
-                report += '❌ FAIL'
+                report += `[❌ FAIL](#${testCase.toLowerCase()})`
                 console.log(`fail: expected exit code 123, got ${status}`)
                 failures[testCase] = { status, stdout, stderr }
                 process.stdout.write(stdout)
@@ -464,11 +467,14 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
 console.log(report)
 console.log({ total: i, ok, fail })
 
-for (const [testCase, { status, stdout, stderr }] of Object.entries(failures)) {
-  report += '\n### '+ testCase
-  report += '\n```\n' + status + '\n```\n'
-  report += '\n```\n' + stdout + '\n```\n'
-  report += '\n```\n' + stderr + '\n```\n'
+if (Object.entries(failures).length > 0) {
+  report += '\n## Test failures\n'
+  for (const [testCase, { status, stdout, stderr }] of Object.entries(failures)) {
+    report += '\n### '+ testCase
+    report += '\nExit code\n```\n' + status + '\n```\n'
+    report += '\nStdout\n```\n' + stdout + '\n```\n'
+    report += '\nStderr\n```\n' + stderr + '\n```\n'
+  }
 }
 
 const output = require('path').resolve(__dirname, 'README.md')

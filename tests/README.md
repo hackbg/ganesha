@@ -21,97 +21,97 @@
 |Node|Bare CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Bare CJS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_bare_cjs_dynamic_import_sibling_literate_cjs)|
 |Node|Bare CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Bare CJS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Bare CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Bare CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Bare CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Bare CJS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_bare_cjs_dynamic_import_dependency_literate_cjs)|
 |Node|Bare CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Bare CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Bare MJS|require|sibling|Bare CJS|❌ FAIL|
-|Node|Bare MJS|require|sibling|Bare ESM|❌ FAIL|
-|Node|Bare MJS|require|sibling|Bare TS|❌ FAIL|
-|Node|Bare MJS|require|sibling|Literate CJS|❌ FAIL|
-|Node|Bare MJS|require|sibling|Literate ESM|❌ FAIL|
-|Node|Bare MJS|require|sibling|Literate TS|❌ FAIL|
-|Node|Bare MJS|require|dependency|Bare CJS|❌ FAIL|
-|Node|Bare MJS|require|dependency|Bare ESM|❌ FAIL|
-|Node|Bare MJS|require|dependency|Bare TS|❌ FAIL|
-|Node|Bare MJS|require|dependency|Literate CJS|❌ FAIL|
-|Node|Bare MJS|require|dependency|Literate ESM|❌ FAIL|
-|Node|Bare MJS|require|dependency|Literate TS|❌ FAIL|
+|Node|Bare MJS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_cjs)|
+|Node|Bare MJS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_mjs_require_sibling_bare_esm)|
+|Node|Bare MJS|require|sibling|Bare TS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_ts)|
+|Node|Bare MJS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_cjs)|
+|Node|Bare MJS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_mjs_require_sibling_literate_esm)|
+|Node|Bare MJS|require|sibling|Literate TS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_ts)|
+|Node|Bare MJS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_cjs)|
+|Node|Bare MJS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_mjs_require_dependency_bare_esm)|
+|Node|Bare MJS|require|dependency|Bare TS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_ts)|
+|Node|Bare MJS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_cjs)|
+|Node|Bare MJS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_mjs_require_dependency_literate_esm)|
+|Node|Bare MJS|require|dependency|Literate TS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_ts)|
 |Node|Bare MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Bare MJS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_bare_mjs_dynamic_import_sibling_literate_cjs)|
 |Node|Bare MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Bare MJS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Bare MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Bare MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Bare MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Bare MJS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_bare_mjs_dynamic_import_dependency_literate_cjs)|
 |Node|Bare MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Bare MJS|dynamic import|dependency|Literate TS|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Literate CJS|❌ FAIL|
+|Node|Bare MJS|static import|sibling|Literate CJS|[❌ FAIL](#node_bare_mjs_static_import_sibling_literate_cjs)|
 |Node|Bare MJS|static import|sibling|Literate ESM|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Literate TS|🟩 PASS|
 |Node|Bare MJS|static import|dependency|Bare CJS|🟩 PASS|
 |Node|Bare MJS|static import|dependency|Bare ESM|🟩 PASS|
 |Node|Bare MJS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Literate CJS|❌ FAIL|
+|Node|Bare MJS|static import|dependency|Literate CJS|[❌ FAIL](#node_bare_mjs_static_import_dependency_literate_cjs)|
 |Node|Bare MJS|static import|dependency|Literate ESM|🟩 PASS|
 |Node|Bare MJS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Bare TS|require|sibling|Bare CJS|❌ FAIL|
-|Node|Bare TS|require|sibling|Bare ESM|❌ FAIL|
-|Node|Bare TS|require|sibling|Bare TS|❌ FAIL|
-|Node|Bare TS|require|sibling|Literate CJS|❌ FAIL|
-|Node|Bare TS|require|sibling|Literate ESM|❌ FAIL|
-|Node|Bare TS|require|sibling|Literate TS|❌ FAIL|
-|Node|Bare TS|require|dependency|Bare CJS|❌ FAIL|
-|Node|Bare TS|require|dependency|Bare ESM|❌ FAIL|
-|Node|Bare TS|require|dependency|Bare TS|❌ FAIL|
-|Node|Bare TS|require|dependency|Literate CJS|❌ FAIL|
-|Node|Bare TS|require|dependency|Literate ESM|❌ FAIL|
-|Node|Bare TS|require|dependency|Literate TS|❌ FAIL|
+|Node|Bare TS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_ts_require_sibling_bare_cjs)|
+|Node|Bare TS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_ts_require_sibling_bare_esm)|
+|Node|Bare TS|require|sibling|Bare TS|[❌ FAIL](#node_bare_ts_require_sibling_bare_ts)|
+|Node|Bare TS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_require_sibling_literate_cjs)|
+|Node|Bare TS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_ts_require_sibling_literate_esm)|
+|Node|Bare TS|require|sibling|Literate TS|[❌ FAIL](#node_bare_ts_require_sibling_literate_ts)|
+|Node|Bare TS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_ts_require_dependency_bare_cjs)|
+|Node|Bare TS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_ts_require_dependency_bare_esm)|
+|Node|Bare TS|require|dependency|Bare TS|[❌ FAIL](#node_bare_ts_require_dependency_bare_ts)|
+|Node|Bare TS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_require_dependency_literate_cjs)|
+|Node|Bare TS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_ts_require_dependency_literate_esm)|
+|Node|Bare TS|require|dependency|Literate TS|[❌ FAIL](#node_bare_ts_require_dependency_literate_ts)|
 |Node|Bare TS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare TS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Bare TS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_dynamic_import_sibling_literate_cjs)|
 |Node|Bare TS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Bare TS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Bare TS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Bare TS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Bare TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Bare TS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_dynamic_import_dependency_literate_cjs)|
 |Node|Bare TS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Bare TS|dynamic import|dependency|Literate TS|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|static import|sibling|Literate CJS|❌ FAIL|
+|Node|Bare TS|static import|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_static_import_sibling_literate_cjs)|
 |Node|Bare TS|static import|sibling|Literate ESM|🟩 PASS|
 |Node|Bare TS|static import|sibling|Literate TS|🟩 PASS|
 |Node|Bare TS|static import|dependency|Bare CJS|🟩 PASS|
 |Node|Bare TS|static import|dependency|Bare ESM|🟩 PASS|
 |Node|Bare TS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|static import|dependency|Literate CJS|❌ FAIL|
+|Node|Bare TS|static import|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_static_import_dependency_literate_cjs)|
 |Node|Bare TS|static import|dependency|Literate ESM|🟩 PASS|
 |Node|Bare TS|static import|dependency|Literate TS|🟩 PASS|
 |Node|Bare TS|import type|sibling|Bare CJS|🟩 PASS|
 |Node|Bare TS|import type|sibling|Bare ESM|🟩 PASS|
 |Node|Bare TS|import type|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|import type|sibling|Literate CJS|❌ FAIL|
+|Node|Bare TS|import type|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_sibling_literate_cjs)|
 |Node|Bare TS|import type|sibling|Literate ESM|🟩 PASS|
 |Node|Bare TS|import type|sibling|Literate TS|🟩 PASS|
 |Node|Bare TS|import type|dependency|Bare CJS|🟩 PASS|
 |Node|Bare TS|import type|dependency|Bare ESM|🟩 PASS|
 |Node|Bare TS|import type|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|import type|dependency|Literate CJS|❌ FAIL|
+|Node|Bare TS|import type|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_dependency_literate_cjs)|
 |Node|Bare TS|import type|dependency|Literate ESM|🟩 PASS|
 |Node|Bare TS|import type|dependency|Literate TS|🟩 PASS|
 |Node|Literate CJS|require|sibling|Bare CJS|🟩 PASS|
@@ -129,97 +129,97 @@
 |Node|Literate CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Literate CJS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_literate_cjs_dynamic_import_sibling_literate_cjs)|
 |Node|Literate CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Literate CJS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Literate CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Literate CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Literate CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Literate CJS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_literate_cjs_dynamic_import_dependency_literate_cjs)|
 |Node|Literate CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Literate CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Literate MJS|require|sibling|Bare CJS|❌ FAIL|
-|Node|Literate MJS|require|sibling|Bare ESM|❌ FAIL|
-|Node|Literate MJS|require|sibling|Bare TS|❌ FAIL|
-|Node|Literate MJS|require|sibling|Literate CJS|❌ FAIL|
-|Node|Literate MJS|require|sibling|Literate ESM|❌ FAIL|
-|Node|Literate MJS|require|sibling|Literate TS|❌ FAIL|
-|Node|Literate MJS|require|dependency|Bare CJS|❌ FAIL|
-|Node|Literate MJS|require|dependency|Bare ESM|❌ FAIL|
-|Node|Literate MJS|require|dependency|Bare TS|❌ FAIL|
-|Node|Literate MJS|require|dependency|Literate CJS|❌ FAIL|
-|Node|Literate MJS|require|dependency|Literate ESM|❌ FAIL|
-|Node|Literate MJS|require|dependency|Literate TS|❌ FAIL|
+|Node|Literate MJS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_cjs)|
+|Node|Literate MJS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_mjs_require_sibling_bare_esm)|
+|Node|Literate MJS|require|sibling|Bare TS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_ts)|
+|Node|Literate MJS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_cjs)|
+|Node|Literate MJS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_mjs_require_sibling_literate_esm)|
+|Node|Literate MJS|require|sibling|Literate TS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_ts)|
+|Node|Literate MJS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_cjs)|
+|Node|Literate MJS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_mjs_require_dependency_bare_esm)|
+|Node|Literate MJS|require|dependency|Bare TS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_ts)|
+|Node|Literate MJS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_cjs)|
+|Node|Literate MJS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_mjs_require_dependency_literate_esm)|
+|Node|Literate MJS|require|dependency|Literate TS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_ts)|
 |Node|Literate MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Literate MJS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_literate_mjs_dynamic_import_sibling_literate_cjs)|
 |Node|Literate MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Literate MJS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Literate MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Literate MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Literate MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Literate MJS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_literate_mjs_dynamic_import_dependency_literate_cjs)|
 |Node|Literate MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Literate MJS|dynamic import|dependency|Literate TS|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Literate CJS|❌ FAIL|
+|Node|Literate MJS|static import|sibling|Literate CJS|[❌ FAIL](#node_literate_mjs_static_import_sibling_literate_cjs)|
 |Node|Literate MJS|static import|sibling|Literate ESM|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Literate TS|🟩 PASS|
 |Node|Literate MJS|static import|dependency|Bare CJS|🟩 PASS|
 |Node|Literate MJS|static import|dependency|Bare ESM|🟩 PASS|
 |Node|Literate MJS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Literate CJS|❌ FAIL|
+|Node|Literate MJS|static import|dependency|Literate CJS|[❌ FAIL](#node_literate_mjs_static_import_dependency_literate_cjs)|
 |Node|Literate MJS|static import|dependency|Literate ESM|🟩 PASS|
 |Node|Literate MJS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Literate TS|require|sibling|Bare CJS|❌ FAIL|
-|Node|Literate TS|require|sibling|Bare ESM|❌ FAIL|
-|Node|Literate TS|require|sibling|Bare TS|❌ FAIL|
-|Node|Literate TS|require|sibling|Literate CJS|❌ FAIL|
-|Node|Literate TS|require|sibling|Literate ESM|❌ FAIL|
-|Node|Literate TS|require|sibling|Literate TS|❌ FAIL|
-|Node|Literate TS|require|dependency|Bare CJS|❌ FAIL|
-|Node|Literate TS|require|dependency|Bare ESM|❌ FAIL|
-|Node|Literate TS|require|dependency|Bare TS|❌ FAIL|
-|Node|Literate TS|require|dependency|Literate CJS|❌ FAIL|
-|Node|Literate TS|require|dependency|Literate ESM|❌ FAIL|
-|Node|Literate TS|require|dependency|Literate TS|❌ FAIL|
+|Node|Literate TS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_ts_require_sibling_bare_cjs)|
+|Node|Literate TS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_ts_require_sibling_bare_esm)|
+|Node|Literate TS|require|sibling|Bare TS|[❌ FAIL](#node_literate_ts_require_sibling_bare_ts)|
+|Node|Literate TS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_require_sibling_literate_cjs)|
+|Node|Literate TS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_ts_require_sibling_literate_esm)|
+|Node|Literate TS|require|sibling|Literate TS|[❌ FAIL](#node_literate_ts_require_sibling_literate_ts)|
+|Node|Literate TS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_ts_require_dependency_bare_cjs)|
+|Node|Literate TS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_ts_require_dependency_bare_esm)|
+|Node|Literate TS|require|dependency|Bare TS|[❌ FAIL](#node_literate_ts_require_dependency_bare_ts)|
+|Node|Literate TS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_require_dependency_literate_cjs)|
+|Node|Literate TS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_ts_require_dependency_literate_esm)|
+|Node|Literate TS|require|dependency|Literate TS|[❌ FAIL](#node_literate_ts_require_dependency_literate_ts)|
 |Node|Literate TS|dynamic import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate TS|dynamic import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Literate CJS|❌ FAIL|
+|Node|Literate TS|dynamic import|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_dynamic_import_sibling_literate_cjs)|
 |Node|Literate TS|dynamic import|sibling|Literate ESM|🟩 PASS|
 |Node|Literate TS|dynamic import|sibling|Literate TS|🟩 PASS|
 |Node|Literate TS|dynamic import|dependency|Bare CJS|🟩 PASS|
 |Node|Literate TS|dynamic import|dependency|Bare ESM|🟩 PASS|
 |Node|Literate TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Literate CJS|❌ FAIL|
+|Node|Literate TS|dynamic import|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_dynamic_import_dependency_literate_cjs)|
 |Node|Literate TS|dynamic import|dependency|Literate ESM|🟩 PASS|
 |Node|Literate TS|dynamic import|dependency|Literate TS|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|static import|sibling|Literate CJS|❌ FAIL|
+|Node|Literate TS|static import|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_static_import_sibling_literate_cjs)|
 |Node|Literate TS|static import|sibling|Literate ESM|🟩 PASS|
 |Node|Literate TS|static import|sibling|Literate TS|🟩 PASS|
 |Node|Literate TS|static import|dependency|Bare CJS|🟩 PASS|
 |Node|Literate TS|static import|dependency|Bare ESM|🟩 PASS|
 |Node|Literate TS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|static import|dependency|Literate CJS|❌ FAIL|
+|Node|Literate TS|static import|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_static_import_dependency_literate_cjs)|
 |Node|Literate TS|static import|dependency|Literate ESM|🟩 PASS|
 |Node|Literate TS|static import|dependency|Literate TS|🟩 PASS|
 |Node|Literate TS|import type|sibling|Bare CJS|🟩 PASS|
 |Node|Literate TS|import type|sibling|Bare ESM|🟩 PASS|
 |Node|Literate TS|import type|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|import type|sibling|Literate CJS|❌ FAIL|
+|Node|Literate TS|import type|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_sibling_literate_cjs)|
 |Node|Literate TS|import type|sibling|Literate ESM|🟩 PASS|
 |Node|Literate TS|import type|sibling|Literate TS|🟩 PASS|
 |Node|Literate TS|import type|dependency|Bare CJS|🟩 PASS|
 |Node|Literate TS|import type|dependency|Bare ESM|🟩 PASS|
 |Node|Literate TS|import type|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|import type|dependency|Literate CJS|❌ FAIL|
+|Node|Literate TS|import type|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_dependency_literate_cjs)|
 |Node|Literate TS|import type|dependency|Literate ESM|🟩 PASS|
 |Node|Literate TS|import type|dependency|Literate TS|🟩 PASS|
 |Rollup|Bare CJS|require|sibling|Bare CJS|🟩 PASS|
@@ -273,13 +273,13 @@
 |Rollup|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Rollup|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Rollup|Bare MJS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Literate CJS|❌ FAIL|
+|Rollup|Bare MJS|static import|sibling|Literate CJS|[❌ FAIL](#rollup_bare_mjs_static_import_sibling_literate_cjs)|
 |Rollup|Bare MJS|static import|sibling|Literate ESM|🟩 PASS|
 |Rollup|Bare MJS|static import|sibling|Literate TS|🟩 PASS|
 |Rollup|Bare MJS|static import|dependency|Bare CJS|🟩 PASS|
 |Rollup|Bare MJS|static import|dependency|Bare ESM|🟩 PASS|
 |Rollup|Bare MJS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Literate CJS|❌ FAIL|
+|Rollup|Bare MJS|static import|dependency|Literate CJS|[❌ FAIL](#rollup_bare_mjs_static_import_dependency_literate_cjs)|
 |Rollup|Bare MJS|static import|dependency|Literate ESM|🟩 PASS|
 |Rollup|Bare MJS|static import|dependency|Literate TS|🟩 PASS|
 |Rollup|Bare TS|require|sibling|Bare CJS|🟩 PASS|
@@ -309,25 +309,25 @@
 |Rollup|Bare TS|static import|sibling|Bare CJS|🟩 PASS|
 |Rollup|Bare TS|static import|sibling|Bare ESM|🟩 PASS|
 |Rollup|Bare TS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Literate CJS|❌ FAIL|
+|Rollup|Bare TS|static import|sibling|Literate CJS|[❌ FAIL](#rollup_bare_ts_static_import_sibling_literate_cjs)|
 |Rollup|Bare TS|static import|sibling|Literate ESM|🟩 PASS|
 |Rollup|Bare TS|static import|sibling|Literate TS|🟩 PASS|
 |Rollup|Bare TS|static import|dependency|Bare CJS|🟩 PASS|
 |Rollup|Bare TS|static import|dependency|Bare ESM|🟩 PASS|
 |Rollup|Bare TS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Literate CJS|❌ FAIL|
+|Rollup|Bare TS|static import|dependency|Literate CJS|[❌ FAIL](#rollup_bare_ts_static_import_dependency_literate_cjs)|
 |Rollup|Bare TS|static import|dependency|Literate ESM|🟩 PASS|
 |Rollup|Bare TS|static import|dependency|Literate TS|🟩 PASS|
 |Rollup|Bare TS|import type|sibling|Bare CJS|🟩 PASS|
 |Rollup|Bare TS|import type|sibling|Bare ESM|🟩 PASS|
 |Rollup|Bare TS|import type|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Literate CJS|❌ FAIL|
+|Rollup|Bare TS|import type|sibling|Literate CJS|[❌ FAIL](#rollup_bare_ts_import_type_sibling_literate_cjs)|
 |Rollup|Bare TS|import type|sibling|Literate ESM|🟩 PASS|
 |Rollup|Bare TS|import type|sibling|Literate TS|🟩 PASS|
 |Rollup|Bare TS|import type|dependency|Bare CJS|🟩 PASS|
 |Rollup|Bare TS|import type|dependency|Bare ESM|🟩 PASS|
 |Rollup|Bare TS|import type|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Literate CJS|❌ FAIL|
+|Rollup|Bare TS|import type|dependency|Literate CJS|[❌ FAIL](#rollup_bare_ts_import_type_dependency_literate_cjs)|
 |Rollup|Bare TS|import type|dependency|Literate ESM|🟩 PASS|
 |Rollup|Bare TS|import type|dependency|Literate TS|🟩 PASS|
 |Rollup|Literate CJS|require|sibling|Bare CJS|🟩 PASS|
@@ -381,13 +381,13 @@
 |Rollup|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Rollup|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Rollup|Literate MJS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Literate CJS|❌ FAIL|
+|Rollup|Literate MJS|static import|sibling|Literate CJS|[❌ FAIL](#rollup_literate_mjs_static_import_sibling_literate_cjs)|
 |Rollup|Literate MJS|static import|sibling|Literate ESM|🟩 PASS|
 |Rollup|Literate MJS|static import|sibling|Literate TS|🟩 PASS|
 |Rollup|Literate MJS|static import|dependency|Bare CJS|🟩 PASS|
 |Rollup|Literate MJS|static import|dependency|Bare ESM|🟩 PASS|
 |Rollup|Literate MJS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Literate CJS|❌ FAIL|
+|Rollup|Literate MJS|static import|dependency|Literate CJS|[❌ FAIL](#rollup_literate_mjs_static_import_dependency_literate_cjs)|
 |Rollup|Literate MJS|static import|dependency|Literate ESM|🟩 PASS|
 |Rollup|Literate MJS|static import|dependency|Literate TS|🟩 PASS|
 |Rollup|Literate TS|require|sibling|Bare CJS|🟩 PASS|
@@ -417,33 +417,37 @@
 |Rollup|Literate TS|static import|sibling|Bare CJS|🟩 PASS|
 |Rollup|Literate TS|static import|sibling|Bare ESM|🟩 PASS|
 |Rollup|Literate TS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Literate CJS|❌ FAIL|
+|Rollup|Literate TS|static import|sibling|Literate CJS|[❌ FAIL](#rollup_literate_ts_static_import_sibling_literate_cjs)|
 |Rollup|Literate TS|static import|sibling|Literate ESM|🟩 PASS|
 |Rollup|Literate TS|static import|sibling|Literate TS|🟩 PASS|
 |Rollup|Literate TS|static import|dependency|Bare CJS|🟩 PASS|
 |Rollup|Literate TS|static import|dependency|Bare ESM|🟩 PASS|
 |Rollup|Literate TS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Literate CJS|❌ FAIL|
+|Rollup|Literate TS|static import|dependency|Literate CJS|[❌ FAIL](#rollup_literate_ts_static_import_dependency_literate_cjs)|
 |Rollup|Literate TS|static import|dependency|Literate ESM|🟩 PASS|
 |Rollup|Literate TS|static import|dependency|Literate TS|🟩 PASS|
 |Rollup|Literate TS|import type|sibling|Bare CJS|🟩 PASS|
 |Rollup|Literate TS|import type|sibling|Bare ESM|🟩 PASS|
 |Rollup|Literate TS|import type|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Literate CJS|❌ FAIL|
+|Rollup|Literate TS|import type|sibling|Literate CJS|[❌ FAIL](#rollup_literate_ts_import_type_sibling_literate_cjs)|
 |Rollup|Literate TS|import type|sibling|Literate ESM|🟩 PASS|
 |Rollup|Literate TS|import type|sibling|Literate TS|🟩 PASS|
 |Rollup|Literate TS|import type|dependency|Bare CJS|🟩 PASS|
 |Rollup|Literate TS|import type|dependency|Bare ESM|🟩 PASS|
 |Rollup|Literate TS|import type|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Literate CJS|❌ FAIL|
+|Rollup|Literate TS|import type|dependency|Literate CJS|[❌ FAIL](#rollup_literate_ts_import_type_dependency_literate_cjs)|
 |Rollup|Literate TS|import type|dependency|Literate ESM|🟩 PASS|
 |Rollup|Literate TS|import type|dependency|Literate TS|🟩 PASS|
 
+## Test failures
+
 ### Node_Bare_CJS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_CJS
@@ -452,17 +456,20 @@
 
 ```
 
+Stderr
 ```
-(node:97138) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:142942) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_CJS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_CJS
@@ -471,17 +478,20 @@
 
 ```
 
+Stderr
 ```
-(node:97303) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143106) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS
@@ -490,8 +500,9 @@
 
 ```
 
+Stderr
 ```
-(node:97385) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143188) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2
 process.exit(require("./target.cjs").exitCode)
@@ -512,15 +523,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_419Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_036Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM
@@ -529,8 +542,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_419Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97410) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143213) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2
 process.exit(require("./target.mjs").exitCode)
@@ -551,15 +565,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_632Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_269Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS
@@ -568,8 +584,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_632Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97435) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143238) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2
 process.exit(require("./target.ts").exitCode)
@@ -590,15 +607,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_844Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_483Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS
@@ -607,8 +626,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_16_844Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97460) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143263) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2
 process.exit(require("./target.cjs.md").exitCode)
@@ -629,15 +649,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_049Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_724Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM
@@ -646,8 +668,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_049Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97485) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143288) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2
 process.exit(require("./target.mjs.md").exitCode)
@@ -668,15 +691,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_256Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_976Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_sibling_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS
@@ -685,8 +710,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_256Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97510) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143313) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2
 process.exit(require("./target.ts.md").exitCode)
@@ -707,15 +733,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_459Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_193Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS
@@ -724,8 +752,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_459Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97535) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143338) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2
 process.exit(require("target").exitCode)
@@ -745,15 +774,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_668Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_427Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM
@@ -762,8 +793,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_668Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97560) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143363) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2
 process.exit(require("target").exitCode)
@@ -783,15 +815,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_874Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_632Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS
@@ -800,8 +834,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_17_874Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97585) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143388) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2
 process.exit(require("target").exitCode)
@@ -821,15 +856,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_089Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_842Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS
@@ -838,8 +875,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_089Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97610) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143413) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2
 process.exit(require("target").exitCode)
@@ -859,15 +897,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_295Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_080Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM
@@ -876,8 +916,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_295Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97635) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143438) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2
 process.exit(require("target").exitCode)
@@ -897,15 +938,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_510Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_296Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_require_dependency_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS
@@ -914,8 +957,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_510Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97660) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143463) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2
 process.exit(require("target").exitCode)
@@ -935,15 +979,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_713Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_502Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_CJS
@@ -952,17 +998,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_713Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97767) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143570) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_MJS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_CJS
@@ -971,17 +1020,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_713Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:97932) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143735) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_MJS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS
@@ -990,8 +1042,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_18_713Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:98096) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:143899) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2
 import { exitCode } from "./target.cjs.md"
@@ -1016,15 +1069,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_22_168Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_33_914Z-debug.log
 
 ```
 
 ### Node_Bare_MJS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS
@@ -1033,8 +1088,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_22_168Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:98261) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144063) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2
 import { exitCode } from "target"
@@ -1058,15 +1114,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_23_458Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_35_205Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS
@@ -1085,8 +1143,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98343) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144145) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:1
 process.exit(require("./target.cjs").exitCode);
@@ -1107,15 +1166,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_24_144Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_35_888Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM
@@ -1134,8 +1195,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98375) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144177) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:1
 process.exit(require("./target.mjs").exitCode);
@@ -1156,15 +1218,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_24_383Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_127Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS
@@ -1183,8 +1247,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98407) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144209) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:1
 process.exit(require("./target.ts").exitCode);
@@ -1205,15 +1270,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_24_625Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_366Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS
@@ -1232,8 +1299,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98439) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144241) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:1
 process.exit(require("./target.cjs.md").exitCode);
@@ -1254,15 +1322,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_24_867Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_604Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM
@@ -1281,8 +1351,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98471) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144273) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:1
 process.exit(require("./target.mjs.md").exitCode);
@@ -1303,15 +1374,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_25_105Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_845Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_sibling_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS
@@ -1330,8 +1403,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98503) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144305) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:1
 process.exit(require("./target.ts.md").exitCode);
@@ -1352,15 +1426,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_25_346Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_084Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS
@@ -1379,8 +1455,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98535) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144337) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:1
 process.exit(require("target").exitCode);
@@ -1400,15 +1477,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_25_589Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_325Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM
@@ -1427,8 +1506,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98567) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144369) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:1
 process.exit(require("target").exitCode);
@@ -1448,15 +1528,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_25_829Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_567Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS
@@ -1475,8 +1557,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98599) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144401) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:1
 process.exit(require("target").exitCode);
@@ -1496,15 +1579,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_072Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_805Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS
@@ -1523,8 +1608,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98631) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144433) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:1
 process.exit(require("target").exitCode);
@@ -1544,15 +1630,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_313Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_050Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM
@@ -1571,8 +1659,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98663) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144466) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:1
 process.exit(require("target").exitCode);
@@ -1592,15 +1681,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_556Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_291Z-debug.log
 
 ```
 
 ### Node_Bare_TS_require_dependency_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS
@@ -1619,8 +1710,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:98695) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144498) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:1
 process.exit(require("target").exitCode);
@@ -1640,15 +1732,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_795Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_531Z-debug.log
 
 ```
 
 ### Node_Bare_TS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_dynamic_import_sibling_Literate_CJS
@@ -1657,17 +1751,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_795Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:98823) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144627) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_TS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_dynamic_import_dependency_Literate_CJS
@@ -1676,17 +1773,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_795Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:99016) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:144820) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Bare_TS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS
@@ -1695,8 +1795,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_26_795Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:99208) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:145013) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
@@ -1721,15 +1822,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_30_619Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_42_348Z-debug.log
 
 ```
 
 ### Node_Bare_TS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS
@@ -1738,8 +1841,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_30_619Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:99400) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:145205) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
@@ -1763,15 +1867,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_32_062Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_43_792Z-debug.log
 
 ```
 
 ### Node_Bare_TS_import_type_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS
@@ -1780,8 +1886,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_32_062Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:99594) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:145398) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
@@ -1806,15 +1913,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_33_496Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_45_230Z-debug.log
 
 ```
 
 ### Node_Bare_TS_import_type_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS
@@ -1823,8 +1932,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_33_496Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:99787) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:145592) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
@@ -1848,15 +1958,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_34_933Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_46_671Z-debug.log
 
 ```
 
 ### Node_Literate_CJS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_CJS
@@ -1865,17 +1977,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_34_933Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100330) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146136) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_CJS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_CJS
@@ -1884,17 +1999,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_34_933Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100495) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146300) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS
@@ -1903,8 +2021,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_34_933Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100577) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146382) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3
 process.exit(require("./target.cjs").exitCode)
@@ -1925,15 +2044,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_40_931Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_52_662Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM
@@ -1942,8 +2063,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_40_931Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100602) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146407) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3
 process.exit(require("./target.mjs").exitCode)
@@ -1964,15 +2086,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_138Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_52_868Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS
@@ -1981,8 +2105,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_138Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100627) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146432) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3
 process.exit(require("./target.ts").exitCode)
@@ -2003,15 +2128,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_342Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_071Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS
@@ -2020,8 +2147,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_342Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100652) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146457) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3
 process.exit(require("./target.cjs.md").exitCode)
@@ -2042,15 +2170,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_547Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_276Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM
@@ -2059,8 +2189,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_547Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100677) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146482) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3
 process.exit(require("./target.mjs.md").exitCode)
@@ -2081,15 +2212,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_751Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_481Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_sibling_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS
@@ -2098,8 +2231,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_751Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100702) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146508) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3
 process.exit(require("./target.ts.md").exitCode)
@@ -2120,15 +2254,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_964Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_699Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS
@@ -2137,8 +2273,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_41_964Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100727) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146533) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2158,15 +2295,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_168Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_907Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM
@@ -2175,8 +2314,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_168Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100752) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146559) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2196,15 +2336,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_372Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_111Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS
@@ -2213,8 +2355,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_372Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100777) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146584) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2234,15 +2377,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_576Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_314Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS
@@ -2251,8 +2396,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_576Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100802) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146609) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2272,15 +2418,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_779Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_518Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM
@@ -2289,8 +2437,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_779Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100827) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146634) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2310,15 +2459,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_981Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_722Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_require_dependency_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS
@@ -2327,8 +2478,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_42_981Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100852) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146659) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
@@ -2348,15 +2500,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_43_185Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_930Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_CJS
@@ -2365,17 +2519,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_43_185Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:100959) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146766) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_MJS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_CJS
@@ -2384,17 +2541,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_43_185Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:101123) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:146930) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_MJS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS
@@ -2403,8 +2563,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_43_185Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:101287) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147094) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:3
 import { exitCode } from "./target.cjs.md"
@@ -2429,15 +2590,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_46_607Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_58_366Z-debug.log
 
 ```
 
 ### Node_Literate_MJS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS
@@ -2446,8 +2609,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_46_607Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:101451) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147259) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:3
 import { exitCode } from "target"
@@ -2471,15 +2635,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_47_900Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_59_663Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS
@@ -2498,8 +2664,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101533) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147341) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:1
 process.exit(require("./target.cjs").exitCode);
@@ -2520,15 +2687,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_48_592Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_357Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM
@@ -2547,8 +2716,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101565) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147373) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:1
 process.exit(require("./target.mjs").exitCode);
@@ -2569,15 +2739,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_48_834Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_596Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS
@@ -2596,8 +2768,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101597) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147406) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:1
 process.exit(require("./target.ts").exitCode);
@@ -2618,15 +2791,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_49_081Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_837Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS
@@ -2645,8 +2820,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101629) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147438) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:1
 process.exit(require("./target.cjs.md").exitCode);
@@ -2667,15 +2843,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_49_321Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_076Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM
@@ -2694,8 +2872,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101661) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147470) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:1
 process.exit(require("./target.mjs.md").exitCode);
@@ -2716,15 +2895,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_49_561Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_317Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_sibling_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS
@@ -2743,8 +2924,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101693) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147502) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:1
 process.exit(require("./target.ts.md").exitCode);
@@ -2765,15 +2947,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_49_803Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_557Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Bare_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS
@@ -2792,8 +2976,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101725) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147534) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -2813,15 +2998,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_50_047Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_799Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Bare_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM
@@ -2840,8 +3027,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101757) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147566) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -2861,15 +3049,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_50_289Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_042Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Bare_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS
@@ -2888,8 +3078,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101789) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147598) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -2909,15 +3100,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_50_531Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_282Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS
@@ -2936,8 +3129,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101821) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147631) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -2957,15 +3151,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_50_773Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_522Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Literate_ESM
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM
@@ -2984,8 +3180,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101853) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147664) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -3005,15 +3202,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_51_016Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_760Z-debug.log
 
 ```
 
 ### Node_Literate_TS_require_dependency_Literate_TS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS
@@ -3032,8 +3231,9 @@ Converting "require" to "esm" is currently not supported
 
 ```
 
+Stderr
 ```
-(node:101885) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147696) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:1
 process.exit(require("target").exitCode);
@@ -3053,15 +3253,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_51_255Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_03_000Z-debug.log
 
 ```
 
 ### Node_Literate_TS_dynamic_import_sibling_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_dynamic_import_sibling_Literate_CJS
@@ -3070,17 +3272,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_51_255Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102014) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:147825) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_TS_dynamic_import_dependency_Literate_CJS
+Exit code
 ```
 0
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_dynamic_import_dependency_Literate_CJS
@@ -3089,17 +3294,20 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_51_255Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102207) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:148017) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
 ### Node_Literate_TS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS
@@ -3108,8 +3316,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_51_255Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102399) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:148209) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
@@ -3134,15 +3343,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_55_080Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_06_823Z-debug.log
 
 ```
 
 ### Node_Literate_TS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS
@@ -3151,8 +3362,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_55_080Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102591) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:148401) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
@@ -3176,15 +3388,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_56_522Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_08_268Z-debug.log
 
 ```
 
 ### Node_Literate_TS_import_type_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS
@@ -3193,8 +3407,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_56_522Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102783) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:148594) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
@@ -3219,15 +3434,17 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_57_952Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_09_699Z-debug.log
 
 ```
 
 ### Node_Literate_TS_import_type_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 
 > source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS
@@ -3236,8 +3453,9 @@ npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_57_952Z-debug.log
 
 ```
 
+Stderr
 ```
-(node:102976) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:148787) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
@@ -3261,15 +3479,17 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T12_48_59_394Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_11_142Z-debug.log
 
 ```
 
 ### Rollup_Bare_MJS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3277,6 +3497,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 'exitCode' is not exported by target.cjs.md, imported by source.mjs
 file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2:9
@@ -3300,10 +3521,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.mjs
 ```
 
 ### Rollup_Bare_MJS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3311,6 +3534,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs
 file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2:9
@@ -3334,10 +3558,12 @@ Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported
 ```
 
 ### Rollup_Bare_TS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3345,6 +3571,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts
@@ -3368,10 +3595,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
 ```
 
 ### Rollup_Bare_TS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3379,6 +3608,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
@@ -3402,10 +3632,12 @@ Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported
 ```
 
 ### Rollup_Bare_TS_import_type_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3413,6 +3645,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts
@@ -3437,10 +3670,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
 ```
 
 ### Rollup_Bare_TS_import_type_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3448,6 +3683,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
@@ -3472,10 +3708,12 @@ Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported
 ```
 
 ### Rollup_Literate_MJS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3483,6 +3721,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.mjs.md
@@ -3507,10 +3746,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.mjs.md
 ```
 
 ### Rollup_Literate_MJS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3518,6 +3759,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs.md
@@ -3542,10 +3784,12 @@ Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported
 ```
 
 ### Rollup_Literate_TS_static_import_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3553,6 +3797,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
@@ -3577,10 +3822,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
 ```
 
 ### Rollup_Literate_TS_static_import_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3588,6 +3835,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
@@ -3612,10 +3860,12 @@ Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported
 ```
 
 ### Rollup_Literate_TS_import_type_sibling_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3623,6 +3873,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
@@ -3647,10 +3898,12 @@ Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
 ```
 
 ### Rollup_Literate_TS_import_type_dependency_Literate_CJS
+Exit code
 ```
 1
 ```
 
+Stdout
 ```
 vite v2.7.6 building for production...
 transforming...
@@ -3658,6 +3911,7 @@ transforming...
 
 ```
 
+Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
