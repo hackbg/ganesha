@@ -2,6 +2,10 @@
   "name": "@hackbg/ganesha-tests",
   "dependencies": {
     "mkdirp": "^1.0.4",
-    "@hackbg/ganesha-core": "workspace:*"
+    "@hackbg/ganesha-core": "workspace:*",
+    "@hackbg/ganesha-nodejs-loader": "workspace:*"
+  },
+  "scripts": {
+    "test:matrix": "ganesha run-script MATRIX.js.md"
   }
 }

@@ -15,11 +15,11 @@ let args
 
 switch (mode) {
   case 'run-module':
-    args = ['--experimental-loader', '@hackbg/ganesha/loader.mjs', ...argv]
+    args = ['--experimental-loader', '@hackbg/ganesha-nodejs-loader/loader.mjs', ...argv]
     exitCode = spawnSync(node, args, { stdio: 'inherit' }).status
     break
   case 'run-script':
-    args = ['-r', '@hackbg/ganesha/loader.cjs', ...argv]
+    args = ['-r', '@hackbg/ganesha-nodejs-loader/loader.cjs', ...argv]
     exitCode = spawnSync(node, args, { stdio: 'inherit' }).status
     break
   default:

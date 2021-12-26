@@ -57,7 +57,7 @@ const Sources = {
           scripts: {
             "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs source.cjs`
           }
-        })
+        }),
         'source.cjs': literacy(`
           process.exit(require("${target}"))
         `)
@@ -70,7 +70,7 @@ const Sources = {
           scripts: {
             "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs source.cjs`
           }
-        })
+        }),
         'source.cjs': literacy(`
           import("${target}").then(process.exit)
         `)
@@ -85,7 +85,7 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
           }
-        })
+        }),
         'source.mjs': literacy(`
           process.exit(require("${target}"))
         `)
@@ -98,7 +98,7 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
           }
-        })
+        }),
         'source.mjs': literacy(`
           import("${target}").then(process.exit)
         `)
@@ -111,7 +111,7 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
           }
-        })
+        }),
         'source.mjs': literacy(`
           import exitCode from "${target}"
           process.exit(exitCode)
@@ -127,8 +127,8 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
-        })
-        'source.cjs': literacy(`
+        }),
+        'source.ts': literacy(`
           process.exit(require("${target}"))
         `)
       }
@@ -140,8 +140,8 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
-        })
-        'source.cjs': literacy(`
+        }),
+        'source.ts': literacy(`
           import("${target}").then(process.exit)
         `)
       }
@@ -153,8 +153,8 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
-        })
-        'source.cjs': literacy(`
+        }),
+        'source.ts': literacy(`
           import exitCode from "${target}"
           process.exit(exitCode)
         `)
@@ -167,8 +167,8 @@ const Sources = {
           scripts: {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
-        })
-        'source.cjs': literacy(`
+        }),
+        'source.ts': literacy(`
           import type ExitCode from "${target}"
           import exitCode from "${target}"
           const theExitCode: ExitCode = exitCode
@@ -286,15 +286,17 @@ which make sure that you don't get any distracting red underlines in your IDE of
 when working with literate modules.
 
 ```javascript
+const { writeFileSync } = require('fs')
 const { spawnSync, execFileSync } = require('child_process')
+const { resolve, dirname } = require('path')
 const stdio = ['ignore','inherit','inherit']
 
 const Environments = {
 
   'Node' () {
-    require('child_process').spawnSync('pwd', [], { stdio })
-    require('child_process').spawnSync('ls',  [], { stdio })
-    require('child_process').spawnSync('cat', ['package.json'], { stdio })
+    spawnSync('pwd', [], { stdio })
+    spawnSync('ls',  [], { stdio })
+    spawnSync('cat', ['package.json'], { stdio })
     const {status} = spawnSync('npm', ['run', 'test'], { stdio })
     return status === 123
   },
@@ -305,10 +307,10 @@ const Environments = {
     `, 'utf8')
     writeFileSync('vite.config.js', `
       import { defineConfig } from 'vite'
-      import ganesha from '../../../../rollup-plugin/index.js'
+      import ganesha from '../../../rollup-plugin/index.js'
       export default defineConfig({ plugins: [ ganesha() ] })
     `, 'utf8')
-    const vite = require('path').resolve(__dirname, '../node_modules/.bin/vite')
+    const vite = resolve(__dirname, '../node_modules/.bin/vite')
     const {status} = spawnSync(vite, ['build'], { stdio })
     return status === 0 /* TODO check that one of the output files contains the string "123" */
   },
@@ -316,33 +318,117 @@ const Environments = {
   //'VSCode LSP'    () {
   //}
 }
+```
 
+## Running the tests
+
+![](now.gif)
+
+Now comes the part where we iterate over all the possible combinations,
+create the files defined by the [source](#sources) and [target](#targets) modules
+in a subdirectory under `cases/` corresponding to the combinations,
+and try to execute `npm run test` in that directory.
+
+```javascript
+const mkdirp = require('mkdirp').sync
 process.chdir(__dirname)
-mkdirp('testcases')
-process.chdir('testcases')
-const testCaseRoot = process.cwd()
+mkdirp('cases')
+process.chdir('cases')
+const cases = process.cwd()
+```
 
-const results = {}
+The result (ok/fail) of each test is recorded in a Markdown table which is added
+to the README of this directory.
 
-let ok = 0
-let fail = []
-let todo = 0
+```javascript
+let ok    = 0
+let fail  = []
+let todo  = 0
 let total = 0
 
-let report = '# Ganesha\n\n## Test Matrix Results\n'
-report += '\n|Environment|Import mode|Source module type|Target module type|Result|'
-report += '\n|-----------|-----------|------------------|------------------|------|'
+const header = `
+# Ganesha
+`
 
+let report = `
+## Test Matrix Results
+
+|Environment|Source module|Import type|Relation type|Target module|Result|'
+|-----------|-------------|-----------|-------------|-------------|------|'
+`
+
+let i = 0
+for (const [environment, runTestInEnvironment] of Object.entries(Environments)) {
+  for (const [sourceLiteracy, setSourceLiteracy] of Object.entries(Literacy)) {
+    for (const [source, importTypes] of Object.entries(Sources)) {
+      for (const [importType, setupSource] of Object.entries(importTypes)) {
+        for (const [relation, relationTargets] of Object.entries(Targets)) {
+          for (const [targetLiteracy, setTargetLiteracy] of Object.entries(Literacy)) {
+            for (const [target, setupTarget] of Object.entries(relationTargets)) {
+
+              console.log(
+                '\ncase', ++i,
+                environment, sourceLiteracy, source, importType, relation, targetLiteracy, target
+              )
+
+              const testCase =
+                `${environment}_${sourceLiteracy}_${source}_${relation}_${targetLiteracy}_${target}`
+
+              mkdirp(testCase)
+              process.chdir(testCase)
+
+              let targetName
+              if (relation === 'sibling') {
+                targetName = `./target`
+              } else if (relation === 'dependency') {
+                targetName = 'target'
+              } else {
+                throw new Error(`unknown relation ${relation}`)
+              }
+
+              for (const [name, content] of Object.entries({
+                ...setupSource(setSourceLiteracy, targetName),
+                ...setupTarget(setTargetLiteracy)
+              })) {
+                const path = resolve(process.cwd(), name)
+                console.log('writing', path)
+                mkdirp(dirname(path))
+                writeFileSync(path, content)
+              }
+
+              const result = runTestInEnvironment()
+              report += `|${environment}|${sourceLiteracy}|${source}|${importType}|${relation}|${targetLiteracy}|${target}|`
+              if (result === true) {
+                ok++
+                report += '🟩 PASS'
+                console.log('ok')
+              } else if (result === false) {
+                fail++
+                report += '❌ FAIL'
+                console.log('fail')
+              }
+              report += '|\n'
+
+              process.chdir(cases)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+console.log(report)
+console.log({ total: i, ok, fail })
+
+const output = require('path').resolve(__dirname, 'README.md')
+writeFileSync(output, `${header}\n${report}`)
+console.log(`Done. Wrote ${output}.`)
+
+/*
 const running = []
-
-for (const environment in Environments) {
-  results[environment] = {}
-  for (const source in Sources) {
-    results[environment][source] = {}
     for (const relation in Relations) {
-      results[environment][source][relation] = {}
       for (const target in Targets) {
-        results[environment][source][relation][target] = {}
         const testCase = `${environment}/${source} ${relation} ${target}`.toLowerCase().replace(/ /g, '_')
 
         running.push(require('tap').test(testCase, async({ assert })=>{
@@ -369,7 +455,7 @@ for (const environment in Environments) {
             }
           }
 
-          process.chdir(testCaseRoot)
+          process.chdir(cases)
 
           assert(result, testCase)
 
@@ -377,7 +463,9 @@ for (const environment in Environments) {
 
       }
     }
+
   }
+
 }
 
 Promise.all(running).then(()=>{
@@ -386,4 +474,5 @@ Promise.all(running).then(()=>{
   const output = require('path').resolve(__dirname, 'README.md')
   writeFileSync(output, report+'\n')
   console.log(`Done. Wrote ${output}.`)
-})
+})*/
+```

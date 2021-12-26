@@ -1,150 +1,440 @@
+
 # Ganesha
+
 
 ## Test Matrix Results
 
-|Environment|Import mode|Source module type|Target module type|Result|
-|-----------|-----------|------------------|------------------|------|
-|Node|relative import|CJS|CJS|🟩 OK|
-|Node|relative import|CJS|ESM|❌ FAIL|
-|Node|relative import|CJS|TS|❌ FAIL|
-|Node|relative import|CJS|Literate CJS|❌ FAIL|
-|Node|relative import|CJS|Literate ESM|❌ FAIL|
-|Node|relative import|CJS|Literate TS|❌ FAIL|
-|Node|package import|CJS|CJS|🟩 OK|
-|Node|package import|CJS|ESM|❌ FAIL|
-|Node|package import|CJS|TS|❌ FAIL|
-|Node|package import|CJS|Literate CJS|❌ FAIL|
-|Node|package import|CJS|Literate ESM|❌ FAIL|
-|Node|package import|CJS|Literate TS|❌ FAIL|
-|Node|relative import|ESM|CJS|🟩 OK|
-|Node|relative import|ESM|ESM|🟩 OK|
-|Node|relative import|ESM|TS|🟩 OK|
-|Node|relative import|ESM|Literate CJS|❌ FAIL|
-|Node|relative import|ESM|Literate ESM|🟩 OK|
-|Node|relative import|ESM|Literate TS|🟩 OK|
-|Node|package import|ESM|CJS|🟩 OK|
-|Node|package import|ESM|ESM|🟩 OK|
-|Node|package import|ESM|TS|🟩 OK|
-|Node|package import|ESM|Literate CJS|❌ FAIL|
-|Node|package import|ESM|Literate ESM|🟩 OK|
-|Node|package import|ESM|Literate TS|🟩 OK|
-|Node|relative import|TS|CJS|🟩 OK|
-|Node|relative import|TS|ESM|🟩 OK|
-|Node|relative import|TS|TS|🟩 OK|
-|Node|relative import|TS|Literate CJS|❌ FAIL|
-|Node|relative import|TS|Literate ESM|🟩 OK|
-|Node|relative import|TS|Literate TS|🟩 OK|
-|Node|package import|TS|CJS|🟩 OK|
-|Node|package import|TS|ESM|🟩 OK|
-|Node|package import|TS|TS|🟩 OK|
-|Node|package import|TS|Literate CJS|❌ FAIL|
-|Node|package import|TS|Literate ESM|🟩 OK|
-|Node|package import|TS|Literate TS|🟩 OK|
-|Node|relative import|Literate CJS|CJS|🟩 OK|
-|Node|relative import|Literate CJS|ESM|❌ FAIL|
-|Node|relative import|Literate CJS|TS|❌ FAIL|
-|Node|relative import|Literate CJS|Literate CJS|❌ FAIL|
-|Node|relative import|Literate CJS|Literate ESM|❌ FAIL|
-|Node|relative import|Literate CJS|Literate TS|❌ FAIL|
-|Node|package import|Literate CJS|CJS|🟩 OK|
-|Node|package import|Literate CJS|ESM|❌ FAIL|
-|Node|package import|Literate CJS|TS|❌ FAIL|
-|Node|package import|Literate CJS|Literate CJS|❌ FAIL|
-|Node|package import|Literate CJS|Literate ESM|❌ FAIL|
-|Node|package import|Literate CJS|Literate TS|❌ FAIL|
-|Node|relative import|Literate ESM|CJS|🟩 OK|
-|Node|relative import|Literate ESM|ESM|🟩 OK|
-|Node|relative import|Literate ESM|TS|🟩 OK|
-|Node|relative import|Literate ESM|Literate CJS|❌ FAIL|
-|Node|relative import|Literate ESM|Literate ESM|🟩 OK|
-|Node|relative import|Literate ESM|Literate TS|🟩 OK|
-|Node|package import|Literate ESM|CJS|🟩 OK|
-|Node|package import|Literate ESM|ESM|🟩 OK|
-|Node|package import|Literate ESM|TS|🟩 OK|
-|Node|package import|Literate ESM|Literate CJS|❌ FAIL|
-|Node|package import|Literate ESM|Literate ESM|🟩 OK|
-|Node|package import|Literate ESM|Literate TS|🟩 OK|
-|Node|relative import|Literate TS|CJS|🟩 OK|
-|Node|relative import|Literate TS|ESM|🟩 OK|
-|Node|relative import|Literate TS|TS|🟩 OK|
-|Node|relative import|Literate TS|Literate CJS|❌ FAIL|
-|Node|relative import|Literate TS|Literate ESM|🟩 OK|
-|Node|relative import|Literate TS|Literate TS|🟩 OK|
-|Node|package import|Literate TS|CJS|🟩 OK|
-|Node|package import|Literate TS|ESM|🟩 OK|
-|Node|package import|Literate TS|TS|🟩 OK|
-|Node|package import|Literate TS|Literate CJS|❌ FAIL|
-|Node|package import|Literate TS|Literate ESM|🟩 OK|
-|Node|package import|Literate TS|Literate TS|🟩 OK|
-|Rollup|relative import|CJS|CJS|🟩 OK|
-|Rollup|relative import|CJS|ESM|🟩 OK|
-|Rollup|relative import|CJS|TS|🟩 OK|
-|Rollup|relative import|CJS|Literate CJS|🟩 OK|
-|Rollup|relative import|CJS|Literate ESM|🟩 OK|
-|Rollup|relative import|CJS|Literate TS|🟩 OK|
-|Rollup|package import|CJS|CJS|🟩 OK|
-|Rollup|package import|CJS|ESM|🟩 OK|
-|Rollup|package import|CJS|TS|🟩 OK|
-|Rollup|package import|CJS|Literate CJS|🟩 OK|
-|Rollup|package import|CJS|Literate ESM|🟩 OK|
-|Rollup|package import|CJS|Literate TS|🟩 OK|
-|Rollup|relative import|ESM|CJS|🟩 OK|
-|Rollup|relative import|ESM|ESM|🟩 OK|
-|Rollup|relative import|ESM|TS|🟩 OK|
-|Rollup|relative import|ESM|Literate CJS|🟩 OK|
-|Rollup|relative import|ESM|Literate ESM|🟩 OK|
-|Rollup|relative import|ESM|Literate TS|🟩 OK|
-|Rollup|package import|ESM|CJS|🟩 OK|
-|Rollup|package import|ESM|ESM|🟩 OK|
-|Rollup|package import|ESM|TS|🟩 OK|
-|Rollup|package import|ESM|Literate CJS|🟩 OK|
-|Rollup|package import|ESM|Literate ESM|🟩 OK|
-|Rollup|package import|ESM|Literate TS|🟩 OK|
-|Rollup|relative import|TS|CJS|🟩 OK|
-|Rollup|relative import|TS|ESM|🟩 OK|
-|Rollup|relative import|TS|TS|🟩 OK|
-|Rollup|relative import|TS|Literate CJS|🟩 OK|
-|Rollup|relative import|TS|Literate ESM|🟩 OK|
-|Rollup|relative import|TS|Literate TS|🟩 OK|
-|Rollup|package import|TS|CJS|🟩 OK|
-|Rollup|package import|TS|ESM|🟩 OK|
-|Rollup|package import|TS|TS|🟩 OK|
-|Rollup|package import|TS|Literate CJS|🟩 OK|
-|Rollup|package import|TS|Literate ESM|🟩 OK|
-|Rollup|package import|TS|Literate TS|🟩 OK|
-|Rollup|relative import|Literate CJS|CJS|🟩 OK|
-|Rollup|relative import|Literate CJS|ESM|🟩 OK|
-|Rollup|relative import|Literate CJS|TS|🟩 OK|
-|Rollup|relative import|Literate CJS|Literate CJS|🟩 OK|
-|Rollup|relative import|Literate CJS|Literate ESM|🟩 OK|
-|Rollup|relative import|Literate CJS|Literate TS|🟩 OK|
-|Rollup|package import|Literate CJS|CJS|🟩 OK|
-|Rollup|package import|Literate CJS|ESM|🟩 OK|
-|Rollup|package import|Literate CJS|TS|🟩 OK|
-|Rollup|package import|Literate CJS|Literate CJS|🟩 OK|
-|Rollup|package import|Literate CJS|Literate ESM|🟩 OK|
-|Rollup|package import|Literate CJS|Literate TS|🟩 OK|
-|Rollup|relative import|Literate ESM|CJS|🟩 OK|
-|Rollup|relative import|Literate ESM|ESM|🟩 OK|
-|Rollup|relative import|Literate ESM|TS|🟩 OK|
-|Rollup|relative import|Literate ESM|Literate CJS|🟩 OK|
-|Rollup|relative import|Literate ESM|Literate ESM|🟩 OK|
-|Rollup|relative import|Literate ESM|Literate TS|🟩 OK|
-|Rollup|package import|Literate ESM|CJS|🟩 OK|
-|Rollup|package import|Literate ESM|ESM|🟩 OK|
-|Rollup|package import|Literate ESM|TS|🟩 OK|
-|Rollup|package import|Literate ESM|Literate CJS|🟩 OK|
-|Rollup|package import|Literate ESM|Literate ESM|🟩 OK|
-|Rollup|package import|Literate ESM|Literate TS|🟩 OK|
-|Rollup|relative import|Literate TS|CJS|🟩 OK|
-|Rollup|relative import|Literate TS|ESM|🟩 OK|
-|Rollup|relative import|Literate TS|TS|🟩 OK|
-|Rollup|relative import|Literate TS|Literate CJS|🟩 OK|
-|Rollup|relative import|Literate TS|Literate ESM|🟩 OK|
-|Rollup|relative import|Literate TS|Literate TS|🟩 OK|
-|Rollup|package import|Literate TS|CJS|🟩 OK|
-|Rollup|package import|Literate TS|ESM|🟩 OK|
-|Rollup|package import|Literate TS|TS|🟩 OK|
-|Rollup|package import|Literate TS|Literate CJS|🟩 OK|
-|Rollup|package import|Literate TS|Literate ESM|🟩 OK|
-|Rollup|package import|Literate TS|Literate TS|🟩 OK|
+|Environment|Source module|Import type|Relation type|Target module|Result|'
+|-----------|-------------|-----------|-------------|-------------|------|'
+|Node|Bare|CJS|require()|sibling|Bare|CJS|🟩 PASS|
+|Node|Bare|CJS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|CJS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|CJS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|CJS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|CJS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|CJS|require()|dependency|Bare|CJS|🟩 PASS|
+|Node|Bare|CJS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|CJS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|CJS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|CJS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|CJS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|CJS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Bare|CJS|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Bare|CJS|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|static import|sibling|Bare|CJS|🟩 PASS|
+|Node|Bare|MJS|static import|sibling|Bare|ESM|🟩 PASS|
+|Node|Bare|MJS|static import|sibling|Bare|TS|🟩 PASS|
+|Node|Bare|MJS|static import|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|static import|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|static import|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|MJS|static import|dependency|Bare|CJS|🟩 PASS|
+|Node|Bare|MJS|static import|dependency|Bare|ESM|🟩 PASS|
+|Node|Bare|MJS|static import|dependency|Bare|TS|🟩 PASS|
+|Node|Bare|MJS|static import|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|MJS|static import|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|MJS|static import|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Bare|CJS|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Bare|CJS|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|TS|static import|sibling|Bare|CJS|🟩 PASS|
+|Node|Bare|TS|static import|sibling|Bare|ESM|🟩 PASS|
+|Node|Bare|TS|static import|sibling|Bare|TS|🟩 PASS|
+|Node|Bare|TS|static import|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|static import|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|static import|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|TS|static import|dependency|Bare|CJS|🟩 PASS|
+|Node|Bare|TS|static import|dependency|Bare|ESM|🟩 PASS|
+|Node|Bare|TS|static import|dependency|Bare|TS|🟩 PASS|
+|Node|Bare|TS|static import|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|static import|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|static import|dependency|Literate|TS|❌ FAIL|
+|Node|Bare|TS|import type|sibling|Bare|CJS|🟩 PASS|
+|Node|Bare|TS|import type|sibling|Bare|ESM|🟩 PASS|
+|Node|Bare|TS|import type|sibling|Bare|TS|🟩 PASS|
+|Node|Bare|TS|import type|sibling|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|import type|sibling|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|import type|sibling|Literate|TS|❌ FAIL|
+|Node|Bare|TS|import type|dependency|Bare|CJS|🟩 PASS|
+|Node|Bare|TS|import type|dependency|Bare|ESM|🟩 PASS|
+|Node|Bare|TS|import type|dependency|Bare|TS|🟩 PASS|
+|Node|Bare|TS|import type|dependency|Literate|CJS|❌ FAIL|
+|Node|Bare|TS|import type|dependency|Literate|ESM|❌ FAIL|
+|Node|Bare|TS|import type|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|CJS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|CJS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|CJS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|static import|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|MJS|static import|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|require()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|require()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|dynamic import()|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|dynamic import()|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|static import|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|static import|dependency|Literate|TS|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Bare|TS|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|import type|sibling|Literate|TS|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Bare|CJS|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Bare|ESM|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Bare|TS|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Literate|CJS|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Literate|ESM|❌ FAIL|
+|Node|Literate|TS|import type|dependency|Literate|TS|❌ FAIL|
+|Rollup|Bare|CJS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|CJS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|CJS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|CJS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|CJS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|CJS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|CJS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|CJS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|MJS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|MJS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|MJS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|MJS|static import|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|static import|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|static import|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|static import|sibling|Literate|CJS|❌ FAIL|
+|Rollup|Bare|MJS|static import|sibling|Literate|ESM|❌ FAIL|
+|Rollup|Bare|MJS|static import|sibling|Literate|TS|❌ FAIL|
+|Rollup|Bare|MJS|static import|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|MJS|static import|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|MJS|static import|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|MJS|static import|dependency|Literate|CJS|❌ FAIL|
+|Rollup|Bare|MJS|static import|dependency|Literate|ESM|❌ FAIL|
+|Rollup|Bare|MJS|static import|dependency|Literate|TS|❌ FAIL|
+|Rollup|Bare|TS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|TS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|TS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|TS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Bare|TS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Bare|TS|static import|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|static import|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|static import|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|static import|sibling|Literate|CJS|❌ FAIL|
+|Rollup|Bare|TS|static import|sibling|Literate|ESM|❌ FAIL|
+|Rollup|Bare|TS|static import|sibling|Literate|TS|❌ FAIL|
+|Rollup|Bare|TS|static import|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|static import|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|static import|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|static import|dependency|Literate|CJS|❌ FAIL|
+|Rollup|Bare|TS|static import|dependency|Literate|ESM|❌ FAIL|
+|Rollup|Bare|TS|static import|dependency|Literate|TS|❌ FAIL|
+|Rollup|Bare|TS|import type|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|import type|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|import type|sibling|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|import type|sibling|Literate|CJS|❌ FAIL|
+|Rollup|Bare|TS|import type|sibling|Literate|ESM|❌ FAIL|
+|Rollup|Bare|TS|import type|sibling|Literate|TS|❌ FAIL|
+|Rollup|Bare|TS|import type|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Bare|TS|import type|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Bare|TS|import type|dependency|Bare|TS|🟩 PASS|
+|Rollup|Bare|TS|import type|dependency|Literate|CJS|❌ FAIL|
+|Rollup|Bare|TS|import type|dependency|Literate|ESM|❌ FAIL|
+|Rollup|Bare|TS|import type|dependency|Literate|TS|❌ FAIL|
+|Rollup|Literate|CJS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|CJS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|CJS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|CJS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|CJS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|CJS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|CJS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|CJS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|static import|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|MJS|static import|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|require()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|require()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|dynamic import()|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|static import|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|static import|dependency|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|import type|sibling|Literate|TS|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Bare|CJS|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Bare|ESM|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Bare|TS|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Literate|CJS|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Literate|ESM|🟩 PASS|
+|Rollup|Literate|TS|import type|dependency|Literate|TS|🟩 PASS|

@@ -55,9 +55,11 @@ importers:
   tests:
     specifiers:
       '@hackbg/ganesha-core': workspace:*
+      '@hackbg/ganesha-nodejs-loader': workspace:*
       mkdirp: ^1.0.4
     dependencies:
       '@hackbg/ganesha-core': link:../core
+      '@hackbg/ganesha-nodejs-loader': link:../nodejs-loader
       mkdirp: 1.0.4
 
   tests/testcases/node/cjs_package_import_cjs:
