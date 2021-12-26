@@ -1,5 +1,12 @@
 # Ganesha Test Matrix
 
+## Current issues
+
+* Using `require()` from TypeScript is not supported, see https://github.com/evanw/esbuild/issues/566
+* Semantics of exports vary between literate and non-literate modules in some cases.
+
+## Overview
+
 This module generates a number of test cases under the `cases/` directory.
 Each case corresponds to a different combination of conditions for importing
 a JavaScript module. After the first run (using `npm run test:matrix`),
