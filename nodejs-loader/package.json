@@ -2,6 +2,7 @@
   "name": "@hackbg/ganesha-nodejs-loader",
   "version": "0.1.0",
   "bin": { "ganesha": "./ganesha" },
+  "main": "loader.mjs",
   "dependencies": {
     "cross-spawn": "^7.0.3",
     "esbuild": "^0.13.0",

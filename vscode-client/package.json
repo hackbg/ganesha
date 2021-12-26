@@ -5,8 +5,8 @@
     "out"
   ],
   "dependencies": {
-    "@hackbg/ganesha-vscode-shared": "^0.0.15",
-    "vscode-languageclient": "^7.1.0-next.4"
+    "@hackbg/ganesha-vscode-shared": "workspace:*",
+    "vscode-languageclient":         "^7.1.0-next.4"
   },
   "devDependencies": {
     "@types/vscode": "latest"
