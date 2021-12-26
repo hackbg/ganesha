@@ -1,6 +1,11 @@
 # Ganesha Test Matrix
 
-![](https://imgs.xkcd.com/comics/standards.png)
+This module generates a number of test cases under the `cases/` directory.
+Each case corresponds to a different combination of conditions for importing
+a JavaScript module. After the first run (using `npm run test:matrix`),
+the full test matrix is printed to the console and saved in in `README.md`.
+You can go into individual directories in `cases/` and run the test with
+`npm run test`.
 
 ## Literate modules
 
@@ -27,6 +32,10 @@ The difficulty comes from making this code available in the surrounding ecosyste
 where multiple code loading methods proliferate. While in CommonJS modules you only
 have `require()`, and, in newer Node versions, the asynchronous `import()`, ES modules
 introduce a static `import` statement, and TypeScript introduces `import type`.
+Furthermore, TypeScript has opinions about when extensions are allowed, further
+complicating the matter.
+
+![](https://imgs.xkcd.com/comics/standards.png)
 
 Below, we try to test all supported combinations of ways to import a module,
 in order to make sure Ganesha fits seamlessly in the module ecosystem.
@@ -60,7 +69,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}"))
+          process.exit(require("${target}").default)
         `)
       }
     },
@@ -90,7 +99,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}"))
+          process.exit(require("${target}").default)
         `)
       }
     },
@@ -135,7 +144,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}"))
+          process.exit(require("${target}").default)
         `)
       }
     },
@@ -210,7 +219,7 @@ const Targets = {
       const main = (literacy.name === 'Literate') ? 'target.cjs.md': 'target.cjs'
       return {
         [main]: literacy(`
-          module.exports = 123
+          module.exports = { default: 123 }
         `)
       }
     },
@@ -240,7 +249,7 @@ const Targets = {
           main
         }),
         [`node_modules/target/${main}`]: literacy(`
-          module.exports = 123
+          module.exports = { default: 123 }
         `)
       }
     },
@@ -395,7 +404,9 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
 
               let targetName
               if (relation === 'sibling') {
-                targetName = `./target`
+                let extension = target.toLowerCase()
+                if (extension === 'esm') extension = 'mjs'
+                targetName = `./target.${extension}`
               } else if (relation === 'dependency') {
                 targetName = 'target'
               } else {

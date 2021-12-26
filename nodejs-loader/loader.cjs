@@ -9,10 +9,13 @@ const sourceMaps    = require('source-map-support')
     , JoyCon        = require('joycon')
     , { parse }     = require('jsonc-parser')
 
-const { parseString } = require('@hackbg/ganesha-core/parse.cjs')
+const { parseString, extensions } = require('@hackbg/ganesha-core/parse.cjs')
 
 const joycon = new JoyCon()
-joycon.addLoader({ test: /\.json$/, loadSync: file => parse(readFileSync(file, 'utf8')) })
+joycon.addLoader({
+  test: /\.json$/,
+  loadSync: file => parse(readFileSync(file, 'utf8'))
+})
 
 const map = {}
 
@@ -25,8 +28,6 @@ const loaders = {
   '.cjs': 'js',
 }
 
-const extensions = Object.keys(loaders)
-
 const RE_LITERATE = /\.(?:ts|js|cjs|mjs).md$/
 
 register()
@@ -34,30 +35,32 @@ register()
 function register () {
   installSourceMapSupport()
   //patchCommonJsLoader(compile)
-  addHook(parseString, { exts: [ '.md' ] })
-  addHook(compile, { exts: extensions })
+  addHook(compile, { exts: extensions, ignoreNodeModules: false })
   function compile (code, filename, format) {
+
+    if (filename.endsWith('.md')) {
+      code     = parseString(code)
+      filename = filename.slice(0, -3)
+    }
 
     const dir = dirname(filename)
     const { target, jsxFactory, jsxFragment } = getOptions(dir)
 
     format = format ?? inferPackageFormat(dir, filename)
 
-    if (format === 'cjs') {
+    if (
+      filename.endsWith('.ts') ||
+      filename.endsWith('.mjs')
+    ) {
 
-      return code
-
-    } else {
-
-
-      const { code: js, warnings, map: jsSourceMap } = transformSync(code, {
+      const { code: compiled, warnings, map: jsSourceMap } = transformSync(code, {
+        format:     'cjs',
         sourcefile: filename,
         sourcemap:  'both',
         loader:     loaders[extname(filename)],
         target:     `node${process.version.slice(1)}`,
         jsxFactory,
         jsxFragment,
-        format
       })
 
       map[filename] = jsSourceMap
@@ -69,9 +72,10 @@ function register () {
         }
       }
 
-      console.log(code, '=>', js)
+      return compiled
 
-      return js
+    } else {
+      return code
     }
 
   }
