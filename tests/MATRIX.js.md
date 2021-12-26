@@ -51,27 +51,29 @@ in the directory of the particular test case.
 const Sources = {
   'CJS': {
     'require()'        (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs source.cjs`
+            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${main}`
           }
         }),
-        'source.cjs': literacy(`
+        [main]: literacy(`
           process.exit(require("${target}"))
         `)
       }
     },
     'dynamic import()' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs source.cjs`
+            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${main}`
           }
         }),
-        'source.cjs': literacy(`
+        [main]: literacy(`
           import("${target}").then(process.exit)
         `)
       }
@@ -79,40 +81,43 @@ const Sources = {
   },
   'MJS': {
     'require()'        (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
           }
         }),
-        'source.mjs': literacy(`
+        [main]: literacy(`
           process.exit(require("${target}"))
         `)
       }
     },
     'dynamic import()' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
           }
         }),
-        'source.mjs': literacy(`
+        [main]: literacy(`
           import("${target}").then(process.exit)
         `)
       }
     },
     'static import'    (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
           }
         }),
-        'source.mjs': literacy(`
+        [main]: literacy(`
           import exitCode from "${target}"
           process.exit(exitCode)
         `)
@@ -121,19 +126,21 @@ const Sources = {
   },
   'TS': {
     'require()'        (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
           }
         }),
-        'source.ts': literacy(`
+        [main]: literacy(`
           process.exit(require("${target}"))
         `)
       }
     },
     'dynamic import()' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
           name: "source",
@@ -141,12 +148,13 @@ const Sources = {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
         }),
-        'source.ts': literacy(`
+        [main]: literacy(`
           import("${target}").then(process.exit)
         `)
       }
     },
     'static import'    (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
           name: "source",
@@ -154,13 +162,14 @@ const Sources = {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
         }),
-        'source.ts': literacy(`
+        [main]: literacy(`
           import exitCode from "${target}"
           process.exit(exitCode)
         `)
       }
     },
     'import type'      (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
           name: "source",
@@ -168,7 +177,7 @@ const Sources = {
             "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
           }
         }),
-        'source.ts': literacy(`
+        [main]: literacy(`
           import type ExitCode from "${target}"
           import exitCode from "${target}"
           const theExitCode: ExitCode = exitCode
@@ -198,22 +207,25 @@ in the directory of the particular test case.
 const Targets = {
   'sibling': {
     'CJS' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.cjs.md': 'target.cjs'
       return {
-        'target.cjs': literacy(`
+        [main]: literacy(`
           module.exports = 123
         `)
       }
     },
     'ESM' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.mjs.md': 'target.mjs'
       return {
-        'target.mjs': literacy(`
+        [main]: literacy(`
           export default 123
         `)
       }
     },
     'TS'  (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.ts.md': 'target.ts'
       return {
-        'target.ts': literacy(`
+        [main]: literacy(`
           export default 123
         `)
       }
@@ -221,34 +233,37 @@ const Targets = {
   },
   'dependency': {
     'CJS' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.cjs.md': 'target.cjs'
       return {
         'node_modules/target/package.json': JSON.stringify({
           name: 'target',
-          main: 'target.cjs'
+          main
         }),
-        'node_modules/target/target.cjs': literacy(`
+        [`node_modules/target/${main}`]: literacy(`
           module.exports = 123
         `)
       }
     },
     'ESM' (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.mjs.md': 'target.mjs'
       return {
         'node_modules/target/package.json': JSON.stringify({
           name: 'target',
-          main: 'target.mjs'
+          main
         }),
-        'node_modules/target/target.mjs': literacy(`
+        [`node_modules/target/${main}`]: literacy(`
           export default 123
         `)
       }
     },
     'TS'  (literacy, target) {
+      const main = (literacy.name === 'Literate') ? 'target.ts.md': 'target.ts'
       return {
         'node_modules/target/package.json': JSON.stringify({
           name: 'target',
-          main: 'target.ts'
+          main
         }),
-        'node_modules/target/target.ts': literacy(`
+        [`node_modules/target/${main}`]: literacy(`
           export default 123
         `)
       }
@@ -353,8 +368,8 @@ const header = `
 let report = `
 ## Test Matrix Results
 
-|Environment|Source module|Import type|Relation type|Target module|Result|'
-|-----------|-------------|-----------|-------------|-------------|------|'
+|Environment|Source module|Import type|Relation type|Target module|Result|
+|-----------|-------------|-----------|-------------|-------------|------|
 `
 
 let i = 0
@@ -386,10 +401,18 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
                 throw new Error(`unknown relation ${relation}`)
               }
 
-              for (const [name, content] of Object.entries({
-                ...setupSource(setSourceLiteracy, targetName),
-                ...setupTarget(setTargetLiteracy)
-              })) {
+              for (let [name, content] of Object.entries(
+                setupSource(setSourceLiteracy, targetName)
+              )) {
+                const path = resolve(process.cwd(), name)
+                console.log('writing', path)
+                mkdirp(dirname(path))
+                writeFileSync(path, content)
+              }
+
+              for (let [name, content] of Object.entries(
+                setupTarget(setTargetLiteracy)
+              )) {
                 const path = resolve(process.cwd(), name)
                 console.log('writing', path)
                 mkdirp(dirname(path))
@@ -397,7 +420,7 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
               }
 
               const result = runTestInEnvironment()
-              report += `|${environment}|${sourceLiteracy}|${source}|${importType}|${relation}|${targetLiteracy}|${target}|`
+              report += `|${environment}|${sourceLiteracy} ${source}|${importType}|${relation}|${targetLiteracy} ${target}|`
               if (result === true) {
                 ok++
                 report += '🟩 PASS'
