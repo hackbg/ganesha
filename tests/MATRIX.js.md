@@ -50,7 +50,7 @@ in the directory of the particular test case.
 ```javascript
 const Sources = {
   'CJS': {
-    'require()'        (literacy, target) {
+    'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
         'package.json': JSON.stringify({
@@ -64,7 +64,7 @@ const Sources = {
         `)
       }
     },
-    'dynamic import()' (literacy, target) {
+    'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
         'package.json': JSON.stringify({
@@ -80,7 +80,7 @@ const Sources = {
     }
   },
   'MJS': {
-    'require()'        (literacy, target) {
+    'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
         'package.json': JSON.stringify({
@@ -94,7 +94,7 @@ const Sources = {
         `)
       }
     },
-    'dynamic import()' (literacy, target) {
+    'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
         'package.json': JSON.stringify({
@@ -125,7 +125,7 @@ const Sources = {
     },
   },
   'TS': {
-    'require()'        (literacy, target) {
+    'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
@@ -139,7 +139,7 @@ const Sources = {
         `)
       }
     },
-    'dynamic import()' (literacy, target) {
+    'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
         'package.json': JSON.stringify({
@@ -387,7 +387,8 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
               )
 
               const testCase =
-                `${environment}_${sourceLiteracy}_${source}_${relation}_${targetLiteracy}_${target}`
+                `${environment}_${sourceLiteracy}_${source}_${importType}_${relation}_${targetLiteracy}_${target}`
+                  .replace(/ /g,'_')
 
               mkdirp(testCase)
               process.chdir(testCase)
