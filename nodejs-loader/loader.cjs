@@ -1,15 +1,14 @@
 const { dirname, extname } = require('path')
     , { readFileSync }     = require('fs')
-    , { readFile }         = require('fs/promises')
     , { Module }           = require('module')
 
-const sourceMaps    = require('source-map-support')
-    , { transformSync } = require('esbuild')
+const { transformSync } = require('esbuild')
     , { addHook }   = require('pirates')
     , JoyCon        = require('joycon')
     , { parse }     = require('jsonc-parser')
 
 const { parseString, extensions } = require('@hackbg/ganesha-core/parse.cjs')
+const { installSourceMapSupport, addSourceMap } = require('./sourcemaps.cjs')
 
 const joycon = new JoyCon()
 joycon.addLoader({
@@ -17,26 +16,19 @@ joycon.addLoader({
   loadSync: file => parse(readFileSync(file, 'utf8'))
 })
 
-const map = {}
+const USAGE = `
+  This module cannot be run as the main module.
+  You need to use it with:
+    node -r path/to/this/module path/to/your/script
+`
 
-const loaders = {
-  '.js':  'js',
-  '.jsx': 'jsx',
-  '.ts':  'ts',
-  '.tsx': 'tsx',
-  '.mjs': 'js',
-  '.cjs': 'js',
-}
+module.exports = function register () {
 
-const RE_LITERATE = /\.(?:ts|js|cjs|mjs).md$/
-
-register()
-
-function register () {
   installSourceMapSupport()
+
   //patchCommonJsLoader(compile)
-  addHook(compile, { exts: extensions, ignoreNodeModules: false })
-  function compile (code, filename, format) {
+
+  addHook(function compile (code, filename, format) {
 
     if (filename.endsWith('.md')) {
       code     = parseString(code)
@@ -57,13 +49,18 @@ function register () {
         format:     'cjs',
         sourcefile: filename,
         sourcemap:  'both',
-        loader:     loaders[extname(filename)],
         target:     `node${process.version.slice(1)}`,
+        loader:     {'.js':  'js',
+                     '.jsx': 'jsx',
+                     '.ts':  'ts',
+                     '.tsx': 'tsx',
+                     '.mjs': 'js',
+                     '.cjs': 'js',}[extname(filename)],
         jsxFactory,
         jsxFragment,
       })
 
-      map[filename] = jsSourceMap
+      addSourceMap(filename, jsSourceMap)
 
       if (warnings && warnings.length > 0) {
         for (const warning of warnings) {
@@ -78,7 +75,11 @@ function register () {
       return code
     }
 
-  }
+  }, {
+    exts: extensions,
+    ignoreNodeModules: false
+  })
+
 }
 
 function getOptions (cwd) {
@@ -100,17 +101,6 @@ function inferPackageFormat (cwd, filename) {
   return data && data.type === 'module' ? 'esm' : 'cjs'
 }
 
-function installSourceMapSupport () {
-  sourceMaps.install({
-    handleUncaughtExceptions: false,
-    environment: 'node',
-    retrieveSourceMap(file) {
-      if (map[file]) return { url: file, map: map[file], }
-      return null
-    }
-  })
-}
-
 /** Patch the Node CJS loader to suppress the ESM error
   * https://github.com/nodejs/node/blob/069b5df/lib/internal/modules/cjs/loader.js#L1125
   * As per https://github.com/standard-things/esm/issues/868#issuecomment-594480715 */
@@ -129,4 +119,10 @@ function patchCommonJsLoader (compile) {
       module._compile(content, filename)
     }
   }
+}
+
+if (require.main === module) {
+  throw new Error(USAGE)
+} else if (require.main === undefined) {
+  module.exports()
 }

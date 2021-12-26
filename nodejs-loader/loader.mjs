@@ -4,16 +4,9 @@ import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
 import { parseString } from '@hackbg/ganesha-core/parse.cjs'
 import frontMatter from 'front-matter'
-import sourceMapSupport from 'source-map-support'
 
-const sourceMaps = {}
-;(function installSourceMapSupport() {
-  sourceMapSupport.install({
-    handleUncaughtExceptions: false,
-    environment: 'node',
-    retrieveSourceMap(url) {
-      if (sourceMaps[url]) return { url, map: sourceMaps[url] }
-      return null } }) })()
+import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
+installSourceMapSupport()
 
 const trace = (...args) => process.env.LITERATE_DEBUG && console.debug(...args)
 
@@ -189,7 +182,10 @@ export function getSource (url, context, defaultGetSource) {
     if (existsSync(packageJSONPath)) {
       const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
       if (packageJSON.main) {
-        url = pathToFileURL(resolvePath(path, packageJSON.main)) } } }
+        url = pathToFileURL(resolvePath(path, packageJSON.main))
+      }
+    }
+  }
 
   return defaultGetSource(url, context, defaultGetSource)
 }
@@ -203,15 +199,18 @@ export function transformSource (src, context, defaultTransformSource) {
   /// Transpile TypeScript
 
   if (isLiterateTypeScript(context.url)) {
-    return { source: transformTypeScript(parseString(src.toString()), context) } }
+    return { source: transformTypeScript(parseString(src.toString()), context) }
+  }
   if (isTypescript(context.url)) {
-    return { source: transformTypeScript(src.toString(), context) } }
+    return { source: transformTypeScript(src.toString(), context) }
+  }
 
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
 
   if (isMarkdown(context.url)) {
-    return { source: parseString(src.toString()) } }
+    return { source: parseString(src.toString()) }
+  }
 
   // Let Node.js handle all other sources.
 
@@ -230,16 +229,19 @@ export function transformTypeScript (source, context) {
       sourcemap: 'both',
       loader: 'ts',
       target: 'esnext',
-      format: format === 'module' ? 'esm' : 'cjs' })
+      format: format === 'module' ? 'esm' : 'cjs'
+    })
 
-  sourceMaps[url] = sourceMap
+  addSourceMap(url, sourceMap)
 
   /// Print TypeScript errors
 
   if (warnings && warnings.length > 0) {
     for (const warning of warnings) {
       console.log(warning.location)
-      console.log(warning.text) } }
+      console.log(warning.text)
+    }
+  }
 
   return code
 }
