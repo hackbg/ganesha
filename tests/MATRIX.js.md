@@ -57,6 +57,8 @@ Each function returns the names and contents of files that will be created
 in the directory of the particular test case.
 
 ```javascript
+const node      = `node --unhandled-rejections=throw`
+const mjsLoader = `--experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs`
 const Sources = {
   'CJS': {
     'require'        (literacy, target) {
@@ -65,11 +67,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").default)
+          process.exit(require("${target}").exitCode)
         `)
       }
     },
@@ -79,11 +81,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node -r @hackbg/ganesha-nodejs-loader/loader.cjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.default))
+          import("${target}").then(target=>process.exit(target.exitCode))
         `)
       }
     }
@@ -95,11 +97,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").default)
+          process.exit(require("${target}").exitCode)
         `)
       }
     },
@@ -109,11 +111,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.default))
+          import("${target}").then(target=>process.exit(target.exitCode))
         `)
       }
     },
@@ -123,11 +125,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import exitCode from "${target}"
+          import { exitCode } from "${target}"
           process.exit(exitCode)
         `)
       }
@@ -140,11 +142,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs ${main}`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").default)
+          process.exit(require("${target}").exitCode)
         `)
       }
     },
@@ -154,11 +156,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.default))
+          import("${target}").then(target=>process.exit(target.exitCode))
         `)
       }
     },
@@ -168,11 +170,11 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import exitCode from "${target}"
+          import { exitCode } from "${target}"
           process.exit(exitCode)
         `)
       }
@@ -183,12 +185,12 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+            "test": `${node} ${mjsLoader} ${main}`
           }
         }),
         [main]: literacy(`
-          import type ExitCode from "${target}"
-          import exitCode from "${target}"
+          import type { exitCode as ExitCode } from "${target}"
+          import { exitCode } from "${target}"
           const theExitCode: ExitCode = exitCode
           process.exit(exitCode)
         `)
@@ -219,7 +221,7 @@ const Targets = {
       const main = (literacy.name === 'Literate') ? 'target.cjs.md': 'target.cjs'
       return {
         [main]: literacy(`
-          module.exports = 123
+          module.exports.exitCode = 123
         `)
       }
     },
@@ -227,7 +229,7 @@ const Targets = {
       const main = (literacy.name === 'Literate') ? 'target.mjs.md': 'target.mjs'
       return {
         [main]: literacy(`
-          export default 123
+          export const exitCode = 123
         `)
       }
     },
@@ -235,7 +237,7 @@ const Targets = {
       const main = (literacy.name === 'Literate') ? 'target.ts.md': 'target.ts'
       return {
         [main]: literacy(`
-          export default 123
+          export const exitCode = 123
         `)
       }
     },
@@ -249,7 +251,7 @@ const Targets = {
           main
         }),
         [`node_modules/target/${main}`]: literacy(`
-          module.exports = 123
+          module.exports.exitCode = 123
         `)
       }
     },
@@ -261,7 +263,7 @@ const Targets = {
           main
         }),
         [`node_modules/target/${main}`]: literacy(`
-          export default 123
+          export const exitCode = 123
         `)
       }
     },
@@ -273,7 +275,7 @@ const Targets = {
           main
         }),
         [`node_modules/target/${main}`]: literacy(`
-          export default 123
+          export const exitCode = 123
         `)
       }
     },
@@ -323,11 +325,9 @@ const Environments = {
     spawnSync('cat', ['package.json'], { stdio })
     const {status, stdout, stderr} = spawnSync('npm', ['run', 'test'], { stdio })
     if (status === 123) {
-      return true
+      return [true]
     } else {
-      process.stdout.write(stdout)
-      process.stderr.write(stderr)
-      return false
+      return [false, status, stdout, stderr]
     }
   },
 
@@ -344,11 +344,9 @@ const Environments = {
     const {status, stdout, stderr} = spawnSync(vite, ['build'], { stdio })
     if (status === 0) {
       /* TODO check that one of the output files contains the string "123" */
-      return true
+      return [true]
     } else {
-      process.stdout.write(stdout)
-      process.stderr.write(stderr)
-      return false
+      return [false, status, stdout, stderr]
     }
   },
 
@@ -382,6 +380,7 @@ let ok    = 0
 let fail  = []
 let todo  = 0
 let total = 0
+let failures = {}
 
 const header = `
 # Ganesha
@@ -419,6 +418,7 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
               if (relation === 'sibling') {
                 let extension = target.toLowerCase()
                 if (extension === 'esm') extension = 'mjs'
+                if (targetLiteracy === 'Literate') extension += `.md`
                 targetName = `./target.${extension}`
               } else if (relation === 'dependency') {
                 targetName = 'target'
@@ -426,25 +426,17 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
                 throw new Error(`unknown relation ${relation}`)
               }
 
-              for (let [name, content] of Object.entries(
-                setupSource(setSourceLiteracy, targetName)
-              )) {
+              for (let [name, content] of Object.entries({
+                ...setupSource(setSourceLiteracy, targetName),
+                ...setupTarget(setTargetLiteracy)
+              })) {
                 const path = resolve(process.cwd(), name)
-                console.log('writing', path)
+                //console.log('writing', path)
                 mkdirp(dirname(path))
                 writeFileSync(path, content)
               }
 
-              for (let [name, content] of Object.entries(
-                setupTarget(setTargetLiteracy)
-              )) {
-                const path = resolve(process.cwd(), name)
-                console.log('writing', path)
-                mkdirp(dirname(path))
-                writeFileSync(path, content)
-              }
-
-              const result = runTestInEnvironment()
+              const [result, status, stdout, stderr] = runTestInEnvironment()
               report += `|${environment}|${sourceLiteracy} ${source}|${importType}|${relation}|${targetLiteracy} ${target}|`
               if (result === true) {
                 ok++
@@ -453,7 +445,10 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
               } else if (result === false) {
                 fail++
                 report += '❌ FAIL'
-                console.log('fail')
+                console.log(`fail: expected exit code 123, got ${status}`)
+                failures[testCase] = { status, stdout, stderr }
+                process.stdout.write(stdout)
+                process.stderr.write(stderr)
               }
               report += '|\n'
 
@@ -468,6 +463,13 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
 
 console.log(report)
 console.log({ total: i, ok, fail })
+
+for (const [testCase, { status, stdout, stderr }] of Object.entries(failures)) {
+  report += '\n### '+ testCase
+  report += '\n```\n' + status + '\n```\n'
+  report += '\n```\n' + stdout + '\n```\n'
+  report += '\n```\n' + stderr + '\n```\n'
+}
 
 const output = require('path').resolve(__dirname, 'README.md')
 writeFileSync(output, `${header}\n${report}`)
