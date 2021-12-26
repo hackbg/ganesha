@@ -74,7 +74,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(process.exit)
+          import("${target}").then(target=>process.exit(target.default))
         `)
       }
     }
@@ -104,7 +104,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(process.exit)
+          import("${target}").then(target=>process.exit(target.default))
         `)
       }
     },
@@ -149,7 +149,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(process.exit)
+          import("${target}").then(target=>process.exit(target.default))
         `)
       }
     },

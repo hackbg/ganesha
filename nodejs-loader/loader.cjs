@@ -43,24 +43,36 @@ function register () {
 
     format = format ?? inferPackageFormat(dir, filename)
 
-    const { code: js, warnings, map: jsSourceMap } = transformSync(code, {
-      sourcefile: filename,
-      sourcemap:  'both',
-      loader:     loaders[extname(filename)],
-      target:     `node${process.version.slice(1)}`,
-      jsxFactory, jsxFragment, format
-    })
+    if (format === 'cjs') {
 
-    map[filename] = jsSourceMap
+      return code
 
-    if (warnings && warnings.length > 0) {
-      for (const warning of warnings) {
-        console.log(warning.location)
-        console.log(warning.text)
+    } else {
+
+
+      const { code: js, warnings, map: jsSourceMap } = transformSync(code, {
+        sourcefile: filename,
+        sourcemap:  'both',
+        loader:     loaders[extname(filename)],
+        target:     `node${process.version.slice(1)}`,
+        jsxFactory,
+        jsxFragment,
+        format
+      })
+
+      map[filename] = jsSourceMap
+
+      if (warnings && warnings.length > 0) {
+        for (const warning of warnings) {
+          console.log(warning.location)
+          console.log(warning.text)
+        }
       }
-    }
 
-    return js
+      console.log(code, '=>', js)
+
+      return js
+    }
 
   }
 }
@@ -77,7 +89,9 @@ function getOptions (cwd) {
 
 function inferPackageFormat (cwd, filename) {
   if (filename.endsWith('.mjs')) return 'esm'
+  if (filename.endsWith('.mjs.md')) return 'esm'
   if (filename.endsWith('.cjs')) return 'cjs'
+  if (filename.endsWith('.cjs.md')) return 'cjs'
   const { data } = joycon.loadSync(['package.json'], cwd)
   return data && data.type === 'module' ? 'esm' : 'cjs'
 }

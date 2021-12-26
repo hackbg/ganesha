@@ -24,8 +24,8 @@
 |Node|Bare CJS|dynamic import()|sibling|Literate CJS|❌ FAIL|
 |Node|Bare CJS|dynamic import()|sibling|Literate ESM|❌ FAIL|
 |Node|Bare CJS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Bare CJS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Bare CJS|dynamic import()|dependency|Bare ESM|❌ FAIL|
+|Node|Bare CJS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Bare CJS|dynamic import()|dependency|Bare ESM|🟩 PASS|
 |Node|Bare CJS|dynamic import()|dependency|Bare TS|❌ FAIL|
 |Node|Bare CJS|dynamic import()|dependency|Literate CJS|❌ FAIL|
 |Node|Bare CJS|dynamic import()|dependency|Literate ESM|❌ FAIL|
@@ -42,18 +42,18 @@
 |Node|Bare MJS|require()|dependency|Literate CJS|❌ FAIL|
 |Node|Bare MJS|require()|dependency|Literate ESM|❌ FAIL|
 |Node|Bare MJS|require()|dependency|Literate TS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|sibling|Bare CJS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|sibling|Bare ESM|❌ FAIL|
-|Node|Bare MJS|dynamic import()|sibling|Bare TS|❌ FAIL|
+|Node|Bare MJS|dynamic import()|sibling|Bare CJS|🟩 PASS|
+|Node|Bare MJS|dynamic import()|sibling|Bare ESM|🟩 PASS|
+|Node|Bare MJS|dynamic import()|sibling|Bare TS|🟩 PASS|
 |Node|Bare MJS|dynamic import()|sibling|Literate CJS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|sibling|Literate ESM|❌ FAIL|
-|Node|Bare MJS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|dependency|Bare ESM|❌ FAIL|
-|Node|Bare MJS|dynamic import()|dependency|Bare TS|❌ FAIL|
+|Node|Bare MJS|dynamic import()|sibling|Literate ESM|🟩 PASS|
+|Node|Bare MJS|dynamic import()|sibling|Literate TS|🟩 PASS|
+|Node|Bare MJS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Bare MJS|dynamic import()|dependency|Bare ESM|🟩 PASS|
+|Node|Bare MJS|dynamic import()|dependency|Bare TS|🟩 PASS|
 |Node|Bare MJS|dynamic import()|dependency|Literate CJS|❌ FAIL|
-|Node|Bare MJS|dynamic import()|dependency|Literate ESM|❌ FAIL|
-|Node|Bare MJS|dynamic import()|dependency|Literate TS|❌ FAIL|
+|Node|Bare MJS|dynamic import()|dependency|Literate ESM|🟩 PASS|
+|Node|Bare MJS|dynamic import()|dependency|Literate TS|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare MJS|static import|sibling|Bare TS|🟩 PASS|
@@ -78,18 +78,18 @@
 |Node|Bare TS|require()|dependency|Literate CJS|❌ FAIL|
 |Node|Bare TS|require()|dependency|Literate ESM|❌ FAIL|
 |Node|Bare TS|require()|dependency|Literate TS|❌ FAIL|
-|Node|Bare TS|dynamic import()|sibling|Bare CJS|❌ FAIL|
-|Node|Bare TS|dynamic import()|sibling|Bare ESM|❌ FAIL|
-|Node|Bare TS|dynamic import()|sibling|Bare TS|❌ FAIL|
+|Node|Bare TS|dynamic import()|sibling|Bare CJS|🟩 PASS|
+|Node|Bare TS|dynamic import()|sibling|Bare ESM|🟩 PASS|
+|Node|Bare TS|dynamic import()|sibling|Bare TS|🟩 PASS|
 |Node|Bare TS|dynamic import()|sibling|Literate CJS|❌ FAIL|
-|Node|Bare TS|dynamic import()|sibling|Literate ESM|❌ FAIL|
-|Node|Bare TS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Bare TS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Bare TS|dynamic import()|dependency|Bare ESM|❌ FAIL|
-|Node|Bare TS|dynamic import()|dependency|Bare TS|❌ FAIL|
+|Node|Bare TS|dynamic import()|sibling|Literate ESM|🟩 PASS|
+|Node|Bare TS|dynamic import()|sibling|Literate TS|🟩 PASS|
+|Node|Bare TS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Bare TS|dynamic import()|dependency|Bare ESM|🟩 PASS|
+|Node|Bare TS|dynamic import()|dependency|Bare TS|🟩 PASS|
 |Node|Bare TS|dynamic import()|dependency|Literate CJS|❌ FAIL|
-|Node|Bare TS|dynamic import()|dependency|Literate ESM|❌ FAIL|
-|Node|Bare TS|dynamic import()|dependency|Literate TS|❌ FAIL|
+|Node|Bare TS|dynamic import()|dependency|Literate ESM|🟩 PASS|
+|Node|Bare TS|dynamic import()|dependency|Literate TS|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Bare TS|static import|sibling|Bare TS|🟩 PASS|
@@ -132,8 +132,8 @@
 |Node|Literate CJS|dynamic import()|sibling|Literate CJS|❌ FAIL|
 |Node|Literate CJS|dynamic import()|sibling|Literate ESM|❌ FAIL|
 |Node|Literate CJS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Literate CJS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Literate CJS|dynamic import()|dependency|Bare ESM|❌ FAIL|
+|Node|Literate CJS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Literate CJS|dynamic import()|dependency|Bare ESM|🟩 PASS|
 |Node|Literate CJS|dynamic import()|dependency|Bare TS|❌ FAIL|
 |Node|Literate CJS|dynamic import()|dependency|Literate CJS|❌ FAIL|
 |Node|Literate CJS|dynamic import()|dependency|Literate ESM|❌ FAIL|
@@ -150,18 +150,18 @@
 |Node|Literate MJS|require()|dependency|Literate CJS|❌ FAIL|
 |Node|Literate MJS|require()|dependency|Literate ESM|❌ FAIL|
 |Node|Literate MJS|require()|dependency|Literate TS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|sibling|Bare CJS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|sibling|Bare ESM|❌ FAIL|
-|Node|Literate MJS|dynamic import()|sibling|Bare TS|❌ FAIL|
+|Node|Literate MJS|dynamic import()|sibling|Bare CJS|🟩 PASS|
+|Node|Literate MJS|dynamic import()|sibling|Bare ESM|🟩 PASS|
+|Node|Literate MJS|dynamic import()|sibling|Bare TS|🟩 PASS|
 |Node|Literate MJS|dynamic import()|sibling|Literate CJS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|sibling|Literate ESM|❌ FAIL|
-|Node|Literate MJS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|dependency|Bare ESM|❌ FAIL|
-|Node|Literate MJS|dynamic import()|dependency|Bare TS|❌ FAIL|
+|Node|Literate MJS|dynamic import()|sibling|Literate ESM|🟩 PASS|
+|Node|Literate MJS|dynamic import()|sibling|Literate TS|🟩 PASS|
+|Node|Literate MJS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Literate MJS|dynamic import()|dependency|Bare ESM|🟩 PASS|
+|Node|Literate MJS|dynamic import()|dependency|Bare TS|🟩 PASS|
 |Node|Literate MJS|dynamic import()|dependency|Literate CJS|❌ FAIL|
-|Node|Literate MJS|dynamic import()|dependency|Literate ESM|❌ FAIL|
-|Node|Literate MJS|dynamic import()|dependency|Literate TS|❌ FAIL|
+|Node|Literate MJS|dynamic import()|dependency|Literate ESM|🟩 PASS|
+|Node|Literate MJS|dynamic import()|dependency|Literate TS|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate MJS|static import|sibling|Bare TS|🟩 PASS|
@@ -186,18 +186,18 @@
 |Node|Literate TS|require()|dependency|Literate CJS|❌ FAIL|
 |Node|Literate TS|require()|dependency|Literate ESM|❌ FAIL|
 |Node|Literate TS|require()|dependency|Literate TS|❌ FAIL|
-|Node|Literate TS|dynamic import()|sibling|Bare CJS|❌ FAIL|
-|Node|Literate TS|dynamic import()|sibling|Bare ESM|❌ FAIL|
-|Node|Literate TS|dynamic import()|sibling|Bare TS|❌ FAIL|
+|Node|Literate TS|dynamic import()|sibling|Bare CJS|🟩 PASS|
+|Node|Literate TS|dynamic import()|sibling|Bare ESM|🟩 PASS|
+|Node|Literate TS|dynamic import()|sibling|Bare TS|🟩 PASS|
 |Node|Literate TS|dynamic import()|sibling|Literate CJS|❌ FAIL|
-|Node|Literate TS|dynamic import()|sibling|Literate ESM|❌ FAIL|
-|Node|Literate TS|dynamic import()|sibling|Literate TS|❌ FAIL|
-|Node|Literate TS|dynamic import()|dependency|Bare CJS|❌ FAIL|
-|Node|Literate TS|dynamic import()|dependency|Bare ESM|❌ FAIL|
-|Node|Literate TS|dynamic import()|dependency|Bare TS|❌ FAIL|
+|Node|Literate TS|dynamic import()|sibling|Literate ESM|🟩 PASS|
+|Node|Literate TS|dynamic import()|sibling|Literate TS|🟩 PASS|
+|Node|Literate TS|dynamic import()|dependency|Bare CJS|🟩 PASS|
+|Node|Literate TS|dynamic import()|dependency|Bare ESM|🟩 PASS|
+|Node|Literate TS|dynamic import()|dependency|Bare TS|🟩 PASS|
 |Node|Literate TS|dynamic import()|dependency|Literate CJS|❌ FAIL|
-|Node|Literate TS|dynamic import()|dependency|Literate ESM|❌ FAIL|
-|Node|Literate TS|dynamic import()|dependency|Literate TS|❌ FAIL|
+|Node|Literate TS|dynamic import()|dependency|Literate ESM|🟩 PASS|
+|Node|Literate TS|dynamic import()|dependency|Literate TS|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare CJS|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare ESM|🟩 PASS|
 |Node|Literate TS|static import|sibling|Bare TS|🟩 PASS|
