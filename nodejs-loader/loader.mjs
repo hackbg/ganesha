@@ -1,10 +1,9 @@
 import { URL, pathToFileURL, fileURLToPath } from 'url'
-import { readFileSync, existsSync, statSync } from 'fs'
+import { readFileSync, existsSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
 import { transformSync } from 'esbuild'
-import frontMatter from 'front-matter'
 
-import { parseString } from '@hackbg/ganesha-core/parse.cjs'
+import { parseString } from '@hackbg/ganesha-core'
 
 import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
 installSourceMapSupport()
@@ -12,34 +11,17 @@ installSourceMapSupport()
 import { register } from './loader.cjs'
 register()
 
-const trace = (...args) => process.env.LITERATE_DEBUG && console.debug(...args)
+import { trace } from './trace.cjs'
 
-const baseURL   = pathToFileURL(`${process.cwd()}/`).href
-    , isWindows = process.platform === "win32"
-
-const RE_LITERATE = /\.(?:ts|js|cjs|mjs).md$/
-    , isLiterate  = x => RE_LITERATE.test(x)
-
-const RE_LITERATE_MODULE = /\.(?:ts|js|mjs).md$/
-    , isLiterateModule   = x => RE_LITERATE_MODULE.test(x)
-
-const RE_LITERATE_TYPESCRIPT = /\.ts.md$/
-    , isLiterateTypeScript   = x => RE_LITERATE_TYPESCRIPT.test(x)
-
-const RE_MD      = /\.md$/
-    , isMarkdown = x => RE_MD.test(x)
-
-const RE_TS        = /\.ts(\.md)?$/
-    , isTypescript = x => RE_TS.test(x)
-
-const FM_TYPES  = ['commonjs', 'ecmascript', 'typescript']
-    , getFMType = path => frontMatter(readFileSync(path, 'utf8')).attributes.literate
-
-const isPathImport = x => x[0] === '.' || x.startsWith('file:')
-
-const extensions = ['.ts.md', '.mjs.md', '.cjs.md', '.js.md', '.ts', '.mjs', '.js', '.cjs', '.md']
-
-const isDirectory = path => existsSync(path) && statSync(path).isDirectory()
+import {
+  baseURL,
+  extensions,
+  isPathImport, isDirectory,
+  isMarkdown, isLiterate, isLiterateModule,
+  isTypescript, isLiterateTypeScript,
+  isValidFMType, getFMType,
+  isWindows,
+} from './util.mjs'
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
@@ -72,7 +54,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
   /// Or, they can be stored in regular Markdown files
   /// and identified as literate by their front matter.
 
-  if (isMarkdown(specifier) && FM_TYPES.includes(getFMType(path))) {
+  if (isMarkdown(specifier) && isValidFMType(getFMType(path))) {
     return { url }
   }
 
@@ -141,7 +123,7 @@ export function getFormat (url, context, defaultGetFormat) {
     if (url.startsWith('file://')) {
       if (isMarkdown(url)) {
         const fmType = getFMType(path)
-        if (FM_TYPES.includes(fmType)) {
+        if (isValidFMType(fmType)) {
           if (fmType === 'commonjs') {
             return { format: 'commonjs' }
           } else {

@@ -63,21 +63,3 @@ function parseString (source = "") {
   return outputLines.map(([line, isCode])=>isCode?line:`/// ${line}`).join('\n')
 
 }
-
-function isCode (source = "", lang = "", start = 0) {
-  return source.slice(start, start + lang.length) === lang && lang;
-}
-
-function isBlock(source = "", cursor = 0) {
-  return source.slice(cursor, cursor + 3) === '```';
-}
-
-/*
- *
-      content: '',
-      language: codeBlocks[0].language,
-      location: {
-        start: codeBlocks[0].location.start,
-        end:   codeBlocks[codeBlocks.length-1].location.end
-      },
-*/

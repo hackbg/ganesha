@@ -4,6 +4,7 @@ const spawnSync = require('cross-spawn').sync
 const [node, ganesha, ...argv] = process.argv
 process.argv = [node, ...argv] // remove Ganesha
 process.exit(spawnSync(node, [
-  '--experimental-loader', resolve(__dirname,'loader.mjs'),
+  '-r', resolve(__dirname, 'warning.cjs'),
+  '--experimental-loader', resolve(__dirname, 'loader.mjs'),
   ...argv
 ], { stdio: 'inherit' }).status)
