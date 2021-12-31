@@ -1,14 +1,13 @@
 {
   "name": "@hackbg/ganesha-typescript-patch",
-  "version": "0.0.15",
-  "peerDependencies": {
-    "typescript": "^4.5"
+  "version": "0.1.0",
+  "scripts": {
+    "foo": "node foo.js"
   },
   "dependencies": {
     "@hackbg/ganesha-core": "workspace:*"
   },
-  "scripts": {
-    "foo": "node foo.js"
+  "peerDependencies": {
+    "typescript": "^4.5"
   }
 }
-

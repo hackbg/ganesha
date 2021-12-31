@@ -1,12 +1,8 @@
 {
-  "name": "@hackbg/ganesha-vscode-shared",
-  "version": "0.0.15",
-  "main": "out/index.js",
-  "files": [
-    "out"
-  ],
-  "dependencies": {
-  },
+  "name":    "@hackbg/ganesha-vscode-shared",
+  "version": "0.1.0",
+  "main":    "out/index.js",
+  "files":   ["out"],
   "devDependencies": {
     "typescript": "latest"
   }

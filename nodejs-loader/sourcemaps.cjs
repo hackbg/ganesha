@@ -1,21 +1,28 @@
 const sourceMapSupport = require('source-map-support')
+    , sourceMaps = {}
+
 let sourceMapSupportInstalled = false
-const sourceMaps = {}
+
 module.exports.installSourceMapSupport = function installSourceMapSupport () {
+
   if (sourceMapSupportInstalled) return
+
   sourceMapSupport.install({
     handleUncaughtExceptions: false,
-    environment: 'node',
-    retrieveSourceMap(file) {
-      if (sourceMaps[file]) return {
-        url: file,
-        map: sourceMaps[file],
+    environment:              'node',
+    retrieveSourceMap (url) {
+      if (sourceMaps[url]) {
+        return { url, map: sourceMaps[url], }
+      } else {
+        return null
       }
-      return null
     }
   })
+
   sourceMapSupportInstalled = true
+
 }
+
 module.exports.addSourceMap = function (filename, sourceMap) {
   sourceMaps[filename] = sourceMap
 }

@@ -16,6 +16,9 @@ module.exports = function ganeshaPlugin (typescript = true) {
     name: 'rollup-plugin-ganesha',
 
     resolveId (source, importer) {
+      if (!importer) {
+        return null
+      }
       const resolved = resolve(dirname(importer), source)
       if (existsSync(resolved)) {
         return resolved

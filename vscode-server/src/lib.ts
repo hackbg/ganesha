@@ -1,15 +1,9 @@
 import * as fg from 'fast-glob'
-
 import * as path from 'path'
-
 import { LanguageServiceHost } from 'typescript'
-
-import { parse, ParsedMarkdown as CodeBlock, Language } from '@hackbg/ganesha-vscode-shared'
-
+import { Language } from '@hackbg/ganesha-vscode-shared'
 import { URI } from 'vscode-uri'
-
 import type { FoldingRange, TextEdit, Diagnostic } from 'vscode-languageserver'
-
 import { createLanguageService } from 'vscode-typescript-languageservice'
 
 import {
@@ -28,6 +22,8 @@ import {
 } from 'vscode-languageserver/node'
 
 export type Typescript = typeof import('typescript/lib/tsserverlibrary')
+
+export interface Position { offset: number; line: number; column: number; }
 
 export function registerFeatures (
   connection: Connection,
@@ -176,6 +172,7 @@ export function registerFeatures (
 
 }
 
+export type Language = 'jsx' | 'js' | 'javascript' | 'tsx' | 'ts' | 'typescript';
 export interface VirtualFile { uri: string; lang: Language }
 
 type Snapshot = { version: string; snapshot: ts.IScriptSnapshot }

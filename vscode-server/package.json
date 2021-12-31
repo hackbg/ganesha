@@ -1,6 +1,6 @@
 {
-  "name": "@hackbg/ganesha-vscode-server",
-  "version": "0.0.15",
+  "name":    "@hackbg/ganesha-vscode-server",
+  "version": "0.1.0",
   "dependencies": {
     "@hackbg/ganesha-core":             "workspace:*",
     "@hackbg/ganesha-vscode-shared":    "workspace:*",

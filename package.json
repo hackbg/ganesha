@@ -34,11 +34,11 @@
     "vsce":                          "latest"
   },
   "scripts": {
-    "test": "tap --no-check-coverage tests/test.cjs",
+    "test":        "tap --no-check-coverage tests/test.cjs",
     "test:matrix": "tap --no-coverage tests/test-matrix.js",
-    "build": "tsc -b tsconfig.build.json",
-    "package": "vsce package --yarn",
-    "watch": "tsctens -b tsconfig.build.json -w"
+    "build":       "tsc -b tsconfig.build.json",
+    "package":     "vsce package --yarn",
+    "watch":       "tsctens -b tsconfig.build.json -w"
   },
   "packages": [
     "./core",

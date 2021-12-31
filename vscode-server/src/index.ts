@@ -1,7 +1,5 @@
 import { TextDocument } from 'vscode-languageserver-textdocument'
-
 import type { InitializeResult, InitializeParams } from 'vscode-languageserver/node'
-
 import {
   createConnection,
   ProposedFeatures,
@@ -9,19 +7,13 @@ import {
   TextDocuments,
   DidChangeConfigurationNotification,
 } from 'vscode-languageserver/node'
-
 import type { ServerInitializationOptions } from '@hackbg/ganesha-vscode-shared'
-
 import type { Typescript } from './lib'
-
 import { registerFeatures, uriToFsPath } from './lib'
 
 let options: ServerInitializationOptions;
-
 let folders: string[] = [];
-
 const connection = createConnection(ProposedFeatures.all);
-
 const documents = new TextDocuments(TextDocument);
 
 connection.onInitialize(function onInitialize ({
