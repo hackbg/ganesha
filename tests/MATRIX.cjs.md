@@ -67,8 +67,8 @@ Each function returns the names and contents of files that will be created
 in the directory of the particular test case.
 
 ```javascript
-const node      = `node --unhandled-rejections=throw`
-const mjsLoader = `--experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs`
+const { resolve } = require('path')
+const node = `${resolve(__dirname, '..', 'nodejs-loader', 'ganesha')} --unhandled-rejections=throw`
 const Sources = {
   'CJS': {
     'require'        (literacy, target) {
@@ -77,7 +77,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -91,7 +91,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -107,7 +107,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -121,7 +121,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -135,7 +135,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -152,7 +152,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -166,7 +166,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -180,7 +180,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
@@ -195,14 +195,14 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
-            "test": `${node} ${mjsLoader} ${main}`
+            "test": `${node} ${main}`
           }
         }),
         [main]: literacy(`
           import type { exitCode as ExitCode } from "${target}"
           import { exitCode } from "${target}"
           const theExitCode: ExitCode = exitCode
-          process.exit(exitCode)
+          process.exit(theExitCode)
         `)
       }
     },
@@ -324,7 +324,7 @@ when working with literate modules.
 ```javascript
 const { writeFileSync } = require('fs')
 const { spawnSync, execFileSync } = require('child_process')
-const { resolve, dirname } = require('path')
+const { dirname } = require('path')
 const stdio = ['ignore','pipe','pipe']
 
 const Environments = {

@@ -451,15 +451,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.cjs
 
 
 ```
 
 Stderr
 ```
-(node:61725) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -473,15 +471,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.cjs
 
 
 ```
 
 Stderr
 ```
-(node:61890) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -495,15 +491,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:61972) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2
 process.exit(require("./target.cjs").exitCode)
         ^
@@ -515,7 +509,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -523,7 +517,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_57_865Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_27_354Z-debug.log
 
 ```
 
@@ -537,15 +531,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:61997) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2
 process.exit(require("./target.mjs").exitCode)
         ^
@@ -557,7 +549,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -565,7 +557,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_067Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_27_584Z-debug.log
 
 ```
 
@@ -579,15 +571,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62024) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2
 process.exit(require("./target.ts").exitCode)
         ^
@@ -599,7 +589,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -607,7 +597,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_272Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_27_812Z-debug.log
 
 ```
 
@@ -621,15 +611,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62049) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2
 process.exit(require("./target.cjs.md").exitCode)
         ^
@@ -641,7 +629,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -649,7 +637,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_474Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_28_042Z-debug.log
 
 ```
 
@@ -663,15 +651,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62074) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2
 process.exit(require("./target.mjs.md").exitCode)
         ^
@@ -683,7 +669,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -691,7 +677,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_675Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_28_266Z-debug.log
 
 ```
 
@@ -705,15 +691,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62099) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2
 process.exit(require("./target.ts.md").exitCode)
         ^
@@ -725,7 +709,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -733,7 +717,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_876Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_28_497Z-debug.log
 
 ```
 
@@ -747,15 +731,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62124) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -767,14 +749,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_078Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_28_722Z-debug.log
 
 ```
 
@@ -788,15 +770,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62149) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -808,14 +788,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_281Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_28_952Z-debug.log
 
 ```
 
@@ -829,15 +809,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62174) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -849,14 +827,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_486Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_29_178Z-debug.log
 
 ```
 
@@ -870,15 +848,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62200) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -890,14 +866,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_694Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_29_412Z-debug.log
 
 ```
 
@@ -911,15 +887,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62225) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -931,14 +905,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_905Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_29_637Z-debug.log
 
 ```
 
@@ -952,15 +926,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62250) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
@@ -972,14 +944,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_00_114Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_29_875Z-debug.log
 
 ```
 
@@ -993,15 +965,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62357) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -1015,15 +985,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62521) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -1037,15 +1005,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62685) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2
 import { exitCode } from "./target.cjs.md"
          ^^^^^^^^
@@ -1061,7 +1027,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1069,7 +1035,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_03_512Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_34_233Z-debug.log
 
 ```
 
@@ -1083,15 +1049,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs
 
 
 ```
 
 Stderr
 ```
-(node:62849) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2
 import { exitCode } from "target"
          ^^^^^^^^
@@ -1107,14 +1071,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_04_795Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_35_880Z-debug.log
 
 ```
 
@@ -1128,37 +1092,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.cjs").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:62931) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:1
 process.exit(require("./target.cjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1166,7 +1118,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_05_545Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_36_883Z-debug.log
 
 ```
 
@@ -1180,37 +1132,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.mjs").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:62963) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:1
 process.exit(require("./target.mjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1218,7 +1158,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_05_784Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_37_270Z-debug.log
 
 ```
 
@@ -1232,37 +1172,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.ts").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:62995) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:1
 process.exit(require("./target.ts").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1270,7 +1198,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_028Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_37_641Z-debug.log
 
 ```
 
@@ -1284,37 +1212,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.cjs.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63028) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:1
 process.exit(require("./target.cjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1322,7 +1238,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_270Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_38_024Z-debug.log
 
 ```
 
@@ -1336,37 +1252,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.mjs.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63060) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:1
 process.exit(require("./target.mjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1374,7 +1278,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_510Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_38_403Z-debug.log
 
 ```
 
@@ -1388,37 +1292,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("./target.ts.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63092) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:1
 process.exit(require("./target.ts.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1426,7 +1318,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_751Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_38_798Z-debug.log
 
 ```
 
@@ -1440,44 +1332,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63124) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_994Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_39_189Z-debug.log
 
 ```
 
@@ -1491,44 +1371,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63156) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_230Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_39_580Z-debug.log
 
 ```
 
@@ -1542,44 +1410,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63188) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_471Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_39_971Z-debug.log
 
 ```
 
@@ -1593,44 +1449,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63220) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_716Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_40_344Z-debug.log
 
 ```
 
@@ -1644,44 +1488,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63252) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_960Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_40_717Z-debug.log
 
 ```
 
@@ -1695,44 +1527,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts',
-  length: 7,
-  line: 2,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:63284) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_08_194Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_41_097Z-debug.log
 
 ```
 
@@ -1746,15 +1566,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:63413) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -1768,15 +1586,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:63607) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -1790,15 +1606,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:63799) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
@@ -1814,7 +1628,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1822,7 +1636,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_11_940Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_47_318Z-debug.log
 
 ```
 
@@ -1836,15 +1650,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:63991) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
          ^^^^^^^^
@@ -1860,14 +1672,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_13_356Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_49_650Z-debug.log
 
 ```
 
@@ -1881,15 +1693,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:64183) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
@@ -1905,7 +1715,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -1913,7 +1723,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_14_794Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_52_014Z-debug.log
 
 ```
 
@@ -1927,15 +1737,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts
 
 
 ```
 
 Stderr
 ```
-(node:64384) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
          ^^^^^^^^
@@ -1951,14 +1759,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_16_246Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_12_54_369Z-debug.log
 
 ```
 
@@ -1972,15 +1780,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.cjs.md
 
 
 ```
 
 Stderr
 ```
-(node:64897) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -1994,15 +1800,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.cjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65061) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -2016,15 +1820,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65143) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3
 process.exit(require("./target.cjs").exitCode)
         ^
@@ -2036,7 +1838,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2044,7 +1846,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_22_649Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_02_360Z-debug.log
 
 ```
 
@@ -2058,15 +1860,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65168) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3
 process.exit(require("./target.mjs").exitCode)
         ^
@@ -2078,7 +1878,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2086,7 +1886,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_22_851Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_02_587Z-debug.log
 
 ```
 
@@ -2100,15 +1900,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65193) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3
 process.exit(require("./target.ts").exitCode)
         ^
@@ -2120,7 +1918,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2128,7 +1926,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_049Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_02_817Z-debug.log
 
 ```
 
@@ -2142,15 +1940,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65218) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3
 process.exit(require("./target.cjs.md").exitCode)
         ^
@@ -2162,7 +1958,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2170,7 +1966,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_250Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_03_044Z-debug.log
 
 ```
 
@@ -2184,15 +1980,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65243) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3
 process.exit(require("./target.mjs.md").exitCode)
         ^
@@ -2204,7 +1998,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2212,7 +2006,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_452Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_03_274Z-debug.log
 
 ```
 
@@ -2226,15 +2020,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65275) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3
 process.exit(require("./target.ts.md").exitCode)
         ^
@@ -2246,7 +2038,7 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2254,7 +2046,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_655Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_03_503Z-debug.log
 
 ```
 
@@ -2268,15 +2060,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65300) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2288,14 +2078,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_858Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_03_734Z-debug.log
 
 ```
 
@@ -2309,15 +2099,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65325) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2329,14 +2117,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_058Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_03_966Z-debug.log
 
 ```
 
@@ -2350,15 +2138,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65350) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2370,14 +2156,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_263Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_04_207Z-debug.log
 
 ```
 
@@ -2391,15 +2177,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65375) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2411,14 +2195,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_466Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_04_437Z-debug.log
 
 ```
 
@@ -2432,15 +2216,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65400) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2452,14 +2234,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_666Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_04_664Z-debug.log
 
 ```
 
@@ -2473,15 +2255,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65425) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
@@ -2493,14 +2273,14 @@ ReferenceError: require is not defined in ES module scope, you can use import in
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_867Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_04_890Z-debug.log
 
 ```
 
@@ -2514,15 +2294,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65532) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -2536,15 +2314,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65696) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -2558,15 +2334,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:65860) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:3
 import { exitCode } from "./target.cjs.md"
          ^^^^^^^^
@@ -2582,7 +2356,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2590,7 +2364,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_28_263Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_09_324Z-debug.log
 
 ```
 
@@ -2604,15 +2378,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md
 
 
 ```
 
 Stderr
 ```
-(node:66028) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:3
 import { exitCode } from "target"
          ^^^^^^^^
@@ -2628,14 +2400,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.mjs.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_29_555Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_11_017Z-debug.log
 
 ```
 
@@ -2649,37 +2421,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.cjs").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66110) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:1
 process.exit(require("./target.cjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2687,7 +2447,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_241Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_12_044Z-debug.log
 
 ```
 
@@ -2701,37 +2461,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.mjs").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66142) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:1
 process.exit(require("./target.mjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2739,7 +2487,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_487Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_12_439Z-debug.log
 
 ```
 
@@ -2753,37 +2501,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.ts").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66174) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:1
 process.exit(require("./target.ts").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2791,7 +2527,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_726Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_12_870Z-debug.log
 
 ```
 
@@ -2805,37 +2541,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.cjs.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66206) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:1
 process.exit(require("./target.cjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2843,7 +2567,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_970Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_13_316Z-debug.log
 
 ```
 
@@ -2857,37 +2581,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.mjs.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66238) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:1
 process.exit(require("./target.mjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2895,7 +2607,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_215Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_13_748Z-debug.log
 
 ```
 
@@ -2909,37 +2621,25 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("./target.ts.md").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66270) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:1
 process.exit(require("./target.ts.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -2947,7 +2647,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_456Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_14_147Z-debug.log
 
 ```
 
@@ -2961,44 +2661,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66302) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_696Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_14_574Z-debug.log
 
 ```
 
@@ -3012,44 +2700,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66334) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_940Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_14_994Z-debug.log
 
 ```
 
@@ -3063,44 +2739,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66366) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_180Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_15_398Z-debug.log
 
 ```
 
@@ -3114,44 +2778,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66398) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_420Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_15_806Z-debug.log
 
 ```
 
@@ -3165,44 +2817,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66430) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_661Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_16_208Z-debug.log
 
 ```
 
@@ -3216,44 +2856,32 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
-{
-  column: 13,
-  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md',
-  length: 7,
-  line: 3,
-  lineText: 'process.exit(require("target").exitCode)',
-  namespace: '',
-  suggestion: ''
-}
-Converting "require" to "esm" is currently not supported
 
 ```
 
 Stderr
 ```
-(node:66462) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:1:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_904Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_16_622Z-debug.log
 
 ```
 
@@ -3267,15 +2895,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_dynamic_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:66591) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -3289,15 +2915,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_dynamic_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:66783) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
 
@@ -3311,15 +2935,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:66975) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
@@ -3335,7 +2957,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -3343,7 +2965,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_36_742Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_23_023Z-debug.log
 
 ```
 
@@ -3357,15 +2979,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:67167) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
          ^^^^^^^^
@@ -3381,14 +3001,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_38_170Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_25_335Z-debug.log
 
 ```
 
@@ -3402,15 +3022,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:67361) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
@@ -3426,7 +3044,7 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
@@ -3434,7 +3052,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_39_615Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_27_670Z-debug.log
 
 ```
 
@@ -3448,15 +3066,13 @@ Stdout
 ```
 
 > source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS
-> node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
+> /home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md
 
 
 ```
 
 Stderr
 ```
-(node:67555) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
 file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
          ^^^^^^^^
@@ -3472,14 +3088,14 @@ const { exitCode } = pkg;
     at Object.loadESM (internal/process/esm_loader.js:68:5)
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1
-npm ERR! source@ test: `node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md`
+npm ERR! source@ test: `/home/user/Lab/5/takovata/fadroma/packages/ganesha/nodejs-loader/ganesha --unhandled-rejections=throw  source.ts.md`
 npm ERR! Exit status 1
 npm ERR! 
 npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_41_061Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T23_13_30_063Z-debug.log
 
 ```
 
@@ -3653,7 +3269,7 @@ file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: const theExitCode = exitCode;
-3: process.exit(exitCode);
+3: process.exit(theExitCode);
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
     at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
@@ -3691,7 +3307,7 @@ file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare
 1: import { exitCode } from "target";
             ^
 2: const theExitCode = exitCode;
-3: process.exit(exitCode);
+3: process.exit(theExitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
     at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
@@ -3881,7 +3497,7 @@ file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Lite
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: const theExitCode = exitCode;
-3: process.exit(exitCode);
+3: process.exit(theExitCode);
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
     at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
@@ -3919,7 +3535,7 @@ file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Lite
 1: import { exitCode } from "target";
             ^
 2: const theExitCode = exitCode;
-3: process.exit(exitCode);
+3: process.exit(theExitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
     at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
