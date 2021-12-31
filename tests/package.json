@@ -6,6 +6,6 @@
     "@hackbg/ganesha-nodejs-loader": "workspace:*"
   },
   "scripts": {
-    "test:matrix": "ganesha run-script MATRIX.js.md"
+    "test:matrix": "ganesha MATRIX.cjs.md"
   }
 }

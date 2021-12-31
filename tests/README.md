@@ -450,7 +450,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs
 
 
@@ -458,7 +458,7 @@ Stdout
 
 Stderr
 ```
-(node:142942) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:61725) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -472,7 +472,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs
 
 
@@ -480,7 +480,7 @@ Stdout
 
 Stderr
 ```
-(node:143106) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:61890) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -494,7 +494,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -502,14 +502,14 @@ Stdout
 
 Stderr
 ```
-(node:143188) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:61972) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2
 process.exit(require("./target.cjs").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_CJS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -523,7 +523,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_036Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_57_865Z-debug.log
 
 ```
 
@@ -536,7 +536,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -544,14 +544,14 @@ Stdout
 
 Stderr
 ```
-(node:143213) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:61997) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2
 process.exit(require("./target.mjs").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_ESM/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -565,7 +565,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_269Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_067Z-debug.log
 
 ```
 
@@ -578,7 +578,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -586,14 +586,14 @@ Stdout
 
 Stderr
 ```
-(node:143238) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62024) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2
 process.exit(require("./target.ts").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Bare_TS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -607,7 +607,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_483Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_272Z-debug.log
 
 ```
 
@@ -620,7 +620,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -628,14 +628,14 @@ Stdout
 
 Stderr
 ```
-(node:143263) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62049) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2
 process.exit(require("./target.cjs.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_CJS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -649,7 +649,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_724Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_474Z-debug.log
 
 ```
 
@@ -662,7 +662,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -670,14 +670,14 @@ Stdout
 
 Stderr
 ```
-(node:143288) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62074) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2
 process.exit(require("./target.mjs.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_ESM/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -691,7 +691,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_28_976Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_675Z-debug.log
 
 ```
 
@@ -704,7 +704,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -712,14 +712,14 @@ Stdout
 
 Stderr
 ```
-(node:143313) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62099) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2
 process.exit(require("./target.ts.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_sibling_Literate_TS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -733,7 +733,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_193Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_58_876Z-debug.log
 
 ```
 
@@ -746,7 +746,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -754,14 +754,14 @@ Stdout
 
 Stderr
 ```
-(node:143338) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62124) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_CJS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -774,7 +774,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_427Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_078Z-debug.log
 
 ```
 
@@ -787,7 +787,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -795,14 +795,14 @@ Stdout
 
 Stderr
 ```
-(node:143363) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62149) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_ESM/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -815,7 +815,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_632Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_281Z-debug.log
 
 ```
 
@@ -828,7 +828,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -836,14 +836,14 @@ Stdout
 
 Stderr
 ```
-(node:143388) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62174) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Bare_TS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -856,7 +856,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_29_842Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_486Z-debug.log
 
 ```
 
@@ -869,7 +869,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -877,14 +877,14 @@ Stdout
 
 Stderr
 ```
-(node:143413) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62200) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_CJS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -897,7 +897,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_080Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_694Z-debug.log
 
 ```
 
@@ -910,7 +910,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -918,14 +918,14 @@ Stdout
 
 Stderr
 ```
-(node:143438) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62225) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_ESM/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -938,7 +938,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_296Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_29_59_905Z-debug.log
 
 ```
 
@@ -951,7 +951,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -959,14 +959,14 @@ Stdout
 
 Stderr
 ```
-(node:143463) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62250) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_require_dependency_Literate_TS/source.mjs:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -979,7 +979,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_30_502Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_00_114Z-debug.log
 
 ```
 
@@ -992,7 +992,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -1000,7 +1000,7 @@ Stdout
 
 Stderr
 ```
-(node:143570) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62357) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -1014,7 +1014,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -1022,7 +1022,7 @@ Stdout
 
 Stderr
 ```
-(node:143735) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62521) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -1036,7 +1036,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -1044,9 +1044,9 @@ Stdout
 
 Stderr
 ```
-(node:143899) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62685) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2
 import { exitCode } from "./target.cjs.md"
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1069,7 +1069,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_33_914Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_03_512Z-debug.log
 
 ```
 
@@ -1082,7 +1082,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs
 
 
@@ -1090,9 +1090,9 @@ Stdout
 
 Stderr
 ```
-(node:144063) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62849) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2
 import { exitCode } from "target"
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1114,7 +1114,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_35_205Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_04_795Z-debug.log
 
 ```
 
@@ -1127,12 +1127,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.cjs").exitCode)',
@@ -1145,14 +1145,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144145) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62931) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:1
 process.exit(require("./target.cjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_CJS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1166,7 +1166,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_35_888Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_05_545Z-debug.log
 
 ```
 
@@ -1179,12 +1179,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.mjs").exitCode)',
@@ -1197,14 +1197,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144177) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62963) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:1
 process.exit(require("./target.mjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_ESM/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1218,7 +1218,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_127Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_05_784Z-debug.log
 
 ```
 
@@ -1231,12 +1231,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.ts").exitCode)',
@@ -1249,14 +1249,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144209) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:62995) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:1
 process.exit(require("./target.ts").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Bare_TS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1270,7 +1270,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_366Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_028Z-debug.log
 
 ```
 
@@ -1283,12 +1283,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.cjs.md").exitCode)',
@@ -1301,14 +1301,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144241) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63028) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:1
 process.exit(require("./target.cjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_CJS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1322,7 +1322,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_604Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_270Z-debug.log
 
 ```
 
@@ -1335,12 +1335,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.mjs.md").exitCode)',
@@ -1353,14 +1353,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144273) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63060) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:1
 process.exit(require("./target.mjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_ESM/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1374,7 +1374,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_36_845Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_510Z-debug.log
 
 ```
 
@@ -1387,12 +1387,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("./target.ts.md").exitCode)',
@@ -1405,14 +1405,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144305) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63092) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:1
 process.exit(require("./target.ts.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_sibling_Literate_TS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1426,7 +1426,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_084Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_751Z-debug.log
 
 ```
 
@@ -1439,12 +1439,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1457,14 +1457,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144337) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63124) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_CJS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1477,7 +1477,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_325Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_06_994Z-debug.log
 
 ```
 
@@ -1490,12 +1490,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1508,14 +1508,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144369) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63156) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_ESM/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1528,7 +1528,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_567Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_230Z-debug.log
 
 ```
 
@@ -1541,12 +1541,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1559,14 +1559,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144401) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63188) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Bare_TS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1579,7 +1579,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_37_805Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_471Z-debug.log
 
 ```
 
@@ -1592,12 +1592,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1610,14 +1610,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144433) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63220) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_CJS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1630,7 +1630,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_050Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_716Z-debug.log
 
 ```
 
@@ -1643,12 +1643,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1661,14 +1661,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144466) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63252) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_ESM/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1681,7 +1681,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_291Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_07_960Z-debug.log
 
 ```
 
@@ -1694,12 +1694,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts',
   length: 7,
   line: 2,
   lineText: 'process.exit(require("target").exitCode)',
@@ -1712,14 +1712,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:144498) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63284) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:2:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_require_dependency_Literate_TS/source.ts:2:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -1732,7 +1732,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_38_531Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_08_194Z-debug.log
 
 ```
 
@@ -1745,7 +1745,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1753,7 +1753,7 @@ Stdout
 
 Stderr
 ```
-(node:144627) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63413) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -1767,7 +1767,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1775,7 +1775,7 @@ Stdout
 
 Stderr
 ```
-(node:144820) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63607) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -1789,7 +1789,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1797,9 +1797,9 @@ Stdout
 
 Stderr
 ```
-(node:145013) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63799) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1822,7 +1822,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_42_348Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_11_940Z-debug.log
 
 ```
 
@@ -1835,7 +1835,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1843,9 +1843,9 @@ Stdout
 
 Stderr
 ```
-(node:145205) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:63991) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1867,7 +1867,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_43_792Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_13_356Z-debug.log
 
 ```
 
@@ -1880,7 +1880,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1888,9 +1888,9 @@ Stdout
 
 Stderr
 ```
-(node:145398) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:64183) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1913,7 +1913,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_45_230Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_14_794Z-debug.log
 
 ```
 
@@ -1926,7 +1926,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts
 
 
@@ -1934,9 +1934,9 @@ Stdout
 
 Stderr
 ```
-(node:145592) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:64384) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1
 import { exitCode } from "target";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -1958,7 +1958,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_46_671Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_16_246Z-debug.log
 
 ```
 
@@ -1971,7 +1971,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs.md
 
 
@@ -1979,7 +1979,7 @@ Stdout
 
 Stderr
 ```
-(node:146136) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:64897) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -1993,7 +1993,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.cjs.md
 
 
@@ -2001,7 +2001,7 @@ Stdout
 
 Stderr
 ```
-(node:146300) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65061) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -2015,7 +2015,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2023,14 +2023,14 @@ Stdout
 
 Stderr
 ```
-(node:146382) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65143) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3
 process.exit(require("./target.cjs").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_CJS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2044,7 +2044,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_52_662Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_22_649Z-debug.log
 
 ```
 
@@ -2057,7 +2057,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2065,14 +2065,14 @@ Stdout
 
 Stderr
 ```
-(node:146407) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65168) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3
 process.exit(require("./target.mjs").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_ESM/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2086,7 +2086,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_52_868Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_22_851Z-debug.log
 
 ```
 
@@ -2099,7 +2099,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2107,14 +2107,14 @@ Stdout
 
 Stderr
 ```
-(node:146432) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65193) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3
 process.exit(require("./target.ts").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Bare_TS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2128,7 +2128,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_071Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_049Z-debug.log
 
 ```
 
@@ -2141,7 +2141,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2149,14 +2149,14 @@ Stdout
 
 Stderr
 ```
-(node:146457) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65218) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3
 process.exit(require("./target.cjs.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_CJS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2170,7 +2170,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_276Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_250Z-debug.log
 
 ```
 
@@ -2183,7 +2183,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2191,14 +2191,14 @@ Stdout
 
 Stderr
 ```
-(node:146482) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65243) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3
 process.exit(require("./target.mjs.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_ESM/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2212,7 +2212,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_481Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_452Z-debug.log
 
 ```
 
@@ -2225,7 +2225,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2233,14 +2233,14 @@ Stdout
 
 Stderr
 ```
-(node:146508) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65275) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3
 process.exit(require("./target.ts.md").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_sibling_Literate_TS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2254,7 +2254,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_699Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_655Z-debug.log
 
 ```
 
@@ -2267,7 +2267,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2275,14 +2275,14 @@ Stdout
 
 Stderr
 ```
-(node:146533) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65300) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_CJS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2295,7 +2295,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_53_907Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_23_858Z-debug.log
 
 ```
 
@@ -2308,7 +2308,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2316,14 +2316,14 @@ Stdout
 
 Stderr
 ```
-(node:146559) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65325) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_ESM/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2336,7 +2336,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_111Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_058Z-debug.log
 
 ```
 
@@ -2349,7 +2349,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2357,14 +2357,14 @@ Stdout
 
 Stderr
 ```
-(node:146584) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65350) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Bare_TS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2377,7 +2377,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_314Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_263Z-debug.log
 
 ```
 
@@ -2390,7 +2390,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2398,14 +2398,14 @@ Stdout
 
 Stderr
 ```
-(node:146609) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65375) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_CJS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2418,7 +2418,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_518Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_466Z-debug.log
 
 ```
 
@@ -2431,7 +2431,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2439,14 +2439,14 @@ Stdout
 
 Stderr
 ```
-(node:146634) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65400) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_ESM/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2459,7 +2459,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_722Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_666Z-debug.log
 
 ```
 
@@ -2472,7 +2472,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2480,14 +2480,14 @@ Stdout
 
 Stderr
 ```
-(node:146659) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65425) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3
 process.exit(require("target").exitCode)
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_require_dependency_Literate_TS/source.mjs.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2500,7 +2500,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_54_930Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_24_867Z-debug.log
 
 ```
 
@@ -2513,7 +2513,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2521,7 +2521,7 @@ Stdout
 
 Stderr
 ```
-(node:146766) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65532) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -2535,7 +2535,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2543,7 +2543,7 @@ Stdout
 
 Stderr
 ```
-(node:146930) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65696) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -2557,7 +2557,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2565,9 +2565,9 @@ Stdout
 
 Stderr
 ```
-(node:147094) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:65860) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:3
 import { exitCode } from "./target.cjs.md"
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -2590,7 +2590,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_58_366Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_28_263Z-debug.log
 
 ```
 
@@ -2603,7 +2603,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.mjs.md
 
 
@@ -2611,9 +2611,9 @@ Stdout
 
 Stderr
 ```
-(node:147259) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66028) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:3
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:3
 import { exitCode } from "target"
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -2635,7 +2635,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_10_59_663Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_29_555Z-debug.log
 
 ```
 
@@ -2648,12 +2648,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.cjs").exitCode)',
@@ -2666,14 +2666,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147341) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66110) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:1
 process.exit(require("./target.cjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_CJS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2687,7 +2687,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_357Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_241Z-debug.log
 
 ```
 
@@ -2700,12 +2700,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.mjs").exitCode)',
@@ -2718,14 +2718,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147373) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66142) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:1
 process.exit(require("./target.mjs").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_ESM/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2739,7 +2739,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_596Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_487Z-debug.log
 
 ```
 
@@ -2752,12 +2752,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.ts").exitCode)',
@@ -2770,14 +2770,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147406) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66174) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:1
 process.exit(require("./target.ts").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Bare_TS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2791,7 +2791,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_00_837Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_726Z-debug.log
 
 ```
 
@@ -2804,12 +2804,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.cjs.md").exitCode)',
@@ -2822,14 +2822,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147438) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66206) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:1
 process.exit(require("./target.cjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_CJS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2843,7 +2843,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_076Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_30_970Z-debug.log
 
 ```
 
@@ -2856,12 +2856,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.mjs.md").exitCode)',
@@ -2874,14 +2874,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147470) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66238) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:1
 process.exit(require("./target.mjs.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_ESM/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2895,7 +2895,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_317Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_215Z-debug.log
 
 ```
 
@@ -2908,12 +2908,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("./target.ts.md").exitCode)',
@@ -2926,14 +2926,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147502) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66270) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:1
 process.exit(require("./target.ts.md").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_sibling_Literate_TS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2947,7 +2947,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_557Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_456Z-debug.log
 
 ```
 
@@ -2960,12 +2960,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -2978,14 +2978,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147534) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66302) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_CJS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -2998,7 +2998,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_01_799Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_696Z-debug.log
 
 ```
 
@@ -3011,12 +3011,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -3029,14 +3029,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147566) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66334) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_ESM/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -3049,7 +3049,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_042Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_31_940Z-debug.log
 
 ```
 
@@ -3062,12 +3062,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -3080,14 +3080,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147598) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66366) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Bare_TS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -3100,7 +3100,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_282Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_180Z-debug.log
 
 ```
 
@@ -3113,12 +3113,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -3131,14 +3131,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147631) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66398) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_CJS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -3151,7 +3151,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_522Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_420Z-debug.log
 
 ```
 
@@ -3164,12 +3164,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -3182,14 +3182,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147664) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66430) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_ESM/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -3202,7 +3202,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_02_760Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_661Z-debug.log
 
 ```
 
@@ -3215,12 +3215,12 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 {
   column: 13,
-  file: '/home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md',
+  file: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md',
   length: 7,
   line: 3,
   lineText: 'process.exit(require("target").exitCode)',
@@ -3233,14 +3233,14 @@ Converting "require" to "esm" is currently not supported
 
 Stderr
 ```
-(node:147696) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66462) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:1
 process.exit(require("target").exitCode);
         ^
 
 ReferenceError: require is not defined in ES module scope, you can use import instead
-    at file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:3:9
+    at file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_require_dependency_Literate_TS/source.ts.md:3:9
     at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
     at Loader.import (internal/modules/esm/loader.js:178:24)
     at Object.loadESM (internal/process/esm_loader.js:68:5)
@@ -3253,7 +3253,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_03_000Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_32_904Z-debug.log
 
 ```
 
@@ -3266,7 +3266,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_dynamic_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_dynamic_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3274,7 +3274,7 @@ Stdout
 
 Stderr
 ```
-(node:147825) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66591) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -3288,7 +3288,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_dynamic_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_dynamic_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3296,7 +3296,7 @@ Stdout
 
 Stderr
 ```
-(node:148017) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66783) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
 ```
@@ -3310,7 +3310,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3318,9 +3318,9 @@ Stdout
 
 Stderr
 ```
-(node:148209) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:66975) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -3343,7 +3343,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_06_823Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_36_742Z-debug.log
 
 ```
 
@@ -3356,7 +3356,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3364,9 +3364,9 @@ Stdout
 
 Stderr
 ```
-(node:148401) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:67167) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -3388,7 +3388,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_08_268Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_38_170Z-debug.log
 
 ```
 
@@ -3401,7 +3401,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3409,9 +3409,9 @@ Stdout
 
 Stderr
 ```
-(node:148594) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:67361) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1
 import { exitCode } from "./target.cjs.md";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module './target.cjs.md' is a CommonJS module, which may not support all module.exports as named exports.
@@ -3434,7 +3434,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_09_699Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_39_615Z-debug.log
 
 ```
 
@@ -3447,7 +3447,7 @@ Exit code
 Stdout
 ```
 
-> source@ test /home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS
+> source@ test /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS
 > node --unhandled-rejections=throw --experimental-loader @hackbg/ganesha-nodejs-loader/loader.mjs source.ts.md
 
 
@@ -3455,9 +3455,9 @@ Stdout
 
 Stderr
 ```
-(node:148787) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+(node:67555) ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///home/user/Lab/5/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1
+file:///home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Node_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1
 import { exitCode } from "target";
          ^^^^^^^^
 SyntaxError: Named export 'exitCode' not found. The requested module 'target' is a CommonJS module, which may not support all module.exports as named exports.
@@ -3479,7 +3479,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2021-12-26T13_11_11_142Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2021-12-31T22_30_41_061Z-debug.log
 
 ```
 
@@ -3500,23 +3500,23 @@ transforming...
 Stderr
 ```
 'exitCode' is not exported by target.cjs.md, imported by source.mjs
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_MJS_static_import_sibling_Literate_CJS/source.mjs:2:9
 1: 
 2: import { exitCode } from "./target.cjs.md"
             ^
 3: process.exit(exitCode)
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.mjs
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3537,23 +3537,23 @@ transforming...
 Stderr
 ```
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_MJS_static_import_dependency_Literate_CJS/source.mjs:2:9
 1: 
 2: import { exitCode } from "target"
             ^
 3: process.exit(exitCode)
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3575,22 +3575,22 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_static_import_sibling_Literate_CJS/source.ts:1:9
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3612,22 +3612,22 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_static_import_dependency_Literate_CJS/source.ts:1:9
 1: import { exitCode } from "target";
             ^
 2: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3649,23 +3649,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/source.ts:1:9
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: const theExitCode = exitCode;
 3: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -3687,23 +3687,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/source.ts:1:9
 1: import { exitCode } from "target";
             ^
 2: const theExitCode = exitCode;
 3: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -3725,23 +3725,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.mjs.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_MJS_static_import_sibling_Literate_CJS/source.mjs.md:1:9
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: process.exit(exitCode);
-3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS9nYW5lc2hhL3Rlc3RzL2Nhc2VzL1JvbGx1cF9MaXRlcmF0ZV9NSlNfc3RhdGljX2ltcG9ydF9zaWJsaW5nX0xpdGVyYXRlX0NKUy9zb3VyY2UubWpzLm1kIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJcblxuaW1wb3J0IHsgZXhpdENvZGUgfSBmcm9tIFwiLi90YXJnZXQuY2pzLm1kXCJcbnByb2Nlc3MuZXhpdChleGl0Q29kZSlcblxuIl0sCiAgIm1hcHBpbmdzIjogIkFBRUE7QUFDQSxRQUFRLEtBQUs7IiwKICAibmFtZXMiOiBbXQp9Cg==
+3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS90YWtvdmF0YS9mYWRyb21hL3BhY2thZ2VzL2dhbmVzaGEvdGVzdHMvY2FzZXMvUm9sbHVwX0xpdGVyYXRlX01KU19zdGF0aWNfaW1wb3J0X3NpYmxpbmdfTGl0ZXJhdGVfQ0pTL3NvdXJjZS5tanMubWQiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIlxuXG5pbXBvcnQgeyBleGl0Q29kZSB9IGZyb20gXCIuL3RhcmdldC5janMubWRcIlxucHJvY2Vzcy5leGl0KGV4aXRDb2RlKVxuXG4iXSwKICAibWFwcGluZ3MiOiAiQUFFQTtBQUNBLFFBQVEsS0FBSzsiLAogICJuYW1lcyI6IFtdCn0K
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.mjs.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3763,23 +3763,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_MJS_static_import_dependency_Literate_CJS/source.mjs.md:1:9
 1: import { exitCode } from "target";
             ^
 2: process.exit(exitCode);
-3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS9nYW5lc2hhL3Rlc3RzL2Nhc2VzL1JvbGx1cF9MaXRlcmF0ZV9NSlNfc3RhdGljX2ltcG9ydF9kZXBlbmRlbmN5X0xpdGVyYXRlX0NKUy9zb3VyY2UubWpzLm1kIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJcblxuaW1wb3J0IHsgZXhpdENvZGUgfSBmcm9tIFwidGFyZ2V0XCJcbnByb2Nlc3MuZXhpdChleGl0Q29kZSlcblxuIl0sCiAgIm1hcHBpbmdzIjogIkFBRUE7QUFDQSxRQUFRLEtBQUs7IiwKICAibmFtZXMiOiBbXQp9Cg==
+3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS90YWtvdmF0YS9mYWRyb21hL3BhY2thZ2VzL2dhbmVzaGEvdGVzdHMvY2FzZXMvUm9sbHVwX0xpdGVyYXRlX01KU19zdGF0aWNfaW1wb3J0X2RlcGVuZGVuY3lfTGl0ZXJhdGVfQ0pTL3NvdXJjZS5tanMubWQiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIlxuXG5pbXBvcnQgeyBleGl0Q29kZSB9IGZyb20gXCJ0YXJnZXRcIlxucHJvY2Vzcy5leGl0KGV4aXRDb2RlKVxuXG4iXSwKICAibWFwcGluZ3MiOiAiQUFFQTtBQUNBLFFBQVEsS0FBSzsiLAogICJuYW1lcyI6IFtdCn0K
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.mjs.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3801,23 +3801,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_static_import_sibling_Literate_CJS/source.ts.md:1:9
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: process.exit(exitCode);
-3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS9nYW5lc2hhL3Rlc3RzL2Nhc2VzL1JvbGx1cF9MaXRlcmF0ZV9UU19zdGF0aWNfaW1wb3J0X3NpYmxpbmdfTGl0ZXJhdGVfQ0pTL3NvdXJjZS50cy5tZCJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiXG5cbmltcG9ydCB7IGV4aXRDb2RlIH0gZnJvbSBcIi4vdGFyZ2V0LmNqcy5tZFwiXG5wcm9jZXNzLmV4aXQoZXhpdENvZGUpXG5cbiJdLAogICJtYXBwaW5ncyI6ICJBQUVBO0FBQ0EsUUFBUSxLQUFLOyIsCiAgIm5hbWVzIjogW10KfQo=
+3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS90YWtvdmF0YS9mYWRyb21hL3BhY2thZ2VzL2dhbmVzaGEvdGVzdHMvY2FzZXMvUm9sbHVwX0xpdGVyYXRlX1RTX3N0YXRpY19pbXBvcnRfc2libGluZ19MaXRlcmF0ZV9DSlMvc291cmNlLnRzLm1kIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJcblxuaW1wb3J0IHsgZXhpdENvZGUgfSBmcm9tIFwiLi90YXJnZXQuY2pzLm1kXCJcbnByb2Nlc3MuZXhpdChleGl0Q29kZSlcblxuIl0sCiAgIm1hcHBpbmdzIjogIkFBRUE7QUFDQSxRQUFRLEtBQUs7IiwKICAibmFtZXMiOiBbXQp9Cg==
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3839,23 +3839,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_static_import_dependency_Literate_CJS/source.ts.md:1:9
 1: import { exitCode } from "target";
             ^
 2: process.exit(exitCode);
-3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS9nYW5lc2hhL3Rlc3RzL2Nhc2VzL1JvbGx1cF9MaXRlcmF0ZV9UU19zdGF0aWNfaW1wb3J0X2RlcGVuZGVuY3lfTGl0ZXJhdGVfQ0pTL3NvdXJjZS50cy5tZCJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiXG5cbmltcG9ydCB7IGV4aXRDb2RlIH0gZnJvbSBcInRhcmdldFwiXG5wcm9jZXNzLmV4aXQoZXhpdENvZGUpXG5cbiJdLAogICJtYXBwaW5ncyI6ICJBQUVBO0FBQ0EsUUFBUSxLQUFLOyIsCiAgIm5hbWVzIjogW10KfQo=
+3: //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiL2hvbWUvdXNlci9MYWIvNS90YWtvdmF0YS9mYWRyb21hL3BhY2thZ2VzL2dhbmVzaGEvdGVzdHMvY2FzZXMvUm9sbHVwX0xpdGVyYXRlX1RTX3N0YXRpY19pbXBvcnRfZGVwZW5kZW5jeV9MaXRlcmF0ZV9DSlMvc291cmNlLnRzLm1kIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJcblxuaW1wb3J0IHsgZXhpdENvZGUgfSBmcm9tIFwidGFyZ2V0XCJcbnByb2Nlc3MuZXhpdChleGl0Q29kZSlcblxuIl0sCiAgIm1hcHBpbmdzIjogIkFBRUE7QUFDQSxRQUFRLEtBQUs7IiwKICAibmFtZXMiOiBbXQp9Cg==
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at CallExpression.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
-    at ExpressionStatement.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at CallExpression.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:9422:15)
+    at ExpressionStatement.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
 
 ```
 
@@ -3877,23 +3877,23 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:1:9
 1: import { exitCode } from "./target.cjs.md";
             ^
 2: const theExitCode = exitCode;
 3: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -3915,22 +3915,22 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:1:9
 1: import { exitCode } from "target";
             ^
 2: const theExitCode = exitCode;
 3: process.exit(exitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```

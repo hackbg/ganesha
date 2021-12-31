@@ -1,16 +1,16 @@
 {
-  "name": "@hackbg/ganesha-nodejs-loader",
+  "name":    "@hackbg/ganesha-nodejs-loader",
   "version": "0.1.0",
-  "bin": { "ganesha": "./ganesha" },
-  "main": "loader.mjs",
+  "bin":     { "ganesha": "./ganesha" },
+  "main":    "loader.mjs",
   "dependencies": {
-    "cross-spawn": "^7.0.3",
-    "esbuild": "^0.13.0",
-    "front-matter": "^4.0.2",
-    "joycon": "^3.0.1",
-    "jsonc-parser": "^3.0.0",
-    "pirates": "^4.0.1",
-    "source-map-support": "^0.5.20",
-    "@hackbg/ganesha-core": "workspace:*"
+    "@hackbg/ganesha-core": "workspace:*",
+    "cross-spawn":          "^7.0.3",
+    "esbuild":              "^0.13.0",
+    "front-matter":         "^4.0.2",
+    "joycon":               "^3.0.1",
+    "jsonc-parser":         "^3.0.0",
+    "pirates":              "^4.0.1",
+    "source-map-support":   "^0.5.20"
   }
 }

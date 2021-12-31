@@ -25,13 +25,11 @@ import {
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
-
 export function resolve (specifier, context = {}, defaultResolve) {
 
   /// Determine parent URL (URL of importing module).
   /// Make sure there's a trailing slash, otherwise
   /// relative imports would be resolved to the wrong dir.
-
   let { parentURL = baseURL } = context
 
   if (parentURL.startsWith('SyntaxError')) {
@@ -46,14 +44,12 @@ export function resolve (specifier, context = {}, defaultResolve) {
     , path = fileURLToPath(url)
 
   /// Literate modules can be identified by their extension:
-
   if (isLiterate(specifier)) {
     return { url }
   }
 
   /// Or, they can be stored in regular Markdown files
   /// and identified as literate by their front matter.
-
   if (isMarkdown(specifier) && isValidFMType(getFMType(path))) {
     return { url }
   }
@@ -80,7 +76,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
   } else {
 
-    // Honor TypeScript path overrides
+    /// Honor TypeScript path overrides
     const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
     trace('trying tsconfig', tsconfigPath)
     if (existsSync(tsconfigPath)) {
@@ -99,13 +95,11 @@ export function resolve (specifier, context = {}, defaultResolve) {
   }
 
   /// Let Node.js handle all other specifiers.
-
   return defaultResolve(specifier, context, defaultResolve)
 }
 
 /// ## Interpret module URL
 /// https://nodejs.org/api/esm.html#esm_getformat_url_context_defaultgetformat
-
 export function getFormat (url, context, defaultGetFormat) {
   trace('2.getFormat', url, context)
 
@@ -158,7 +152,6 @@ export function getFormat (url, context, defaultGetFormat) {
 
 /// ## Load module source
 /// https://nodejs.org/api/esm.html#esm_getsource_url_context_defaultgetsource
-
 export function getSource (url, context, defaultGetSource) {
   trace('3.getSource', url, context)
 
@@ -178,12 +171,10 @@ export function getSource (url, context, defaultGetSource) {
 
 /// ## Extract code from Markdown and optionally transpile TypeScript
 /// https://nodejs.org/api/esm.html#esm_transformsource_source_context_defaulttransformsource
-
 export function transformSource (src, context, defaultTransformSource) {
   trace('4.transformSource', context.format, context.url)
 
   /// Transpile TypeScript
-
   if (isLiterateTypeScript(context.url)) {
     return { source: transformTypeScript(parseString(src.toString()), context) }
   }
@@ -193,13 +184,11 @@ export function transformSource (src, context, defaultTransformSource) {
 
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
-
   if (isMarkdown(context.url)) {
     return { source: parseString(src.toString()) }
   }
 
-  // Let Node.js handle all other sources.
-
+  /// Let Node.js handle all other sources.
   return defaultTransformSource(src, context, defaultTransformSource)
 }
 
@@ -209,7 +198,7 @@ export function transformTypeScript (source, context) {
 
   const { url, format } = context
 
-  const { code, warnings, map: sourceMap } = transformSync(
+  const { code, warnings, map } = transformSync(
     source, {
       sourcefile: isWindows ? url : fileURLToPath(url),
       sourcemap: 'both',
@@ -218,10 +207,9 @@ export function transformTypeScript (source, context) {
       format: format === 'module' ? 'esm' : 'cjs'
     })
 
-  addSourceMap(url, sourceMap)
+  addSourceMap(url, map)
 
   /// Print TypeScript errors
-
   if (warnings && warnings.length > 0) {
     for (const warning of warnings) {
       console.log(warning.location)
