@@ -1,11 +1,10 @@
 import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
-import { transformSync } from 'esbuild'
 
 import { parseString } from '@hackbg/ganesha-core'
 
-import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
+import { installSourceMapSupport } from './sourcemaps.cjs'
 installSourceMapSupport()
 
 import { register } from './loader.cjs'
@@ -22,6 +21,8 @@ import {
   isValidFMType, getFMType,
   isWindows,
 } from './util.mjs'
+
+import { tscToMjs, esbuildToMjs } from './transform.cjs'
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
@@ -193,29 +194,8 @@ export function transformSource (src, context, defaultTransformSource) {
 }
 
 export function transformTypeScript (source, context) {
-
   trace('5.transformTS', context.url)
-
   const { url, format } = context
-
-  const { code, warnings, map } = transformSync(
-    source, {
-      sourcefile: isWindows ? url : fileURLToPath(url),
-      sourcemap: 'both',
-      loader: 'ts',
-      target: 'esnext',
-      format: format === 'module' ? 'esm' : 'cjs'
-    })
-
-  addSourceMap(url, map)
-
-  /// Print TypeScript errors
-  if (warnings && warnings.length > 0) {
-    for (const warning of warnings) {
-      console.log(warning.location)
-      console.log(warning.text)
-    }
-  }
-
-  return code
+  return tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
+  //return esbuildToMjs(isWindows ? url : fileURLToPath(url), source, format)
 }
