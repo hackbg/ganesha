@@ -58,6 +58,9 @@ This is the module that imports the [target](#targets) module.
 In order to test the import workflow end-to-end, the test checks that
 running the source module exits with the exit code of `123` exported by the target module.
 
+**Warning**: There is a difference in the behavior of `module.exports`
+between bare and literate CJS modules, when using dynamic `import()` calls.
+
 The current problem with some of the tests involves different handling of default exports.
 This is under investigation.
 
@@ -81,7 +84,9 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").exitCode)
+          const target = require("${target}")
+          console.log(target)
+          process.exit(target.exitCode)
         `)
       }
     },
@@ -95,7 +100,10 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.exitCode))
+          import("${target}").then(target=>{
+            console.log(target)
+            process.exit(target.exitCode||target.default.exitCode)
+          })
         `)
       }
     }
@@ -111,7 +119,9 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").exitCode)
+          const target = require("${target}")
+          console.log(target)
+          process.exit(target.exitCode)
         `)
       }
     },
@@ -125,7 +135,10 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.exitCode))
+          import("${target}").then(target=>{
+            console.log(target)
+            process.exit(target.exitCode||target.default.exitCode)
+          })
         `)
       }
     },
@@ -156,7 +169,9 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          process.exit(require("${target}").exitCode)
+          const target = require("${target}")
+          console.log(target)
+          process.exit(target.exitCode)
         `)
       }
     },
@@ -170,7 +185,10 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import("${target}").then(target=>process.exit(target.exitCode))
+          import("${target}").then(target=>{
+            console.log(target)
+            process.exit(target.exitCode||target.default.exitCode)
+          })
         `)
       }
     },

@@ -33,70 +33,90 @@ export function resolve (specifier, context = {}, defaultResolve) {
   /// relative imports would be resolved to the wrong dir.
   let { parentURL = baseURL } = context
 
+  /// Rethrow syntax errors
   if (parentURL.startsWith('SyntaxError')) {
-    throw new SyntaxError(parentURL.slice(13)) }
+    throw new SyntaxError(parentURL.slice(13))
+  }
 
   trace('1.resolve', specifier, isLiterate(specifier), isMarkdown(specifier), 'FROM', parentURL)
+
+  /// Append trailing slash to directory imports
   if (isDirectory(fileURLToPath(parentURL)) && !parentURL.endsWith('/')) {
     parentURL = `${parentURL}/`
   }
 
-  let url  = new URL(specifier, parentURL).href
-    , path = fileURLToPath(url)
+  let url      = new URL(specifier, parentURL).href
+    , literate = false
+    , path     = fileURLToPath(url)
 
-  /// Literate modules can be identified by their extension:
+  // cjsPreparseModuleExports
+  // in internal/modules/esm/translators.js
+  // dispatches on extension
+
+  const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
+
   if (isLiterate(specifier)) {
-    return { url }
-  }
+    /// Literate modules can be identified by their extension
+    literate = true
 
-  /// Or, they can be stored in regular Markdown files
-  /// and identified as literate by their front matter.
-  if (isMarkdown(specifier) && isValidFMType(getFMType(path))) {
-    return { url }
-  }
+  } else if (isMarkdown(specifier) && isValidFMType(getFMType(path))) {
+    /// Or, they can be stored in regular Markdown files
+    /// and identified as literate by their front matter.
+    literate = true
 
-  if (isPathImport(specifier)) {
+  } else if (isPathImport(specifier)) {
+    const url2 = new URL(specifier, parentURL).href
+    const path = fileURLToPath(url2)
 
-    const url = new URL(specifier, parentURL).href
-    const path = fileURLToPath(url)
+    if (existsSync(path) && !isDirectory(path)) {
+      /// Try the verbatim module name but not if it's a directory
+      trace('resolved verbatim')
+      url = url2
 
-    /// Try the verbatim module name but not if it's a directory
-    if (existsSync(path) && !isDirectory(path)) return { url }
+    } else {
+      /// Try the module name with different extensions
+      trace('trying extensions: ' + extensions.join(' '))
 
-    /// Try the module name with different extensions
-    for (const extension of extensions) {
-      const url = new URL(specifier + extension, parentURL).href
-      trace('trying', url)
-      if (existsSync(fileURLToPath(url))) {
-        return { url }
+      let found = false
+      for (const extension of extensions) {
+        const urlPlusExtension = new URL(specifier + extension, parentURL).href
+        trace('trying', extension, ':', urlPlusExtension)
+        if (existsSync(fileURLToPath(urlPlusExtension))) {
+          trace('found', urlPlusExtension)
+          url = urlPlusExtension
+          found = true
+          break
+        }
+      }
+
+      if (!found && existsSync(path)) {
+        /// Try the directory last
+        trace('resolved directory')
+        url = url2
       }
     }
 
-    /// Try the directory
-    if (existsSync(path)) return { url }
-
-  } else {
-
+  } else if (existsSync(tsconfigPath)) {
     /// Honor TypeScript path overrides
-    const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
     trace('trying tsconfig', tsconfigPath)
-    if (existsSync(tsconfigPath)) {
-      const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
-      const { compilerOptions: { paths = {} } = {} } = tsconfig
-      if (paths[specifier]) {
-        for (const path of paths[specifier]) {
-          const resolvedPath = resolvePath(dirname(fileURLToPath(parentURL)), path)
-          if (existsSync(resolvedPath)) {
-            return { url: pathToFileURL(resolvedPath).href }
-          }
+    const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
+    const { compilerOptions: { paths = {} } = {} } = tsconfig
+    if (paths[specifier]) {
+      for (const path of paths[specifier]) {
+        const resolvedPath = resolvePath(dirname(fileURLToPath(parentURL)), path)
+        if (existsSync(resolvedPath)) {
+          url = pathToFileURL(resolvedPath).href
+          break
         }
       }
     }
 
+  } else {
+    /// Let Node.js handle all other specifiers.
+    url = defaultResolve(specifier, context, defaultResolve).url
   }
 
-  /// Let Node.js handle all other specifiers.
-  return defaultResolve(specifier, context, defaultResolve)
+  return { url }
 }
 
 /// ## Interpret module URL

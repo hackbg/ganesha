@@ -29,7 +29,7 @@ module.exports.register = function register () {
       return require('./transform').esbuildToCjs(filename, code, format)
     }
 
-    // This part should be optional depending on what context we're importing from
+    // This part should be optional depending on what context we're importing from?
     if (filename.endsWith('.mjs')) {
       return require('./transform').tscToCjs(filename, code, format)
     }
