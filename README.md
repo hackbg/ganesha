@@ -37,12 +37,12 @@ when using dynamic `import()` calls.
 
 Consider the following export:
 
-```javascript
+````javascript
 # target.cjs.md
-\`\`\`javascript
+```javascript
 module.exports.hello = 'world'
-\`\`\`
 ```
+````
 
 And the following import:
 

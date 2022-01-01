@@ -152,8 +152,8 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import { exitCode } from "${target}"
-          process.exit(exitCode)
+          import * as target from "${target}"
+          process.exit(target.exitCode||target.default.exitCode)
         `)
       }
     },
@@ -202,8 +202,8 @@ const Sources = {
           }
         }),
         [main]: literacy(`
-          import { exitCode } from "${target}"
-          process.exit(exitCode)
+          import * as target from "${target}"
+          process.exit(target.exitCode||target.default.exitCode)
         `)
       }
     },
