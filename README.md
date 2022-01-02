@@ -1,5 +1,7 @@
 # Ganesha
 
+Ganesha is a suite of tools for **literate programming** in JavaScript and TypeScript.
+
 Module loader for Node.JS (ESM and CommonJS) that extracts and runs code blocks
 from `.md`, `.ts.md`, `.js.md`, `.mjs.md`, `.cjs.md`, preserving line numbers and
 automatically transpiling TypeScript.
@@ -8,6 +10,15 @@ Also works for plain `.ts` like [antfu/esno](https://github.com/antfu/esno)
 but honors `compilerOptions.paths` and is a single package rather than 4
 (single entrypoint instead of separate `esmo` and `esno` executables;
 equivalents to `esbuild-node-loader` and `esbuild-register` are embedded).
+
+## Comparison with alternatives
+
+|Feature                           |Ganesha|esmo/esno|ts-esnode|ts-node|
+|----------------------------------|-------|---------|---------|-------|
+|Literate modules                  |🟩 yes |❌ no    |no       |no     |
+|Honors `compilerOptions.paths`    |🟩 yes |❌ no    |?        |?      |
+|Single entrypoint for CJS and ESM |🟩 yes |❌ no    |?        |?      |
+|Depends on `esbuild` binary module|🟩 no  |❌ yes   |?        |?      |
 
 ## Usage
 
@@ -78,3 +89,5 @@ import('./target.cjs.md').then(({default:{hello}})=>console.log(hello))
 
 Blame whoever introduced ESM `default` and made it correspond to CommonJS `module.exports.default`,
 instead of `module.exports`. 🐘
+
+## Node.js doesn't allow usage of `require` in ES modules.
