@@ -84,6 +84,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          const process = require("process")
           const target = require("${target}")
           console.log(target)
           process.exit(target.exitCode)
@@ -100,6 +101,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          const process = require('process')
           import("${target}").then(target=>{
             console.log(target)
             process.exit(target.exitCode||target.default.exitCode)
@@ -119,6 +121,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          const process = require('process')
           const target = require("${target}")
           console.log(target)
           process.exit(target.exitCode)
@@ -135,6 +138,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          import process from 'process'
           import("${target}").then(target=>{
             console.log(target)
             process.exit(target.exitCode||target.default.exitCode)
@@ -152,6 +156,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          import process from 'process'
           import * as target from "${target}"
           process.exit(target.exitCode||target.default.exitCode)
         `)
@@ -169,6 +174,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          const process = require('process')
           const target = require("${target}")
           console.log(target)
           process.exit(target.exitCode)
@@ -185,6 +191,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          import process from 'process'
           import("${target}").then(target=>{
             console.log(target)
             process.exit(target.exitCode||target.default.exitCode)
@@ -202,6 +209,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          import process from 'process'
           import * as target from "${target}"
           process.exit(target.exitCode||target.default.exitCode)
         `)
@@ -217,6 +225,7 @@ const Sources = {
           }
         }),
         [main]: literacy(`
+          import process from 'process'
           import type { exitCode as ExitCode } from "${target}"
           import { exitCode } from "${target}"
           const theExitCode: ExitCode = exitCode
