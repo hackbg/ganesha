@@ -33,12 +33,15 @@ export function resolve (specifier, context = {}, defaultResolve) {
   /// relative imports would be resolved to the wrong dir.
   let { parentURL = baseURL } = context
 
+  const traceResolve = (...args) =>
+    trace(`Step 1 :: [resolve] ${parentURL} -> ${specifier} ::\n         `, ...args)
+
   /// Rethrow syntax errors
   if (parentURL.startsWith('SyntaxError')) {
     throw new SyntaxError(parentURL.slice(13))
   }
 
-  trace('1.resolve', specifier, isLiterate(specifier), isMarkdown(specifier), 'FROM', parentURL)
+  traceResolve("Let's go")
 
   /// Append trailing slash to directory imports
   if (isDirectory(fileURLToPath(parentURL)) && !parentURL.endsWith('/')) {
@@ -56,33 +59,37 @@ export function resolve (specifier, context = {}, defaultResolve) {
   const tsconfigPath = resolvePath(dirname(fileURLToPath(parentURL)), 'tsconfig.json')
 
   if (isLiterate(specifier)) {
+    traceResolve('Identified literate module (by extension)')
     /// Literate modules can be identified by their extension
     literate = true
 
   } else if (isMarkdown(specifier) && isValidFMType(getFMType(path))) {
+    traceResolve('Identified literate module (by front matter)')
     /// Or, they can be stored in regular Markdown files
     /// and identified as literate by their front matter.
     literate = true
 
   } else if (isPathImport(specifier)) {
+    traceResolve('resolving path import')
+
     const url2 = new URL(specifier, parentURL).href
     const path = fileURLToPath(url2)
 
     if (existsSync(path) && !isDirectory(path)) {
       /// Try the verbatim module name but not if it's a directory
-      trace('resolved verbatim')
+      traceResolve('resolved verbatim')
       url = url2
 
     } else {
       /// Try the module name with different extensions
-      trace('trying extensions: ' + extensions.join(' '))
+      traceResolve('trying extensions: ' + extensions.join(' '))
 
       let found = false
       for (const extension of extensions) {
         const urlPlusExtension = new URL(specifier + extension, parentURL).href
-        trace('trying', extension, ':', urlPlusExtension)
+        traceResolve('trying', extension, ':', urlPlusExtension)
         if (existsSync(fileURLToPath(urlPlusExtension))) {
-          trace('found', urlPlusExtension)
+          traceResolve('found', urlPlusExtension)
           url = urlPlusExtension
           found = true
           break
@@ -91,38 +98,50 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
       if (!found && existsSync(path)) {
         /// Try the directory last
-        trace('resolved directory')
+        traceResolve('resolved directory')
         url = url2
       }
     }
 
   } else if (existsSync(tsconfigPath)) {
     /// Honor TypeScript path overrides
-    trace('trying tsconfig', tsconfigPath)
+    traceResolve('Checking tsconfig at', tsconfigPath)
     const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
     const { compilerOptions: { paths = {} } = {} } = tsconfig
+    let found = false
     if (paths[specifier]) {
+      traceResolve('Trying tsconfig paths')
       for (const path of paths[specifier]) {
         const resolvedPath = resolvePath(dirname(fileURLToPath(parentURL)), path)
         if (existsSync(resolvedPath)) {
+          traceResolve('resolved from tsconfig paths')
           url = pathToFileURL(resolvedPath).href
+          found = true
           break
         }
       }
     }
+    if (!found) {
+      traceResolve('Using defaultResolve')
+      /// Let Node.js handle all other specifiers.
+      url = defaultResolve(specifier, context, defaultResolve).url
+    }
 
   } else {
+    traceResolve('Using defaultResolve')
     /// Let Node.js handle all other specifiers.
     url = defaultResolve(specifier, context, defaultResolve).url
   }
 
-  return { url }
+  const result = { url, literate }
+  traceResolve('Final result:', JSON.stringify(result))
+  return result
 }
 
 /// ## Interpret module URL
 /// https://nodejs.org/api/esm.html#esm_getformat_url_context_defaultgetformat
 export function getFormat (url, context, defaultGetFormat) {
-  trace('2.getFormat', url, context)
+  trace('Step 2 :: [getFormat]', url, context)
 
   if (!url.startsWith('node:')) {
     const path = fileURLToPath(url)
@@ -174,7 +193,7 @@ export function getFormat (url, context, defaultGetFormat) {
 /// ## Load module source
 /// https://nodejs.org/api/esm.html#esm_getsource_url_context_defaultgetsource
 export function getSource (url, context, defaultGetSource) {
-  trace('3.getSource', url, context)
+  trace('Step 3 :: [getSource]', url, context)
 
   const path = fileURLToPath(url)
   if (isDirectory(path)) {
@@ -193,7 +212,7 @@ export function getSource (url, context, defaultGetSource) {
 /// ## Extract code from Markdown and optionally transpile TypeScript
 /// https://nodejs.org/api/esm.html#esm_transformsource_source_context_defaulttransformsource
 export function transformSource (src, context, defaultTransformSource) {
-  trace('4.transformSource', context.format, context.url)
+  trace('Step 4 :: [transformSource]', context.format, context.url)
 
   /// Transpile TypeScript
   if (isLiterateTypeScript(context.url)) {
@@ -214,7 +233,7 @@ export function transformSource (src, context, defaultTransformSource) {
 }
 
 export function transformTypeScript (source, context) {
-  trace('5.transformTS', context.url)
+  trace('Step 5 :: [transformTS]', context.url)
   const { url, format } = context
   return tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
   //return esbuildToMjs(isWindows ? url : fileURLToPath(url), source, format)
