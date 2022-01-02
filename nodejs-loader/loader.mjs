@@ -22,6 +22,8 @@ import {
   isWindows,
 } from './util.mjs'
 
+import JSONC from 'jsonc-parser'
+
 import { tscToMjs, esbuildToMjs } from './transform.cjs'
 
 /// ## Resolve module URL
@@ -106,7 +108,12 @@ export function resolve (specifier, context = {}, defaultResolve) {
   } else if (existsSync(tsconfigPath)) {
     /// Honor TypeScript path overrides
     traceResolve('Checking tsconfig at', tsconfigPath)
-    const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'))
+    let tsconfig
+    try {
+      tsconfig = JSONC.parse(readFileSync(tsconfigPath, 'utf8'))
+    } catch (e) {
+      throw new Error(`Ganesha: failed to parse TS config at ${tsconfigPath}: ${e.message}`)
+    }
     const { compilerOptions: { paths = {} } = {} } = tsconfig
     let found = false
     if (paths[specifier]) {
@@ -172,17 +179,23 @@ export function getFormat (url, context, defaultGetFormat) {
     }
 
     if (isDirectory(path)) {
-      const packageJSONPath = resolvePath(path, 'package.json')
-      if (existsSync(packageJSONPath)) {
-        const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
-        if (packageJSON.type === 'module') {
-          return { format: 'module' }
+      let lastBasePath = null
+      let basePath = path
+      do {
+        const packageJSONPath = resolvePath(basePath, 'package.json')
+        if (existsSync(packageJSONPath)) {
+          const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
+          if (packageJSON.type === 'module') {
+            return { format: 'module' }
+          } else {
+            return { format: 'commonjs' }
+          }
         } else {
-          return { format: 'commonjs' }
+          // Ascend up the directory tree until a package.json is found
+          lastBasePath = basePath
+          basePath = dirname(basePath)
         }
-      } else {
-        throw new Error(`@hackbg/ganesha: unsupported directory import: ${url}`)
-      }
+      } while (lastBasePath !== basePath)
     }
   }
 
