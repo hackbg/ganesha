@@ -1,11 +1,14 @@
 {
   "name": "@hackbg/ganesha-tests",
-  "dependencies": {
+  "devDependencies": {
+    "@hackbg/ganesha-core":          "workspace:*",
+    "@hackbg/ganesha-nodejs-loader": "workspace:*",
+    "@hackbg/rollup-plugin-ganesha": "workspace:*",
     "mkdirp": "^1.0.4",
-    "@hackbg/ganesha-core": "workspace:*",
-    "@hackbg/ganesha-nodejs-loader": "workspace:*"
+    "vite":   "^2.7.6"
   },
   "scripts": {
+    "test:vite":   "node test-vite.cjs",
     "test:matrix": "ganesha MATRIX.cjs.md"
   }
 }
