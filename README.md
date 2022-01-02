@@ -1,15 +1,29 @@
 # Ganesha
 
-Ganesha is a suite of tools for **literate programming** in JavaScript and TypeScript.
+Ganesha is a suite of tools for **literate programming** with JavaScript/TypeScript and Markdown.
+It helps you **write better code faster**, by skipping a compilation step, and storing the
+documentation where it's most useful and easiest to update - right next to the code.
 
-Module loader for Node.JS (ESM and CommonJS) that extracts and runs code blocks
-from `.md`, `.ts.md`, `.js.md`, `.mjs.md`, `.cjs.md`, preserving line numbers and
-automatically transpiling TypeScript.
+At the same time, Ganesha **makes your code more accessible** by embedding it in Markdown,
+letting you write human-friendly descriptions of what individual blocks of code do,
+which can then be rendered by GitHub as [**literate modules**](./tests/MATRIX.cjs.md).
 
-Also works for plain `.ts` like [antfu/esno](https://github.com/antfu/esno)
-but honors `compilerOptions.paths` and is a single package rather than 4
-(single entrypoint instead of separate `esmo` and `esno` executables;
-equivalents to `esbuild-node-loader` and `esbuild-register` are embedded).
+**For backend development**, Ganesha provides a [**module loader**](./nodejs-loader) for Node.js
+that extracts and runs code blocks from `.md`, `.ts.md`, `.js.md`, `.mjs.md`, and `.cjs.md` files.
+It works with both `require` and `import`, preserves line numbers,
+and automatically compiles TypeScript with source maps.
+
+**For frontend development**, Ganesha currently provides a [**Rollup plugin**](./rollup-plugin)
+that can be used in Rollup or Vite to compile literate modules for the browser.
+
+**A language server** is currently in development.
+
+## Usage
+
+```sh
+npm install --save @hackbg/ganesha-nodejs-loader
+ganesha MyLiterateTypeScriptModule.ts.md
+```
 
 ## Comparison with alternatives
 
@@ -20,25 +34,22 @@ equivalents to `esbuild-node-loader` and `esbuild-register` are embedded).
 |Single entrypoint for CJS and ESM |🟩 yes |❌ no    |?        |?      |
 |Depends on `esbuild` binary module|🟩 no  |❌ yes   |?        |?      |
 
-## Usage
-
-### If your entrypoint is an ES or TS module
-
-```sh
-node --experimental-loader=@hackbg/ganesha/loader.mjs main.ts.md
-# -or-
-ganesha run-module main.ts.md
-```
-
-### If your entrypoint is a CommonJS module
-
-```sh
-node -r @hackbg/ganesha/loader.cjs main.js.md
-#-or-
-ganesha run-script main.js.md
-```
-
 ## Known issues
+
+### Nested code blocks
+
+Did you know Markdown supported nested code blocks?
+
+`````markdown
+````
+```
+like this
+```
+````
+`````
+
+Neither did I. Currently, you're limited to the garden variety
+three-backtick code blocks.
 
 ### Dynamic import of CommonJS modules handles `default` differently
 
