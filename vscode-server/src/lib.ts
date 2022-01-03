@@ -1,7 +1,7 @@
 import * as fg from 'fast-glob'
 import * as path from 'path'
 import { LanguageServiceHost } from 'typescript'
-import { Language } from '@hackbg/ganesha-vscode-shared'
+import { Language } from '@ganesha/vscode-shared'
 import { URI } from 'vscode-uri'
 import type { FoldingRange, TextEdit, Diagnostic } from 'vscode-languageserver'
 import { createLanguageService } from 'vscode-typescript-languageservice'
@@ -361,7 +361,7 @@ export function createGaneshaService (
       const { originUri } = virtualFile
       const mdFile = mdFiles.get(uriToFsPath(originUri))
       if (mdFile) {
-        return require('@hackbg/ganesha-core').parseString(ts.sys.readFile(fileName, 'utf8'))
+        return require('@ganesha/core').parseString(ts.sys.readFile(fileName, 'utf8'))
       }
     }
     const doc = documents.get(fsPathToUri(fileName))

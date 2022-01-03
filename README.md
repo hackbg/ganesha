@@ -21,7 +21,7 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 ## Usage
 
 ```sh
-npm install --save @hackbg/ganesha-nodejs-loader
+npm install --save @ganesha/nodejs-loader
 ganesha MyLiterateTypeScriptModule.ts.md
 ```
 

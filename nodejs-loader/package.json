@@ -1,10 +1,10 @@
 {
-  "name":    "@hackbg/ganesha-nodejs-loader",
+  "name":    "@ganesha/nodejs-loader",
   "version": "0.1.0",
   "bin":     { "ganesha": "./ganesha" },
   "main":    "loader.mjs",
   "dependencies": {
-    "@hackbg/ganesha-core": "workspace:*",
+    "@ganesha/core":        "workspace:*",
     "cross-spawn":          "^7.0.3",
     "esbuild":              "^0.13.0",
     "front-matter":         "^4.0.2",

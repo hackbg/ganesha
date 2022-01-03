@@ -1,6 +1,6 @@
 const { fileURLToPath } = require('url')
 const { existsSync } = require('fs')
-const { extensions, parseString } = require('@hackbg/ganesha-core/parse.cjs')
+const { extensions, parseString } = require('@ganesha/core/parse.cjs')
 const { resolve, dirname } = require('path')
 const { transformSync } = require('esbuild')
 

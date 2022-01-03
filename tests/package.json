@@ -1,9 +1,10 @@
 {
-  "name": "@hackbg/ganesha-tests",
+  "name": "@ganesha/tests",
+  "private": true,
   "devDependencies": {
-    "@hackbg/ganesha-core":          "workspace:*",
-    "@hackbg/ganesha-nodejs-loader": "workspace:*",
-    "@hackbg/rollup-plugin-ganesha": "workspace:*",
+    "@ganesha/core":          "workspace:*",
+    "@ganesha/nodejs-loader": "workspace:*",
+    "@ganesha/rollup-plugin": "workspace:*",
     "mkdirp": "^1.0.4",
     "vite":   "^2.7.6"
   },

@@ -17,7 +17,7 @@ fs.readFileSync = (...args) => {
         );
         tsc = tsc.replace(
             `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) {`,
-            `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) { return require('@hackbg/ganesha-tsc/proxy.ts').createProgramProxy(...arguments);`,
+            `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) { return require('@ganesha/tsc/proxy.ts').createProgramProxy(...arguments);`,
         );
         return tsc;
     }

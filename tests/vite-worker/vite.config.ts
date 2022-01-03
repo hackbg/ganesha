@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import ganesha from '@hackbg/rollup-plugin-ganesha'
+import ganesha from '@ganesha/rollup-plugin'
 const isElectron = (process.env.ELECTRON=="true")
 export default defineConfig({
   base: isElectron ? './' : "",

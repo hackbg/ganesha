@@ -1,0 +1,23 @@
+{
+  "name": "@ganesha/tsc",
+  "version": "0.1.0",
+  "bin": {
+    "ganesha": "./ganesha"
+  },
+  "main": "loader.mjs",
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@ganesha/core":     "workspace:*",
+    "@ganesha/langserv": "workspace:*",
+    "vscode-languageserver-textdocument": "^1.0.1",
+    "upath":      "^2.0.1",
+    "vscode-uri": "^3.0.2"
+  },
+  "scripts": {
+    "build": "tsc proxy.ts",
+    "test": "./ganesha-tsc --noEmit ./examples/valid.ts.md",
+    "test2": "./ganesha-tsc --noEmit ./examples/invalid.ts.md"
+  }
+}

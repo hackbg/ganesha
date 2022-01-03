@@ -2,7 +2,10 @@ import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
 
-import { parseString } from '@hackbg/ganesha-core'
+import JSONC from 'jsonc-parser'
+
+import { parseString } from '@ganesha/core/parse'
+import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform'
 
 import { installSourceMapSupport } from './sourcemaps.cjs'
 installSourceMapSupport()
@@ -21,10 +24,6 @@ import {
   isValidFMType, getFMType,
   isWindows,
 } from './util.mjs'
-
-import JSONC from 'jsonc-parser'
-
-import { tscToMjs, esbuildToMjs } from './transform.cjs'
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve

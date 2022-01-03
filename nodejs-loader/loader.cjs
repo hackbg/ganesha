@@ -1,6 +1,6 @@
 const { addHook } = require('pirates')
 
-const { parseString, extensions } = require('@hackbg/ganesha-core/parse.cjs')
+const { parseString, extensions } = require('@ganesha/core/parse.cjs')
 
 const { installSourceMapSupport } = require('./sourcemaps.cjs')
 
@@ -26,12 +26,12 @@ module.exports.register = function register () {
     }
 
     if (filename.endsWith('.ts')) {
-      return require('./transform').esbuildToCjs(filename, code, format)
+      return require('@ganesha/core/transform').esbuildToCjs(filename, code, format)
     }
 
     // This part should be optional depending on what context we're importing from?
     if (filename.endsWith('.mjs')) {
-      return require('./transform').tscToCjs(filename, code, format)
+      return require('@ganesha/core/transform').tscToCjs(filename, code, format)
     }
     
     return code

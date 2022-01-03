@@ -7,7 +7,7 @@ import {
   TextDocuments,
   DidChangeConfigurationNotification,
 } from 'vscode-languageserver/node'
-import type { ServerInitializationOptions } from '@hackbg/ganesha-vscode-shared'
+import type { ServerInitializationOptions } from '@ganesha/vscode-shared'
 import type { Typescript } from './lib'
 import { registerFeatures, uriToFsPath } from './lib'
 
@@ -43,6 +43,6 @@ connection.listen()
 documents.listen(connection)
 
 export function loadTypeScript (typescriptPath: string): Typescript {
-  const patchTypescript = require('@hackbg/ganesha-typescript-patch')
+  const patchTypescript = require('@ganesha/typescript-patch')
   return patchTypescript(require(typescriptPath))
 }

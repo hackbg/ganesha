@@ -25,13 +25,13 @@
     "onLanguage:ts"
   ],
   "devDependencies": {
-    "@hackbg/ganesha-core":          "workspace:*",
-    "@hackbg/ganesha-nodejs-loader": "workspace:*",
-    "@types/node":                   "latest",
-    "tap":                           "^15.0.9",
-    "typescript":                    "latest",
-    "vite":                          "^2.7.6",
-    "vsce":                          "latest"
+    "@ganesha/core":          "workspace:*",
+    "@ganesha/nodejs-loader": "workspace:*",
+    "@types/node":            "latest",
+    "tap":                    "^15.0.9",
+    "typescript":             "latest",
+    "vite":                   "^2.7.6",
+    "vsce":                   "latest"
   },
   "scripts": {
     "test":        "tap --no-check-coverage tests/test.cjs",
@@ -42,9 +42,11 @@
   },
   "packages": [
     "./core",
+    "./langserv",
     "./nodejs-loader",
     "./rollup-plugin",
     "./tests",
+    "./tsc",
     "./typescript-patch",
     "./vscode-client",
     "./vscode-server",
