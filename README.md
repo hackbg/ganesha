@@ -1,10 +1,11 @@
 # Ganesha
 
 Ganesha is a suite of tools for **literate programming** with JavaScript/TypeScript and Markdown.
-It helps you **write better code faster**, by skipping a compilation step, and storing the
-documentation where it's most useful and easiest to update - right next to the code.
+It helps you **write better code faster**, by letting you skip the TS-JS compilation step,
+and by letting you store the documentation where it's most needed and easiest to update -
+right next to the code.
 
-At the same time, Ganesha **makes your code more accessible** by embedding it in Markdown,
+Ganesha **makes your code more accessible** by embedding it in Markdown,
 letting you write human-friendly descriptions of what individual blocks of code do,
 which can then be rendered by GitHub as [**literate modules**](./tests/MATRIX.cjs.md).
 
@@ -21,7 +22,7 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 ## Usage
 
 ```sh
-npm install --save @hackbg/ganesha-nodejs-loader
+npm install --save @ganesha/nodejs-loader
 ganesha MyLiterateTypeScriptModule.ts.md
 ```
 
@@ -29,7 +30,7 @@ ganesha MyLiterateTypeScriptModule.ts.md
 
 |Feature                           |Ganesha|esmo/esno|ts-esnode|ts-node|
 |----------------------------------|-------|---------|---------|-------|
-|Literate modules                  |🟩 yes |❌ no    |no       |no     |
+|Literate modules                  |🟩 yes |❌ no    |❌ no    |❌ no  |
 |Honors `compilerOptions.paths`    |🟩 yes |❌ no    |?        |?      |
 |Single entrypoint for CJS and ESM |🟩 yes |❌ no    |?        |?      |
 |Depends on `esbuild` binary module|🟩 no  |❌ yes   |?        |?      |

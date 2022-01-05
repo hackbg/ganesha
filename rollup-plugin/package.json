@@ -1,7 +1,8 @@
 {
-  "name": "@hackbg/rollup-plugin-ganesha",
+  "name": "@ganesha/rollup-plugin",
   "version": "0.1.0",
   "dependencies": {
-    "@hackbg/ganesha-core": "workspace:*"
+    "@ganesha/core": "workspace:*",
+    "esbuild": "^0.13.0"
   }
 }

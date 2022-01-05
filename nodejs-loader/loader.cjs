@@ -1,6 +1,6 @@
 const { addHook } = require('pirates')
 
-const { parseString, extensions } = require('@hackbg/ganesha-core/parse.cjs')
+const { parseString, extensions } = require('@ganesha/core/parse.cjs')
 
 const { installSourceMapSupport } = require('./sourcemaps.cjs')
 

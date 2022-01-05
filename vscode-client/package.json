@@ -1,12 +1,12 @@
 {
-  "name": "@hackbg/ganesha-vscode-client",
+  "name": "@ganesha/vscode-client",
   "version": "0.0.15",
   "files": [
     "out"
   ],
   "dependencies": {
-    "@hackbg/ganesha-vscode-shared": "workspace:*",
-    "vscode-languageclient":         "^7.1.0-next.4"
+    "@ganesha/vscode-shared": "workspace:*",
+    "vscode-languageclient":  "^7.1.0-next.4"
   },
   "devDependencies": {
     "@types/vscode": "latest"

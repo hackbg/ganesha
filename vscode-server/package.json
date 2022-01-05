@@ -1,10 +1,10 @@
 {
-  "name":    "@hackbg/ganesha-vscode-server",
+  "name":    "@ganesha/vscode-server",
   "version": "0.1.0",
   "dependencies": {
-    "@hackbg/ganesha-core":             "workspace:*",
-    "@hackbg/ganesha-vscode-shared":    "workspace:*",
-    "@hackbg/ganesha-typescript-patch": "workspace:*",
+    "@ganesha/core":             "workspace:*",
+    "@ganesha/vscode-shared":    "workspace:*",
+    "@ganesha/typescript-patch": "workspace:*",
 
     "fast-glob": "^3.2.7",
 

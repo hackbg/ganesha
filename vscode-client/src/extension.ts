@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as lsp from 'vscode-languageclient/node';
 import * as path from 'path';
-import type { ServerInitializationOptions } from '@hackbg/ganesha-vscode-shared';
+import type { ServerInitializationOptions } from '@ganesha/vscode-shared';
 let client: lsp.LanguageClient;
 export function deactivate(): Thenable<void> | undefined {
   return client?.stop();

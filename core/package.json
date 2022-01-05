@@ -1,6 +1,6 @@
 {
-  "name": "@hackbg/ganesha-core",
-  "version": "0.0.0",
-  "main": "parse.cjs"
+  "name":    "@ganesha/core",
+  "version": "0.1.0",
+  "main":    "parse.cjs"
 }
 

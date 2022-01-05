@@ -2,7 +2,7 @@ import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
 
-import { parseString } from '@hackbg/ganesha-core'
+import { parseString } from '@ganesha/core'
 
 import { installSourceMapSupport } from './sourcemaps.cjs'
 installSourceMapSupport()
