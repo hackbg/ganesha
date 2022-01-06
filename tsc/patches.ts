@@ -1,12 +1,36 @@
 import { resolve, dirname, extname } from 'path'
+import { writeFileSync } from 'fs'
 import * as ts from 'typescript/lib/tsserverlibrary'
 import { parseString } from '@ganesha/core/parse.cjs'
 
 export function patchProgram (
   program: ts.Program
 ): ts.Program {
-  const { getSourceFile, getSourceFiles } = program
+  //console.log('patchProgram')
+  const { getSourceFile, getSourceFiles, emit } = program
   return Object.assign(program, {
+    emit (
+      sourceFile?:        ts.SourceFile,
+      writeFileCallback?: ts.WriteFileCallback,
+      cancellationToken?: ts.CancellationToken,
+      emitOnlyDtsFiles?:  boolean,
+      transformers?:      ts.CustomTransformers,
+    ) {
+      if (!writeFileCallback) {
+        writeFileCallback = (path: string, text: string) => {
+          writeFileSync(path, text, 'utf8')
+        }
+      }
+      const result = emit(
+        sourceFile,
+        writeFileCallback,
+        cancellationToken,
+        emitOnlyDtsFiles,
+        transformers,
+      )
+      return result
+    },
+    GANESHA: true
     //getSourceFile (fileName: string) {
       //if (!fileName.includes('node_modules')) {
         //console.log('program.getSourceFile', fileName)
@@ -39,19 +63,19 @@ export function getShimmedHost (
   return {
     ...host,
 
-		writeFile (...args: any) {
-      console.log('writeFile', args)
-      throw new Error('writeFile: unimplemented')
-    },
+		//writeFile (...args: any) {
+      //console.log('writeFile', args)
+      //throw new Error('writeFile: unimplemented')
+    //},
 
-    getSourceFile (...args: any) {
-      console.log('getSourceFile', args)
-      throw new Error('getSourceFile: unimplemented')
-    },
+    //getSourceFile (...args: any) {
+      //console.log('getSourceFile', args)
+      //throw new Error('getSourceFile: unimplemented')
+    //},
 
 		getCompilationSettings () {
       options.options.allowNonTsExtensions = true
-      console.log({options})
+      //console.log({options})
       return options.options
     },
 
@@ -126,14 +150,15 @@ export function getShimmedHost (
 
 export type TypeScript = typeof import('typescript/lib/tsserverlibrary') & {
   getResolvedModule:  Function,
-  resolveModuleName:  Function
+  resolveModuleName:  Function,
+  emitFilesAndReportErrorsAndGetExitStatus: Function
 }
 
 export function patchTypeScript (
   ts: TypeScript
 ): TypeScript {
 
-  const { getResolvedModule, resolveModuleName } = ts
+  const { getResolvedModule, emitFilesAndReportErrorsAndGetExitStatus, resolveModuleName } = ts
 
   return Object.assign(ts, {
 
@@ -172,7 +197,32 @@ export function patchTypeScript (
 
       return result
 
-    }
+    },
+
+    //emitFilesAndReportErrorsAndGetExitStatus (
+      //program:             ts.Program,
+      //reportDiagnostic:    ts.DiagnosticReporter,
+      //write?:              (s: string) => void,
+      //reportSummary?:      ts.ReportEmitErrorSummary,
+      //writeFile?:          ts.WriteFileCallback,
+      //cancellationToken?:  ts.CancellationToken,
+      //emitOnlyDtsFiles?:   boolean,
+      //customTransformers?: ts.CustomTransformers
+    //) {
+      //if (!writeFile) {
+        //console.trace('no writefile')
+      //}
+      //return emitFilesAndReportErrorsAndGetExitStatus(
+        //program,
+        //reportDiagnostic,
+        //write,
+        //reportSummary,
+        //writeFile,
+        //cancellationToken,
+        //emitOnlyDtsFiles,
+        //customTransformers
+      //)
+    //},
 
     // the error `Cannot_find_module_0_or_its_corresponding_type_declarations`
     // is used in resolveExternalModuleName

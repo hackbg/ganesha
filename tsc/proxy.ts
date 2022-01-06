@@ -14,9 +14,6 @@ export function createProgramProxy (
 }
 
 function validateOptions (options: ts.CreateProgramOptions) {
-	if (!options.options.noEmit && !options.options.emitDeclarationOnly) {
-		return doThrow('js emit is not support')
-  }
 	if (!options.host) {
     return doThrow('!options.host')
   }

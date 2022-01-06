@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc proxy.ts",
-    "test": "./ganesha-tsc --noEmit ./examples/valid.ts.md",
-    "test2": "./ganesha-tsc --noEmit ./examples/invalid.ts.md"
+    "test":  "./ganesha-tsc --outDir ./out ./examples/valid.ts.md",
+    "test2": "./ganesha-tsc --outDir ./out ./examples/invalid.ts.md"
   }
 }
