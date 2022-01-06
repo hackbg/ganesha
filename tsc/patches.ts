@@ -1,5 +1,24 @@
+import { resolve, dirname, extname } from 'path'
 import * as ts from 'typescript/lib/tsserverlibrary'
 import { parseString } from '@ganesha/core/parse.cjs'
+
+export function patchProgram (
+  program: ts.Program
+): ts.Program {
+  const { getSourceFile, getSourceFiles } = program
+  return Object.assign(program, {
+    //getSourceFile (fileName: string) {
+      //if (!fileName.includes('node_modules')) {
+        //console.log('program.getSourceFile', fileName)
+      //}
+      //return getSourceFile(fileName)
+    //},
+    //getSourceFiles (...args: any) {
+      //console.log('program.getSourceFiles', args)
+      //throw new Error('program.getSourceFiles: unimplemented')
+    //},
+  })
+}
 
 export type CompilerHost = ts.CompilerHost & {
   getCompilationSettings: () => any
@@ -8,24 +27,6 @@ export type CompilerHost = ts.CompilerHost & {
   getScriptVersion:       () => string
   getScriptSnapshot:      (fileName: string) => ts.IScriptSnapshot|undefined,
   getProjectReferences:   () => any
-}
-
-export function patchProgram (
-  program: ts.Program
-): ts.Program {
-  const { getSourceFile, getSourceFiles } = program
-  return Object.assign(program, {
-    getSourceFile (fileName: string) {
-      if (!fileName.includes('node_modules')) {
-        console.log('program.getSourceFile', fileName)
-      }
-      return getSourceFile(fileName)
-    },
-    //getSourceFiles (...args: any) {
-      //console.log('program.getSourceFiles', args)
-      //throw new Error('program.getSourceFiles: unimplemented')
-    //},
-  })
 }
 
 export function getShimmedHost (
@@ -96,7 +97,27 @@ export function getShimmedHost (
       return options.projectReferences
     },
 
-    //resolveModuleNames (...args: any) {
+    //resolveModuleNames (
+      //moduleNames:         string[],
+      //containingFilename:  string,
+      //reusedNames:         string[],
+      //redirectedReference: ts.ResolvedProjectReference,
+      //options:             ts.CompilerOptions,
+      //containingFile:      ts.SourceFile
+    //): ts.ResolvedModuleFull[] {
+      //console.trace('resolveModuleNames', {
+        //moduleNames,
+        //containingFilename,
+        //reusedNames
+      //})
+      //const containingDir = dirname(containingFilename)
+      //process.exit(123)
+      //return moduleNames.map(moduleName=>({
+        //resolvedFileName:        resolve(containingDir, moduleName),
+        //extension:               ts.Extension.Ts,
+        //packageId:               undefined,
+        //isExternalLibraryImport: undefined
+      //}))
     //}
 
   }
@@ -115,6 +136,43 @@ export function patchTypeScript (
   const { getResolvedModule, resolveModuleName } = ts
 
   return Object.assign(ts, {
+
+    resolveModuleName (
+      moduleName:           string,
+      containingFile:       string,
+      compilerOptions:      ts.CompilerOptions,
+      host:                 ts.ModuleResolutionHost,
+      cache?:               ts.ModuleResolutionCache,
+      redirectedReference?: ts.ResolvedProjectReference,
+      resolutionMode?:      ts.ModuleKind.CommonJS | ts.ModuleKind.ESNext
+    ): ts.ResolvedModuleWithFailedLookupLocations {
+
+      const result = resolveModuleName(
+        moduleName, containingFile, compilerOptions,
+        host, cache, redirectedReference, resolutionMode
+      )
+
+      if (result.resolvedModule === undefined) {
+        /* TODO: try all extensions here */
+        const literateModule = resolve(dirname(containingFile), moduleName)
+        if (host.fileExists(literateModule)) {
+          Object.assign(result, {
+            resolvedModule: {
+              resolvedFileName:        literateModule,
+              originalPath:            undefined,
+              extension:               '.ts',
+              isExternalLibraryImport: false,
+              packageId:               undefined
+            }
+          })
+        } else {
+          (result as any).failedLookupLocations.push(literateModule)
+        }
+      }
+
+      return result
+
+    }
 
     // the error `Cannot_find_module_0_or_its_corresponding_type_declarations`
     // is used in resolveExternalModuleName
@@ -161,7 +219,7 @@ export function patchTypeScript (
     // which is called by processSourceFile
     // which is called by processRootFile
     //
-    // looks like the crux is in getSourceFileFromReferenceWorker
+    // looks like the crux is in resolveModuleName
     // 
     // resolveModuleNamesReusingOldState
     // calls resolveModuleNamesWorker
@@ -169,7 +227,7 @@ export function patchTypeScript (
     // which calls host.resolveModuleNames !!! if present
     // otherwise it calls ts.loadWithModeAwareCache !!!
     // which uses a loader that calls ts.resolveModuleName !!!
-    // which has an attached GH issue #18217
+    // which has an attached GH issue #18217 (irrelevant)
 
     //getResolvedModule (...args:any) {
       //console.log('grm',...args)

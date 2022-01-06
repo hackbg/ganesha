@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@ganesha/core': link:core
       '@ganesha/nodejs-loader': link:nodejs-loader
-      '@types/node': 17.0.7
+      '@types/node': 17.0.8
       tap: 15.0.9_typescript@4.5.4
       typescript: 4.5.4
       vite: 2.7.6
@@ -22,33 +22,6 @@ importers:
 
   core:
     specifiers: {}
-
-  langserv:
-    specifiers:
-      '@vue/reactivity': ^3.2.26
-      request-light: ^0.5.4
-      typescript: latest
-      upath: ^2.0.1
-      vscode-languageserver: ^8.0.0-next.2
-      vscode-languageserver-textdocument: ^1.0.1
-      vscode-typescript-languageservice: 0.30.0
-      vscode-uri: ^3.0.2
-    dependencies:
-      '@vue/reactivity': 3.2.26
-      request-light: 0.5.6
-      upath: 2.0.1
-      vscode-languageserver: 8.0.0-next.5
-      vscode-languageserver-textdocument: 1.0.3
-      vscode-typescript-languageservice: 0.30.0
-      vscode-uri: 3.0.3
-    devDependencies:
-      typescript: 4.5.4
-
-  langserv/testCases:
-    specifiers:
-      '@vue/runtime-dom': ^3.2.19
-    devDependencies:
-      '@vue/runtime-dom': 3.2.26
 
   nodejs-loader:
     specifiers:
@@ -96,16 +69,10 @@ importers:
   tsc:
     specifiers:
       '@ganesha/core': workspace:*
-      '@ganesha/langserv': workspace:*
-      upath: ^2.0.1
-      vscode-languageserver-textdocument: ^1.0.1
-      vscode-uri: ^3.0.2
+      '@ganesha/nodejs-loader': workspace:*
     dependencies:
       '@ganesha/core': link:../core
-      '@ganesha/langserv': link:../langserv
-      upath: 2.0.1
-      vscode-languageserver-textdocument: 1.0.3
-      vscode-uri: 3.0.3
+      '@ganesha/nodejs-loader': link:../nodejs-loader
 
   typescript-patch:
     specifiers:
@@ -481,8 +448,8 @@ packages:
       fastq: 1.13.0
     dev: false
 
-  /@types/node/17.0.7:
-    resolution: {integrity: sha512-1QUk+WAUD4t8iR+Oj+UgI8oJa6yyxaB8a8pHaC8uqM6RrS1qbL7bf3Pwl5rHv0psm2CuDErgho6v5N+G+5fwtQ==}
+  /@types/node/17.0.8:
+    resolution: {integrity: sha512-YofkM6fGv4gDJq78g4j0mMuGMkZVxZDgtU0JRdx6FgiJDG+0fY0GKVolOV8WqVmEhLCXkQRjwDdKyPxJp/uucg==}
     dev: true
 
   /@types/vscode/1.63.1:
@@ -496,37 +463,6 @@ packages:
       vscode-jsonrpc: 8.0.0-next.4
       vscode-uri: 3.0.3
     dev: false
-
-  /@volar/shared/0.30.0:
-    resolution: {integrity: sha512-zfQMIQWAbRd/u8iqKFUd/24EGEDKwr6QuKwEoXe1/UAhA8TIWBljnfm/pgMdyUzWPqnNFKeFLRHMlt8NUoDHJQ==}
-    dependencies:
-      upath: 2.0.1
-      vscode-jsonrpc: 8.0.0-next.4
-      vscode-uri: 3.0.3
-    dev: false
-
-  /@vue/reactivity/3.2.26:
-    resolution: {integrity: sha512-h38bxCZLW6oFJVDlCcAiUKFnXI8xP8d+eO0pcDxx+7dQfSPje2AO6M9S9QO6MrxQB7fGP0DH0dYQ8ksf6hrXKQ==}
-    dependencies:
-      '@vue/shared': 3.2.26
-
-  /@vue/runtime-core/3.2.26:
-    resolution: {integrity: sha512-BcYi7qZ9Nn+CJDJrHQ6Zsmxei2hDW0L6AB4vPvUQGBm2fZyC0GXd/4nVbyA2ubmuhctD5RbYY8L+5GUJszv9mQ==}
-    dependencies:
-      '@vue/reactivity': 3.2.26
-      '@vue/shared': 3.2.26
-    dev: true
-
-  /@vue/runtime-dom/3.2.26:
-    resolution: {integrity: sha512-dY56UIiZI+gjc4e8JQBwAifljyexfVCkIAu/WX8snh8vSOt/gMSEGwPRcl2UpYpBYeyExV8WCbgvwWRNt9cHhQ==}
-    dependencies:
-      '@vue/runtime-core': 3.2.26
-      '@vue/shared': 3.2.26
-      csstype: 2.6.19
-    dev: true
-
-  /@vue/shared/3.2.26:
-    resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
 
   /aggregate-error/3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
@@ -939,10 +875,6 @@ packages:
   /css-what/5.1.0:
     resolution: {integrity: sha512-arSMRWIIFY0hV8pIxZMEfmMI47Wj3R/aWpZDDxWYCPEiOMv6tfOrnpDtgxBYPEQD4V0Y/958+1TdC3iWTFcUPw==}
     engines: {node: '>= 6'}
-    dev: true
-
-  /csstype/2.6.19:
-    resolution: {integrity: sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==}
     dev: true
 
   /dashdash/1.14.1:
@@ -2295,10 +2227,6 @@ packages:
       es6-error: 4.1.1
     dev: true
 
-  /request-light/0.5.6:
-    resolution: {integrity: sha512-mIfRkYujBF6qQQi+uJGHFzYD2P7WwfIMyJ3/DcTtOFB3iypwIVOXmsr3RMnFwTJRVcYLLZdjkIx43E8Zn2hRng==}
-    dev: false
-
   /request/2.88.2:
     resolution: {integrity: sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==}
     engines: {node: '>= 6'}
@@ -2939,16 +2867,6 @@ packages:
     resolution: {integrity: sha512-nxpJI9MnF2rn5rKL/032Qrsq3T9DgM3slK5fwZp3suNdo90JG2zFTs3Ola8n62k7+KWu4A775obxyb4wLIW6Gw==}
     dependencies:
       '@volar/shared': 0.27.24
-      semver: 7.3.5
-      upath: 2.0.1
-      vscode-languageserver: 8.0.0-next.5
-      vscode-languageserver-textdocument: 1.0.3
-    dev: false
-
-  /vscode-typescript-languageservice/0.30.0:
-    resolution: {integrity: sha512-Os+1yxz7+xZLeUNPS/cpiUsOxrSFIC6s79ir56W3QWd9jV/jcL1rt69Wsz8AilmQ7zSA9Cri5wqOb4VHj8IICQ==}
-    dependencies:
-      '@volar/shared': 0.30.0
       semver: 7.3.5
       upath: 2.0.1
       vscode-languageserver: 8.0.0-next.5
