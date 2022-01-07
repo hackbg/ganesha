@@ -1,0 +1,6 @@
+{
+  "name": "@ganesha/core",
+  "version": "0.0.0",
+  "main": "parse.cjs"
+}
+

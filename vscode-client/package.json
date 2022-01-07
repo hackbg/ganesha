@@ -1,0 +1,17 @@
+{
+  "name":    "@ganesha/vscode-client",
+  "version": "0.1.0",
+  "files": [
+    "out"
+  ],
+  "dependencies": {
+    "@ganesha/vscode-shared": "workspace:*",
+    "vscode-languageclient":  "^7.1.0-next.4"
+  },
+  "devDependencies": {
+    "@types/vscode": "latest"
+  },
+  "engines": {
+    "vscode": "latest"
+  }
+}

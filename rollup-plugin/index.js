@@ -1,15 +1,34 @@
 const { fileURLToPath } = require('url')
-const { parseString } = require('@hackbg/ganesha/parse.cjs')
-const { is, FM_TYPES, getFM } = require('@hackbg/ganesha/shared.cjs')
+const { existsSync } = require('fs')
+const { extensions, parseString } = require('@ganesha/core/parse.cjs')
+const { resolve, dirname } = require('path')
+const { transformSync } = require('esbuild')
+
+const RE_LITERATE = /\.md$/
+const isLiterate  = x => RE_LITERATE.test(x)
+const RE_TYPESCRIPT = /\.ts.md$/
+const isTypescript  = x => RE_TYPESCRIPT.test(x)
+const isWindows = process.platform === "win32"
 
 module.exports = function ganeshaPlugin (typescript = true) {
   return {
 
     name: 'rollup-plugin-ganesha',
 
-    enforce: 'pre',
-
-    resolveId (source) {
+    resolveId (source, importer) {
+      if (!importer) {
+        return null
+      }
+      const resolved = resolve(dirname(importer), source)
+      if (existsSync(resolved)) {
+        return resolved
+      }
+      for (const extension of extensions) {
+        const resolved = resolve(dirname(importer), `${source}${extension}`)
+        if (existsSync(resolved)) {
+          return resolved
+        }
+      }
       return null
     },
 
@@ -32,18 +51,15 @@ module.exports = function ganeshaPlugin (typescript = true) {
       if (literate) {
         code = parseString(code)
         let map = null
-        //if (is.Typescript(id)) {
-          const { transformSync } = require('esbuild')
-          const compiled = transformSync(code, {
-            sourcefile: id,
-            sourcemap: 'both',
-            loader: 'ts',
-            target: 'esnext',
-            format: 'esm' //format === 'module' ? 'esm' : 'cjs'
-          })
-          code = compiled.code
-          map  = compiled.map
-        //}
+        const compiled = transformSync(code, {
+          sourcefile: id,
+          sourcemap: 'both',
+          loader: 'ts',
+          target: 'esnext',
+          format: 'esm' //format === 'module' ? 'esm' : 'cjs'
+        })
+        code = compiled.code
+        map  = compiled.map
         return { code, map }
       }
 

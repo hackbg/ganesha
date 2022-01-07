@@ -1,20 +1,58 @@
 {
-  "name": "@hackbg/ganesha-workspace",
+  "name": "@hackbg/ganesha",
+  "displayName": "Ganesha",
+  "description": "Literate programming with TypeScript in Markdown",
+  "icon": "icon.png",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "markdown",
+    "typescript",
+    "literate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hackbg/ganesha"
+  },
+  "main": "./vscode-client/out/extension",
+  "version": "0.0.0",
   "private": true,
   "workspace": true,
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:typescript",
+    "onLanguage:ts"
+  ],
   "devDependencies": {
-    "@hackbg/ganesha": "workspace:*",
-    "tap": "^15.0.9",
-    "codecov": "^3.8.3"
+    "@ganesha/core":          "workspace:*",
+    "@ganesha/nodejs-loader": "workspace:*",
+    "@types/node":            "latest",
+    "tap":                    "^15.0.9",
+    "typescript":             "latest",
+    "vite":                   "^2.7.6",
+    "vsce":                   "latest"
   },
   "scripts": {
-    "test": "tap --no-check-coverage tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs",
-    "coverage": "tap --coverage-report=lcov tests/parser.cjs tests/loader.cjs tests/frontmatter.cjs tests/misc.cjs | codecov"
+    "test":        "tap --no-check-coverage tests/test.cjs",
+    "test:matrix": "cd tests; pnpm test:matrix",
+    "build":       "tsc -b tsconfig.build.json",
+    "package":     "vsce package --yarn",
+    "watch":       "tsctens -b tsconfig.build.json -w"
   },
   "packages": [
-    "./loader",
+    "./core",
+    "./langserv",
+    "./nodejs-loader",
     "./rollup-plugin",
-    "./language-server",
-    "./language-client"
-  ]
+    "./tests",
+    "./tsc",
+    "./typescript-patch",
+    "./vscode-client",
+    "./vscode-server",
+    "./vscode-shared"
+  ],
+  "engines": {
+    "vscode": "^1.58.0"
+  }
 }

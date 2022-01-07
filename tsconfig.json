@@ -1,0 +1,5 @@
+{
+  "extends":         "./tsconfig.base.json",
+  "compilerOptions": {"noEmit": true, "downlevelIteration": true},
+  "include":         ["vscode-shared/src", "vscode-client/src", "vscode-server/src"]
+}

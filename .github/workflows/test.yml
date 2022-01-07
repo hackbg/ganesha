@@ -11,24 +11,20 @@ jobs:
     name: Run tests & Coverage
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch sources
-        uses: actions/checkout@v2
-      
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
 
-      - name: Install PNPM
+      - name: Fetch sources
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with: { node-version: '14' }
+
+      - name: Install PNPM and deps
         uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.14.3
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
 
       - name: Run tests
         run: pnpm test

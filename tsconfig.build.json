@@ -1,0 +1,9 @@
+{
+  "files":      [],
+  "include":    [],
+  "references": [
+    {"path": "./vscode-shared/tsconfig.build.json"},
+    {"path": "./vscode-client/tsconfig.build.json"},
+    {"path": "./vscode-server/tsconfig.build.json"}
+  ]
+}

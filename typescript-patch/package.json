@@ -1,0 +1,13 @@
+{
+  "name": "@ganesha/typescript-patch",
+  "version": "0.1.0",
+  "scripts": {
+    "foo": "node foo.js"
+  },
+  "dependencies": {
+    "@ganesha/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "typescript": "^4.5"
+  }
+}
