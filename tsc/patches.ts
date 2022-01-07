@@ -16,6 +16,7 @@ export function patchProgram (
       emitOnlyDtsFiles?:  boolean,
       transformers?:      ts.CustomTransformers,
     ) {
+      console.trace('emit', sourceFile)
       if (!writeFileCallback) {
         writeFileCallback = (path: string, text: string) => {
           writeFileSync(path, text, 'utf8')
@@ -30,7 +31,7 @@ export function patchProgram (
       )
       return result
     },
-    GANESHA: true
+    GANESHA: true,
     //getSourceFile (fileName: string) {
       //if (!fileName.includes('node_modules')) {
         //console.log('program.getSourceFile', fileName)
@@ -38,7 +39,8 @@ export function patchProgram (
       //return getSourceFile(fileName)
     //},
     //getSourceFiles (...args: any) {
-      //console.log('program.getSourceFiles', args)
+      //console.log('program.getSourceFiles', args, Object.keys(getSourceFiles()))
+      //console.log(getSourceFiles.toString())
       //throw new Error('program.getSourceFiles: unimplemented')
     //},
   })
@@ -75,6 +77,7 @@ export function getShimmedHost (
 
 		getCompilationSettings () {
       options.options.allowNonTsExtensions = true
+      options.options.allowJs = true
       //console.log({options})
       return options.options
     },
@@ -278,6 +281,13 @@ export function patchTypeScript (
     // otherwise it calls ts.loadWithModeAwareCache !!!
     // which uses a loader that calls ts.resolveModuleName !!!
     // which has an attached GH issue #18217 (irrelevant)
+    //
+    // processImportedModules ->
+    //  collectExternalModuleReferences
+    //  getModuleNames
+    //  resolveModuleNamesReusingOldState
+    //
+    //
 
     //getResolvedModule (...args:any) {
       //console.log('grm',...args)
