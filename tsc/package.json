@@ -2,7 +2,7 @@
   "name": "@ganesha/tsc",
   "version": "0.1.0",
   "bin": {
-    "ganesha": "./ganesha"
+    "ganesha-tsc": "./ganesha-tsc"
   },
   "main": "loader.mjs",
   "peerDependencies": {
