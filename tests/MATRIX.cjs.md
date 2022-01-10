@@ -72,6 +72,7 @@ in the directory of the particular test case.
 ```javascript
 const { resolve } = require('path')
 const node = `${resolve(__dirname, '..', 'nodejs-loader', 'ganesha')} --unhandled-rejections=throw`
+const tsc  = `${resolve(__dirname, '..', 'tsc', 'ganesha-tsc')}`
 const Sources = {
   'CJS': {
     'require'        (literacy, target) {
@@ -80,6 +81,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -97,6 +99,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -117,6 +120,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -134,6 +138,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -152,6 +157,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -170,6 +176,7 @@ const Sources = {
         'package.json': JSON.stringify({
           name: "source",
           scripts: {
+            "build": `${tsc} ${main}`,
             "test": `${node} ${main}`
           }
         }),
@@ -356,11 +363,23 @@ const stdio = ['ignore','pipe','pipe']
 
 const Environments = {
 
-  'Node' () {
+  'TSC' () {
     spawnSync('pwd', [], { stdio })
     spawnSync('ls',  [], { stdio })
     spawnSync('cat', ['package.json'], { stdio })
     const {status, stdout, stderr} = spawnSync('npm', ['run', 'test'], { stdio })
+    if (status === 123) {
+      return [true]
+    } else {
+      return [false, status, stdout, stderr]
+    }
+  },
+
+  'Node' () {
+    spawnSync('pwd', [], { stdio })
+    spawnSync('ls',  [], { stdio })
+    spawnSync('cat', ['package.json'], { stdio })
+    const {status, stdout, stderr} = spawnSync('npm', ['run', 'build'], { stdio })
     if (status === 123) {
       return [true]
     } else {
@@ -387,9 +406,19 @@ const Environments = {
     }
   },
 
-  //'VSCode LSP'    () {
-  //}
 }
+```
+
+These are the URLs to the modules which implement support for each environment:
+
+```typescript
+
+const EnvURLs = {
+  'TSC':  '../tsc',
+  'Node': '../nodejs-loader',
+  'Vite': '../rollup-plugin',
+}
+
 ```
 
 ## Running the tests
@@ -423,7 +452,7 @@ const header = `
 # Test matrix results
 `
 
-const environmentNames = Object.keys(Environments).join('|')
+const environmentNames = Object.keys(Environments).map(x=>`[${x}](${EnvURLs[x]})`).join('|')
 const environmentSeparators = Object.keys(Environments).map(()=>'---').join('|')
 
 let report = `
@@ -522,7 +551,7 @@ if (Object.entries(failures).length > 0) {
   }
 
   const output = require('path').resolve(__dirname, 'FAIL.md')
-  writeFileSync(output, `${header}\n${report}`)
+  writeFileSync(output, failReport)
   console.log(`Wrote output of ${fail} failed tests to ${output}.`)
 }
 ```
