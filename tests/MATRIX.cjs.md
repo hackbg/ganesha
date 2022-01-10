@@ -420,15 +420,13 @@ let total = 0
 let failures = {}
 
 const header = `
-# Ganesha
+# Test matrix results
 `
 
 const environmentNames = Object.keys(Environments).join('|')
 const environmentSeparators = Object.keys(Environments).map(()=>'---').join('|')
 
 let report = `
-## Test Matrix Results
-
 |Source module|Import type|Relation type|Target module|${environmentNames}|
 |-------------|-----------|-------------|-------------|${environmentSeparators}|
 `
@@ -486,7 +484,7 @@ for (const [sourceLiteracy, setSourceLiteracy] of Object.entries(Literacy)) {
                 console.log('ok')
               } else if (result === false) {
                 fail++
-                report += `[❌ FAIL](#${testCase.toLowerCase()})|`
+                report += `[❌ FAIL](./FAIL.md#${testCase.toLowerCase()})|`
                 console.log(`fail: expected exit code 123, got ${status}`)
                 failures[testCase] = { status, stdout, stderr }
                 process.stdout.write(stdout)
@@ -507,17 +505,24 @@ for (const [sourceLiteracy, setSourceLiteracy] of Object.entries(Literacy)) {
 console.log(report)
 console.log({ total: i, ok, fail })
 
-if (Object.entries(failures).length > 0) {
-  report += '\n## Test failures\n'
-  for (const [testCase, { status, stdout, stderr }] of Object.entries(failures)) {
-    report += '\n### '+ testCase
-    report += '\nExit code\n```\n' + status + '\n```\n'
-    report += '\nStdout\n```\n' + stdout + '\n```\n'
-    report += '\nStderr\n```\n' + stderr + '\n```\n'
-  }
-}
-
 const output = require('path').resolve(__dirname, 'README.md')
 writeFileSync(output, `${header}\n${report}`)
 console.log(`Done. Wrote ${output}.`)
+
+let failReport = ''
+if (Object.entries(failures).length > 0) {
+
+  failReport += '\n# Test failures\n'
+
+  for (const [testCase, { status, stdout, stderr }] of Object.entries(failures)) {
+    failReport += '\n## '+ testCase
+    failReport += '\nExit code\n```\n' + status + '\n```\n'
+    failReport += '\nStdout\n```\n' + stdout + '\n```\n'
+    failReport += '\nStderr\n```\n' + stderr + '\n```\n'
+  }
+
+  const output = require('path').resolve(__dirname, 'FAIL.md')
+  writeFileSync(output, `${header}\n${report}`)
+  console.log(`Wrote output of ${fail} failed tests to ${output}.`)
+}
 ```
