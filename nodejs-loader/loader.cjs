@@ -1,8 +1,14 @@
 const { addHook } = require('pirates')
 
-const { parseString, extensions } = require('@ganesha/core/parse.cjs')
+const {
+  parseString,
+  extensions
+} = require('@ganesha/core/parse.cjs')
 
-const { installSourceMapSupport } = require('./sourcemaps.cjs')
+const {
+  installSourceMapSupport,
+  addSourceMap
+} = require('./sourcemaps.cjs')
 
 const USAGE = `
   This module cannot be run as the main module.
@@ -26,12 +32,16 @@ module.exports.register = function register () {
     }
 
     if (filename.endsWith('.ts')) {
-      return require('@ganesha/core/transform').esbuildToCjs(filename, code, format)
+      const { id, compiled, map } = require('@ganesha/core/transform').esbuildToCjs(filename, code, format)
+      addSourceMap(id, map)
+      return compiled
     }
 
     // This part should be optional depending on what context we're importing from?
     if (filename.endsWith('.mjs')) {
-      return require('@ganesha/core/transform').tscToCjs(filename, code, format)
+      const { id, compiled, map } = require('@ganesha/core/transform').tscToCjs(filename, code, format)
+      addSourceMap(id, map)
+      return compiled
     }
     
     return code

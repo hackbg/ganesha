@@ -368,7 +368,7 @@ const Environments = {
     }
   },
 
-  'Rollup' () {
+  'Vite' () {
     writeFileSync('index.html', `
       <script src="./source" type="module"></script>
     `, 'utf8')
@@ -423,21 +423,27 @@ const header = `
 # Ganesha
 `
 
+const environmentNames = Object.keys(Environments).join('|')
+const environmentSeparators = Object.keys(Environments).map(()=>'---').join('|')
+
 let report = `
 ## Test Matrix Results
 
-|Environment|Source module|Import type|Relation type|Target module|Result|
-|-----------|-------------|-----------|-------------|-------------|------|
+|Source module|Import type|Relation type|Target module|${environmentNames}|
+|-------------|-----------|-------------|-------------|${environmentSeparators}|
 `
 
 let i = 0
-for (const [environment, runTestInEnvironment] of Object.entries(Environments)) {
-  for (const [sourceLiteracy, setSourceLiteracy] of Object.entries(Literacy)) {
-    for (const [source, importTypes] of Object.entries(Sources)) {
-      for (const [importType, setupSource] of Object.entries(importTypes)) {
-        for (const [relation, relationTargets] of Object.entries(Targets)) {
-          for (const [targetLiteracy, setTargetLiteracy] of Object.entries(Literacy)) {
-            for (const [target, setupTarget] of Object.entries(relationTargets)) {
+for (const [sourceLiteracy, setSourceLiteracy] of Object.entries(Literacy)) {
+  for (const [source, importTypes] of Object.entries(Sources)) {
+    for (const [importType, setupSource] of Object.entries(importTypes)) {
+      for (const [relation, relationTargets] of Object.entries(Targets)) {
+        for (const [targetLiteracy, setTargetLiteracy] of Object.entries(Literacy)) {
+          for (const [target, setupTarget] of Object.entries(relationTargets)) {
+
+            report += `|${sourceLiteracy} ${source}|${importType}|${relation}|${targetLiteracy} ${target}|`
+
+            for (const [environment, runTestInEnvironment] of Object.entries(Environments)) {
 
               console.log(
                 '\ncase', ++i,
@@ -474,23 +480,23 @@ for (const [environment, runTestInEnvironment] of Object.entries(Environments)) 
               }
 
               const [result, status, stdout, stderr] = runTestInEnvironment()
-              report += `|${environment}|${sourceLiteracy} ${source}|${importType}|${relation}|${targetLiteracy} ${target}|`
               if (result === true) {
                 ok++
-                report += '🟩 PASS'
+                report += '🟩 PASS|'
                 console.log('ok')
               } else if (result === false) {
                 fail++
-                report += `[❌ FAIL](#${testCase.toLowerCase()})`
+                report += `[❌ FAIL](#${testCase.toLowerCase()})|`
                 console.log(`fail: expected exit code 123, got ${status}`)
                 failures[testCase] = { status, stdout, stderr }
                 process.stdout.write(stdout)
                 process.stderr.write(stderr)
               }
-              report += '|\n'
 
               process.chdir(cases)
             }
+
+            report += '\n'
           }
         }
       }
@@ -514,55 +520,4 @@ if (Object.entries(failures).length > 0) {
 const output = require('path').resolve(__dirname, 'README.md')
 writeFileSync(output, `${header}\n${report}`)
 console.log(`Done. Wrote ${output}.`)
-
-/*
-const running = []
-    for (const relation in Relations) {
-      for (const target in Targets) {
-        const testCase = `${environment}/${source} ${relation} ${target}`.toLowerCase().replace(/ /g, '_')
-
-        running.push(require('tap').test(testCase, async({ assert })=>{
-
-          total++
-          mkdirp(testCase)
-          process.chdir(testCase)
-          Relations[relation](source, target)
-          const result = Environments[environment]()
-
-          if (result === undefined) {
-            report += `\n|${environment}|${relation}|${source}|${target}|⏳ TODO|`
-            todo++
-          } else {
-            console.log(`\n\n[${source}] can [${relation}] [${target}] in [${environment}]`)
-            console.log(`${result?'OK':'FAIL'}`)
-            if (result === true)  {
-              report += `\n|${environment}|${relation}|${source}|${target}|🟩 OK|`
-              ok++
-            }
-            if (result === false) {
-              report += `\n|${environment}|${relation}|${source}|${target}|❌ FAIL|`
-              fail.push(testCase)
-            }
-          }
-
-          process.chdir(cases)
-
-          assert(result, testCase)
-
-        }))
-
-      }
-    }
-
-  }
-
-}
-
-Promise.all(running).then(()=>{
-  console.log({ok, fail: fail.length, todo, total})
-  console.log({fail})
-  const output = require('path').resolve(__dirname, 'README.md')
-  writeFileSync(output, report+'\n')
-  console.log(`Done. Wrote ${output}.`)
-})*/
 ```

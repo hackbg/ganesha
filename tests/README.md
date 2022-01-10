@@ -4,442 +4,466 @@
 
 ## Test Matrix Results
 
-|Environment|Source module|Import type|Relation type|Target module|Result|
-|-----------|-------------|-----------|-------------|-------------|------|
-|Node|Bare CJS|require|sibling|Bare CJS|🟩 PASS|
-|Node|Bare CJS|require|sibling|Bare ESM|🟩 PASS|
-|Node|Bare CJS|require|sibling|Bare TS|🟩 PASS|
-|Node|Bare CJS|require|sibling|Literate CJS|🟩 PASS|
-|Node|Bare CJS|require|sibling|Literate ESM|🟩 PASS|
-|Node|Bare CJS|require|sibling|Literate TS|🟩 PASS|
-|Node|Bare CJS|require|dependency|Bare CJS|🟩 PASS|
-|Node|Bare CJS|require|dependency|Bare ESM|🟩 PASS|
-|Node|Bare CJS|require|dependency|Bare TS|🟩 PASS|
-|Node|Bare CJS|require|dependency|Literate CJS|🟩 PASS|
-|Node|Bare CJS|require|dependency|Literate ESM|🟩 PASS|
-|Node|Bare CJS|require|dependency|Literate TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Bare CJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Bare CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Bare MJS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_cjs)|
-|Node|Bare MJS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_mjs_require_sibling_bare_esm)|
-|Node|Bare MJS|require|sibling|Bare TS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_ts)|
-|Node|Bare MJS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_cjs)|
-|Node|Bare MJS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_mjs_require_sibling_literate_esm)|
-|Node|Bare MJS|require|sibling|Literate TS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_ts)|
-|Node|Bare MJS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_cjs)|
-|Node|Bare MJS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_mjs_require_dependency_bare_esm)|
-|Node|Bare MJS|require|dependency|Bare TS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_ts)|
-|Node|Bare MJS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_cjs)|
-|Node|Bare MJS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_mjs_require_dependency_literate_esm)|
-|Node|Bare MJS|require|dependency|Literate TS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_ts)|
-|Node|Bare MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Bare MJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Bare MJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Literate CJS|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Literate ESM|🟩 PASS|
-|Node|Bare MJS|static import|sibling|Literate TS|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Bare CJS|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Bare ESM|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Literate CJS|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Literate ESM|🟩 PASS|
-|Node|Bare MJS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Bare TS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_ts_require_sibling_bare_cjs)|
-|Node|Bare TS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_ts_require_sibling_bare_esm)|
-|Node|Bare TS|require|sibling|Bare TS|[❌ FAIL](#node_bare_ts_require_sibling_bare_ts)|
-|Node|Bare TS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_require_sibling_literate_cjs)|
-|Node|Bare TS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_ts_require_sibling_literate_esm)|
-|Node|Bare TS|require|sibling|Literate TS|[❌ FAIL](#node_bare_ts_require_sibling_literate_ts)|
-|Node|Bare TS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_ts_require_dependency_bare_cjs)|
-|Node|Bare TS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_ts_require_dependency_bare_esm)|
-|Node|Bare TS|require|dependency|Bare TS|[❌ FAIL](#node_bare_ts_require_dependency_bare_ts)|
-|Node|Bare TS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_require_dependency_literate_cjs)|
-|Node|Bare TS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_ts_require_dependency_literate_esm)|
-|Node|Bare TS|require|dependency|Literate TS|[❌ FAIL](#node_bare_ts_require_dependency_literate_ts)|
-|Node|Bare TS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Bare TS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Bare TS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Bare TS|static import|sibling|Bare CJS|🟩 PASS|
-|Node|Bare TS|static import|sibling|Bare ESM|🟩 PASS|
-|Node|Bare TS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|static import|sibling|Literate CJS|🟩 PASS|
-|Node|Bare TS|static import|sibling|Literate ESM|🟩 PASS|
-|Node|Bare TS|static import|sibling|Literate TS|🟩 PASS|
-|Node|Bare TS|static import|dependency|Bare CJS|🟩 PASS|
-|Node|Bare TS|static import|dependency|Bare ESM|🟩 PASS|
-|Node|Bare TS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|static import|dependency|Literate CJS|🟩 PASS|
-|Node|Bare TS|static import|dependency|Literate ESM|🟩 PASS|
-|Node|Bare TS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Bare TS|import type|sibling|Bare CJS|🟩 PASS|
-|Node|Bare TS|import type|sibling|Bare ESM|🟩 PASS|
-|Node|Bare TS|import type|sibling|Bare TS|🟩 PASS|
-|Node|Bare TS|import type|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_sibling_literate_cjs)|
-|Node|Bare TS|import type|sibling|Literate ESM|🟩 PASS|
-|Node|Bare TS|import type|sibling|Literate TS|🟩 PASS|
-|Node|Bare TS|import type|dependency|Bare CJS|🟩 PASS|
-|Node|Bare TS|import type|dependency|Bare ESM|🟩 PASS|
-|Node|Bare TS|import type|dependency|Bare TS|🟩 PASS|
-|Node|Bare TS|import type|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_dependency_literate_cjs)|
-|Node|Bare TS|import type|dependency|Literate ESM|🟩 PASS|
-|Node|Bare TS|import type|dependency|Literate TS|🟩 PASS|
-|Node|Literate CJS|require|sibling|Bare CJS|🟩 PASS|
-|Node|Literate CJS|require|sibling|Bare ESM|🟩 PASS|
-|Node|Literate CJS|require|sibling|Bare TS|🟩 PASS|
-|Node|Literate CJS|require|sibling|Literate CJS|🟩 PASS|
-|Node|Literate CJS|require|sibling|Literate ESM|🟩 PASS|
-|Node|Literate CJS|require|sibling|Literate TS|🟩 PASS|
-|Node|Literate CJS|require|dependency|Bare CJS|🟩 PASS|
-|Node|Literate CJS|require|dependency|Bare ESM|🟩 PASS|
-|Node|Literate CJS|require|dependency|Bare TS|🟩 PASS|
-|Node|Literate CJS|require|dependency|Literate CJS|🟩 PASS|
-|Node|Literate CJS|require|dependency|Literate ESM|🟩 PASS|
-|Node|Literate CJS|require|dependency|Literate TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Literate CJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Literate CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Literate MJS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_cjs)|
-|Node|Literate MJS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_mjs_require_sibling_bare_esm)|
-|Node|Literate MJS|require|sibling|Bare TS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_ts)|
-|Node|Literate MJS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_cjs)|
-|Node|Literate MJS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_mjs_require_sibling_literate_esm)|
-|Node|Literate MJS|require|sibling|Literate TS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_ts)|
-|Node|Literate MJS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_cjs)|
-|Node|Literate MJS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_mjs_require_dependency_bare_esm)|
-|Node|Literate MJS|require|dependency|Bare TS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_ts)|
-|Node|Literate MJS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_cjs)|
-|Node|Literate MJS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_mjs_require_dependency_literate_esm)|
-|Node|Literate MJS|require|dependency|Literate TS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_ts)|
-|Node|Literate MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Literate MJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Literate MJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Literate CJS|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Literate ESM|🟩 PASS|
-|Node|Literate MJS|static import|sibling|Literate TS|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Bare CJS|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Bare ESM|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Literate CJS|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Literate ESM|🟩 PASS|
-|Node|Literate MJS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Literate TS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_ts_require_sibling_bare_cjs)|
-|Node|Literate TS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_ts_require_sibling_bare_esm)|
-|Node|Literate TS|require|sibling|Bare TS|[❌ FAIL](#node_literate_ts_require_sibling_bare_ts)|
-|Node|Literate TS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_require_sibling_literate_cjs)|
-|Node|Literate TS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_ts_require_sibling_literate_esm)|
-|Node|Literate TS|require|sibling|Literate TS|[❌ FAIL](#node_literate_ts_require_sibling_literate_ts)|
-|Node|Literate TS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_ts_require_dependency_bare_cjs)|
-|Node|Literate TS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_ts_require_dependency_bare_esm)|
-|Node|Literate TS|require|dependency|Bare TS|[❌ FAIL](#node_literate_ts_require_dependency_bare_ts)|
-|Node|Literate TS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_require_dependency_literate_cjs)|
-|Node|Literate TS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_ts_require_dependency_literate_esm)|
-|Node|Literate TS|require|dependency|Literate TS|[❌ FAIL](#node_literate_ts_require_dependency_literate_ts)|
-|Node|Literate TS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Node|Literate TS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Node|Literate TS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Node|Literate TS|static import|sibling|Bare CJS|🟩 PASS|
-|Node|Literate TS|static import|sibling|Bare ESM|🟩 PASS|
-|Node|Literate TS|static import|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|static import|sibling|Literate CJS|🟩 PASS|
-|Node|Literate TS|static import|sibling|Literate ESM|🟩 PASS|
-|Node|Literate TS|static import|sibling|Literate TS|🟩 PASS|
-|Node|Literate TS|static import|dependency|Bare CJS|🟩 PASS|
-|Node|Literate TS|static import|dependency|Bare ESM|🟩 PASS|
-|Node|Literate TS|static import|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|static import|dependency|Literate CJS|🟩 PASS|
-|Node|Literate TS|static import|dependency|Literate ESM|🟩 PASS|
-|Node|Literate TS|static import|dependency|Literate TS|🟩 PASS|
-|Node|Literate TS|import type|sibling|Bare CJS|🟩 PASS|
-|Node|Literate TS|import type|sibling|Bare ESM|🟩 PASS|
-|Node|Literate TS|import type|sibling|Bare TS|🟩 PASS|
-|Node|Literate TS|import type|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_sibling_literate_cjs)|
-|Node|Literate TS|import type|sibling|Literate ESM|🟩 PASS|
-|Node|Literate TS|import type|sibling|Literate TS|🟩 PASS|
-|Node|Literate TS|import type|dependency|Bare CJS|🟩 PASS|
-|Node|Literate TS|import type|dependency|Bare ESM|🟩 PASS|
-|Node|Literate TS|import type|dependency|Bare TS|🟩 PASS|
-|Node|Literate TS|import type|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_dependency_literate_cjs)|
-|Node|Literate TS|import type|dependency|Literate ESM|🟩 PASS|
-|Node|Literate TS|import type|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare CJS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare CJS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|static import|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare MJS|static import|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|static import|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|static import|dependency|Literate TS|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Bare TS|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Literate CJS|[❌ FAIL](#rollup_bare_ts_import_type_sibling_literate_cjs)|
-|Rollup|Bare TS|import type|sibling|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|import type|sibling|Literate TS|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Bare CJS|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Bare ESM|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Bare TS|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Literate CJS|[❌ FAIL](#rollup_bare_ts_import_type_dependency_literate_cjs)|
-|Rollup|Bare TS|import type|dependency|Literate ESM|🟩 PASS|
-|Rollup|Bare TS|import type|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate CJS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate CJS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate CJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|static import|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate MJS|static import|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|require|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|require|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|dynamic import|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|dynamic import|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|static import|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Literate CJS|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|static import|dependency|Literate TS|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Bare TS|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Literate CJS|[❌ FAIL](#rollup_literate_ts_import_type_sibling_literate_cjs)|
-|Rollup|Literate TS|import type|sibling|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|import type|sibling|Literate TS|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Bare CJS|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Bare ESM|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Bare TS|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Literate CJS|[❌ FAIL](#rollup_literate_ts_import_type_dependency_literate_cjs)|
-|Rollup|Literate TS|import type|dependency|Literate ESM|🟩 PASS|
-|Rollup|Literate TS|import type|dependency|Literate TS|🟩 PASS|
+|Source module|Import type|Relation type|Target module|Node|Vite|
+|-------------|-----------|-------------|-------------|---|---|
+|Bare CJS|require|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|require|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|require|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare CJS|require|sibling|Literate CJS|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_sibling_literate_cjs)|
+|Bare CJS|require|sibling|Literate ESM|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_sibling_literate_esm)|
+|Bare CJS|require|sibling|Literate TS|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_sibling_literate_ts)|
+|Bare CJS|require|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|require|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|require|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare CJS|require|dependency|Literate CJS|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_dependency_literate_cjs)|
+|Bare CJS|require|dependency|Literate ESM|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_dependency_literate_esm)|
+|Bare CJS|require|dependency|Literate TS|🟩 PASS|[❌ FAIL](#vite_bare_cjs_require_dependency_literate_ts)|
+|Bare CJS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Bare MJS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_cjs)|🟩 PASS|
+|Bare MJS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_mjs_require_sibling_bare_esm)|🟩 PASS|
+|Bare MJS|require|sibling|Bare TS|[❌ FAIL](#node_bare_mjs_require_sibling_bare_ts)|🟩 PASS|
+|Bare MJS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_cjs)|🟩 PASS|
+|Bare MJS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_mjs_require_sibling_literate_esm)|🟩 PASS|
+|Bare MJS|require|sibling|Literate TS|[❌ FAIL](#node_bare_mjs_require_sibling_literate_ts)|🟩 PASS|
+|Bare MJS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_cjs)|🟩 PASS|
+|Bare MJS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_mjs_require_dependency_bare_esm)|🟩 PASS|
+|Bare MJS|require|dependency|Bare TS|[❌ FAIL](#node_bare_mjs_require_dependency_bare_ts)|🟩 PASS|
+|Bare MJS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_cjs)|🟩 PASS|
+|Bare MJS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_mjs_require_dependency_literate_esm)|🟩 PASS|
+|Bare MJS|require|dependency|Literate TS|[❌ FAIL](#node_bare_mjs_require_dependency_literate_ts)|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare MJS|static import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|require|sibling|Bare CJS|[❌ FAIL](#node_bare_ts_require_sibling_bare_cjs)|🟩 PASS|
+|Bare TS|require|sibling|Bare ESM|[❌ FAIL](#node_bare_ts_require_sibling_bare_esm)|🟩 PASS|
+|Bare TS|require|sibling|Bare TS|[❌ FAIL](#node_bare_ts_require_sibling_bare_ts)|🟩 PASS|
+|Bare TS|require|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_require_sibling_literate_cjs)|🟩 PASS|
+|Bare TS|require|sibling|Literate ESM|[❌ FAIL](#node_bare_ts_require_sibling_literate_esm)|🟩 PASS|
+|Bare TS|require|sibling|Literate TS|[❌ FAIL](#node_bare_ts_require_sibling_literate_ts)|🟩 PASS|
+|Bare TS|require|dependency|Bare CJS|[❌ FAIL](#node_bare_ts_require_dependency_bare_cjs)|🟩 PASS|
+|Bare TS|require|dependency|Bare ESM|[❌ FAIL](#node_bare_ts_require_dependency_bare_esm)|🟩 PASS|
+|Bare TS|require|dependency|Bare TS|[❌ FAIL](#node_bare_ts_require_dependency_bare_ts)|🟩 PASS|
+|Bare TS|require|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_require_dependency_literate_cjs)|🟩 PASS|
+|Bare TS|require|dependency|Literate ESM|[❌ FAIL](#node_bare_ts_require_dependency_literate_esm)|🟩 PASS|
+|Bare TS|require|dependency|Literate TS|[❌ FAIL](#node_bare_ts_require_dependency_literate_ts)|🟩 PASS|
+|Bare TS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|static import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|static import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|import type|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|sibling|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_sibling_literate_cjs)|[❌ FAIL](#vite_bare_ts_import_type_sibling_literate_cjs)|
+|Bare TS|import type|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|import type|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Bare TS|import type|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Bare TS|import type|dependency|Literate CJS|[❌ FAIL](#node_bare_ts_import_type_dependency_literate_cjs)|[❌ FAIL](#vite_bare_ts_import_type_dependency_literate_cjs)|
+|Bare TS|import type|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Bare TS|import type|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|require|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|require|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate CJS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate MJS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_cjs)|🟩 PASS|
+|Literate MJS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_mjs_require_sibling_bare_esm)|🟩 PASS|
+|Literate MJS|require|sibling|Bare TS|[❌ FAIL](#node_literate_mjs_require_sibling_bare_ts)|🟩 PASS|
+|Literate MJS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_cjs)|🟩 PASS|
+|Literate MJS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_mjs_require_sibling_literate_esm)|🟩 PASS|
+|Literate MJS|require|sibling|Literate TS|[❌ FAIL](#node_literate_mjs_require_sibling_literate_ts)|🟩 PASS|
+|Literate MJS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_cjs)|🟩 PASS|
+|Literate MJS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_mjs_require_dependency_bare_esm)|🟩 PASS|
+|Literate MJS|require|dependency|Bare TS|[❌ FAIL](#node_literate_mjs_require_dependency_bare_ts)|🟩 PASS|
+|Literate MJS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_cjs)|🟩 PASS|
+|Literate MJS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_mjs_require_dependency_literate_esm)|🟩 PASS|
+|Literate MJS|require|dependency|Literate TS|[❌ FAIL](#node_literate_mjs_require_dependency_literate_ts)|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate MJS|static import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|require|sibling|Bare CJS|[❌ FAIL](#node_literate_ts_require_sibling_bare_cjs)|🟩 PASS|
+|Literate TS|require|sibling|Bare ESM|[❌ FAIL](#node_literate_ts_require_sibling_bare_esm)|🟩 PASS|
+|Literate TS|require|sibling|Bare TS|[❌ FAIL](#node_literate_ts_require_sibling_bare_ts)|🟩 PASS|
+|Literate TS|require|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_require_sibling_literate_cjs)|🟩 PASS|
+|Literate TS|require|sibling|Literate ESM|[❌ FAIL](#node_literate_ts_require_sibling_literate_esm)|🟩 PASS|
+|Literate TS|require|sibling|Literate TS|[❌ FAIL](#node_literate_ts_require_sibling_literate_ts)|🟩 PASS|
+|Literate TS|require|dependency|Bare CJS|[❌ FAIL](#node_literate_ts_require_dependency_bare_cjs)|🟩 PASS|
+|Literate TS|require|dependency|Bare ESM|[❌ FAIL](#node_literate_ts_require_dependency_bare_esm)|🟩 PASS|
+|Literate TS|require|dependency|Bare TS|[❌ FAIL](#node_literate_ts_require_dependency_bare_ts)|🟩 PASS|
+|Literate TS|require|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_require_dependency_literate_cjs)|🟩 PASS|
+|Literate TS|require|dependency|Literate ESM|[❌ FAIL](#node_literate_ts_require_dependency_literate_esm)|🟩 PASS|
+|Literate TS|require|dependency|Literate TS|[❌ FAIL](#node_literate_ts_require_dependency_literate_ts)|🟩 PASS|
+|Literate TS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|dynamic import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|static import|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Literate CJS|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|static import|dependency|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|sibling|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|sibling|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|import type|sibling|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|sibling|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_sibling_literate_cjs)|[❌ FAIL](#vite_literate_ts_import_type_sibling_literate_cjs)|
+|Literate TS|import type|sibling|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|import type|sibling|Literate TS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|dependency|Bare CJS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|dependency|Bare ESM|🟩 PASS|🟩 PASS|
+|Literate TS|import type|dependency|Bare TS|🟩 PASS|🟩 PASS|
+|Literate TS|import type|dependency|Literate CJS|[❌ FAIL](#node_literate_ts_import_type_dependency_literate_cjs)|[❌ FAIL](#vite_literate_ts_import_type_dependency_literate_cjs)|
+|Literate TS|import type|dependency|Literate ESM|🟩 PASS|🟩 PASS|
+|Literate TS|import type|dependency|Literate TS|🟩 PASS|🟩 PASS|
 
 ## Test failures
+
+### Vite_Bare_CJS_require_sibling_Literate_CJS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_CJS/target.cjs.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_CJS/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000./target.cjs.md?commonjs-require";
+6: import require$$1 from "\u0000./target.cjs.md?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_CJS/target.cjs.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
+
+### Vite_Bare_CJS_require_sibling_Literate_ESM
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_ESM/target.mjs.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_ESM/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000./target.mjs.md?commonjs-require";
+6: import require$$1 from "\u0000./target.mjs.md?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_ESM/target.mjs.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
+
+### Vite_Bare_CJS_require_sibling_Literate_TS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_TS/target.ts.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_TS/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000./target.ts.md?commonjs-require";
+6: import require$$1 from "\u0000./target.ts.md?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_sibling_Literate_TS/target.ts.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
+
+### Vite_Bare_CJS_require_dependency_Literate_CJS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_CJS/node_modules/target/target.cjs.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_CJS/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000target?commonjs-require";
+6: import require$$1 from "\u0000target?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_CJS/node_modules/target/target.cjs.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
+
+### Vite_Bare_CJS_require_dependency_Literate_ESM
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_ESM/node_modules/target/target.mjs.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_ESM/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000target?commonjs-require";
+6: import require$$1 from "\u0000target?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_ESM/node_modules/target/target.mjs.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
+
+### Vite_Bare_CJS_require_dependency_Literate_TS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 9 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_TS/node_modules/target/target.ts.md?commonjs-proxy, imported by source.cjs
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_TS/source.cjs:6:7
+4: import require$$0 from "\u0000process?commonjs-proxy";
+5: import "\u0000target?commonjs-require";
+6: import require$$1 from "\u0000target?commonjs-proxy";
+          ^
+7: 
+8: const process = require$$0
+error during build:
+Error: 'default' is not exported by  /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_CJS_require_dependency_Literate_TS/node_modules/target/target.ts.md?commonjs-proxy, imported by source.cjs
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+
+```
 
 ### Node_Bare_MJS_require_sibling_Bare_CJS
 Exit code
@@ -477,7 +501,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_04_057Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_06_603Z-debug.log
 
 ```
 
@@ -517,7 +541,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_04_279Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_07_032Z-debug.log
 
 ```
 
@@ -557,7 +581,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_04_503Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_07_459Z-debug.log
 
 ```
 
@@ -597,7 +621,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_04_725Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_07_886Z-debug.log
 
 ```
 
@@ -637,7 +661,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_04_946Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_08_326Z-debug.log
 
 ```
 
@@ -677,7 +701,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_05_170Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_08_761Z-debug.log
 
 ```
 
@@ -716,7 +740,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_05_391Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_09_199Z-debug.log
 
 ```
 
@@ -755,7 +779,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_05_619Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_09_640Z-debug.log
 
 ```
 
@@ -794,7 +818,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_05_842Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_10_084Z-debug.log
 
 ```
 
@@ -833,7 +857,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_06_063Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_10_530Z-debug.log
 
 ```
 
@@ -872,7 +896,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_06_286Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_10_966Z-debug.log
 
 ```
 
@@ -911,7 +935,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_06_513Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_11_407Z-debug.log
 
 ```
 
@@ -951,7 +975,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_13_503Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_24_919Z-debug.log
 
 ```
 
@@ -991,7 +1015,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_13_880Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_25_578Z-debug.log
 
 ```
 
@@ -1031,7 +1055,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_14_252Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_26_190Z-debug.log
 
 ```
 
@@ -1071,7 +1095,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_14_624Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_26_800Z-debug.log
 
 ```
 
@@ -1111,7 +1135,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_14_995Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_27_423Z-debug.log
 
 ```
 
@@ -1151,7 +1175,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_15_370Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_28_043Z-debug.log
 
 ```
 
@@ -1190,7 +1214,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_15_743Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_28_649Z-debug.log
 
 ```
 
@@ -1229,7 +1253,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_16_118Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_29_260Z-debug.log
 
 ```
 
@@ -1268,7 +1292,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_16_503Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_29_863Z-debug.log
 
 ```
 
@@ -1307,7 +1331,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_16_881Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_30_470Z-debug.log
 
 ```
 
@@ -1346,7 +1370,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_17_254Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_31_071Z-debug.log
 
 ```
 
@@ -1385,7 +1409,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_17_628Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_31_674Z-debug.log
 
 ```
 
@@ -1429,7 +1453,46 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_28_589Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_49_875Z-debug.log
+
+```
+
+### Vite_Bare_TS_import_type_sibling_Literate_CJS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 5 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'exitCode' is not exported by target.cjs.md, imported by source.ts
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_TS_import_type_sibling_Literate_CJS/source.ts:2:9
+1: import process from "process";
+2: import { exitCode } from "./target.cjs.md";
+            ^
+3: const theExitCode = exitCode;
+4: process.exit(theExitCode);
+error during build:
+Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -1472,7 +1535,46 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_31_011Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_37_53_717Z-debug.log
+
+```
+
+### Vite_Bare_TS_import_type_dependency_Literate_CJS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 5 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Bare_TS_import_type_dependency_Literate_CJS/source.ts:2:9
+1: import process from "process";
+2: import { exitCode } from "target";
+            ^
+3: const theExitCode = exitCode;
+4: process.exit(theExitCode);
+error during build:
+Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -1512,7 +1614,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_39_110Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_08_925Z-debug.log
 
 ```
 
@@ -1552,7 +1654,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_39_338Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_09_401Z-debug.log
 
 ```
 
@@ -1592,7 +1694,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_39_565Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_09_875Z-debug.log
 
 ```
 
@@ -1632,7 +1734,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_39_787Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_10_363Z-debug.log
 
 ```
 
@@ -1672,7 +1774,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_40_010Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_10_843Z-debug.log
 
 ```
 
@@ -1712,7 +1814,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_40_233Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_11_319Z-debug.log
 
 ```
 
@@ -1751,7 +1853,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_40_456Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_11_796Z-debug.log
 
 ```
 
@@ -1790,7 +1892,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_40_676Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_12_309Z-debug.log
 
 ```
 
@@ -1829,7 +1931,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_40_898Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_12_829Z-debug.log
 
 ```
 
@@ -1868,7 +1970,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_41_123Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_13_335Z-debug.log
 
 ```
 
@@ -1907,7 +2009,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_41_348Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_13_840Z-debug.log
 
 ```
 
@@ -1946,7 +2048,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_41_582Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_14_344Z-debug.log
 
 ```
 
@@ -1986,7 +2088,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_49_895Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_28_492Z-debug.log
 
 ```
 
@@ -2026,7 +2128,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_50_376Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_29_130Z-debug.log
 
 ```
 
@@ -2066,7 +2168,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_50_860Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_29_766Z-debug.log
 
 ```
 
@@ -2106,7 +2208,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_51_334Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_30_409Z-debug.log
 
 ```
 
@@ -2146,7 +2248,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_51_805Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_31_049Z-debug.log
 
 ```
 
@@ -2186,7 +2288,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_52_275Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_31_689Z-debug.log
 
 ```
 
@@ -2225,7 +2327,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_52_747Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_32_321Z-debug.log
 
 ```
 
@@ -2264,7 +2366,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_53_236Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_32_957Z-debug.log
 
 ```
 
@@ -2303,7 +2405,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_53_712Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_33_597Z-debug.log
 
 ```
 
@@ -2342,7 +2444,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_54_190Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_34_229Z-debug.log
 
 ```
 
@@ -2381,7 +2483,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_54_662Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_34_862Z-debug.log
 
 ```
 
@@ -2420,7 +2522,7 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_01_55_145Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_35_500Z-debug.log
 
 ```
 
@@ -2464,7 +2566,46 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm WARN Local package.json exists, but node_modules missing, did you mean to install?
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_02_09_020Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_54_921Z-debug.log
+
+```
+
+### Vite_Literate_TS_import_type_sibling_Literate_CJS
+Exit code
+```
+1
+```
+
+Stdout
+```
+vite v2.7.6 building for production...
+transforming...
+✓ 5 modules transformed.
+
+```
+
+Stderr
+```
+Error when using sourcemap for reporting an error: Can't resolve original location of error.
+'exitCode' is not exported by target.cjs.md, imported by source.ts.md
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:2:9
+1: import process from "process";
+2: import { exitCode } from "./target.cjs.md";
+            ^
+3: const theExitCode = exitCode;
+4: process.exit(theExitCode);
+error during build:
+Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```
 
@@ -2507,11 +2648,11 @@ npm ERR! Failed at the source@ test script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/user/.npm/_logs/2022-01-02T00_02_12_032Z-debug.log
+npm ERR!     /home/user/.npm/_logs/2022-01-10T16_38_58_926Z-debug.log
 
 ```
 
-### Rollup_Bare_TS_import_type_sibling_Literate_CJS
+### Vite_Literate_TS_import_type_dependency_Literate_CJS
 Exit code
 ```
 1
@@ -2519,924 +2660,7 @@ Exit code
 
 Stdout
 ```
-configFile { '--': [] } {}
-doBuild {
-  plugins: [
-    {
-      name: 'alias',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId]
-    },
-    {
-      name: 'vite:modulepreload-polyfill',
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:resolve',
-      configureServer: [Function: configureServer],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:html-inline-script-proxy',
-      resolveId: [Function: resolveId],
-      buildStart: [Function: buildStart],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:css',
-      configureServer: [Function: configureServer],
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:esbuild',
-      configureServer: [Function: configureServer],
-      transform: [AsyncFunction: transform]
-    },
-    { name: 'vite:json', transform: [Function: transform] },
-    {
-      name: 'vite:wasm',
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load]
-    },
-    {
-      name: 'vite:worker',
-      load: [Function: load],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:asset',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'rollup-plugin-ganesha',
-      resolveId: [Function: resolveId],
-      transform: [Function: transform]
-    },
-    { name: 'vite:define', transform: [Function: transform] },
-    {
-      name: 'vite:css-post',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      renderChunk: [AsyncFunction: renderChunk],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'vite:watch-package-data',
-      buildStart: [Function: buildStart],
-      buildEnd: [Function: buildEnd],
-      watchChange: [Function: watchChange]
-    },
-    {
-      name: 'vite:build-html',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'commonjs',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [Function: transform],
-      moduleParsed: [Function: moduleParsed]
-    },
-    {
-      name: 'vite:data-uri',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'rollup-plugin-dynamic-import-variables',
-      transform: [Function: transform]
-    },
-    {
-      name: 'vite:asset-import-meta-url',
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:build-import-analysis',
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [AsyncFunction: transform],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'vite:esbuild-transpile',
-      renderChunk: [AsyncFunction: renderChunk]
-    },
-    {
-      name: 'vite:reporter',
-      transform: [Function: transform],
-      buildEnd: [Function: buildEnd],
-      renderStart: [Function: renderStart],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle],
-      writeBundle: [AsyncFunction: writeBundle]
-    },
-    { name: 'vite:load-fallback', load: [AsyncFunction: load] }
-  ],
-  build: {
-    target: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    polyfillModulePreload: true,
-    outDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/dist',
-    assetsDir: 'assets',
-    assetsInlineLimit: 4096,
-    cssCodeSplit: true,
-    cssTarget: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    sourcemap: false,
-    rollupOptions: {
-      input: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/index.html'
-    },
-    minify: 'esbuild',
-    terserOptions: {},
-    write: true,
-    emptyOutDir: null,
-    manifest: false,
-    lib: false,
-    ssr: false,
-    ssrManifest: false,
-    reportCompressedSize: true,
-    chunkSizeWarningLimit: 500,
-    watch: null,
-    commonjsOptions: { include: [Array], extensions: [Array] },
-    dynamicImportVarsOptions: { warnOnError: true, exclude: [Array] }
-  },
-  configFile: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/vite.config.js',
-  configFileDependencies: [ '../../../rollup-plugin/index.js', 'vite.config.js' ],
-  inlineConfig: {
-    root: undefined,
-    base: undefined,
-    mode: undefined,
-    configFile: undefined,
-    logLevel: undefined,
-    clearScreen: undefined,
-    build: {}
-  },
-  root: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS',
-  base: '/',
-  resolve: { dedupe: undefined, alias: [ [Object], [Object] ] },
-  publicDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/public',
-  cacheDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/node_modules/.vite',
-  command: 'build',
-  mode: 'production',
-  isProduction: true,
-  server: {
-    preTransformRequests: true,
-    fs: { strict: true, allow: [Array], deny: [Array] }
-  },
-  preview: {
-    port: undefined,
-    strictPort: undefined,
-    host: undefined,
-    https: undefined,
-    open: undefined,
-    proxy: undefined,
-    cors: undefined
-  },
-  env: { BASE_URL: '/', MODE: 'production', DEV: false, PROD: true },
-  assetsInclude: [Function: assetsInclude],
-  logger: {
-    hasWarned: false,
-    info: [Function: info],
-    warn: [Function: warn],
-    warnOnce: [Function: warnOnce],
-    error: [Function: error],
-    clearScreen: [Function: clearScreen],
-    hasErrorLogged: [Function: hasErrorLogged]
-  },
-  packageCache: Map(0) { set: [Function (anonymous)] },
-  createResolver: [Function: createResolver],
-  optimizeDeps: {
-    esbuildOptions: { keepNames: undefined, preserveSymlinks: undefined }
-  }
-}
-vite v2.7.10 building for production...
-transforming...
-✓ 5 modules transformed.
-
-```
-
-Stderr
-```
-Error when using sourcemap for reporting an error: Can't resolve original location of error.
-'exitCode' is not exported by target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS/source.ts:2:9
-1: import process from "process";
-2: import { exitCode } from "./target.cjs.md";
-            ^
-3: const theExitCode = exitCode;
-4: process.exit(theExitCode);
-error during build:
-Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
-
-```
-
-### Rollup_Bare_TS_import_type_dependency_Literate_CJS
-Exit code
-```
-1
-```
-
-Stdout
-```
-configFile { '--': [] } {}
-doBuild {
-  plugins: [
-    {
-      name: 'alias',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId]
-    },
-    {
-      name: 'vite:modulepreload-polyfill',
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:resolve',
-      configureServer: [Function: configureServer],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:html-inline-script-proxy',
-      resolveId: [Function: resolveId],
-      buildStart: [Function: buildStart],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:css',
-      configureServer: [Function: configureServer],
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:esbuild',
-      configureServer: [Function: configureServer],
-      transform: [AsyncFunction: transform]
-    },
-    { name: 'vite:json', transform: [Function: transform] },
-    {
-      name: 'vite:wasm',
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load]
-    },
-    {
-      name: 'vite:worker',
-      load: [Function: load],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:asset',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'rollup-plugin-ganesha',
-      resolveId: [Function: resolveId],
-      transform: [Function: transform]
-    },
-    { name: 'vite:define', transform: [Function: transform] },
-    {
-      name: 'vite:css-post',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      renderChunk: [AsyncFunction: renderChunk],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'vite:watch-package-data',
-      buildStart: [Function: buildStart],
-      buildEnd: [Function: buildEnd],
-      watchChange: [Function: watchChange]
-    },
-    {
-      name: 'vite:build-html',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'commonjs',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [Function: transform],
-      moduleParsed: [Function: moduleParsed]
-    },
-    {
-      name: 'vite:data-uri',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'rollup-plugin-dynamic-import-variables',
-      transform: [Function: transform]
-    },
-    {
-      name: 'vite:asset-import-meta-url',
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:build-import-analysis',
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [AsyncFunction: transform],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'vite:esbuild-transpile',
-      renderChunk: [AsyncFunction: renderChunk]
-    },
-    {
-      name: 'vite:reporter',
-      transform: [Function: transform],
-      buildEnd: [Function: buildEnd],
-      renderStart: [Function: renderStart],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle],
-      writeBundle: [AsyncFunction: writeBundle]
-    },
-    { name: 'vite:load-fallback', load: [AsyncFunction: load] }
-  ],
-  build: {
-    target: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    polyfillModulePreload: true,
-    outDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/dist',
-    assetsDir: 'assets',
-    assetsInlineLimit: 4096,
-    cssCodeSplit: true,
-    cssTarget: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    sourcemap: false,
-    rollupOptions: {
-      input: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/index.html'
-    },
-    minify: 'esbuild',
-    terserOptions: {},
-    write: true,
-    emptyOutDir: null,
-    manifest: false,
-    lib: false,
-    ssr: false,
-    ssrManifest: false,
-    reportCompressedSize: true,
-    chunkSizeWarningLimit: 500,
-    watch: null,
-    commonjsOptions: { include: [Array], extensions: [Array] },
-    dynamicImportVarsOptions: { warnOnError: true, exclude: [Array] }
-  },
-  configFile: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/vite.config.js',
-  configFileDependencies: [ '../../../rollup-plugin/index.js', 'vite.config.js' ],
-  inlineConfig: {
-    root: undefined,
-    base: undefined,
-    mode: undefined,
-    configFile: undefined,
-    logLevel: undefined,
-    clearScreen: undefined,
-    build: {}
-  },
-  root: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS',
-  base: '/',
-  resolve: { dedupe: undefined, alias: [ [Object], [Object] ] },
-  publicDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/public',
-  cacheDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/node_modules/.vite',
-  command: 'build',
-  mode: 'production',
-  isProduction: true,
-  server: {
-    preTransformRequests: true,
-    fs: { strict: true, allow: [Array], deny: [Array] }
-  },
-  preview: {
-    port: undefined,
-    strictPort: undefined,
-    host: undefined,
-    https: undefined,
-    open: undefined,
-    proxy: undefined,
-    cors: undefined
-  },
-  env: { BASE_URL: '/', MODE: 'production', DEV: false, PROD: true },
-  assetsInclude: [Function: assetsInclude],
-  logger: {
-    hasWarned: false,
-    info: [Function: info],
-    warn: [Function: warn],
-    warnOnce: [Function: warnOnce],
-    error: [Function: error],
-    clearScreen: [Function: clearScreen],
-    hasErrorLogged: [Function: hasErrorLogged]
-  },
-  packageCache: Map(0) { set: [Function (anonymous)] },
-  createResolver: [Function: createResolver],
-  optimizeDeps: {
-    esbuildOptions: { keepNames: undefined, preserveSymlinks: undefined }
-  }
-}
-vite v2.7.10 building for production...
-transforming...
-✓ 5 modules transformed.
-
-```
-
-Stderr
-```
-Error when using sourcemap for reporting an error: Can't resolve original location of error.
-'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS/source.ts:2:9
-1: import process from "process";
-2: import { exitCode } from "target";
-            ^
-3: const theExitCode = exitCode;
-4: process.exit(theExitCode);
-error during build:
-Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts
-    at error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
-
-```
-
-### Rollup_Literate_TS_import_type_sibling_Literate_CJS
-Exit code
-```
-1
-```
-
-Stdout
-```
-configFile { '--': [] } {}
-doBuild {
-  plugins: [
-    {
-      name: 'alias',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId]
-    },
-    {
-      name: 'vite:modulepreload-polyfill',
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:resolve',
-      configureServer: [Function: configureServer],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:html-inline-script-proxy',
-      resolveId: [Function: resolveId],
-      buildStart: [Function: buildStart],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:css',
-      configureServer: [Function: configureServer],
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:esbuild',
-      configureServer: [Function: configureServer],
-      transform: [AsyncFunction: transform]
-    },
-    { name: 'vite:json', transform: [Function: transform] },
-    {
-      name: 'vite:wasm',
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load]
-    },
-    {
-      name: 'vite:worker',
-      load: [Function: load],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:asset',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'rollup-plugin-ganesha',
-      resolveId: [Function: resolveId],
-      transform: [Function: transform]
-    },
-    { name: 'vite:define', transform: [Function: transform] },
-    {
-      name: 'vite:css-post',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      renderChunk: [AsyncFunction: renderChunk],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'vite:watch-package-data',
-      buildStart: [Function: buildStart],
-      buildEnd: [Function: buildEnd],
-      watchChange: [Function: watchChange]
-    },
-    {
-      name: 'vite:build-html',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'commonjs',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [Function: transform],
-      moduleParsed: [Function: moduleParsed]
-    },
-    {
-      name: 'vite:data-uri',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'rollup-plugin-dynamic-import-variables',
-      transform: [Function: transform]
-    },
-    {
-      name: 'vite:asset-import-meta-url',
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:build-import-analysis',
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [AsyncFunction: transform],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'vite:esbuild-transpile',
-      renderChunk: [AsyncFunction: renderChunk]
-    },
-    {
-      name: 'vite:reporter',
-      transform: [Function: transform],
-      buildEnd: [Function: buildEnd],
-      renderStart: [Function: renderStart],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle],
-      writeBundle: [AsyncFunction: writeBundle]
-    },
-    { name: 'vite:load-fallback', load: [AsyncFunction: load] }
-  ],
-  build: {
-    target: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    polyfillModulePreload: true,
-    outDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/dist',
-    assetsDir: 'assets',
-    assetsInlineLimit: 4096,
-    cssCodeSplit: true,
-    cssTarget: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    sourcemap: false,
-    rollupOptions: {
-      input: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/index.html'
-    },
-    minify: 'esbuild',
-    terserOptions: {},
-    write: true,
-    emptyOutDir: null,
-    manifest: false,
-    lib: false,
-    ssr: false,
-    ssrManifest: false,
-    reportCompressedSize: true,
-    chunkSizeWarningLimit: 500,
-    watch: null,
-    commonjsOptions: { include: [Array], extensions: [Array] },
-    dynamicImportVarsOptions: { warnOnError: true, exclude: [Array] }
-  },
-  configFile: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/vite.config.js',
-  configFileDependencies: [ '../../../rollup-plugin/index.js', 'vite.config.js' ],
-  inlineConfig: {
-    root: undefined,
-    base: undefined,
-    mode: undefined,
-    configFile: undefined,
-    logLevel: undefined,
-    clearScreen: undefined,
-    build: {}
-  },
-  root: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS',
-  base: '/',
-  resolve: { dedupe: undefined, alias: [ [Object], [Object] ] },
-  publicDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/public',
-  cacheDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/node_modules/.vite',
-  command: 'build',
-  mode: 'production',
-  isProduction: true,
-  server: {
-    preTransformRequests: true,
-    fs: { strict: true, allow: [Array], deny: [Array] }
-  },
-  preview: {
-    port: undefined,
-    strictPort: undefined,
-    host: undefined,
-    https: undefined,
-    open: undefined,
-    proxy: undefined,
-    cors: undefined
-  },
-  env: { BASE_URL: '/', MODE: 'production', DEV: false, PROD: true },
-  assetsInclude: [Function: assetsInclude],
-  logger: {
-    hasWarned: false,
-    info: [Function: info],
-    warn: [Function: warn],
-    warnOnce: [Function: warnOnce],
-    error: [Function: error],
-    clearScreen: [Function: clearScreen],
-    hasErrorLogged: [Function: hasErrorLogged]
-  },
-  packageCache: Map(0) { set: [Function (anonymous)] },
-  createResolver: [Function: createResolver],
-  optimizeDeps: {
-    esbuildOptions: { keepNames: undefined, preserveSymlinks: undefined }
-  }
-}
-vite v2.7.10 building for production...
-transforming...
-✓ 5 modules transformed.
-
-```
-
-Stderr
-```
-Error when using sourcemap for reporting an error: Can't resolve original location of error.
-'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS/source.ts.md:2:9
-1: import process from "process";
-2: import { exitCode } from "./target.cjs.md";
-            ^
-3: const theExitCode = exitCode;
-4: process.exit(theExitCode);
-error during build:
-Error: 'exitCode' is not exported by target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
-
-```
-
-### Rollup_Literate_TS_import_type_dependency_Literate_CJS
-Exit code
-```
-1
-```
-
-Stdout
-```
-configFile { '--': [] } {}
-doBuild {
-  plugins: [
-    {
-      name: 'alias',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId]
-    },
-    {
-      name: 'vite:modulepreload-polyfill',
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:resolve',
-      configureServer: [Function: configureServer],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:html-inline-script-proxy',
-      resolveId: [Function: resolveId],
-      buildStart: [Function: buildStart],
-      load: [Function: load]
-    },
-    {
-      name: 'vite:css',
-      configureServer: [Function: configureServer],
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:esbuild',
-      configureServer: [Function: configureServer],
-      transform: [AsyncFunction: transform]
-    },
-    { name: 'vite:json', transform: [Function: transform] },
-    {
-      name: 'vite:wasm',
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load]
-    },
-    {
-      name: 'vite:worker',
-      load: [Function: load],
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:asset',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [AsyncFunction: load],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'rollup-plugin-ganesha',
-      resolveId: [Function: resolveId],
-      transform: [Function: transform]
-    },
-    { name: 'vite:define', transform: [Function: transform] },
-    {
-      name: 'vite:css-post',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      renderChunk: [AsyncFunction: renderChunk],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'vite:watch-package-data',
-      buildStart: [Function: buildStart],
-      buildEnd: [Function: buildEnd],
-      watchChange: [Function: watchChange]
-    },
-    {
-      name: 'vite:build-html',
-      buildStart: [Function: buildStart],
-      transform: [AsyncFunction: transform],
-      generateBundle: [AsyncFunction: generateBundle]
-    },
-    {
-      name: 'commonjs',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [Function: transform],
-      moduleParsed: [Function: moduleParsed]
-    },
-    {
-      name: 'vite:data-uri',
-      buildStart: [Function: buildStart],
-      resolveId: [Function: resolveId],
-      load: [Function: load]
-    },
-    {
-      name: 'rollup-plugin-dynamic-import-variables',
-      transform: [Function: transform]
-    },
-    {
-      name: 'vite:asset-import-meta-url',
-      transform: [AsyncFunction: transform]
-    },
-    {
-      name: 'vite:build-import-analysis',
-      resolveId: [Function: resolveId],
-      load: [Function: load],
-      transform: [AsyncFunction: transform],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle]
-    },
-    {
-      name: 'vite:esbuild-transpile',
-      renderChunk: [AsyncFunction: renderChunk]
-    },
-    {
-      name: 'vite:reporter',
-      transform: [Function: transform],
-      buildEnd: [Function: buildEnd],
-      renderStart: [Function: renderStart],
-      renderChunk: [Function: renderChunk],
-      generateBundle: [Function: generateBundle],
-      writeBundle: [AsyncFunction: writeBundle]
-    },
-    { name: 'vite:load-fallback', load: [AsyncFunction: load] }
-  ],
-  build: {
-    target: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    polyfillModulePreload: true,
-    outDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/dist',
-    assetsDir: 'assets',
-    assetsInlineLimit: 4096,
-    cssCodeSplit: true,
-    cssTarget: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
-    sourcemap: false,
-    rollupOptions: {
-      input: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/index.html'
-    },
-    minify: 'esbuild',
-    terserOptions: {},
-    write: true,
-    emptyOutDir: null,
-    manifest: false,
-    lib: false,
-    ssr: false,
-    ssrManifest: false,
-    reportCompressedSize: true,
-    chunkSizeWarningLimit: 500,
-    watch: null,
-    commonjsOptions: { include: [Array], extensions: [Array] },
-    dynamicImportVarsOptions: { warnOnError: true, exclude: [Array] }
-  },
-  configFile: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/vite.config.js',
-  configFileDependencies: [ '../../../rollup-plugin/index.js', 'vite.config.js' ],
-  inlineConfig: {
-    root: undefined,
-    base: undefined,
-    mode: undefined,
-    configFile: undefined,
-    logLevel: undefined,
-    clearScreen: undefined,
-    build: {}
-  },
-  root: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS',
-  base: '/',
-  resolve: { dedupe: undefined, alias: [ [Object], [Object] ] },
-  publicDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/public',
-  cacheDir: '/home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/node_modules/.vite',
-  command: 'build',
-  mode: 'production',
-  isProduction: true,
-  server: {
-    preTransformRequests: true,
-    fs: { strict: true, allow: [Array], deny: [Array] }
-  },
-  preview: {
-    port: undefined,
-    strictPort: undefined,
-    host: undefined,
-    https: undefined,
-    open: undefined,
-    proxy: undefined,
-    cors: undefined
-  },
-  env: { BASE_URL: '/', MODE: 'production', DEV: false, PROD: true },
-  assetsInclude: [Function: assetsInclude],
-  logger: {
-    hasWarned: false,
-    info: [Function: info],
-    warn: [Function: warn],
-    warnOnce: [Function: warnOnce],
-    error: [Function: error],
-    clearScreen: [Function: clearScreen],
-    hasErrorLogged: [Function: hasErrorLogged]
-  },
-  packageCache: Map(0) { set: [Function (anonymous)] },
-  createResolver: [Function: createResolver],
-  optimizeDeps: {
-    esbuildOptions: { keepNames: undefined, preserveSymlinks: undefined }
-  }
-}
-vite v2.7.10 building for production...
+vite v2.7.6 building for production...
 transforming...
 ✓ 5 modules transformed.
 
@@ -3446,7 +2670,7 @@ Stderr
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:2:9
+file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Vite_Literate_TS_import_type_dependency_Literate_CJS/source.ts.md:2:9
 1: import process from "process";
 2: import { exitCode } from "target";
             ^
@@ -3454,15 +2678,15 @@ file: /home/user/Lab/5/takovata/fadroma/packages/ganesha/tests/cases/Rollup_Lite
 4: process.exit(theExitCode);
 error during build:
 Error: 'exitCode' is not exported by node_modules/target/target.cjs.md, imported by source.ts.md
-    at error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
-    at Module.error (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
-    at Module.traceVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
-    at ModuleScope.findVariable (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
-    at Identifier.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
-    at VariableDeclarator.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
-    at VariableDeclaration.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Program.bind (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
-    at Module.bindReferences (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
-    at Graph.sortModules (/home/user/Lab/5/takovata/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
+    at error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:158:30)
+    at Module.error (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12420:16)
+    at Module.traceVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12805:29)
+    at ModuleScope.findVariable (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:11585:39)
+    at Identifier.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:6467:40)
+    at VariableDeclarator.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5075:23)
+    at VariableDeclaration.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Program.bind (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:5071:31)
+    at Module.bindReferences (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:12416:18)
+    at Graph.sortModules (/home/user/Lab/5/takovata/fadroma/packages/ganesha/node_modules/.pnpm/rollup@2.62.0/node_modules/rollup/dist/shared/rollup.js:22969:20)
 
 ```

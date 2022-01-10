@@ -10,12 +10,19 @@ const RE_TYPESCRIPT = /\.ts.md$/
 const isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
+const debug = process.env.LITERATE_DEBUG
+  ? (...args) => console.debug(...args)
+  : () => {}
+
 module.exports = function ganeshaPlugin (typescript = true) {
   return {
 
     name: 'rollup-plugin-ganesha',
 
+    //enforce: 'pre',
+
     resolveId (source, importer) {
+      debug('resolveId', { source, importer })
       if (!importer) {
         return null
       }
@@ -33,21 +40,8 @@ module.exports = function ganeshaPlugin (typescript = true) {
     },
 
     transform (code, id) {
-
-      let literate = false
-
-      if (is.Literate(id)) {
-        literate = true
-      } else if (is.Markdown(id)) {
-        try {
-          if (FM_TYPES.includes(getFM(code).attributes.literate)) {
-            literate = true
-          }
-        } catch (e) {
-          /**/
-        }
-      }
-
+      const literate = isLiterate(id.split('?')[0])
+      debug('transform', { id, literate })
       if (literate) {
         code = parseString(code)
         let map = null
@@ -58,11 +52,13 @@ module.exports = function ganeshaPlugin (typescript = true) {
           target: 'esnext',
           format: 'esm' //format === 'module' ? 'esm' : 'cjs'
         })
+        for (const { location: { file, line, column }, text } of compiled.warnings||[]) {
+          console.info(`${file}:${line}:${column}: ${text}`)
+        }
         code = compiled.code
         map  = compiled.map
         return { code, map }
       }
-
     }
 
   }

@@ -4,10 +4,10 @@ import { resolve as resolvePath, dirname } from 'path'
 
 import JSONC from 'jsonc-parser'
 
-import { parseString } from '@ganesha/core/parse'
-import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform'
+import { parseString } from '@ganesha/core/parse.cjs'
+import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform.cjs'
 
-import { installSourceMapSupport } from './sourcemaps.cjs'
+import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
 installSourceMapSupport()
 
 import { register } from './loader.cjs'
@@ -247,6 +247,8 @@ export function transformSource (src, context, defaultTransformSource) {
 export function transformTypeScript (source, context) {
   trace('Step 5 :: [transformTS]', context.url)
   const { url, format } = context
-  return tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
+  const { id, compiled, map } = tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
+  addSourceMap(id, map)
+  return compiled
   //return esbuildToMjs(isWindows ? url : fileURLToPath(url), source, format)
 }

@@ -9,8 +9,6 @@ joycon.addLoader({
   loadSync: file => parse(readFileSync(file, 'utf8'))
 })
 
-const { addSourceMap } = require('./sourcemaps.cjs')
-
 module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
   const dir = dirname(filename)
   const { target, jsxFactory, jsxFragment } = getOptions(dir)
@@ -33,9 +31,8 @@ module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
     jsxFragment,
   }
   const { code: compiled, warnings, map } = require('esbuild').transformSync(code, options)
-  addSourceMap(filename, map)
   printWarnings(warnings)
-  return compiled
+  return { id: filename, compiled, map }
 }
 
 module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format) {
@@ -46,9 +43,8 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
     target:     'esnext',
     format:     format === 'module' ? 'esm' : 'cjs'
   })
-  addSourceMap(url, map)
   printWarnings(warnings)
-  return code
+  return { id: url, compiled: code, map }
 }
 
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
@@ -65,9 +61,8 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
     },
     fileName
   })
-  addSourceMap(fileName, sourceMapText)
   printWarnings(diagnostics)
-  return outputText
+  return { id: fileName, compiled: outputText, map: sourceMapText }
 }
 
 module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
@@ -84,9 +79,8 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
     },
     fileName
   })
-  addSourceMap(fileName, sourceMapText)
   printWarnings(diagnostics)
-  return outputText
+  return { id: fileName, compiled: outputText, map: sourceMapText }
 }
 
 function getOptions (cwd) {
