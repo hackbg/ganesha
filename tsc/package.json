@@ -13,7 +13,8 @@
     "@ganesha/nodejs-loader": "workspace:*"
   },
   "scripts": {
-    "build": "tsc proxy.ts",
+    "postinstall": "tsc --outDir dist/ proxy.ts",
+    "build":       "tsc --outDir dist/ proxy.ts",
     "test":  "./ganesha-tsc --outDir ./out ./examples/valid.ts.md",
     "test2": "./ganesha-tsc --outDir ./out ./examples/invalid.ts.md"
   }

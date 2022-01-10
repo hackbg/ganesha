@@ -7,10 +7,11 @@ export function createProgramProxy (
 ) {
   validateOptions(options)
   patchTypeScript(ts as any)
-  const langServHost = getShimmedHost(options.host as any, options, getFileNames(options))
-  const langServ     = ts.createLanguageService(langServHost as any)
-  const program      = patchProgram(langServ.getProgram())
-  return program
+  return patchProgram(
+    ts.createLanguageService(
+      getShimmedHost(options.host as any, options, getFileNames(options)) as any
+    ).getProgram()
+  )
 }
 
 function validateOptions (options: ts.CreateProgramOptions) {

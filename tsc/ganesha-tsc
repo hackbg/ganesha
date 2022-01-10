@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const readFileSync = fs.readFileSync
 const tscPath = require.resolve('typescript/lib/tsc')
-const proxy = require('path').resolve(__dirname, 'proxy.js')
+const proxy = require('path').resolve(__dirname, 'dist/proxy.js')
 
 fs.readFileSync = (...args) => {
   if (args[0] === tscPath) {
