@@ -52,8 +52,8 @@ module.exports = function ganeshaPlugin (typescript = true) {
           target: 'esnext',
           format: 'esm' //format === 'module' ? 'esm' : 'cjs'
         })
-        if (compiled.warnings && compiled.warnings.length > 0) {
-          console.log(compiled.warnings)
+        for (const { location: { file, line, column }, text } of compiled.warnings||[]) {
+          console.info(`${file}:${line}:${column}: ${text}`)
         }
         code = compiled.code
         map  = compiled.map
