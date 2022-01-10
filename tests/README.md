@@ -4,25 +4,25 @@
 
 |Source module|Import type|Relation type|Target module|[TSC](../tsc)|[Node](../nodejs-loader)|[Vite](../rollup-plugin)|
 |-------------|-----------|-------------|-------------|---|---|---|
-|Bare CJS|require|sibling|Bare CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_cjs)|🟩 PASS|🟩 PASS|
+|Bare CJS|require|sibling|Bare CJS|🟩 PASS|🟩 PASS|🟩 PASS|
 |Bare CJS|require|sibling|Bare ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_esm)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|sibling|Bare TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_ts)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|sibling|Literate CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_literate_cjs)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_sibling_literate_cjs)|
 |Bare CJS|require|sibling|Literate ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_literate_esm)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_sibling_literate_esm)|
-|Bare CJS|require|sibling|Literate TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_literate_ts)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_sibling_literate_ts)|
-|Bare CJS|require|dependency|Bare CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_bare_cjs)|🟩 PASS|🟩 PASS|
+|Bare CJS|require|sibling|Literate TS|🟩 PASS|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_sibling_literate_ts)|
+|Bare CJS|require|dependency|Bare CJS|🟩 PASS|🟩 PASS|🟩 PASS|
 |Bare CJS|require|dependency|Bare ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_bare_esm)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|dependency|Bare TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_bare_ts)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|dependency|Literate CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_literate_cjs)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_dependency_literate_cjs)|
 |Bare CJS|require|dependency|Literate ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_literate_esm)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_dependency_literate_esm)|
 |Bare CJS|require|dependency|Literate TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_dependency_literate_ts)|🟩 PASS|[❌ FAIL](./FAIL.md#vite_bare_cjs_require_dependency_literate_ts)|
-|Bare CJS|dynamic import|sibling|Bare CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_bare_cjs)|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Bare CJS|🟩 PASS|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|sibling|Bare ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_bare_esm)|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|sibling|Bare TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_bare_ts)|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|sibling|Literate CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_literate_cjs)|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|sibling|Literate ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_literate_esm)|🟩 PASS|🟩 PASS|
-|Bare CJS|dynamic import|sibling|Literate TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_sibling_literate_ts)|🟩 PASS|🟩 PASS|
-|Bare CJS|dynamic import|dependency|Bare CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_dependency_bare_cjs)|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|sibling|Literate TS|🟩 PASS|🟩 PASS|🟩 PASS|
+|Bare CJS|dynamic import|dependency|Bare CJS|🟩 PASS|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|dependency|Bare ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_dependency_bare_esm)|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|dependency|Bare TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_dependency_bare_ts)|🟩 PASS|🟩 PASS|
 |Bare CJS|dynamic import|dependency|Literate CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_dynamic_import_dependency_literate_cjs)|🟩 PASS|🟩 PASS|
