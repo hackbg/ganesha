@@ -16,7 +16,6 @@ export function patchProgram (
       emitOnlyDtsFiles?:  boolean,
       transformers?:      ts.CustomTransformers,
     ) {
-      console.trace('emit', sourceFile)
       if (!writeFileCallback) {
         writeFileCallback = (path: string, text: string) => {
           writeFileSync(path, text, 'utf8')
