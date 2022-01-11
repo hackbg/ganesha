@@ -21,7 +21,12 @@ importers:
       vsce: 2.6.3
 
   core:
-    specifiers: {}
+    specifiers:
+      joycon: ^3.0.1
+      jsonc-parser: ^3.0.0
+    dependencies:
+      joycon: 3.1.1
+      jsonc-parser: 3.0.0
 
   nodejs-loader:
     specifiers:
