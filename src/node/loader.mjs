@@ -224,19 +224,21 @@ export function getSource (url, context, defaultGetSource) {
 /// ## Extract code from Markdown and optionally transpile TypeScript
 /// https://nodejs.org/api/esm.html#esm_transformsource_source_context_defaulttransformsource
 export function transformSource (src, context, defaultTransformSource) {
-  trace('Step 4 :: [transformSource]', context.format, context.url)
 
   /// Transpile TypeScript
   if (isLiterateTypeScript(context.url)) {
+    trace('Step 4 :: [transformSource] [Literate TS]', context.format, context.url)
     return { source: transformTypeScript(parseString(src.toString()), context) }
   }
   if (isTypescript(context.url)) {
+    trace('Step 4 :: [transformSource] [TS]', context.format, context.url)
     return { source: transformTypeScript(src.toString(), context) }
   }
 
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
   if (isMarkdown(context.url)) {
+    trace('Step 4 :: [transformSource] [MD]', context.format, context.url)
     return { source: parseString(src.toString()) }
   }
 
