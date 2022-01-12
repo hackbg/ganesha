@@ -1,6 +1,6 @@
 import frontMatter from 'front-matter'
 import { readFileSync, existsSync, statSync } from 'fs'
-import { pathToFileURL } from 'url'
+import { pathToFileURL, fileURLToPath } from 'url'
 
 export const baseURL   = pathToFileURL(`${process.cwd()}/`).href
 export const isWindows = process.platform === "win32"
@@ -12,7 +12,13 @@ export const RE_LITERATE_MODULE = /\.(?:ts|js|mjs).md$/
 export const isLiterateModule   = x => RE_LITERATE_MODULE.test(x)
 
 export const RE_LITERATE_TYPESCRIPT = /\.ts.md$/
-export const isLiterateTypeScript   = x => RE_LITERATE_TYPESCRIPT.test(x)
+export const RE_MARKDOWN = /\.md$/
+export const isLiterateTypeScript = path => {
+  if (RE_LITERATE_TYPESCRIPT.test(path)) return true
+  if (RE_MARKDOWN.test(path)) {
+    return getFMType(fileURLToPath(path)) === 'typescript'
+  }
+}
 
 export const RE_MD      = /\.md$/
 export const isMarkdown = x => RE_MD.test(x)
