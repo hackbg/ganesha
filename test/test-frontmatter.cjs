@@ -4,20 +4,20 @@ const { spawnSync } = require('child_process')
 const SCRIPTS = {
 
   'CommonJS': [
-    '-r', '@hackbg/ganesha/loader.cjs',
+    '-r', '@ganesha/node/loader.cjs',
     '-e', `process.exit(require('./examples/example_cjs.md'))`
   ],
 
   'ECMAScript': [
     '--unhandled-rejections=throw',
-    '--experimental-loader', '@hackbg/ganesha/loader.mjs',
+    '--experimental-loader', '@ganesha/node',
     '--input-type=module',
     '-e', `import('./examples/example_mjs.md').then(code=>process.exit(code.default))`
   ],
 
   'TypeScript': [
     '--unhandled-rejections=throw',
-    '--experimental-loader', '@hackbg/ganesha/loader.mjs',
+    '--experimental-loader', '@ganesha/node',
     '--input-type=module',
     '-e', `import('./examples/example_ts.md').then(code=>process.exit(code.default))`
   ],

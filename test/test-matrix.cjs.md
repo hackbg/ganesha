@@ -71,20 +71,21 @@ in the directory of the particular test case.
 
 ```javascript
 const { resolve } = require('path')
-const node = `${resolve(__dirname, '..', 'nodejs-loader', 'ganesha')} --unhandled-rejections=throw`
-const tsc  = `rm -rf dist && mkdir -p dist && ${resolve(__dirname, '..', 'tsc', 'ganesha-tsc')} --outDir dist`
+const node = `${resolve(__dirname, '..', 'src', 'node', 'ganesha-node')} --unhandled-rejections=throw`
+const tsc  = `rm -rf dist && mkdir -p dist && ${resolve(__dirname, '../src/tsc/ganesha-tsc')} --outDir dist`
+const packageJSON = main => JSON.stringify({
+  name: "source",
+  scripts: {
+    "build": `${tsc} ${main}`,
+    "test": `${node} ${main}`
+  }
+})
 const Sources = {
   'CJS': {
     'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           const process = require("process")
           const target = require("${target}")
@@ -96,13 +97,7 @@ const Sources = {
     'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.cjs.md': 'source.cjs'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           const process = require('process')
           import("${target}").then(target=>{
@@ -117,13 +112,7 @@ const Sources = {
     'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           const process = require('process')
           const target = require("${target}")
@@ -135,13 +124,7 @@ const Sources = {
     'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           import process from 'process'
           import("${target}").then(target=>{
@@ -154,13 +137,7 @@ const Sources = {
     'static import'    (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.mjs.md': 'source.mjs'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           import process from 'process'
           import * as target from "${target}"
@@ -173,13 +150,7 @@ const Sources = {
     'require'        (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "build": `${tsc} ${main}`,
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           const process = require('process')
           const target = require("${target}")
@@ -191,12 +162,7 @@ const Sources = {
     'dynamic import' (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           import process from 'process'
           import("${target}").then(target=>{
@@ -209,12 +175,7 @@ const Sources = {
     'static import'    (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           import process from 'process'
           import * as target from "${target}"
@@ -225,12 +186,7 @@ const Sources = {
     'import type'      (literacy, target) {
       const main = (literacy.name === 'Literate') ? 'source.ts.md': 'source.ts'
       return {
-        'package.json': JSON.stringify({
-          name: "source",
-          scripts: {
-            "test": `${node} ${main}`
-          }
-        }),
+        'package.json': packageJSON(main),
         [main]: literacy(`
           import process from 'process'
           import type { exitCode as ExitCode } from "${target}"

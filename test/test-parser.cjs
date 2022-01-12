@@ -1,6 +1,6 @@
 const { test }         = require('tap')
 const { readFileSync } = require('fs')
-const { parseFile }    = require('../loader/parse.cjs')
+const { parseFile }    = require('@ganesha/core/parse.cjs')
 
 const EXAMPLES = {
   'CommonJS':   ['examples/example.cjs.md', 'examples/example.cjs'],

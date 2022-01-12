@@ -1,13 +1,6 @@
 const { dirname, extname } = require('path')
 const { readFileSync } = require('fs')
-
-const { parse } = require('jsonc-parser')
-const JoyCon = require('joycon')
-const joycon = new JoyCon()
-joycon.addLoader({
-  test: /\.json$/,
-  loadSync: file => parse(readFileSync(file, 'utf8'))
-})
+const config = require('./config.cjs')
 
 module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
   const dir = dirname(filename)
@@ -85,7 +78,7 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
 
 function getOptions (cwd) {
 
-  const { data, path } = joycon.loadSync(['tsconfig.json'], cwd)
+  const { data, path } = config.loadSync(['tsconfig.json'], cwd)
 
   if (path && data) return {
     jsxFactory:  data.compilerOptions?.jsxFactory,
@@ -104,7 +97,7 @@ function inferPackageFormat (cwd, filename) {
   if (filename.endsWith('.cjs'))    return 'cjs'
   if (filename.endsWith('.cjs.md')) return 'cjs'
 
-  const { data } = joycon.loadSync(['package.json'], cwd)
+  const { data } = config.loadSync(['package.json'], cwd)
   return data && data.type === 'module' ? 'esm' : 'cjs'
 
 }

@@ -81,7 +81,12 @@ importers:
       wait-port: 0.2.9
 
   src/core:
-    specifiers: {}
+    specifiers:
+      joycon: ^3.0.1
+      jsonc-parser: ^3.0.0
+    dependencies:
+      joycon: 3.1.1
+      jsonc-parser: 3.0.0
 
   src/node:
     specifiers:
