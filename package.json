@@ -14,18 +14,21 @@
     "onLanguage:ts"
   ],
   "devDependencies": {
-    "@types/node": "latest",
-    "tap":         "^15.0.9",
-    "typescript":  "latest",
-    "vite":        "^2.7.6",
-    "vsce":        "latest"
+    "@types/node":     "latest",
+    "@hackbg/komandi": "workspace:*",
+    "tap":             "^15.0.9",
+    "typescript":      "latest",
+    "vite":            "^2.7.6",
+    "vsce":            "latest"
   },
   "scripts": {
+    "dev":     "node dev.js",
     "build":   "tsc -b tsconfig.build.json",
     "package": "vsce package --yarn",
     "watch":   "tsctens -b tsconfig.build.json -w"
   },
   "packages": [
+    "./deps/toolbox/*",
     "./src/*",
     "./src/vsc/*",
     "./test"

@@ -4,17 +4,81 @@ importers:
 
   .:
     specifiers:
+      '@hackbg/komandi': workspace:*
       '@types/node': latest
       tap: ^15.0.9
       typescript: latest
       vite: ^2.7.6
       vsce: latest
     devDependencies:
+      '@hackbg/komandi': link:deps/toolbox/komandi
       '@types/node': 17.0.8
       tap: 15.0.9_typescript@4.5.4
       typescript: 4.5.4
       vite: 2.7.6
       vsce: 2.6.3
+
+  deps/toolbox/kabinet:
+    specifiers:
+      mkdirp: ^1.0.4
+      rimraf: ^3.0.2
+    dependencies:
+      mkdirp: 1.0.4
+      rimraf: 3.0.2
+
+  deps/toolbox/komandi:
+    specifiers:
+      typescript: latest
+    devDependencies:
+      typescript: 4.5.4
+
+  deps/toolbox/konzola:
+    specifiers:
+      colors: ^1.4.0
+      prettyjson: github:slavaGanzin/prettyjson#d880b8af2973a1a1b277944c3b573d7d6a93ba8f
+      table: ^6.6.0
+    dependencies:
+      colors: 1.4.0
+      prettyjson: github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f
+      table: 6.8.0
+
+  deps/toolbox/tools:
+    specifiers:
+      '@hackbg/kabinet': workspace:^1.0.0
+      '@hackbg/komandi': workspace:^1.0.0
+      '@hackbg/konzola': workspace:^1.0.0
+      colors: ^1.4.0
+      dockerode: ^3.3.0
+      exponential-backoff: ^3.1.0
+      mkdirp: ^1.0.4
+      open: ^8.0.2
+      prettyjson: github:slavaGanzin/prettyjson#d880b8af2973a1a1b277944c3b573d7d6a93ba8f
+      prompts: ^2.4.1
+      recursive-copy: ^2.0.13
+      rimraf: ^3.0.2
+      signal-exit: ^3.0.3
+      symlink-dir: ^5.0.1
+      table: ^6.6.0
+      tmp: ^0.2.1
+      wait-port: ^0.2.9
+    dependencies:
+      '@hackbg/kabinet': link:../kabinet
+      '@hackbg/komandi': link:../komandi
+      '@hackbg/konzola': link:../konzola
+      colors: 1.4.0
+      dockerode: 3.3.1
+      exponential-backoff: 3.1.0
+      mkdirp: 1.0.4
+      open: 8.4.0
+      prettyjson: github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f
+      prompts: 2.4.2
+      recursive-copy: 2.0.13
+      rimraf: 3.0.2
+      signal-exit: 3.0.4
+      symlink-dir: 5.0.1
+      table: 6.8.0
+      tmp: 0.2.1
+      wait-port: 0.2.9
 
   src/core:
     specifiers: {}
@@ -73,6 +137,9 @@ importers:
       '@ganesha/core': link:../core
       '@ganesha/node': link:../node
 
+  src/vsc:
+    specifiers: {}
+
   src/vsc/client:
     specifiers:
       '@ganesha/vscode-shared': workspace:*
@@ -123,2598 +190,6 @@ importers:
       mkdirp: 1.0.4
       tap: 15.0.9_typescript@4.5.4
       vite: 2.7.6
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Bare_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Node_Literate_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Bare_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Rollup_Literate_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Bare_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/TSC_Literate_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Bare_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_CJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_MJS_static_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_dynamic_import_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_import_type_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_require_sibling_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_dependency_Literate_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Bare_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Bare_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Bare_TS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Literate_CJS:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Literate_ESM:
-    specifiers: {}
-
-  test/cases/Vite_Literate_TS_static_import_sibling_Literate_TS:
-    specifiers: {}
 
   test/examples/example:
     specifiers: {}
@@ -3066,6 +541,11 @@ packages:
       vscode-uri: 3.0.3
     dev: false
 
+  /@zkochan/rimraf/2.1.1:
+    resolution: {integrity: sha512-TgiZpFi4XSvS8wY2/JzoJQYqgpOeBfVMPLC93cRXjbqYSXr1PGyQagS1Wyztuq1uMA1Cqd+EYLa5HESrJwH0Kw==}
+    engines: {node: '>=12.10'}
+    dev: false
+
   /aggregate-error/3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
     engines: {node: '>=8'}
@@ -3083,6 +563,15 @@ packages:
       uri-js: 4.4.1
     dev: true
 
+  /ajv/8.8.2:
+    resolution: {integrity: sha512-x9VuX+R/jcFj1DHo/fCp99esgGDWiHENrKxaCENuCxpoMCmAt/COCGVDwA7kleEpEzJjDnvh3yGoOuLu0Dtllw==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+      json-schema-traverse: 1.0.0
+      require-from-string: 2.0.2
+      uri-js: 4.4.1
+    dev: false
+
   /ansi-regex/2.1.1:
     resolution: {integrity: sha1-w7M6te42DYbg5ijwRorn7yfWVN8=}
     engines: {node: '>=0.10.0'}
@@ -3096,21 +585,18 @@ packages:
   /ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
-    dev: true
 
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
     engines: {node: '>=4'}
     dependencies:
       color-convert: 1.9.3
-    dev: true
 
   /ansi-styles/4.3.0:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
     dependencies:
       color-convert: 2.0.1
-    dev: true
 
   /anymatch/3.1.2:
     resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
@@ -3147,16 +633,46 @@ packages:
     dependencies:
       sprintf-js: 1.0.3
 
+  /array-differ/1.0.0:
+    resolution: {integrity: sha1-7/UuN1gknTO+QCuLuOVkuytdQDE=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /array-union/1.0.2:
+    resolution: {integrity: sha1-mjRBDk9OPaI96jdb5b5w8kd47Dk=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      array-uniq: 1.0.3
+    dev: false
+
+  /array-uniq/1.0.3:
+    resolution: {integrity: sha1-r2rId6Jcx/dOBYiUdThY39sk/bY=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /arrify/1.0.1:
+    resolution: {integrity: sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /asap/2.0.6:
+    resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=}
+    dev: false
+
   /asn1/0.2.4:
     resolution: {integrity: sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==}
     dependencies:
       safer-buffer: 2.1.2
-    dev: true
 
   /assert-plus/1.0.0:
     resolution: {integrity: sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=}
     engines: {node: '>=0.8'}
     dev: true
+
+  /astral-regex/2.0.0:
+    resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
+    engines: {node: '>=8'}
+    dev: false
 
   /async-hook-domain/2.0.4:
     resolution: {integrity: sha512-14LjCmlK1PK8eDtTezR6WX8TMaYNIzBIsd2D1sGoGjgx0BuNMMoSdk7i/drlbtamy0AWv9yv2tkB+ASdmeqFIw==}
@@ -3187,13 +703,18 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-    dev: true
 
   /bcrypt-pbkdf/1.0.2:
     resolution: {integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=}
     dependencies:
       tweetnacl: 0.14.5
-    dev: true
+
+  /better-path-resolve/1.0.0:
+    resolution: {integrity: sha512-pbnl5XzGBdrFU/wT4jqmJVPn2B6UHPBOhzMQkY/SPUPB6QtUXtmBHBIwCbXJol93mOpGMnQyP/+BB19q04xj7g==}
+    engines: {node: '>=4'}
+    dependencies:
+      is-windows: 1.0.2
+    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -3211,7 +732,6 @@ packages:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.0
-    dev: true
 
   /boolbase/1.0.0:
     resolution: {integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=}
@@ -3253,7 +773,6 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    dev: true
 
   /caching-transform/4.0.0:
     resolution: {integrity: sha512-kpqOvwXnjjN44D89K5ccQC+RUrsy7jB/XLlRrx0D7/2HNcTPqzsb6XgYoErwko6QsV184CA2YgS1fxDiiDZMWA==}
@@ -3311,7 +830,6 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
-    dev: true
 
   /cheerio-select/1.5.0:
     resolution: {integrity: sha512-qocaHPv5ypefh6YNxvnbABM07KMxExbtbfuJoIie3iZXX1ERwYmJcIiRrr9H05ucQP1k28dav8rpdDgjQd8drg==}
@@ -3353,7 +871,6 @@ packages:
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
-    dev: true
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -3385,22 +902,18 @@ packages:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
       color-name: 1.1.3
-    dev: true
 
   /color-convert/2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
     dependencies:
       color-name: 1.1.4
-    dev: true
 
   /color-name/1.1.3:
     resolution: {integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=}
-    dev: true
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
-    dev: true
 
   /color-support/1.1.3:
     resolution: {integrity: sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==}
@@ -3411,12 +924,21 @@ packages:
     resolution: {integrity: sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==}
     dev: true
 
+  /colors/1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
+    engines: {node: '>=0.1.90'}
+    dev: false
+
   /combined-stream/1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
     dev: true
+
+  /commander/3.0.2:
+    resolution: {integrity: sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==}
+    dev: false
 
   /commander/6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
@@ -3455,6 +977,15 @@ packages:
       minimist: 1.2.5
       request: 2.88.2
     dev: true
+
+  /cpu-features/0.0.2:
+    resolution: {integrity: sha512-/2yieBqvMcRj8McNzkycjW2v3OIUOibBfd2dLEJ0nWts8NobAxwiyw9phVNS6oDL8x8tz9F7uNVFEVpJncQpeA==}
+    engines: {node: '>=8.0.0'}
+    requiresBuild: true
+    dependencies:
+      nan: 2.15.0
+    dev: false
+    optional: true
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -3496,7 +1027,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-    dev: true
 
   /decamelize/1.2.0:
     resolution: {integrity: sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=}
@@ -3522,6 +1052,24 @@ packages:
       strip-bom: 4.0.0
     dev: true
 
+  /define-lazy-prop/2.0.0:
+    resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
+    engines: {node: '>=8'}
+    dev: false
+
+  /del/2.2.2:
+    resolution: {integrity: sha1-wSyYHQZ4RshLyvhiz/kw2Qf/0ag=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      globby: 5.0.0
+      is-path-cwd: 1.0.0
+      is-path-in-cwd: 1.0.1
+      object-assign: 4.1.1
+      pify: 2.3.0
+      pinkie-promise: 2.0.1
+      rimraf: 2.7.1
+    dev: false
+
   /delayed-stream/1.0.0:
     resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=}
     engines: {node: '>=0.4.0'}
@@ -3541,6 +1089,28 @@ packages:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
     engines: {node: '>=0.3.1'}
     dev: true
+
+  /docker-modem/3.0.3:
+    resolution: {integrity: sha512-Tgkn2a+yiNP9FoZgMa/D9Wk+D2Db///0KOyKSYZRJa8w4+DzKyzQMkczKSdR/adQ0x46BOpeNkoyEOKjPhCzjw==}
+    engines: {node: '>= 8.0'}
+    dependencies:
+      debug: 4.3.2
+      readable-stream: 3.6.0
+      split-ca: 1.0.1
+      ssh2: 1.5.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /dockerode/3.3.1:
+    resolution: {integrity: sha512-AS2mr8Lp122aa5n6d99HkuTNdRV1wkkhHwBdcnY6V0+28D3DSYwhxAk85/mM9XwD3RMliTxyr63iuvn5ZblFYQ==}
+    engines: {node: '>= 8.0'}
+    dependencies:
+      docker-modem: 3.0.3
+      tar-fs: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /dom-serializer/1.3.2:
     resolution: {integrity: sha512-5c54Bk5Dw4qAxNOI1pFEizPSjVsx5+bpJKmL2kPn8JhBUq2q09tTCa3mjijun2NfK78NMouDYNMBkOrPZiS+ig==}
@@ -3582,13 +1152,11 @@ packages:
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
-    dev: true
 
   /end-of-stream/1.4.4:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
     dependencies:
       once: 1.4.0
-    dev: true
 
   /entities/2.0.3:
     resolution: {integrity: sha512-MyoZ0jgnLvB2X3Lg5HqpFmn1kybDiIfEQmKzTb5apr51Rb+T3KdmMiqa70T+bhGnyv7bQ6WMj2QMHpGMmlrUYQ==}
@@ -3597,6 +1165,13 @@ packages:
   /entities/2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
     dev: true
+
+  /errno/0.1.8:
+    resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
+    hasBin: true
+    dependencies:
+      prr: 1.0.1
+    dev: false
 
   /es6-error/4.1.1:
     resolution: {integrity: sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==}
@@ -3752,7 +1327,6 @@ packages:
   /escape-string-regexp/1.0.5:
     resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
-    dev: true
 
   /escape-string-regexp/2.0.0:
     resolution: {integrity: sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==}
@@ -3773,6 +1347,10 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /exponential-backoff/3.1.0:
+    resolution: {integrity: sha512-oBuz5SYz5zzyuHINoe9ooePwSu0xApKWgeNzok4hZ5YKXFh9zrQBEM15CXqoZkJJPuI2ArvqjPQd8UKJA753XA==}
+    dev: false
+
   /extend/3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
     dev: true
@@ -3784,7 +1362,6 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-    dev: true
 
   /fast-glob/3.2.7:
     resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==}
@@ -3873,7 +1450,6 @@ packages:
 
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
-    dev: true
 
   /fs-exists-cached/1.0.0:
     resolution: {integrity: sha1-zyVVTKBQ3EmuZla0HeQiWJidy84=}
@@ -3881,7 +1457,6 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
-    dev: true
 
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -3960,16 +1535,26 @@ packages:
       minimatch: 3.0.4
       once: 1.4.0
       path-is-absolute: 1.0.1
-    dev: true
 
   /globals/11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
     dev: true
 
+  /globby/5.0.0:
+    resolution: {integrity: sha1-69hGZ8oNuzMLmbz8aOrCvFQ3Dg0=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      array-union: 1.0.2
+      arrify: 1.0.1
+      glob: 7.1.7
+      object-assign: 4.1.1
+      pify: 2.3.0
+      pinkie-promise: 2.0.1
+    dev: false
+
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
-    dev: true
 
   /har-schema/2.0.0:
     resolution: {integrity: sha1-qUwiJOvKwEeCoNkDVSHyRzW37JI=}
@@ -3988,7 +1573,6 @@ packages:
   /has-flag/3.0.0:
     resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=}
     engines: {node: '>=4'}
-    dev: true
 
   /has-flag/4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -4050,7 +1634,6 @@ packages:
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
-    dev: true
 
   /import-jsx/4.0.0:
     resolution: {integrity: sha512-CnjJ2BZFJzbFDmYG5S47xPQjMlSbZLyLJuG4znzL4TdPtJBxHtFP1xVmR+EYX4synFSldiY3B6m00XkPM3zVnA==}
@@ -4084,11 +1667,9 @@ packages:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
-    dev: true
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
-    dev: true
 
   /ini/1.3.8:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
@@ -4106,6 +1687,12 @@ packages:
     dependencies:
       has: 1.0.3
     dev: true
+
+  /is-docker/2.2.1:
+    resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
+    engines: {node: '>=8'}
+    hasBin: true
+    dev: false
 
   /is-extglob/2.1.1:
     resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=}
@@ -4126,7 +1713,6 @@ packages:
   /is-fullwidth-code-point/3.0.0:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
     engines: {node: '>=8'}
-    dev: true
 
   /is-glob/4.0.1:
     resolution: {integrity: sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==}
@@ -4137,6 +1723,25 @@ packages:
   /is-number/7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
+
+  /is-path-cwd/1.0.0:
+    resolution: {integrity: sha1-0iXsIxMuie3Tj9p2dHLmLmXxEG0=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /is-path-in-cwd/1.0.1:
+    resolution: {integrity: sha512-FjV1RTW48E7CWM7eE/J2NJvAEEVektecDBVBE5Hh3nM1Jd0kvhHtX68Pr3xsDf857xt3Y4AkwVULK1Vku62aaQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      is-path-inside: 1.0.1
+    dev: false
+
+  /is-path-inside/1.0.1:
+    resolution: {integrity: sha1-jvW33lBDej/cprToZe96pVy0gDY=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      path-is-inside: 1.0.2
+    dev: false
 
   /is-stream/2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
@@ -4150,7 +1755,13 @@ packages:
   /is-windows/1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
     engines: {node: '>=0.10.0'}
-    dev: true
+
+  /is-wsl/2.2.0:
+    resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
+    engines: {node: '>=8'}
+    dependencies:
+      is-docker: 2.2.1
+    dev: false
 
   /isarray/1.0.0:
     resolution: {integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=}
@@ -4265,6 +1876,10 @@ packages:
     resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
     dev: true
 
+  /json-schema-traverse/1.0.0:
+    resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
+    dev: false
+
   /json-schema/0.2.3:
     resolution: {integrity: sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=}
     dev: true
@@ -4295,6 +1910,11 @@ packages:
       verror: 1.10.0
     dev: true
 
+  /junk/1.0.3:
+    resolution: {integrity: sha1-h75jSIZJy9ym9Tqzm+yczSNH9ZI=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /keytar/7.7.0:
     resolution: {integrity: sha512-YEY9HWqThQc5q5xbXbRwsZTh2PJ36OSYRjSv3NN2xf5s5dpLTjEZnC2YikR29OaVybf9nQ0dJ/80i40RS97t/A==}
     requiresBuild: true
@@ -4302,6 +1922,11 @@ packages:
       node-addon-api: 3.2.1
       prebuild-install: 6.1.4
     dev: true
+
+  /kleur/3.0.3:
+    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+    dev: false
 
   /lcov-parse/1.0.0:
     resolution: {integrity: sha1-6w1GtUER68VhrLTECO+TY73I9+A=}
@@ -4350,6 +1975,10 @@ packages:
     resolution: {integrity: sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=}
     dev: true
 
+  /lodash.truncate/4.4.2:
+    resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=}
+    dev: false
+
   /log-driver/1.2.7:
     resolution: {integrity: sha512-U7KCmLdqsGHBLeWqYlFA0V0Sl6P08EE1ZrmA9cxjUE0WVqT9qnyVDPz1kzpFEP0jdJuFnasWIfSd7fsaNXkpbg==}
     engines: {node: '>=0.8.6'}
@@ -4385,6 +2014,16 @@ packages:
       mdurl: 1.0.1
       uc.micro: 1.0.6
     dev: true
+
+  /maximatch/0.1.0:
+    resolution: {integrity: sha1-hs2NawTJ8wfAWmuUGZBtA2D7E6I=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      array-differ: 1.0.0
+      array-union: 1.0.2
+      arrify: 1.0.1
+      minimatch: 3.0.4
+    dev: false
 
   /mdurl/1.0.1:
     resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
@@ -4433,7 +2072,6 @@ packages:
 
   /minimist/1.2.5:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
-    dev: true
 
   /minipass/3.1.5:
     resolution: {integrity: sha512-+8NzxD82XQoNKNrl1d/FSi+X8wAEWR+sbYAfIvub4Nz0d22plFG72CEVVaufV8PNf4qSslFTD8VMOxNVhHCjTw==}
@@ -4444,21 +2082,30 @@ packages:
 
   /mkdirp-classic/0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
-    dev: true
+
+  /mkdirp/0.5.5:
+    resolution: {integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.5
+    dev: false
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
-    dev: true
 
   /mute-stream/0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
     dev: true
+
+  /nan/2.15.0:
+    resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
+    dev: false
+    optional: true
 
   /nanoid/3.1.30:
     resolution: {integrity: sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==}
@@ -4559,7 +2206,6 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /object-inspect/1.12.0:
     resolution: {integrity: sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==}
@@ -4569,7 +2215,15 @@ packages:
     resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=}
     dependencies:
       wrappy: 1.0.2
-    dev: true
+
+  /open/8.4.0:
+    resolution: {integrity: sha512-XgFPPM+B28FtCCgSb9I+s9szOC1vZRSwgWsRUA5ylIxRTgKozqjOCrVOqGsYABPYK5qnfqClxZTFBa8PKt2v6Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      define-lazy-prop: 2.0.0
+      is-docker: 2.2.1
+      is-wsl: 2.2.0
+    dev: false
 
   /opener/1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
@@ -4646,7 +2300,10 @@ packages:
   /path-is-absolute/1.0.1:
     resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=}
     engines: {node: '>=0.10.0'}
-    dev: true
+
+  /path-is-inside/1.0.2:
+    resolution: {integrity: sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=}
+    dev: false
 
   /path-key/3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
@@ -4671,6 +2328,23 @@ packages:
   /picomatch/2.3.0:
     resolution: {integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==}
     engines: {node: '>=8.6'}
+
+  /pify/2.3.0:
+    resolution: {integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /pinkie-promise/2.0.1:
+    resolution: {integrity: sha1-ITXW36ejWMBprJsXh3YogihFD/o=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      pinkie: 2.0.4
+    dev: false
+
+  /pinkie/2.0.4:
+    resolution: {integrity: sha1-clVrgM+g1IqXToDnckjoDtT3+HA=}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /pirates/4.0.4:
     resolution: {integrity: sha512-ZIrVPH+A52Dw84R0L3/VS9Op04PuQ2SEoJL6bkshmiTic/HldyW9Tf7oH5mhJZBK7NmDx27vSMrYEXPXclpDKw==}
@@ -4724,6 +2398,20 @@ packages:
       fromentries: 1.3.2
     dev: true
 
+  /promise/7.3.1:
+    resolution: {integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==}
+    dependencies:
+      asap: 2.0.6
+    dev: false
+
+  /prompts/2.4.2:
+    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
+    engines: {node: '>= 6'}
+    dependencies:
+      kleur: 3.0.3
+      sisteransi: 1.0.5
+    dev: false
+
   /prop-types/15.7.2:
     resolution: {integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==}
     dependencies:
@@ -4731,6 +2419,10 @@ packages:
       object-assign: 4.1.1
       react-is: 16.13.1
     dev: true
+
+  /prr/1.0.1:
+    resolution: {integrity: sha1-0/wRS6BplaRexok/SEzrHXj19HY=}
+    dev: false
 
   /psl/1.8.0:
     resolution: {integrity: sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==}
@@ -4741,12 +2433,10 @@ packages:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
-    dev: true
 
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
-    dev: true
 
   /qs/6.10.2:
     resolution: {integrity: sha512-mSIdjzqznWgfd4pMii7sHtaYF8rx8861hBO80SraY5GT0XQibWZWJSid0avzHGkDIZLImux2S5mXO0Hfct2QCw==}
@@ -4813,7 +2503,6 @@ packages:
       inherits: 2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
-    dev: true
 
   /readdirp/3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
@@ -4822,12 +2511,33 @@ packages:
       picomatch: 2.3.0
     dev: true
 
+  /recursive-copy/2.0.13:
+    resolution: {integrity: sha512-BjmE6R/dOImStEku+017L3Z0I6u/lA+SVr1sySWbTLjmQKDTESNmJ9WBZP8wbN5FuvqNvSYvRKA/IKQhAjqnpQ==}
+    dependencies:
+      del: 2.2.2
+      errno: 0.1.8
+      graceful-fs: 4.2.8
+      junk: 1.0.3
+      maximatch: 0.1.0
+      mkdirp: 0.5.5
+      pify: 2.3.0
+      promise: 7.3.1
+      slash: 1.0.0
+    dev: false
+
   /release-zalgo/1.0.0:
     resolution: {integrity: sha1-CXALflB0Mpc5Mw5TXFqQ+2eFFzA=}
     engines: {node: '>=4'}
     dependencies:
       es6-error: 4.1.1
     dev: true
+
+  /rename-overwrite/4.0.0:
+    resolution: {integrity: sha512-GZxPjarpxu2DGD6xHE8L4GdJhWz2+2i2x6N1I7VEof2p5M/x/LDNxNXA547k8xOpPmHnijXBE1ofmj7NDGP20g==}
+    engines: {node: '>=12.10'}
+    dependencies:
+      '@zkochan/rimraf': 2.1.1
+    dev: false
 
   /request/2.88.2:
     resolution: {integrity: sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==}
@@ -4861,6 +2571,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /require-from-string/2.0.2:
+    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /require-main-filename/2.0.0:
     resolution: {integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==}
     dev: true
@@ -4887,12 +2602,18 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: false
 
+  /rimraf/2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    hasBin: true
+    dependencies:
+      glob: 7.1.7
+    dev: false
+
   /rimraf/3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
       glob: 7.1.7
-    dev: true
 
   /rollup/2.62.0:
     resolution: {integrity: sha512-cJEQq2gwB0GWMD3rYImefQTSjrPYaC6s4J9pYqnstVLJ1CHa/aZNVkD4Epuvg4iLeMA4KRiq7UM7awKK6j7jcw==}
@@ -4914,11 +2635,9 @@ packages:
 
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
-    dev: true
 
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
-    dev: true
 
   /sax/1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
@@ -4966,7 +2685,6 @@ packages:
 
   /signal-exit/3.0.4:
     resolution: {integrity: sha512-rqYhcAnZ6d/vTPGghdrw7iumdcbXpsk1b8IG/rz+VWV51DM0p7XCtMoJ3qhPLIbp3tvyt3pKRbaaEMZYpHto8Q==}
-    dev: true
 
   /simple-concat/1.0.1:
     resolution: {integrity: sha512-cSFtAPtRhljv69IK0hTVZQ+OfE9nePi/rtJmw5UjHeVyVroEqJXP1sFztKUy1qU+xvz3u/sfYJLa947b7nAN2Q==}
@@ -4979,6 +2697,24 @@ packages:
       once: 1.4.0
       simple-concat: 1.0.1
     dev: true
+
+  /sisteransi/1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+    dev: false
+
+  /slash/1.0.0:
+    resolution: {integrity: sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /slice-ansi/4.0.0:
+    resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      ansi-styles: 4.3.0
+      astral-regex: 2.0.0
+      is-fullwidth-code-point: 3.0.0
+    dev: false
 
   /source-map-js/1.0.1:
     resolution: {integrity: sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==}
@@ -5012,8 +2748,24 @@ packages:
       which: 2.0.2
     dev: true
 
+  /split-ca/1.0.1:
+    resolution: {integrity: sha1-bIOv82kvphJW4M0ZfgXp3hV2kaY=}
+    dev: false
+
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
+
+  /ssh2/1.5.0:
+    resolution: {integrity: sha512-iUmRkhH9KGeszQwDW7YyyqjsMTf4z+0o48Cp4xOwlY5LjtbIAvyd3fwnsoUZW/hXmTCRA3yt7S/Jb9uVjErVlA==}
+    engines: {node: '>=10.16.0'}
+    requiresBuild: true
+    dependencies:
+      asn1: 0.2.4
+      bcrypt-pbkdf: 1.0.2
+    optionalDependencies:
+      cpu-features: 0.0.2
+      nan: 2.15.0
+    dev: false
 
   /sshpk/1.16.1:
     resolution: {integrity: sha512-HXXqVUq7+pcKeLqqZj6mHFUMvXtOJt1uoUx09pFW6011inTMxqI8BA8PM95myrIyyKwdnzjdFjLiE6KBPVtJIg==}
@@ -5064,6 +2816,14 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
+  /string-width/4.2.3:
+    resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
+    engines: {node: '>=8'}
+    dependencies:
+      emoji-regex: 8.0.0
+      is-fullwidth-code-point: 3.0.0
+      strip-ansi: 6.0.1
+
   /string_decoder/1.1.1:
     resolution: {integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==}
     dependencies:
@@ -5074,7 +2834,6 @@ packages:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
     dependencies:
       safe-buffer: 5.2.1
-    dev: true
 
   /strip-ansi/3.0.1:
     resolution: {integrity: sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8=}
@@ -5097,6 +2856,12 @@ packages:
       ansi-regex: 5.0.1
     dev: true
 
+  /strip-ansi/6.0.1:
+    resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
+    engines: {node: '>=8'}
+    dependencies:
+      ansi-regex: 5.0.1
+
   /strip-bom/4.0.0:
     resolution: {integrity: sha512-3xurFv5tEgii33Zi8Jtp55wEIILR9eh34FAW00PZf+JnSsTmV/ioewSgQl97JHvgjoRGwPShsWm+IdrxB35d0w==}
     engines: {node: '>=8'}
@@ -5112,7 +2877,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       has-flag: 3.0.0
-    dev: true
 
   /supports-color/7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -5120,6 +2884,26 @@ packages:
     dependencies:
       has-flag: 4.0.0
     dev: true
+
+  /symlink-dir/5.0.1:
+    resolution: {integrity: sha512-MeXygPBopo8AmyObuCJIpXKT+mw54d2Kp6SBuxq0uXZGDkHwHDQExpSg5+TK8BA5kCGyktawu5DJG0QWYO6acw==}
+    engines: {node: '>=12.10'}
+    hasBin: true
+    dependencies:
+      better-path-resolve: 1.0.0
+      rename-overwrite: 4.0.0
+    dev: false
+
+  /table/6.8.0:
+    resolution: {integrity: sha512-s/fitrbVeEyHKFa7mFdkuQMWlH1Wgw/yEXMt5xACT4ZpzWFluehAxRtUUQKPuWhaLAWhFcVx6w3oC8VKaUfPGA==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      ajv: 8.8.2
+      lodash.truncate: 4.4.2
+      slice-ansi: 4.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+    dev: false
 
   /tap-mocha-reporter/5.0.1:
     resolution: {integrity: sha512-1knFWOwd4khx/7uSEnUeaP9IPW3w+sqTgJMhrwah6t46nZ8P25atOKAjSvVDsT67lOPu0nfdOqUwoyKn+3E5pA==}
@@ -5203,6 +2987,15 @@ packages:
       - treport
       - '@types/react'
 
+  /tar-fs/2.0.1:
+    resolution: {integrity: sha512-6tzWDMeroL87uF/+lin46k+Q+46rAJ0SyPGz7OW7wTgblI273hsBqk2C1j0/xNadNLKDTUL9BukSjB7cwgmlPA==}
+    dependencies:
+      chownr: 1.1.4
+      mkdirp-classic: 0.5.3
+      pump: 3.0.0
+      tar-stream: 2.2.0
+    dev: false
+
   /tar-fs/2.1.1:
     resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}
     dependencies:
@@ -5221,7 +3014,6 @@ packages:
       fs-constants: 1.0.0
       inherits: 2.0.4
       readable-stream: 3.6.0
-    dev: true
 
   /tcompare/5.0.6:
     resolution: {integrity: sha512-OvO7omN/wkdsKzmOqr3sQFfLbghs/2X5mwSkcfgRiXZshfPnTsAs3IRf1RixR/Pff26qG/r9ogcZMpV0YdeGXg==}
@@ -5244,7 +3036,6 @@ packages:
     engines: {node: '>=8.17.0'}
     dependencies:
       rimraf: 3.0.2
-    dev: true
 
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=}
@@ -5286,7 +3077,6 @@ packages:
 
   /tweetnacl/0.14.5:
     resolution: {integrity: sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=}
-    dev: true
 
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
@@ -5337,7 +3127,6 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.1.1
-    dev: true
 
   /url-join/4.0.1:
     resolution: {integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==}
@@ -5345,7 +3134,6 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
-    dev: true
 
   /uuid/3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
@@ -5479,6 +3267,18 @@ packages:
     resolution: {integrity: sha512-EcswR2S8bpR7fD0YPeS7r2xXExrScVMxg4MedACaWHEtx9ftCF/qHG1xGkolzTPcEmjTavCQgbVzHUIdTMzFGA==}
     dev: false
 
+  /wait-port/0.2.9:
+    resolution: {integrity: sha512-hQ/cVKsNqGZ/UbZB/oakOGFqic00YAMM5/PEj3Bt4vKarv2jWIWzDbqlwT94qMs/exAQAsvMOq99sZblV92zxQ==}
+    engines: {node: '>=8'}
+    hasBin: true
+    dependencies:
+      chalk: 2.4.2
+      commander: 3.0.2
+      debug: 4.3.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /which-module/2.0.0:
     resolution: {integrity: sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=}
     dev: true
@@ -5493,7 +3293,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 4.2.2
+      string-width: 4.2.3
     dev: true
 
   /wrap-ansi/2.1.0:
@@ -5515,7 +3315,6 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
-    dev: true
 
   /write-file-atomic/3.0.3:
     resolution: {integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==}
@@ -5592,3 +3391,13 @@ packages:
     dependencies:
       buffer-crc32: 0.2.13
     dev: true
+
+  github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f:
+    resolution: {tarball: https://codeload.github.com/slavaGanzin/prettyjson/tar.gz/d880b8af2973a1a1b277944c3b573d7d6a93ba8f}
+    name: prettyjson
+    version: 1.2.1
+    hasBin: true
+    dependencies:
+      colors: 1.4.0
+      minimist: 1.2.5
+    dev: false
