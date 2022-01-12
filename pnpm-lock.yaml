@@ -18,6 +18,14 @@ importers:
       vite: 2.7.6
       vsce: 2.6.3
 
+  deps/toolbox/forkers:
+    specifiers:
+      '@types/zen-observable': ^0.8.3
+      zen-observable: ^0.8.15
+    dependencies:
+      '@types/zen-observable': 0.8.3
+      zen-observable: 0.8.15
+
   deps/toolbox/kabinet:
     specifiers:
       mkdirp: ^1.0.4
@@ -537,6 +545,10 @@ packages:
   /@types/vscode/1.63.1:
     resolution: {integrity: sha512-Z+ZqjRcnGfHP86dvx/BtSwWyZPKQ/LBdmAVImY82TphyjOw2KgTKcp7Nx92oNwCTsHzlshwexAG/WiY2JuUm3g==}
     dev: true
+
+  /@types/zen-observable/0.8.3:
+    resolution: {integrity: sha512-fbF6oTd4sGGy0xjHPKAt+eS2CrxJ3+6gQ3FGcBoIJR2TLAyCkCyI8JqZNy+FeON0AhVgNJoUumVoZQjBFUqHkw==}
+    dev: false
 
   /@volar/shared/0.27.24:
     resolution: {integrity: sha512-Mi8a4GQaiorfb+o4EqOXDZm9E/uBJXgScFgF+NhtcMBOUKHNMKQyLI7YRGumtyJTTdaX7nSDJjGGTkv23tcOtQ==}
@@ -3380,6 +3392,10 @@ packages:
     dependencies:
       buffer-crc32: 0.2.13
     dev: true
+
+  /zen-observable/0.8.15:
+    resolution: {integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==}
+    dev: false
 
   github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f:
     resolution: {tarball: https://codeload.github.com/slavaGanzin/prettyjson/tar.gz/d880b8af2973a1a1b277944c3b573d7d6a93ba8f}
