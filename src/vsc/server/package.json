@@ -4,7 +4,6 @@
   "dependencies": {
     "@ganesha/core":             "workspace:*",
     "@ganesha/vscode-shared":    "workspace:*",
-    "@ganesha/typescript-patch": "workspace:*",
 
     "fast-glob": "^3.2.7",
 

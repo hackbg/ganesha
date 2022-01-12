@@ -1,0 +1,20 @@
+{
+  "name": "@ganesha/vsc",
+  "displayName": "Ganesha",
+  "description": "Literate programming with TypeScript in Markdown",
+  "icon": "icon.png",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "markdown",
+    "typescript",
+    "literate"
+  ],
+  "main": "./client/out/extension",
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:typescript",
+    "onLanguage:ts"
+  ]
+}

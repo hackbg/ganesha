@@ -1,56 +1,34 @@
 {
-  "name": "@hackbg/ganesha",
-  "displayName": "Ganesha",
-  "description": "Literate programming with TypeScript in Markdown",
-  "icon": "icon.png",
-  "categories": [
-    "Programming Languages"
-  ],
-  "keywords": [
-    "markdown",
-    "typescript",
-    "literate"
-  ],
+  "name":      "@hackbg/ganesha",
+  "version":   "1.0.0-beta",
+  "private":   true,
+  "workspace": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/hackbg/ganesha"
+    "url":  "https://github.com/hackbg/ganesha"
   },
   "main": "./vscode-client/out/extension",
-  "version": "0.0.0",
-  "private": true,
-  "workspace": true,
   "activationEvents": [
     "onLanguage:markdown",
     "onLanguage:typescript",
     "onLanguage:ts"
   ],
   "devDependencies": {
-    "@ganesha/core":          "workspace:*",
-    "@ganesha/nodejs-loader": "workspace:*",
-    "@types/node":            "latest",
-    "tap":                    "^15.0.9",
-    "typescript":             "latest",
-    "vite":                   "^2.7.6",
-    "vsce":                   "latest"
+    "@types/node": "latest",
+    "tap":         "^15.0.9",
+    "typescript":  "latest",
+    "vite":        "^2.7.6",
+    "vsce":        "latest"
   },
   "scripts": {
-    "test":        "tap --no-check-coverage tests/test.cjs",
-    "test:matrix": "cd tests; pnpm test:matrix",
-    "build":       "tsc -b tsconfig.build.json",
-    "package":     "vsce package --yarn",
-    "watch":       "tsctens -b tsconfig.build.json -w"
+    "build":   "tsc -b tsconfig.build.json",
+    "package": "vsce package --yarn",
+    "watch":   "tsctens -b tsconfig.build.json -w"
   },
   "packages": [
-    "./core",
-    "./langserv",
-    "./nodejs-loader",
-    "./rollup-plugin",
-    "./tests",
-    "./tsc",
-    "./typescript-patch",
-    "./vscode-client",
-    "./vscode-server",
-    "./vscode-shared"
+    "./src/*",
+    "./src/vsc/*",
+    "./test"
   ],
   "engines": {
     "vscode": "^1.58.0"

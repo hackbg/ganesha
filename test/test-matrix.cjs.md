@@ -72,7 +72,7 @@ in the directory of the particular test case.
 ```javascript
 const { resolve } = require('path')
 const node = `${resolve(__dirname, '..', 'nodejs-loader', 'ganesha')} --unhandled-rejections=throw`
-const tsc  = `${resolve(__dirname, '..', 'tsc', 'ganesha-tsc')}`
+const tsc  = `rm -rf dist && mkdir -p dist && ${resolve(__dirname, '..', 'tsc', 'ganesha-tsc')} --outDir dist`
 const Sources = {
   'CJS': {
     'require'        (literacy, target) {
@@ -367,7 +367,7 @@ const Environments = {
     spawnSync('pwd', [], { stdio })
     spawnSync('ls',  [], { stdio })
     spawnSync('cat', ['package.json'], { stdio })
-    const {status, stdout, stderr} = spawnSync('npm', ['run', 'test'], { stdio })
+    const {status, stdout, stderr} = spawnSync('npm', ['run', 'build'], { stdio })
     if (status === 123) {
       return [true]
     } else {
@@ -379,7 +379,7 @@ const Environments = {
     spawnSync('pwd', [], { stdio })
     spawnSync('ls',  [], { stdio })
     spawnSync('cat', ['package.json'], { stdio })
-    const {status, stdout, stderr} = spawnSync('npm', ['run', 'build'], { stdio })
+    const {status, stdout, stderr} = spawnSync('npm', ['run', 'test'], { stdio })
     if (status === 123) {
       return [true]
     } else {
@@ -393,7 +393,7 @@ const Environments = {
     `, 'utf8')
     writeFileSync('vite.config.js', `
       import { defineConfig } from 'vite'
-      import ganesha from '../../../rollup-plugin/index.js'
+      import ganesha from '@ganesha/rollup'
       export default defineConfig({ plugins: [ ganesha() ] })
     `, 'utf8')
     const vite = resolve(__dirname, '../node_modules/.bin/vite')
@@ -414,9 +414,10 @@ These are the URLs to the modules which implement support for each environment:
 ```typescript
 
 const EnvURLs = {
-  'TSC':  '../tsc',
-  'Node': '../nodejs-loader',
-  'Vite': '../rollup-plugin',
+  'TSC':         '../tsc',
+  'Node':        '../node',
+  'Node Legacy': '../node-legacy',
+  'Vite':        '../rollup',
 }
 
 ```

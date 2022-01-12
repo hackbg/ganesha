@@ -1,0 +1,17 @@
+{
+  "name": "@ganesha/tests",
+  "private": true,
+  "devDependencies": {
+    "@ganesha/core":   "workspace:*",
+    "@ganesha/node":   "workspace:*",
+    "@ganesha/rollup": "workspace:*",
+    "mkdirp":          "^1.0.4",
+    "vite":            "^2.7.6",
+    "tap":             "^15.0.9"
+  },
+  "scripts": {
+    "test:core":   "tap test-core.cjs",
+    "test:vite":   "tap test-vite.cjs",
+    "test:matrix": "ganesha test-matrix.cjs.md"
+  }
+}

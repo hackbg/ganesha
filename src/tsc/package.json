@@ -9,8 +9,8 @@
     "typescript": "*"
   },
   "dependencies": {
-    "@ganesha/core":          "workspace:*",
-    "@ganesha/nodejs-loader": "workspace:*"
+    "@ganesha/core": "workspace:*",
+    "@ganesha/node": "workspace:*"
   },
   "scripts": {
     "build": "tsc proxy.ts",

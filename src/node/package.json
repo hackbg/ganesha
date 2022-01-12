@@ -1,0 +1,16 @@
+{
+  "name":    "@ganesha/node",
+  "version": "0.1.0",
+  "bin":     { "ganesha-node": "./ganesha-node" },
+  "main":    "loader.mjs",
+  "dependencies": {
+    "@ganesha/core":        "workspace:*",
+    "cross-spawn":          "^7.0.3",
+    "esbuild":              "^0.13.0",
+    "front-matter":         "^4.0.2",
+    "joycon":               "^3.0.1",
+    "jsonc-parser":         "^3.0.0",
+    "pirates":              "^4.0.1",
+    "source-map-support":   "^0.5.20"
+  }
+}

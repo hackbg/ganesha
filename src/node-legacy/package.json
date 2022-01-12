@@ -1,7 +1,7 @@
 {
-  "name":    "@ganesha/nodejs-loader",
+  "name":    "@ganesha/node-legacy",
   "version": "0.1.0",
-  "bin":     { "ganesha": "./ganesha" },
+  "bin":     { "ganesha-node-legacy": "./ganesha-node-legacy" },
   "main":    "loader.mjs",
   "dependencies": {
     "@ganesha/core":        "workspace:*",
