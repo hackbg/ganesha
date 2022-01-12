@@ -30,7 +30,7 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Run tests
-        run: pnpm -w dev test
+        run: pnpm -w dev test all
 
       #- name: Coverage
         #run: pnpm run coverage
