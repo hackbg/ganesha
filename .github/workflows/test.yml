@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+      - prerelease
   pull_request: {}
   workflow_dispatch: {}
 
@@ -13,6 +14,8 @@ jobs:
     steps:
 
       - name: Fetch sources
+        uses: actions/checkout@v2
+        with: { submodules: recursive }
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -27,11 +30,12 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm -w dev test
 
-      - name: Coverage
-        run: pnpm run coverage
+      #- name: Coverage
+        #run: pnpm run coverage
 
-      - uses: codecov/codecov-action@v2 
-        with: 
-          token: ${{ secrets.CODECOV_TOKEN }}
+      #- uses: codecov/codecov-action@v2 
+        #with: 
+          #token: ${{ secrets.CODECOV_TOKEN }}
+          #
