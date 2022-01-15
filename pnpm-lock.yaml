@@ -20,41 +20,59 @@ importers:
 
   deps/toolbox/forkers:
     specifiers:
+      '@types/node': latest
       '@types/zen-observable': ^0.8.3
+      typescript: latest
       zen-observable: ^0.8.15
     dependencies:
       '@types/zen-observable': 0.8.3
       zen-observable: 0.8.15
+    devDependencies:
+      '@types/node': 17.0.8
+      typescript: 4.5.4
 
   deps/toolbox/kabinet:
     specifiers:
+      '@types/node': latest
       mkdirp: ^1.0.4
       rimraf: ^3.0.2
+      typescript: latest
     dependencies:
       mkdirp: 1.0.4
       rimraf: 3.0.2
+    devDependencies:
+      '@types/node': 17.0.8
+      typescript: 4.5.4
 
   deps/toolbox/komandi:
     specifiers:
+      '@types/node': latest
       typescript: latest
     devDependencies:
+      '@types/node': 17.0.8
       typescript: 4.5.4
 
   deps/toolbox/konzola:
     specifiers:
+      '@types/node': latest
       colors: ^1.4.0
       prettyjson: github:slavaGanzin/prettyjson#d880b8af2973a1a1b277944c3b573d7d6a93ba8f
       table: ^6.6.0
+      typescript: latest
     dependencies:
       colors: 1.4.0
       prettyjson: github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f
       table: 6.8.0
+    devDependencies:
+      '@types/node': 17.0.8
+      typescript: 4.5.4
 
   deps/toolbox/tools:
     specifiers:
       '@hackbg/kabinet': workspace:*
       '@hackbg/komandi': workspace:*
       '@hackbg/konzola': workspace:*
+      '@types/node': latest
       colors: ^1.4.0
       dockerode: ^3.3.0
       exponential-backoff: ^3.1.0
@@ -68,6 +86,7 @@ importers:
       symlink-dir: ^5.0.1
       table: ^6.6.0
       tmp: ^0.2.1
+      typescript: latest
       wait-port: ^0.2.9
     dependencies:
       '@hackbg/kabinet': link:../kabinet
@@ -87,6 +106,9 @@ importers:
       table: 6.8.0
       tmp: 0.2.1
       wait-port: 0.2.9
+    devDependencies:
+      '@types/node': 17.0.8
+      typescript: 4.5.4
 
   src/core:
     specifiers:
