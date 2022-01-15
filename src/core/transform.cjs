@@ -41,53 +41,48 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
 }
 
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
-  const { transpileModule, ModuleKind } = require('typescript')
+  const { ModuleKind } = require('typescript')
+  const compilerOptions = {
+    ...getCompilerOptions(fileName),
+    module:        ModuleKind.CommonJS,
+    sourceMap:     true,
+    inlineSources: true
+  }
+  if (process.env.LITERATE_DEBUG) console.debug(`[tscToCjs] ${fileName}`, compilerOptions)
+  const { transpileModule } = require('typescript')
   const {
     outputText,
     diagnostics,
     sourceMapText
-  } = transpileModule(code, {
-    compilerOptions: {
-      module:        ModuleKind.CommonJS,
-      sourceMap:     true,
-      inlineSources: true
-    },
-    fileName
-  })
+  } = transpileModule(code, { compilerOptions, fileName })
   printWarnings(diagnostics)
   return { id: fileName, compiled: outputText, map: sourceMapText }
 }
 
 module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
-  const { transpileModule, ModuleKind } = require('typescript')
+  const { ModuleKind } = require('typescript')
+  const compilerOptions = {
+    ...getCompilerOptions(fileName),
+    module:        ModuleKind.ESNext,
+    sourceMap:     true,
+    inlineSources: true
+  }
+  if (process.env.LITERATE_DEBUG) console.debug(`[tscToMjs] ${fileName}`, compilerOptions)
+  const { transpileModule } = require('typescript')
   const {
     outputText,
     diagnostics,
     sourceMapText
-  } = transpileModule(code, {
-    compilerOptions: {
-      module:        ModuleKind.ESNext,
-      sourceMap:     true,
-      inlineSources: true
-    },
-    fileName
-  })
+  } = transpileModule(code, { compilerOptions, fileName })
   printWarnings(diagnostics)
   return { id: fileName, compiled: outputText, map: sourceMapText }
 }
 
-function getOptions (cwd) {
-
-  const { data, path } = config.loadSync(['tsconfig.json'], cwd)
-
-  if (path && data) return {
-    jsxFactory:  data.compilerOptions?.jsxFactory,
-    jsxFragment: data.compilerOptions?.jsxFragmentFactory,
-    target:      data.compilerOptions?.target
-  }
-
+function getCompilerOptions (fileName) {
+  const dir = dirname(fileName)
+  const { data, path } = config.loadSync(['tsconfig.json'], dir)
+  if (path && data) return data.compilerOptions
   return {}
-
 }
 
 function inferPackageFormat (cwd, filename) {

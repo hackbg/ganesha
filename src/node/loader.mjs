@@ -250,7 +250,7 @@ export function transformTypeScript (source, context) {
   trace('Step 5 :: [transformTS]', context.url)
   const { url, format } = context
   const { id, compiled, map } = tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
-  addSourceMap(id, map)
+  addSourceMap(id, map, 'commonjs')
   return compiled
   //return esbuildToMjs(isWindows ? url : fileURLToPath(url), source, format)
 }

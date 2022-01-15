@@ -23,6 +23,7 @@ module.exports.installSourceMapSupport = function installSourceMapSupport () {
 
 }
 
-module.exports.addSourceMap = function (filename, sourceMap) {
+module.exports.addSourceMap = function (filename, sourceMap, loader) {
+  if (process.env.LITERATE_DEBUG) console.debug(`[addSourceMap] [${loader}] ${filename}`)
   sourceMaps[filename] = sourceMap
 }

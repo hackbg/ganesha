@@ -33,14 +33,14 @@ module.exports.register = function register () {
 
     if (filename.endsWith('.ts')) {
       const { id, compiled, map } = require('@ganesha/core/transform').esbuildToCjs(filename, code, format)
-      addSourceMap(id, map)
+      addSourceMap(id, map, 'commonjs')
       return compiled
     }
 
     // This part should be optional depending on what context we're importing from?
     if (filename.endsWith('.mjs')) {
       const { id, compiled, map } = require('@ganesha/core/transform').tscToCjs(filename, code, format)
-      addSourceMap(id, map)
+      addSourceMap(id, map, 'commonjs')
       return compiled
     }
     
