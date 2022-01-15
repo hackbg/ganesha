@@ -43,6 +43,7 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
   const { ModuleKind } = require('typescript')
   const compilerOptions = {
+    target:        'es5',
     ...getCompilerOptions(fileName),
     module:        ModuleKind.CommonJS,
     sourceMap:     true,
@@ -62,6 +63,7 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
 module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
   const { ModuleKind } = require('typescript')
   const compilerOptions = {
+    target:        'es6',
     ...getCompilerOptions(fileName),
     module:        ModuleKind.ESNext,
     sourceMap:     true,
