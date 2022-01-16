@@ -35,7 +35,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
   let { parentURL = baseURL } = context
 
   const traceResolve = (...args) =>
-    trace(`Step 1 :: [resolve] ${parentURL} -> ${specifier} ::\n         `, ...args)
+    trace(`[resolve] ${parentURL} -> ${specifier} ::\n         `, ...args)
 
   /// Rethrow syntax errors
   if (parentURL.startsWith('SyntaxError')) {
@@ -140,14 +140,34 @@ export function resolve (specifier, context = {}, defaultResolve) {
   }
 
   const result = { url, literate }
+
   traceResolve('Final result:', JSON.stringify(result))
+  let fsPath = null
+  try {
+    fsPath = fileURLToPath(result.url)
+  } catch (_) {
+    // If the result URL is not a file URL,
+    // don't check if such a file exists duh
+  } finally {
+    if (fsPath && !existsSync(fsPath)) {
+      throw Object.assign(new Error(`
+        Import specifier '${specifier}' in '${parentURL}' resolved to nonexistent path '${fsPath}'
+      `.trim()), {
+        specifier,
+        parentURL,
+        fsPath
+      })
+    }
+  }
+
   return result
+
 }
 
 /// ## Interpret module URL
 /// https://nodejs.org/api/esm.html#esm_getformat_url_context_defaultgetformat
 export function getFormat (url, context, defaultGetFormat) {
-  trace('Step 2 :: [getFormat]', url, context)
+  trace('[getFormat]', url, context)
 
   if (!url.startsWith('node:')) {
     const path = fileURLToPath(url)
@@ -199,13 +219,18 @@ export function getFormat (url, context, defaultGetFormat) {
   }
 
   // Let Node.js handle all other URLs.
-  return defaultGetFormat(url, context, defaultGetFormat)
+  try {
+    return defaultGetFormat(url, context, defaultGetFormat)
+  } catch (e) {
+    console.log({url, context})
+    throw(e)
+  }
 }
 
 /// ## Load module source
 /// https://nodejs.org/api/esm.html#esm_getsource_url_context_defaultgetsource
 export function getSource (url, context, defaultGetSource) {
-  trace('Step 3 :: [getSource]', url, context)
+  trace('[getSource]', url, context)
 
   const path = fileURLToPath(url)
   if (isDirectory(path)) {
@@ -227,18 +252,18 @@ export function transformSource (src, context, defaultTransformSource) {
 
   /// Transpile TypeScript
   if (isLiterateTypeScript(context.url)) {
-    trace('Step 4 :: [transformSource] [Literate TS]', context.format, context.url)
+    trace('[transformSource] [Literate TS]', context.format, context.url)
     return { source: transformTypeScript(parseString(src.toString()), context) }
   }
   if (isTypescript(context.url)) {
-    trace('Step 4 :: [transformSource] [TS]', context.format, context.url)
+    trace('[transformSource] [TS]', context.format, context.url)
     return { source: transformTypeScript(src.toString(), context) }
   }
 
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
   if (isMarkdown(context.url)) {
-    trace('Step 4 :: [transformSource] [MD]', context.format, context.url)
+    trace('S[transformSource] [MD]', context.format, context.url)
     return { source: parseString(src.toString()) }
   }
 
@@ -247,7 +272,7 @@ export function transformSource (src, context, defaultTransformSource) {
 }
 
 export function transformTypeScript (source, context) {
-  trace('Step 5 :: [transformTS]', context.url)
+  trace('[transformTS]', context.url)
   const { url, format } = context
   const { id, compiled, map } = tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
   addSourceMap(id, map, 'commonjs')
