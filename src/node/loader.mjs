@@ -23,11 +23,42 @@ import {
   isTypescript, isLiterateTypeScript,
   isValidFMType, getFMType,
   isWindows,
+  getNotFoundPackage,
+  parseNodeModuleImport
 } from './util.mjs'
+
+const warnedBrokenPackages = [
+]
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
 export function resolve (specifier, context = {}, defaultResolve) {
+
+  // Wrap `defaultResolve` to make a class of error messages less confusing.
+  const _defaultResolve = defaultResolve
+  defaultResolve = function helpfulDefaultResolve (...args) {
+    try {
+      return _defaultResolve(...args)
+    } catch (e) {
+      if (e.code === 'ERR_MODULE_NOT_FOUND') {
+        const notFoundPackage = getNotFoundPackage(e.message)
+        if (notFoundPackage && existsSync(notFoundPackage)) {
+          e.notFoundPackage = notFoundPackage
+          if (!warnedBrokenPackages.includes(notFoundPackage)) {
+            console.warn(
+              `The default module resolver failed to find ${notFoundPackage}, ` +
+              `but the directory exists. This usually means that the file `     +
+              `specified by the "main" key of ${notFoundPackage}package.json ` +
+              `does not exist, which is a sign that the package may require a `  +
+              `build step.\n`
+            )
+            warnedBrokenPackages.push(notFoundPackage)
+          }
+        }
+      }
+      throw e
+    }
+  }
 
   /// Determine parent URL (URL of importing module).
   /// Make sure there's a trailing slash, otherwise
@@ -105,6 +136,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
     }
 
   } else if (existsSync(tsconfigPath)) {
+
     /// Honor TypeScript path overrides
     traceResolve('Checking tsconfig at', tsconfigPath)
     let tsconfig
@@ -127,17 +159,57 @@ export function resolve (specifier, context = {}, defaultResolve) {
         }
       }
     }
+
     if (!found) {
-      traceResolve('Using defaultResolve')
-      /// Let Node.js handle all other specifiers.
-      url = defaultResolve(specifier, context, defaultResolve).url
+      traceResolve('No path override found.')
+      resolveDefault()
     }
 
   } else {
-    traceResolve('Using defaultResolve')
-    /// Let Node.js handle all other specifiers.
-    url = defaultResolve(specifier, context, defaultResolve).url
+    resolveDefault()
   }
+
+  function resolveDefault () {
+    traceResolve('Using defaultResolve')
+    const { module, path } = parseNodeModuleImport(specifier)
+    if (module) {
+      let base
+      try {
+        base = dirname(fileURLToPath(resolve(module, context, defaultResolve).url))
+      } catch (e) {
+        if (e.notFoundPackage) {
+          base = e.notFoundPackage
+        } else {
+          throw e
+        }
+      }
+      url = pathToFileURL(resolvePath(base, path)).href
+    } else {
+      url = defaultResolve(specifier, context, defaultResolve).url
+    }
+    if (url.startsWith('file:///')) {
+      const fsPath = fileURLToPath(url)
+      if (!existsSync(fsPath)) {
+        url = tryPathExtensions(fsPath)
+      }
+    }
+  }
+
+  function tryPathExtensions (path) {
+    for (const extension of extensions) {
+      const pathPlusExtension = `${path}${extension}`
+      traceResolve('trying', extension, ':', pathPlusExtension)
+      if (existsSync(pathPlusExtension)) {
+        traceResolve('found', pathPlusExtension)
+        return pathToFileURL(pathPlusExtension).href
+      }
+    }
+    throw new Error(
+      `@ganesha/node: Could not resolve ${path} with any of the `+
+      `following extensions: ${extensions.join(' ')}`
+    )
+  }
+
 
   const result = { url, literate }
 
@@ -222,7 +294,6 @@ export function getFormat (url, context, defaultGetFormat) {
   try {
     return defaultGetFormat(url, context, defaultGetFormat)
   } catch (e) {
-    console.log({url, context})
     throw(e)
   }
 }
@@ -263,7 +334,7 @@ export function transformSource (src, context, defaultTransformSource) {
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
   if (isMarkdown(context.url)) {
-    trace('S[transformSource] [MD]', context.format, context.url)
+    trace('[transformSource] [MD]', context.format, context.url)
     return { source: parseString(src.toString()) }
   }
 
