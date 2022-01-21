@@ -1,7 +1,9 @@
 {
   "name": "@ganesha/vsc",
+  "version": "0.1.0",
   "displayName": "Ganesha",
   "description": "Literate programming with TypeScript in Markdown",
+  "main": "./client/out/extension",
   "icon": "icon.png",
   "categories": [
     "Programming Languages"
@@ -16,5 +18,17 @@
     "onLanguage:markdown",
     "onLanguage:typescript",
     "onLanguage:ts"
-  ]
+  ],
+  "devDependencies": {
+    "vsce":       "latest",
+    "typescript": "latest"
+  },
+  "engines": {
+    "vscode": "^1.58.0"
+  },
+  "scripts": {
+    "build":   "tsc -b tsconfig.build.json",
+    "package": "vsce package --yarn",
+    "watch":   "tsctens -b tsconfig.build.json -w"
+  }
 }

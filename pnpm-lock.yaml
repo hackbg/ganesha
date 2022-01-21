@@ -4,17 +4,18 @@ importers:
 
   .:
     specifiers:
+      '@ganesha/node': workspace:1.0.0-beta
       '@hackbg/komandi': workspace:*
       '@types/node': latest
       tap: ^15.0.9
-      typescript: latest
       vite: ^2.7.6
       vsce: latest
+    dependencies:
+      '@ganesha/node': link:src/node
+      '@types/node': 17.0.10
     devDependencies:
       '@hackbg/komandi': link:deps/toolbox/komandi
-      '@types/node': 17.0.8
-      tap: 15.0.9_typescript@4.5.4
-      typescript: 4.5.4
+      tap: 15.0.9
       vite: 2.7.6
       vsce: 2.6.3
 
@@ -28,8 +29,8 @@ importers:
       '@types/zen-observable': 0.8.3
       zen-observable: 0.8.15
     devDependencies:
-      '@types/node': 17.0.8
-      typescript: 4.5.4
+      '@types/node': 17.0.10
+      typescript: 4.5.5
 
   deps/toolbox/kabinet:
     specifiers:
@@ -41,16 +42,16 @@ importers:
       mkdirp: 1.0.4
       rimraf: 3.0.2
     devDependencies:
-      '@types/node': 17.0.8
-      typescript: 4.5.4
+      '@types/node': 17.0.10
+      typescript: 4.5.5
 
   deps/toolbox/komandi:
     specifiers:
       '@types/node': latest
       typescript: latest
     devDependencies:
-      '@types/node': 17.0.8
-      typescript: 4.5.4
+      '@types/node': 17.0.10
+      typescript: 4.5.5
 
   deps/toolbox/konzola:
     specifiers:
@@ -64,8 +65,8 @@ importers:
       prettyjson: github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f
       table: 6.8.0
     devDependencies:
-      '@types/node': 17.0.8
-      typescript: 4.5.4
+      '@types/node': 17.0.10
+      typescript: 4.5.5
 
   deps/toolbox/tools:
     specifiers:
@@ -107,8 +108,8 @@ importers:
       tmp: 0.2.1
       wait-port: 0.2.9
     devDependencies:
-      '@types/node': 17.0.8
-      typescript: 4.5.4
+      '@types/node': 17.0.10
+      typescript: 4.5.5
 
   src/core:
     specifiers:
@@ -173,7 +174,12 @@ importers:
       '@ganesha/node': link:../node
 
   src/vsc:
-    specifiers: {}
+    specifiers:
+      typescript: latest
+      vsce: latest
+    devDependencies:
+      typescript: 4.5.5
+      vsce: 2.6.3
 
   src/vsc/client:
     specifiers:
@@ -208,7 +214,7 @@ importers:
     specifiers:
       typescript: latest
     devDependencies:
-      typescript: 4.5.4
+      typescript: 4.5.5
 
   test:
     specifiers:
@@ -223,7 +229,7 @@ importers:
       '@ganesha/node': link:../src/node
       '@ganesha/rollup': link:../src/rollup
       mkdirp: 1.0.4
-      tap: 15.0.9_typescript@4.5.4
+      tap: 15.0.9
       vite: 2.7.6
 
   test/examples/example:
@@ -560,9 +566,8 @@ packages:
       fastq: 1.13.0
     dev: false
 
-  /@types/node/17.0.8:
-    resolution: {integrity: sha512-YofkM6fGv4gDJq78g4j0mMuGMkZVxZDgtU0JRdx6FgiJDG+0fY0GKVolOV8WqVmEhLCXkQRjwDdKyPxJp/uucg==}
-    dev: true
+  /@types/node/17.0.10:
+    resolution: {integrity: sha512-S/3xB4KzyFxYGCppyDt68yzBU9ysL88lSdIah4D6cptdcltc4NCPCAMc0+PCpg/lLIyC7IPvj2Z52OJWeIUkog==}
 
   /@types/vscode/1.63.1:
     resolution: {integrity: sha512-Z+ZqjRcnGfHP86dvx/BtSwWyZPKQ/LBdmAVImY82TphyjOw2KgTKcp7Nx92oNwCTsHzlshwexAG/WiY2JuUm3g==}
@@ -2961,7 +2966,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap/15.0.9_typescript@4.5.4:
+  /tap/15.0.9:
     resolution: {integrity: sha512-bqY5SxEqYKRd37PIUfKBf9HMs/hklyl/fGXkuStr9rYTIGa0/icpSLsm6IVOmx2qT0/TliPNJ6OvS5kddJYHdg==}
     engines: {node: '>=10'}
     hasBin: true
@@ -3000,7 +3005,6 @@ packages:
       tap-parser: 10.1.0
       tap-yaml: 1.0.0
       tcompare: 5.0.6
-      typescript: 4.5.4
       which: 2.0.2
     transitivePeerDependencies:
       - supports-color
@@ -3120,8 +3124,8 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.5.4:
-    resolution: {integrity: sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==}
+  /typescript/4.5.5:
+    resolution: {integrity: sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
