@@ -8,8 +8,26 @@ on:
   workflow_dispatch: {}
 
 jobs:
+
+  sanity-check:
+    name: Check that the library can be installed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.14.3
+      - name: Create minimal project
+        run: |
+          mkdir foo
+          cd foo
+          echo '{}' > package.json
+          pnpm add github:hackbg/ganesha
+          pnpm i
+          node_modules/.bin/ganesha-node
+
   test:
-    name: Run tests & Coverage
+    name: Run tests & coverage
     runs-on: ubuntu-latest
     steps:
 

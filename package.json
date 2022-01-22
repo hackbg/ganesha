@@ -9,7 +9,7 @@
   },
   "bin": { "ganesha-node": "ganesha-node" },
   "devDependencies": {
-    "@hackbg/komandi": "workspace:*",
+    "@hackbg/komandi": "github:hackbg/toolbox",
     "tap":             "^15.0.9",
     "vite":            "^2.7.6",
     "vsce":            "latest"
