@@ -1,0 +1,5 @@
+{
+  "extends":         "./tsconfig.base.json",
+  "compilerOptions": {"noEmit": true, "downlevelIteration": true},
+  "include":         ["shared/src", "client/src", "server/src"]
+}

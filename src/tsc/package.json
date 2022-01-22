@@ -1,0 +1,19 @@
+{
+  "name": "@ganesha/tsc",
+  "version": "0.1.0",
+  "bin": {
+    "ganesha-tsc": "./ganesha-tsc"
+  },
+  "main": "loader.mjs",
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@ganesha/core": "workspace:*",
+    "@ganesha/node": "workspace:*"
+  },
+  "scripts": {
+    "postinstall": "tsc --outDir dist/ proxy.ts",
+    "build":       "tsc --outDir dist/ proxy.ts"
+  }
+}

@@ -1,5 +1,5 @@
 {pkgs ? import <nixpkgs> {}}: pkgs.mkShell {
-  name = "youknow";
+  name = "ganesha";
   nativeBuildInputs = with pkgs; [
     nodejs-14_x
     nodePackages.pnpm

@@ -3,12 +3,34 @@ on:
   push:
     branches:
       - develop
+      - prerelease
   pull_request: {}
   workflow_dispatch: {}
 
 jobs:
+
+  sanity-check:
+    name: Check that the library can be installed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.14.3
+
+      - name: Create minimal project
+        run: |
+          ls -al
+          #mkdir foo
+          #cd foo
+          #echo '{}' > package.json
+          #pnpm add github:hackbg/ganesha
+          #ls -al node_modules
+          #pnpm i
+          #node_modules/.bin/ganesha-node
+
   test:
-    name: Run tests & Coverage
+    name: Run tests & coverage
     runs-on: ubuntu-latest
     steps:
 
@@ -29,11 +51,12 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm -w dev test all
 
-      - name: Coverage
-        run: pnpm run coverage
+      #- name: Coverage
+        #run: pnpm run coverage
 
-      - uses: codecov/codecov-action@v2 
-        with: 
-          token: ${{ secrets.CODECOV_TOKEN }}
+      #- uses: codecov/codecov-action@v2 
+        #with: 
+          #token: ${{ secrets.CODECOV_TOKEN }}
+          #
