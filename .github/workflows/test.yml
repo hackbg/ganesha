@@ -21,13 +21,11 @@ jobs:
       - name: Create minimal project
         run: |
           ls -al
-          #mkdir foo
-          #cd foo
-          #echo '{}' > package.json
-          #pnpm add github:hackbg/ganesha
-          #ls -al node_modules
-          #pnpm i
-          #node_modules/.bin/ganesha-node
+          echo '{}' > package.json
+          pnpm add github:hackbg/ganesha
+          ls -al node_modules
+          pnpm i
+          node_modules/.bin/ganesha-node
 
   test:
     name: Run tests & coverage

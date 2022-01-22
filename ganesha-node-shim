@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+const {resolve} = require('path')
+const spawnSync = require('cross-spawn').sync
+const [node, ganesha, ...argv] = process.argv
+process.argv = [node, ...argv] // remove Ganesha
+process.exit(spawnSync(node, [
+  '-r', require.resolve('@ganesha/node/warning.cjs'),
+  '--experimental-loader', require.resolve('@ganesha/node/loader.mjs'),
+  ...argv
+], { stdio: 'inherit' }).status)
