@@ -5,7 +5,7 @@
   "repository":   { "type": "git", "url":  "https://github.com/hackbg/ganesha" },
   "dependencies": {
     "@types/node":   "latest",
-    "@ganesha/node": "workspace:1.0.0-beta"
+    "@ganesha/node": "workspace:*"
   },
   "bin": { "ganesha-node": "ganesha-node" },
   "devDependencies": {
