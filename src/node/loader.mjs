@@ -109,7 +109,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
     if (existsSync(path) && !isDirectory(path)) {
       /// Try the verbatim module name but not if it's a directory
-      traceResolve('resolved verbatim')
+      traceResolve('File exists')
       url = url2
 
     } else {
@@ -245,16 +245,21 @@ export function getFormat (url, context, defaultGetFormat) {
     const path = fileURLToPath(url)
 
     if (isLiterateModule(url)) {
+      trace('[getFormat] LiterateModule', url, context)
       return { format: 'module' }
     }
 
     if (isLiterate(url)) {
+      trace('[getFormat] Literate', url, context)
       return { format: 'commonjs' }
     }
 
     if (url.startsWith('file://')) {
+      trace('[getFormat] File', url, context)
       if (isMarkdown(url)) {
+        trace('[getFormat] Markdown', url, context)
         const fmType = getFMType(path)
+        trace('[getFormat] Front matter', fmType)
         if (isValidFMType(fmType)) {
           if (fmType === 'commonjs') {
             return { format: 'commonjs' }
