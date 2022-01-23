@@ -23,11 +23,42 @@ import {
   isTypescript, isLiterateTypeScript,
   isValidFMType, getFMType,
   isWindows,
+  getNotFoundPackage,
+  parseNodeModuleImport
 } from './util.mjs'
+
+const warnedBrokenPackages = [
+]
 
 /// ## Resolve module URL
 /// https://nodejs.org/api/esm.html#esm_resolve_specifier_context_defaultresolve
 export function resolve (specifier, context = {}, defaultResolve) {
+
+  // Wrap `defaultResolve` to make a class of error messages less confusing.
+  const _defaultResolve = defaultResolve
+  defaultResolve = function helpfulDefaultResolve (...args) {
+    try {
+      return _defaultResolve(...args)
+    } catch (e) {
+      if (e.code === 'ERR_MODULE_NOT_FOUND') {
+        const notFoundPackage = getNotFoundPackage(e.message)
+        if (notFoundPackage && existsSync(notFoundPackage)) {
+          e.notFoundPackage = notFoundPackage
+          if (!warnedBrokenPackages.includes(notFoundPackage)) {
+            console.warn(
+              `The default module resolver failed to find ${notFoundPackage}, ` +
+              `but the directory exists. This usually means that the file `     +
+              `specified by the "main" key of ${notFoundPackage}package.json ` +
+              `does not exist, which is a sign that the package may require a `  +
+              `build step.\n`
+            )
+            warnedBrokenPackages.push(notFoundPackage)
+          }
+        }
+      }
+      throw e
+    }
+  }
 
   /// Determine parent URL (URL of importing module).
   /// Make sure there's a trailing slash, otherwise
@@ -35,7 +66,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
   let { parentURL = baseURL } = context
 
   const traceResolve = (...args) =>
-    trace(`Step 1 :: [resolve] ${parentURL} -> ${specifier} ::\n         `, ...args)
+    trace(`[resolve] ${parentURL} -> ${specifier} ::\n         `, ...args)
 
   /// Rethrow syntax errors
   if (parentURL.startsWith('SyntaxError')) {
@@ -78,7 +109,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
 
     if (existsSync(path) && !isDirectory(path)) {
       /// Try the verbatim module name but not if it's a directory
-      traceResolve('resolved verbatim')
+      traceResolve('File exists')
       url = url2
 
     } else {
@@ -105,6 +136,7 @@ export function resolve (specifier, context = {}, defaultResolve) {
     }
 
   } else if (existsSync(tsconfigPath)) {
+
     /// Honor TypeScript path overrides
     traceResolve('Checking tsconfig at', tsconfigPath)
     let tsconfig
@@ -127,42 +159,107 @@ export function resolve (specifier, context = {}, defaultResolve) {
         }
       }
     }
+
     if (!found) {
-      traceResolve('Using defaultResolve')
-      /// Let Node.js handle all other specifiers.
-      url = defaultResolve(specifier, context, defaultResolve).url
+      traceResolve('No path override found.')
+      resolveDefault()
     }
 
   } else {
-    traceResolve('Using defaultResolve')
-    /// Let Node.js handle all other specifiers.
-    url = defaultResolve(specifier, context, defaultResolve).url
+    resolveDefault()
   }
 
+  function resolveDefault () {
+    traceResolve('Using defaultResolve')
+    const { module, path } = parseNodeModuleImport(specifier)
+    if (module) {
+      let base
+      try {
+        base = dirname(fileURLToPath(resolve(module, context, defaultResolve).url))
+      } catch (e) {
+        if (e.notFoundPackage) {
+          base = e.notFoundPackage
+        } else {
+          throw e
+        }
+      }
+      url = pathToFileURL(resolvePath(base, path)).href
+    } else {
+      url = defaultResolve(specifier, context, defaultResolve).url
+    }
+    if (url.startsWith('file:///')) {
+      const fsPath = fileURLToPath(url)
+      if (!existsSync(fsPath)) {
+        url = tryPathExtensions(fsPath)
+      }
+    }
+  }
+
+  function tryPathExtensions (path) {
+    for (const extension of extensions) {
+      const pathPlusExtension = `${path}${extension}`
+      traceResolve('trying', extension, ':', pathPlusExtension)
+      if (existsSync(pathPlusExtension)) {
+        traceResolve('found', pathPlusExtension)
+        return pathToFileURL(pathPlusExtension).href
+      }
+    }
+    throw new Error(
+      `@ganesha/node: Could not resolve ${path} with any of the `+
+      `following extensions: ${extensions.join(' ')}`
+    )
+  }
+
+
   const result = { url, literate }
+
   traceResolve('Final result:', JSON.stringify(result))
+  let fsPath = null
+  try {
+    fsPath = fileURLToPath(result.url)
+  } catch (_) {
+    // If the result URL is not a file URL,
+    // don't check if such a file exists duh
+  } finally {
+    if (fsPath && !existsSync(fsPath)) {
+      throw Object.assign(new Error(`
+        Import specifier '${specifier}' in '${parentURL}' resolved to nonexistent path '${fsPath}'
+      `.trim()), {
+        specifier,
+        parentURL,
+        fsPath
+      })
+    }
+  }
+
   return result
+
 }
 
 /// ## Interpret module URL
 /// https://nodejs.org/api/esm.html#esm_getformat_url_context_defaultgetformat
 export function getFormat (url, context, defaultGetFormat) {
-  trace('Step 2 :: [getFormat]', url, context)
+  trace('[getFormat]', url, context)
 
   if (!url.startsWith('node:')) {
     const path = fileURLToPath(url)
 
     if (isLiterateModule(url)) {
+      trace('[getFormat] LiterateModule', url, context)
       return { format: 'module' }
     }
 
     if (isLiterate(url)) {
+      trace('[getFormat] Literate', url, context)
       return { format: 'commonjs' }
     }
 
     if (url.startsWith('file://')) {
+      trace('[getFormat] File', url, context)
       if (isMarkdown(url)) {
+        trace('[getFormat] Markdown', url, context)
         const fmType = getFMType(path)
+        trace('[getFormat] Front matter', fmType)
         if (isValidFMType(fmType)) {
           if (fmType === 'commonjs') {
             return { format: 'commonjs' }
@@ -199,13 +296,17 @@ export function getFormat (url, context, defaultGetFormat) {
   }
 
   // Let Node.js handle all other URLs.
-  return defaultGetFormat(url, context, defaultGetFormat)
+  try {
+    return defaultGetFormat(url, context, defaultGetFormat)
+  } catch (e) {
+    throw(e)
+  }
 }
 
 /// ## Load module source
 /// https://nodejs.org/api/esm.html#esm_getsource_url_context_defaultgetsource
 export function getSource (url, context, defaultGetSource) {
-  trace('Step 3 :: [getSource]', url, context)
+  trace('[getSource]', url, context)
 
   const path = fileURLToPath(url)
   if (isDirectory(path)) {
@@ -224,19 +325,21 @@ export function getSource (url, context, defaultGetSource) {
 /// ## Extract code from Markdown and optionally transpile TypeScript
 /// https://nodejs.org/api/esm.html#esm_transformsource_source_context_defaulttransformsource
 export function transformSource (src, context, defaultTransformSource) {
-  trace('Step 4 :: [transformSource]', context.format, context.url)
 
   /// Transpile TypeScript
   if (isLiterateTypeScript(context.url)) {
+    trace('[transformSource] [Literate TS]', context.format, context.url)
     return { source: transformTypeScript(parseString(src.toString()), context) }
   }
   if (isTypescript(context.url)) {
+    trace('[transformSource] [TS]', context.format, context.url)
     return { source: transformTypeScript(src.toString(), context) }
   }
 
   /// Convert Markdown with embedded code blocks
   /// to code with embedded Markdown comments
   if (isMarkdown(context.url)) {
+    trace('[transformSource] [MD]', context.format, context.url)
     return { source: parseString(src.toString()) }
   }
 
@@ -245,10 +348,10 @@ export function transformSource (src, context, defaultTransformSource) {
 }
 
 export function transformTypeScript (source, context) {
-  trace('Step 5 :: [transformTS]', context.url)
+  trace('[transformTS]', context.url)
   const { url, format } = context
   const { id, compiled, map } = tscToMjs(isWindows ? url : fileURLToPath(url), source, format)
-  addSourceMap(id, map)
+  addSourceMap(id, map, 'commonjs')
   return compiled
   //return esbuildToMjs(isWindows ? url : fileURLToPath(url), source, format)
 }

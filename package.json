@@ -1,12 +1,12 @@
 {
   "name":        "@hackbg/ganesha",
-  "version":     "1.0.0-beta",
+  "version":     "1.0.0",
   "workspace":    true,
   "repository":   { "type": "git", "url":  "https://github.com/hackbg/ganesha" },
   "dependencies": {
     "@types/node":          "latest",
-    "@ganesha/node":        "*",
-    "@ganesha/node-legacy": "*",
+    "@ganesha/node":        "workspace:2",
+    "@ganesha/node-legacy": "workspace:1",
     "cross-spawn":          "^7.0.3"
   },
   "bin": { "ganesha-node": "ganesha-node" },
