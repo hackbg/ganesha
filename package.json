@@ -4,11 +4,12 @@
   "workspace":    true,
   "repository":   { "type": "git", "url":  "https://github.com/hackbg/ganesha" },
   "dependencies": {
-    "@types/node":   "latest",
-    "@ganesha/node": "*",
-    "cross-spawn":   "^7.0.3"
+    "@types/node":          "latest",
+    "@ganesha/node":        "*",
+    "@ganesha/node-legacy": "*",
+    "cross-spawn":          "^7.0.3"
   },
-  "bin": { "ganesha-node": "ganesha-node-shim" },
+  "bin": { "ganesha-node": "ganesha-node" },
   "devDependencies": {
     "@hackbg/komandi": "workspace:./deps/toolbox/komandi",
     "tap":  "^15.0.9",

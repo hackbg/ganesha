@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+let loader
+let warnings
+if (Number(process.versions.node.split('.')[0]) < 16) {
+  loader   = require.resolve('@ganesha/node-legacy/loader.mjs'),
+  warnings = require.resolve('@ganesha/node-legacy/warning.cjs')
+} else {
+  loader   = require.resolve('@ganesha/node/loader.mjs'),
+  warnings = require.resolve('@ganesha/node/warning.cjs')
+}
+
+const {resolve} = require('path')
+const spawnSync = require('cross-spawn').sync
+const [node, ganesha, ...argv] = process.argv
+process.argv = [node, ...argv] // remove Ganesha script
+process.exit(spawnSync(node, [
+  '-r', warnings,
+  '--experimental-loader', loader,
+  ...argv
+], { stdio: 'inherit' }).status)
