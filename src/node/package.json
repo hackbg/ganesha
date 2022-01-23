@@ -1,13 +1,12 @@
 {
   "name":    "@ganesha/node",
   "version": "2.0.0",
-  "main":    "loader.mjs",
+  "main":    "index.mjs",
   "dependencies": {
-    "@ganesha/core":        "workspace:*",
-    "front-matter":         "^4.0.2",
-    "joycon":               "^3.0.1",
-    "jsonc-parser":         "^3.0.0",
-    "pirates":              "^4.0.1",
-    "source-map-support":   "^0.5.20"
+    "@ganesha/core":      "workspace:*",
+    "front-matter":       "^4.0.2",
+    "joycon":             "^3.0.1",
+    "jsonc-parser":       "^3.0.0",
+    "source-map-support": "^0.5.20"
   }
 }
