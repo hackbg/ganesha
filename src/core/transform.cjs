@@ -63,7 +63,7 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
 module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
   const { ModuleKind } = require('typescript')
   const compilerOptions = {
-    target:        'es6',
+    target:        'es2020',
     ...getCompilerOptions(fileName),
     module:        ModuleKind.ESNext,
     sourceMap:     true,
