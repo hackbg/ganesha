@@ -13,7 +13,6 @@
     "@ganesha/node": "workspace:*"
   },
   "scripts": {
-    "postinstall": "tsc --outDir dist/ proxy.ts",
-    "build":       "tsc --outDir dist/ proxy.ts"
+    "build": "tsc --outDir dist/ proxy.ts"
   }
 }
