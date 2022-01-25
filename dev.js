@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const commands = module.exports = {}
 
 const { spawnSync } = require('child_process')
