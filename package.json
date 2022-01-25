@@ -2,7 +2,7 @@
   "name":        "@hackbg/ganesha",
   "version":     "1.0.0",
   "workspace":    true,
-  "repository":   { "type": "git", "url":  "https://github.com/hackbg/ganesha" },
+  "repository":   { "type": "git", "url": "https://github.com/hackbg/ganesha" },
   "dependencies": {
     "@types/node":          "latest",
     "@ganesha/node":        "workspace:^2",
