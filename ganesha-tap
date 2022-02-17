@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+const {loader, warnings, spawnSync} = require('./ganesha-run')
+process.exit(spawnSync('tap', [
+  `--node-arg`, `--require=${warnings}`,
+  `--node-arg`, `--experimental-specifier-resolution=node`,
+  `--node-arg`, `--experimental-loader=${loader}`,
+  ...process.argv.slice(2)
+], { stdio: 'inherit' }).status)
