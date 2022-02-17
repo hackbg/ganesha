@@ -37,7 +37,12 @@ export function resolve (
   } else {
     defaultResolve = makeResolverHelpful(defaultResolve)
     result = defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
-    if (!result.format) result.format = determineModuleFormat(fileURLToPath(result.url))
+    if (!result.format) {
+      trace(`[resolve] no format: ${result.url}`)
+      if (result.url.startsWith('file://')) {
+        result.format = determineModuleFormat(fileURLToPath(result.url))
+      }
+    }
   }
   trace(`[resolve] ${parentURL} + ${url} = ${result.url} (${result.format})`)
   return result
