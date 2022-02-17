@@ -47,9 +47,12 @@ export function resolve (
   } else {
     result = defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
   }
+  if (!result.url) {
+    throw new Error(`[@ganesha/node]: [from ${parentURL}] resolution failed: import '${url}'`)
+  }
   if (!result.format) {
     trace(`[resolve] no format determined for: ${result.url}`)
-    if (result.url.startsWith('file://')) {
+    if (result.url && result.url.startsWith('file://')) {
       result.format = determineModuleFormat(fileURLToPath(result.url))
     }
   }
