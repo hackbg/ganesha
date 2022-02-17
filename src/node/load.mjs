@@ -19,8 +19,9 @@ export function load (
     importAssertions
   }, defaultLoad
 ) {
+  trace(`[load] ${url}`)
   if (!url.startsWith('file://')) {
-    return defaultLoad(url, { format, importAssertions } , defaultLoad)
+    return defaultLoad(url, { format, importAssertions }, defaultLoad)
   } else {
     let source
     const location = fileURLToPath(url)
@@ -42,7 +43,7 @@ export function load (
       addSourceMap(id, map)
       return { format, source: compiled }
     } else {
-      return defaultLoad(url, { format, importAssertions } , defaultLoad)
+      return defaultLoad(url, { format, importAssertions }, defaultLoad)
     }
   }
 }

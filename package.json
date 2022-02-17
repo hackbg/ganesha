@@ -9,7 +9,10 @@
     "@ganesha/node-legacy": "workspace:^1",
     "cross-spawn":          "^7.0.3"
   },
-  "bin": { "ganesha-node": "ganesha-node" },
+  "bin": {
+    "ganesha-node": "ganesha-node",
+    "ganesha-tap":  "ganesha-tap"
+  },
   "devDependencies": {
     "@hackbg/komandi": "^2",
     "tap":  "^15.0.9",
