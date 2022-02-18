@@ -33,7 +33,7 @@ ganesha-node MyLiterateTypeScriptModule.ts.md
 |Literate modules                  |🟩 yes |❌ no    |❌ no    |❌ no  |
 |Honors `compilerOptions.paths`    |🟩 yes |❌ no    |?        |?      |
 |Single entrypoint for CJS and ESM |🟩 yes |❌ no    |?        |?      |
-|Depends on `esbuild` binary module|🟩 no  |❌ yes   |?        |?      |
+|Depends on `esbuild` binary module|❌ no  |🟩 yes   |?        |?      |
 
 ## Known issues
 
