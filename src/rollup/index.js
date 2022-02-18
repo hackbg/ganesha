@@ -10,7 +10,7 @@ const RE_TYPESCRIPT = /\.ts.md$/
 const isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
-const debug = process.env.LITERATE_DEBUG
+const debug = !!process.env["Ganesha.Trace"]
   ? (...args) => console.debug(...args)
   : () => {}
 

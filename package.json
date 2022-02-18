@@ -5,8 +5,9 @@
   "repository":   { "type": "git", "url": "https://github.com/hackbg/ganesha" },
   "dependencies": {
     "@types/node":          "latest",
-    "@ganesha/node":        "workspace:^2",
-    "@ganesha/node-legacy": "workspace:^1",
+    "@ganesha/core":        "workspace:./src/code",
+    "@ganesha/node":        "workspace:./src/node",
+    "@ganesha/node-legacy": "workspace:./src/node-legacy",
     "cross-spawn":          "^7.0.3"
   },
   "bin": {
@@ -26,5 +27,6 @@
     "./src/*",
     "./src/vsc/*",
     "./test"
-  ]
+  ],
+  "main": "index.js"
 }

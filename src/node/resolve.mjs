@@ -1,10 +1,10 @@
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
 import { existsSync, statSync } from 'fs'
 
+import { trace } from '@ganesha/core/trace.cjs'
+
 import { extensions } from './util.mjs'
 import { determineModuleFormat } from './determineModuleFormat.mjs'
-
-import { trace } from './trace.cjs'
 
 export function resolve (
   url, {

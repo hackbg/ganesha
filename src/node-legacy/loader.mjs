@@ -1,3 +1,7 @@
+if (process.env['Ganesha.Watch']) {
+  console.warn('[@ganesha/node-legacy] The Ganesha.Watch setting is currently only implemented in @ganesha/node')
+}
+
 import { URL, pathToFileURL, fileURLToPath } from 'url'
 import { readFileSync, existsSync } from 'fs'
 import { resolve as resolvePath, dirname } from 'path'
@@ -6,14 +10,13 @@ import JSONC from 'jsonc-parser'
 
 import { parseString } from '@ganesha/core/parse.cjs'
 import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform.cjs'
+import { trace } from '@ganesha/core/trace.cjs'
 
 import { installSourceMapSupport, addSourceMap } from './sourcemaps.cjs'
 installSourceMapSupport()
 
 import { register } from './loader.cjs'
 register()
-
-import { trace } from './trace.cjs'
 
 import {
   baseURL,

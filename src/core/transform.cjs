@@ -49,7 +49,7 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
     sourceMap:     true,
     inlineSources: true
   }
-  if (process.env.LITERATE_DEBUG) console.debug(`[tscToCjs] ${fileName}`, compilerOptions)
+  if (process.env["Ganesha.Trace"]) console.debug(`[tscToCjs] ${fileName}`, compilerOptions)
   const { transpileModule } = require('typescript')
   const {
     outputText,
@@ -69,7 +69,7 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
     sourceMap:     true,
     inlineSources: true
   }
-  if (process.env.LITERATE_DEBUG) console.debug(`[tscToMjs] ${fileName}`, compilerOptions)
+  if (process.env["Ganesha.Trace"]) console.debug(`[tscToMjs] ${fileName}`, compilerOptions)
   const { transpileModule } = require('typescript')
   const {
     outputText,
