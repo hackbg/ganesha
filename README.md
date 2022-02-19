@@ -10,35 +10,64 @@ and by that path have I sought wisdom ever since."
 
 # Ganesha
 
+**Tools for modern [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
+with ECMAScript-based languages and Markdown**
+
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 </div>
 
-Ganesha is a suite of tools for **literate programming** with JavaScript/TypeScript and Markdown.
-It helps you **write better code faster**, by letting you skip the TS-JS compilation step,
-and by letting you store the documentation where it's most needed and easiest to update -
-right next to the code.
+<table>
+<tr><td>
 
-Ganesha **makes your code more accessible** by embedding it in Markdown,
-letting you write human-friendly descriptions of what individual blocks of code do,
-which can then be rendered by GitHub as [**literate modules**](./test/MATRIX.cjs.md).
+## File format
 
-**For backend development**, Ganesha provides a [**module loader**](./src/nodejs) for Node.js
-that extracts and runs code blocks from `.md`, `.ts.md`, `.js.md`, `.mjs.md`, and `.cjs.md` files.
-It works with both `require` and `import`, preserves line numbers,
-and automatically compiles TypeScript with source maps.
+Ganesha extracts [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)
+from Markdown files. It also supports loading regular TypeScript without an
+intermediate compilation step (no more running `tsc` on every change!)
 
-**For frontend development**, Ganesha currently provides a [**Rollup plugin**](./src/rollup)
-that can be used in Rollup or Vite to compile literate modules for the browser.
+</td><td>
+</td></tr>
+<tr><!--spacer--></tr>
+<tr><td>
 
-**A language server** is currently in development.
+## Module loading
 
-## Usage
+Use `ganesha-node` to run a Node.js process with Ganesha support.
+* This allows **TypeScript files** to be compiled on demand
+  to the appropriate JavaScript module format.
+* **Markdown files** can be loaded as if they were regular source files.
+  The embedded code blocks are compiled and the surrounding text is ignored.
+
+</td><td>
 
 ```sh
 npm install --save @hackbg/ganesha
 ganesha-node MyLiterateTypeScriptModule.ts.md
 ```
+
+</td></tr>
+<tr><!--spacer--></tr>
+<tr><td>
+
+## Frontend bundling
+
+Ganesha currently provides a [**Rollup plugin**](./src/rollup)
+that can be used in Rollup or Vite to compile literate modules for the browser.
+
+</td><td>
+</td></tr>
+<tr><!--spacer--></tr>
+<tr><td>
+
+## IDE integration
+
+**Help wanted!**
+
+**A language server** is currently in development.
+
+</td><td></td></tr>
+</table>
 
 ## Comparison with alternatives
 
