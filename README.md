@@ -1,4 +1,18 @@
+<div align="center">
+
+```
+"The very day I was born I made my first mistake,
+and by that path have I sought wisdom ever since."
+                                   - William Buck
+```
+
+![](./logo.png)
+
 # Ganesha
+
+Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
+
+</div>
 
 Ganesha is a suite of tools for **literate programming** with JavaScript/TypeScript and Markdown.
 It helps you **write better code faster**, by letting you skip the TS-JS compilation step,
