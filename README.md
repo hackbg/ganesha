@@ -69,6 +69,8 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 </td><td></td></tr>
 </table>
 
+<div align="center">
+
 ## Comparison with alternatives
 
 |Feature                           |**Ganesha**             |esmo/esno|ts-esnode|ts-node|
@@ -82,3 +84,5 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 ## Known issues
 
 See [doc/GRIPES.md](./doc/GRIPES.md)
+
+</div>
