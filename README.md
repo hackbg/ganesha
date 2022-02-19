@@ -28,12 +28,13 @@ ganesha-node MyLiterateTypeScriptModule.ts.md
 
 ## Comparison with alternatives
 
-|Feature                           |Ganesha|esmo/esno|ts-esnode|ts-node|
-|----------------------------------|-------|---------|---------|-------|
-|Literate modules                  |🟩 yes |❌ no    |❌ no    |❌ no  |
-|Honors `compilerOptions.paths`    |🟩 yes |❌ no    |?        |?      |
-|Single entrypoint for CJS and ESM |🟩 yes |❌ no    |?        |?      |
-|Depends on `esbuild` binary module|🟩 no  |❌ yes   |?        |?      |
+|Feature                           |**Ganesha**             |esmo/esno|ts-esnode|ts-node|
+|----------------------------------|------------------------|---------|---------|-------|
+|Literate modules                  |🟩 yes                  |❌ no    |❌ no    |❌ no  |
+|Honors `compilerOptions.paths`    |🟩 yes                  |❌ no    |?        |?      |
+|Single entrypoint for CJS and ESM |🟩 yes                  |❌ no    |?        |?      |
+|Depends on `esbuild` binary module|🟩 no                   |❌ yes   |?        |?      |
+|Built-in hot reloader             |[⏳ WIP](./doc/LIVE.md) |❌ no    |❌ no    |❌ no  |
 
 ## Known issues
 

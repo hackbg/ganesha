@@ -1,0 +1,29 @@
+@startuml
+
+autonumber
+
+!theme superhero-outline
+
+skinparam backgroundColor black
+skinparam defaultFontName sans-serif
+
+"user" -> "docker-compose": runs
+activate "docker-compose"
+"docker-compose" -> "pnpm start": runs container
+activate "pnpm start"
+"pnpm start" -> "supervisor": runs Node
+activate "supervisor"
+"supervisor" -> "app": forks
+activate "app"
+"app" -> "module": imports
+"app" -> "supervisor": adds module
+"supervisor" -> "module": watches
+== 1st run... ==
+"user" -> "module": edits
+"module" -> "supervisor": notifies
+deactivate "app"
+"supervisor" -> "app": restarts
+activate "app"
+== 2nd run... ==
+
+@enduml

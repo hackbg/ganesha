@@ -15,4 +15,6 @@ if (isLegacy()) {
   warnings = require.resolve('@ganesha/node/warning.cjs')
 }
 
-module.exports = { loader, warnings, resolve, spawnSync, isLegacy }
+const { watcher } = require('@ganesha/core/live.cjs')
+
+module.exports = { loader, warnings, resolve, spawnSync, isLegacy, watcher }
