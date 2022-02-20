@@ -27,6 +27,18 @@ from Markdown files. It also supports loading regular TypeScript without an
 intermediate compilation step (no more running `tsc` on every change!)
 
 </td><td>
+
+`````markdown
+# My literate program
+
+This text will be ignored
+but this code will be executed:
+  
+```typescript
+console.log("Hello world!")
+```
+`````
+
 </td></tr>
 <tr><!--spacer--></tr>
 <tr><td>
@@ -43,7 +55,8 @@ Use `ganesha-node` to run a Node.js process with Ganesha support.
 
 ```sh
 npm install --save @hackbg/ganesha
-ganesha-node MyLiterateTypeScriptModule.ts.md
+ganesha-node my-typescript-program.ts
+ganesha-node my-literate-program.ts.md
 ```
 
 </td></tr>
@@ -56,6 +69,27 @@ Ganesha currently provides a [**Rollup plugin**](./src/rollup)
 that can be used in Rollup or Vite to compile literate modules for the browser.
 
 </td><td>
+
+`index.html`:
+```html
+<script type="module" src="./script"></script>
+```
+
+`script.ts.md`:
+`````markdown
+This is an example literate frontend script:
+```typescript
+console.log('Hello, world!')
+```
+`````
+ 
+`vite.config.js`:
+```javascript
+import { defineConfig } from 'vite'
+import ganesha from '@ganesha/rollup'
+export default defineConfig({ plugins: [ ganesha() ] })
+```
+  
 </td></tr>
 <tr><!--spacer--></tr>
 <tr><td>
@@ -66,7 +100,13 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 
 **A language server** is currently in development.
 
-</td><td></td></tr>
+</td><td>
+
+(LSP sounds is a great idea,
+but I found the implementation
+to be obfuscated beyond belief)
+
+</td></tr>
 </table>
 
 <div align="center">
@@ -77,8 +117,8 @@ that can be used in Rollup or Vite to compile literate modules for the browser.
 |----------------------------------|------------------------|---------|---------|-------|
 |Literate modules                  |🟩 yes                  |❌ no    |❌ no    |❌ no  |
 |Honors `compilerOptions.paths`    |🟩 yes                  |❌ no    |?        |?      |
-|Single entrypoint for CJS and ESM |🟩 yes                  |❌ no    |?        |?      |
-|Depends on `esbuild` binary module|🟩 no                   |❌ yes   |?        |?      |
+|Single entrypoint for CJS and ESM |🟩 yes                  |❌ no    |❌ no    |❌ no  |
+|Depends on `esbuild` binary module|🟩 no                   |❌ yes   |🟩 no    |🟩 no  |
 |Built-in hot reloader             |[⏳ WIP](./doc/LIVE.md) |❌ no    |❌ no    |❌ no  |
 
 ## Known issues
