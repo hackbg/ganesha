@@ -53,9 +53,9 @@ commands['test'] = {
 
 }
 
-const { default: runCommands } = require('@hackbg/komandi')
 const { fileURLToPath } = require('url')
 if (require.main === module) {
   const words = process.argv.slice(2)
-  runCommands(commands, words).then(()=>process.exit(0))
+  require('@hackbg/komandi').default(commands, words)
+    .then(()=>process.exit(0))
 }

@@ -1,44 +1,18 @@
 #!/usr/bin/env node
-const {loader, watcher, warnings, resolve, spawnSync} = require('./ganesha-run')
-
+const {
+  config: { hide, live, watched },
+  initParent,
+  initChild,
+  initStandalone
+} = require('.')
 const [node, ganesha, ...argv] = process.argv
-
-if (!!process.env['Ganesha.Hide']) (
+if (hide) (
   process.argv = [node, ...argv] // remove Ganesha script
 )
-
-function bootstrap () {
-  const { status } = spawnSync(node, [
-    // hide the experimental loader warning
-    '-r', warnings,
-    // https://nodejs.org/api/cli.html#--experimental-loadermodule
-    '--experimental-loader', loader,
-    // https://nodejs.org/api/cli.html#--experimental-specifier-resolutionmode
-    '--experimental-specifier-resolution=node',
-    ...argv
-  ], { stdio: 'inherit' })
-  process.exit(status)
+if (live) {
+  initParent(argv)
+} else if (watched) {
+  initChild(argv)
+} else {
+  initStandalone(argv)
 }
-
-;(async ()=>{
-  while (true) {
-    try {
-      bootstrap()
-    } catch (error) {
-      if (!!process.env['Ganesha.Live']) {
-        console.error(`${argv[0]} failed to start with the following error:`)
-        console.error(error)
-        console.info('Waiting for changes to retry...')
-        await new Promise(resolve=>{
-          watcher.on('all', function retry (event, path, stats) {
-            watcher.off('all', retry)
-            console.info('Restarting process after', event, path)
-            resolve()
-          })
-        })
-      } else {
-        throw e
-      }
-    }
-  }
-})()

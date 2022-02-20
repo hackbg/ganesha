@@ -6,7 +6,6 @@ import frontMatter from 'front-matter'
 import { parseString } from '@ganesha/core/parse.cjs'
 import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform.cjs'
 import { trace } from '@ganesha/core/trace.cjs'
-import { watcher } from '@ganesha/core/live.cjs'
 
 import { determineModuleFormat } from './determineModuleFormat.mjs'
 
@@ -21,7 +20,8 @@ export async function load (
 ) {
   trace(`[load] ${url}`)
 
-  // Pass through non-file imports to the default loader.
+  // Non-file imports (such as built-in modules)
+  // are passed to the default loader.
   if (!url.startsWith('file://')) {
     return defaultLoad(url, { format, importAssertions }, defaultLoad)
   }
@@ -30,11 +30,12 @@ export async function load (
   let source
   let result
   const location = fileURLToPath(url)
+
   // If live mode is enabled, add this file to the watcher:
-  if (watcher) {
-    trace('[watch]', location)
-    watcher.add(location)
+  if (process.send) {
+    process.send({"Ganesha.Watch": location})
   }
+
   // Count extensions from the back: `name.ext2.ext1`
   const ext1 = extname(location)
   const ext2 = extname(basename(url, ext1))
@@ -59,6 +60,7 @@ export async function load (
     // All other file imports are passed to the default loader.
     return defaultLoad(url, { format, importAssertions }, defaultLoad)
   }
+
   return { format, source }
 }
 
