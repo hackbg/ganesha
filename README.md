@@ -115,6 +115,7 @@ to be obfuscated beyond belief)
 
 |Feature                           |**Ganesha**             |esmo/esno|ts-esnode|ts-node|
 |----------------------------------|------------------------|---------|---------|-------|
+|Compile TypeScript on demand      |🟩 yes                  |🟩 yes   |🟩 yes   |🟩 yes |
 |Literate modules                  |🟩 yes                  |❌ no    |❌ no    |❌ no  |
 |Honors `compilerOptions.paths`    |🟩 yes                  |❌ no    |?        |?      |
 |Single entrypoint for CJS and ESM |🟩 yes                  |❌ no    |❌ no    |❌ no  |
