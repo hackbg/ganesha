@@ -38,18 +38,47 @@ export async function resolve (
       }
     } catch (e) {
       if (e.code === 'ENOENT') {
-        trace(`[resolve] no ${resolvedPath}`)
-        for (const extension of extensions) {
-          const properPath = `${resolvedPath}${extension}`
-          trace(`[resolve] trying ${properPath}`)
-          if (existsSync(properPath)) {
-            const realPath = await realpath(properPath)
-            trace(`[resolved] found realPath = ${realPath}`)
-            result.url    = pathToFileURL(realPath).href
-            result.format = determineModuleFormat(realPath)
-            break
+        trace(`[resolve] no ${resolvedPath}, trying extensions`)
+        const variants = extensions.map(extension=>`${resolvedPath}${extension}`)
+        let found = false
+        const results = await Promise.allSettled(variants.map(async variant=>{
+          try {
+            const realPath = await realpath(variant)
+            trace(`[resolve] exists: ${realPath}`)
+            return realPath
+          } catch (error) {
+            if (error.code === 'ENOENT') {
+              trace(`[resolve] does not exist: ${variant}`)
+              return null
+            } else {
+              throw [variant, error]
+            }
           }
+        }))
+        const rejected = results.filter(x=>x.status==='rejected').map(x=>x.reason)
+        for (const [variant, error] of rejected) {
+          console.warn(
+            `[@ganesha/node] Trying import "${variant}" failed with error: ${error.message}`
+          )
         }
+        const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
+        if (fulfilled.length > 1) {
+          throw new Error(
+            `[@ganesha/node] Ambiguous import "${resolvedPath}"\n` +
+            `Could be one of the following:\n` +
+            fulfilled.map(x=>x.value).join('\n')
+          )
+        }
+        if (fulfilled.length < 1) {
+          throw new Error(
+            `[@ganesha/node] Failed to resolve import "${resolvedPath}"\n`
+            `Tried the following paths:\n` +
+            variants.join('\n')
+          )
+        }
+        const realPath = fulfilled[0].value
+        result.url    = pathToFileURL(realPath).href
+        result.format = determineModuleFormat(realPath)
       } else {
         throw e
       }
