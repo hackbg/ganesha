@@ -130,8 +130,8 @@ function warnBrokenPackage (notFoundPackage) {
       `The default module resolver failed to find ${notFoundPackage}, ` +
       `but the directory exists. This usually means that the file `     +
       `specified by the "main" key of ${notFoundPackage}package.json ` +
-      `does not exist, which is a sign that the package may require a `  +
-      `build step.\n`
+      `does not exist, which is a sign that the package either requires a `  +
+      `build step, or is misconfigured.\n`
     )
     warnedBrokenPackages.push(notFoundPackage)
   }
