@@ -88,7 +88,7 @@ function initStandalone (argv) {
   // spawn Node.js with Ganesha loader enabled
   const args = [ ...argv ]
   const opts = { stdio: 'inherit' }
-  const proc = spawnSync(process.execPath, args, opts)
+  const proc = module.exports.spawnSync(process.execPath, args, opts)
   process.exit(proc.status)
 }
 module.exports.initStandalone = initStandalone
