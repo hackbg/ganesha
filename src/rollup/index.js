@@ -1,6 +1,6 @@
 const { fileURLToPath } = require('url')
 const { existsSync } = require('fs')
-const { extensions, parseString } = require('@ganesha/core/parse.cjs')
+const { extensions, parseString, trace } = require('@ganesha/core')
 const { resolve, dirname } = require('path')
 const { transformSync } = require('esbuild')
 
@@ -10,10 +10,6 @@ const RE_TYPESCRIPT = /\.ts.md$/
 const isTypescript  = x => RE_TYPESCRIPT.test(x)
 const isWindows = process.platform === "win32"
 
-const debug = !!process.env["Ganesha_Trace"]
-  ? (...args) => console.debug(...args)
-  : () => {}
-
 module.exports = function ganeshaPlugin (typescript = true) {
   return {
 
@@ -22,7 +18,7 @@ module.exports = function ganeshaPlugin (typescript = true) {
     //enforce: 'pre',
 
     resolveId (source, importer) {
-      debug('resolveId', { source, importer })
+      trace('resolveId', { source, importer })
       if (!importer) {
         return null
       }
@@ -41,7 +37,7 @@ module.exports = function ganeshaPlugin (typescript = true) {
 
     transform (code, id) {
       const literate = isLiterate(id.split('?')[0])
-      debug('transform', { id, literate })
+      trace('transform', { id, literate })
       if (literate) {
         code = parseString(code)
         let map = null

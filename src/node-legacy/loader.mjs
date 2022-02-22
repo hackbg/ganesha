@@ -1,4 +1,5 @@
-if (process.env['Ganesha_Watch']) {
+import { settings } from '@ganesha/core'
+if (settings.live) {
   console.warn('[@ganesha/node-legacy] The Ganesha_Watch setting is currently only implemented in @ganesha/node')
 }
 

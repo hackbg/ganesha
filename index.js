@@ -31,14 +31,6 @@ const nodeOptions = module.exports.nodeOptions = [
   '--experimental-specifier-resolution=node',
 ]
 
-// configuration is taken from environment
-const config = {
-  hide:    !!process.env['Ganesha_Hide'],
-  live:    !!process.env['Ganesha_Live'],
-  watched: !!process.env['Ganesha_Watched'],
-}
-module.exports.config = config
-
 function initParent (argv) {
   const watcher = new (require('chokidar')).FSWatcher()
   const args = [ ...nodeOptions, ...argv ]
@@ -75,7 +67,7 @@ module.exports.initParent = initParent
 
 function initChild (argv) {
   // spawn Node.js with Ganesha loader enabled
-  const args = [ ...argv ]
+  const args = [ ...nodeOptions, ...argv ]
   const opts = { stdio: ['inherit', 'inherit', 'inherit', 'ipc'] }
   const proc = module.exports.spawn(process.execPath, args, opts)
   proc.on('message', message => process.send(message))
@@ -86,7 +78,7 @@ module.exports.initChild = initChild
 
 function initStandalone (argv) {
   // spawn Node.js with Ganesha loader enabled
-  const args = [ ...argv ]
+  const args = [ ...nodeOptions, ...argv ]
   const opts = { stdio: 'inherit' }
   const proc = module.exports.spawnSync(process.execPath, args, opts)
   process.exit(proc.status)

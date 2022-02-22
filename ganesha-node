@@ -1,18 +1,25 @@
 #!/usr/bin/env node
+
+const { settings, trace } = require('@ganesha/core')
+
+trace(`[launch] PID ${process.pid} Node ${process.version}: ${JSON.stringify(settings)}`)
+
 const {
-  config: { hide, live, watched },
   initParent,
   initChild,
   initStandalone
 } = require('.')
 const [node, ganesha, ...argv] = process.argv
-if (hide) (
+if (settings.hide) (
   process.argv = [node, ...argv] // remove Ganesha script
 )
-if (live) {
+if (settings.live) {
+  trace(`[launch] Supervisor process will reload watched process on changes to imported modules`)
   initParent(argv)
-} else if (watched) {
+} else if (settings.watched) {
+  trace(`[launch] Watched process will notify supervisor of what modules are imported`)
   initChild(argv)
 } else {
+  trace(`[launch] Standalone mode, no auto reloading.`)
   initStandalone(argv)
 }

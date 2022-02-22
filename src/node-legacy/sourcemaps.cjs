@@ -1,3 +1,5 @@
+const { trace } = require('@ganesha/core')
+
 const sourceMapSupport = require('source-map-support')
     , sourceMaps = {}
 
@@ -24,6 +26,6 @@ module.exports.installSourceMapSupport = function installSourceMapSupport () {
 }
 
 module.exports.addSourceMap = function (filename, sourceMap, loader) {
-  if (process.env["Ganesha_Trace"]) console.debug(`[addSourceMap] [${loader}] ${filename}`)
+  trace(`[addSourceMap] [${loader}] ${filename}`)
   sourceMaps[filename] = sourceMap
 }

@@ -1,6 +1,7 @@
 const { dirname, extname } = require('path')
 const { readFileSync } = require('fs')
-const config = require('./config.cjs')
+const { joycon } = require('./config.cjs')
+const { trace } = require('./trace.cjs')
 
 module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
   const dir = dirname(filename)
@@ -40,16 +41,21 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
   return { id: url, compiled: code, map }
 }
 
+const sourceMapOptions = {
+  sourceMap:       true,
+  inlineSources:   true,
+  inlineSourceMap: false
+}
+
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
   const { ModuleKind } = require('typescript')
   const compilerOptions = {
-    target:        'es5',
+    target: 'es5',
     ...getCompilerOptions(fileName),
-    module:        ModuleKind.CommonJS,
-    sourceMap:     true,
-    inlineSources: true
+    module: ModuleKind.CommonJS,
+    ...sourceMapOptions
   }
-  if (process.env["Ganesha_Trace"]) console.debug(`[tscToCjs] ${fileName}`, compilerOptions)
+  trace(`[tscToCjs] ${fileName}`, compilerOptions)
   const { transpileModule } = require('typescript')
   const {
     outputText,
@@ -63,26 +69,26 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
 module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
   const { ModuleKind } = require('typescript')
   const compilerOptions = {
-    target:        'es2020',
+    target: 'es2020',
     ...getCompilerOptions(fileName),
-    module:        ModuleKind.ESNext,
-    sourceMap:     true,
-    inlineSources: true
+    module:          ModuleKind.ESNext,
+    ...sourceMapOptions
   }
-  if (process.env["Ganesha_Trace"]) console.debug(`[tscToMjs] ${fileName}`, compilerOptions)
+  trace(`[tscToMjs] ${fileName}`, compilerOptions)
   const { transpileModule } = require('typescript')
+  const result = transpileModule(code, { compilerOptions, fileName })
   const {
     outputText,
     diagnostics,
     sourceMapText
-  } = transpileModule(code, { compilerOptions, fileName })
+  } = result
   printWarnings(diagnostics)
   return { id: fileName, compiled: outputText, map: sourceMapText }
 }
 
 function getCompilerOptions (fileName) {
   const dir = dirname(fileName)
-  const { data, path } = config.loadSync(['tsconfig.json'], dir)
+  const { data, path } = joycon.loadSync(['tsconfig.json'], dir)
   if (path && data) return data.compilerOptions
   return {}
 }
@@ -94,7 +100,7 @@ function inferPackageFormat (cwd, filename) {
   if (filename.endsWith('.cjs'))    return 'cjs'
   if (filename.endsWith('.cjs.md')) return 'cjs'
 
-  const { data } = config.loadSync(['package.json'], cwd)
+  const { data } = joycon.loadSync(['package.json'], cwd)
   return data && data.type === 'module' ? 'esm' : 'cjs'
 
 }

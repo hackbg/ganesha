@@ -1,1 +1,2 @@
-module.exports.trace = (...args) => process.env["Ganesha_Trace"] && console.debug(...args)
+const { trace } = require('./config.cjs').settings
+module.exports.trace = (...args) => trace && console.debug(...args)

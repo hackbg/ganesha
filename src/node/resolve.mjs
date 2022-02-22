@@ -1,12 +1,13 @@
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
-import { existsSync, statSync } from 'fs'
+import { existsSync } from 'fs'
+import { stat, realpath } from 'fs/promises'
 
 import { trace } from '@ganesha/core/trace.cjs'
 
 import { extensions } from './util.mjs'
 import { determineModuleFormat } from './determineModuleFormat.mjs'
 
-export function resolve (
+export async function resolve (
   url, {
     conditions,
     importAssertions,
@@ -16,36 +17,49 @@ export function resolve (
   defaultResolve = makeResolverHelpful(defaultResolve)
   // TODO: resolve module sub-imports like '@foo/bar/index.ts'
   let result = { url: undefined, format: undefined }
+  // Only process file imports
   if (url.startsWith('file://') || url.startsWith('.')) {
     const resolvedURL  = resolveURL(parentURL||'', url)
     const resolvedPath = fileURLToPath(resolvedURL)
-    if (existsSync(resolvedPath)) {
-      const stats = statSync(resolvedPath)
+    trace(`[resolve] resolvedPath =`, resolvedPath)
+    try {
+      const stats = await stat(resolvedPath)
       if (stats.isFile()) {
-        result.url    = resolvedURL
+        const realPath = await realpath(resolvedPath)
+        trace(`[resolved] realPath =`, resolvedPath)
+        result.url    = pathToFileURL(realPath).href
         result.format = determineModuleFormat(resolvedPath)
-        trace(`[resolve] found ${result.url}, format: ${result.format}`)
+        trace(`[resolved] found ${result.url}, format: ${result.format}`)
       } else if (stats.isDirectory()) {
-        trace(`[resolve] found directory at ${resolvedURL}, using defaultResolve`)
+        trace(`[resolved] found directory at ${resolvedURL}, using defaultResolve`)
         result = defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
       } else {
         throw new Error('tried to import something that is neither file nor directory')
       }
-    } else {
-      trace(`[resolve] no ${resolvedPath}`)
-      for (const extension of extensions) {
-        const properPath = `${resolvedPath}${extension}`
-        trace(`[resolve] trying ${properPath}`)
-        if (existsSync(properPath)) {
-          trace(`[resolve] found ${properPath}`)
-          result.url    = pathToFileURL(properPath).href
-          result.format = determineModuleFormat(properPath)
-          break
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        trace(`[resolve] no ${resolvedPath}`)
+        for (const extension of extensions) {
+          const properPath = `${resolvedPath}${extension}`
+          trace(`[resolve] trying ${properPath}`)
+          if (existsSync(properPath)) {
+            const realPath = await realpath(properPath)
+            trace(`[resolved] found realPath = ${realPath}`)
+            result.url    = pathToFileURL(realPath).href
+            result.format = determineModuleFormat(realPath)
+            break
+          }
         }
+      } else {
+        throw e
       }
     }
   } else {
+    trace(`[resolved] default: ${url}`)
     result = defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
+    if (result.url.startsWith('file://')) {
+      result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
+    }
   }
   if (!result.url) {
     throw new Error(`[@ganesha/node]: [from ${parentURL}] resolution failed: import '${url}'`)

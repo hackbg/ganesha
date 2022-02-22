@@ -1,6 +1,6 @@
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
-import { basename, extname, dirname, resolve as resolvePath } from 'path'
-import { readFileSync, existsSync } from 'fs'
+import { basename, extname, dirname, resolve as resolvePath, relative } from 'path'
+import { readFileSync, existsSync, realpathSync } from 'fs'
 import frontMatter from 'front-matter'
 
 import { parseString } from '@ganesha/core/parse.cjs'
@@ -29,7 +29,7 @@ export async function load (
   // Everything else is fair game.
   let source
   let result
-  const location = fileURLToPath(url)
+  const location = realpathSync(fileURLToPath(url))
 
   // If live mode is enabled, add this file to the watcher:
   if (process.send) {
@@ -84,6 +84,8 @@ export function installSourceMapSupport () {
 }
 
 export function addSourceMap (filename, sourceMap, loader) {
-  trace(`[addSourceMap] [${loader}] ${filename}`)
-  sourceMaps[filename] = sourceMap
+  if (!sourceMaps[filename]) {
+    trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
+    sourceMaps[filename] = sourceMap
+  }
 }
