@@ -33,9 +33,9 @@ const nodeOptions = module.exports.nodeOptions = [
 
 // configuration is taken from environment
 const config = {
-  hide:    !!process.env['Ganesha.Hide'],
-  live:    !!process.env['Ganesha.Live'],
-  watched: !!process.env['Ganesha.Watched'],
+  hide:    !!process.env['Ganesha_Hide'],
+  live:    !!process.env['Ganesha_Live'],
+  watched: !!process.env['Ganesha_Watched'],
 }
 module.exports.config = config
 
@@ -44,8 +44,8 @@ function initParent (argv) {
   const args = [ ...nodeOptions, ...argv ]
   const opts = {
     env: {
-      "Ganesha.Live":    "",
-      "Ganesha.Watched": "true"
+      "Ganesha_Live":    "",
+      "Ganesha_Watched": "true"
     }
   }
   let proc
@@ -64,7 +64,7 @@ function initParent (argv) {
         bootstrap()
       })
     })
-    proc.on('message', ({"Ganesha.Watch": path}) => {
+    proc.on('message', ({"Ganesha_Watch": path}) => {
       if (path) {
         watcher.add(path)
       }

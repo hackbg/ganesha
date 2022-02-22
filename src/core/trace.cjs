@@ -1,1 +1,1 @@
-module.exports.trace = (...args) => process.env["Ganesha.Trace"] && console.debug(...args)
+module.exports.trace = (...args) => process.env["Ganesha_Trace"] && console.debug(...args)

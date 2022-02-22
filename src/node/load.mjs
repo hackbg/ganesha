@@ -33,7 +33,7 @@ export async function load (
 
   // If live mode is enabled, add this file to the watcher:
   if (process.send) {
-    process.send({"Ganesha.Watch": location})
+    process.send({"Ganesha_Watch": location})
   }
 
   // Count extensions from the back: `name.ext2.ext1`

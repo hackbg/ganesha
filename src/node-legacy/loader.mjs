@@ -1,5 +1,5 @@
-if (process.env['Ganesha.Watch']) {
-  console.warn('[@ganesha/node-legacy] The Ganesha.Watch setting is currently only implemented in @ganesha/node')
+if (process.env['Ganesha_Watch']) {
+  console.warn('[@ganesha/node-legacy] The Ganesha_Watch setting is currently only implemented in @ganesha/node')
 }
 
 import { URL, pathToFileURL, fileURLToPath } from 'url'
