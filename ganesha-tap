@@ -9,7 +9,6 @@ const args = [
   // then add the arguments passed to `ganesha-tap` by the user
   ...process.argv.slice(2)
 ]
-console.log(args)
 
 const opts = { stdio: 'inherit' }
 
