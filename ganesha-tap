@@ -5,10 +5,11 @@ const {nodeOptions, spawnSync} = require('./index.js')
 const args = [
   // the Node options to enable Ganesha can be passed to `tap`
   // by prefixing each one with `--node-arg`
-  ...[].concat(nodeOptions.map(x=>['--node-arg',x])),
+  ...[].concat.apply([], nodeOptions.map(x=>['--node-arg',x])),
   // then add the arguments passed to `ganesha-tap` by the user
   ...process.argv.slice(2)
 ]
+console.log(args)
 
 const opts = { stdio: 'inherit' }
 
