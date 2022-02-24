@@ -45,12 +45,13 @@ function initSupervisor (argv) {
   let proc
   const args = [ ...nodeOptions, ...argv ]
   const opts = {
+    stdio: ['inherit', 'inherit', 'inherit', 'ipc'],
     env: {
+      ...process.env,
       "Ganesha_Live":    "",
       "Ganesha_Watched": "true",
       "Ganesha_Trace":   process.env["Ganesha_Trace"]
     },
-    stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }
 
   bootstrap()
@@ -89,6 +90,9 @@ function initShim (argv) {
   proc.on('exit', (code, signal) => {
     onExit(code, signal, proc.pid)
     process.exit()
+  })
+  process.on('exit', () => {
+    proc.kill(9)
   })
   //process.exit(proc.status)
 }
