@@ -11,6 +11,7 @@
     "@ganesha/node": "workspace:^2.0.0",
     "@ganesha/node-legacy": "workspace:^1.0.0",
     "@types/node": "latest",
+    "chokidar":    "^3.5.3",
     "cross-spawn": "^7.0.3"
   },
   "bin": {
