@@ -31,30 +31,41 @@ const nodeOptions = module.exports.nodeOptions = [
   '--experimental-specifier-resolution=node',
 ]
 
-function initParent (argv) {
-  const watcher = new (require('chokidar')).FSWatcher()
+function initSupervisor (argv) {
+
+  process.title = 'Ganesha Live Supervisor'
+
+  const watcher = new (require('chokidar')).FSWatcher({
+    ignoreInitial: true
+  })
+  watcher.on('all', (event, path) => {
+    bootstrap()
+  })
+
+  let proc
   const args = [ ...nodeOptions, ...argv ]
   const opts = {
     env: {
       "Ganesha_Live":    "",
-      "Ganesha_Watched": "true"
-    }
+      "Ganesha_Watched": "true",
+      "Ganesha_Trace":   process.env["Ganesha_Trace"]
+    },
+    stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   }
-  let proc
+
   bootstrap()
   function bootstrap () {
+    if (proc) {
+      proc.kill(9)
+    }
     const entry = resolve(__dirname, 'ganesha-node')
     proc = module.exports.fork(entry, args, opts)
     proc.on('error', (...args) => {
       console.error('Error when forking:', ...args)
     })
     proc.on('exit', (code, signal) => {
-      onExit(code, signal)
+      onExit(code, signal, proc.pid)
       console.debug(`Waiting for change to restart...`)
-      watcher.on('all', function rerun (event, path) {
-        watcher.off('all', rerun)
-        bootstrap()
-      })
     })
     proc.on('message', ({"Ganesha_Watch": path}) => {
       if (path) {
@@ -62,19 +73,26 @@ function initParent (argv) {
       }
     })
   }
-}
-module.exports.initParent = initParent
 
-function initChild (argv) {
+}
+module.exports.initSupervisor = initSupervisor
+
+function initShim (argv) {
+  process.title = 'Ganesha Live Shim'
   // spawn Node.js with Ganesha loader enabled
   const args = [ ...nodeOptions, ...argv ]
   const opts = { stdio: ['inherit', 'inherit', 'inherit', 'ipc'] }
   const proc = module.exports.spawn(process.execPath, args, opts)
-  proc.on('message', message => process.send(message))
-  proc.on('exit', onExit)
+  proc.on('message', message => {
+    process.send(message)
+  })
+  proc.on('exit', (code, signal) => {
+    onExit(code, signal, proc.pid)
+    process.exit()
+  })
   //process.exit(proc.status)
 }
-module.exports.initChild = initChild
+module.exports.initShim = initShim
 
 function initStandalone (argv) {
   // spawn Node.js with Ganesha loader enabled
@@ -85,11 +103,12 @@ function initStandalone (argv) {
 }
 module.exports.initStandalone = initStandalone
 
-function onExit (code, signal) {
+function onExit (code, signal, pid) {
+  if (pid) pid = `${pid} `
   if (code) {
-    console.debug(`Watched process exited with code ${code}.`)
+    console.debug(`Watched process ${pid}exited with code ${code}.`)
   } else if (signal) {
-    console.debug(`Watched process terminated by signal ${signal}`)
+    console.debug(`Watched process ${pid}terminated by signal ${signal}`)
   }
   if (code === 0) {
     process.exit(0)
