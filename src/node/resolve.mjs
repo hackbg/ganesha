@@ -64,16 +64,16 @@ export async function resolve (
         const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
         if (fulfilled.length > 1) {
           throw new Error(
-            `[@ganesha/node] Ambiguous import "${resolvedPath}"\n` +
-            `Could be one of the following:\n` +
-            fulfilled.map(x=>x.value).join('\n')
+            `[@ganesha/node] Ambiguous import "${resolvedPath}"\n`
+            + `Could be one of the following:\n`
+            + fulfilled.map(x=>x.value).join('\n')
           )
         }
         if (fulfilled.length < 1) {
           throw new Error(
-            `[@ganesha/node] Failed to resolve import "${resolvedPath}"\n`
-            `Tried the following paths:\n` +
-            variants.join('\n')
+            `[@ganesha/node] Failed to resolve import:\n  "${url}" (from ${parentURL})`
+            + `\nTried the following paths:\n  `
+            + variants.join('\n  ')
           )
         }
         const realPath = fulfilled[0].value
