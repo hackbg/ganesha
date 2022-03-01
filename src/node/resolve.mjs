@@ -15,8 +15,10 @@ export async function resolve (
   }, defaultResolve
 ) {
   defaultResolve = makeResolverHelpful(defaultResolve)
+
   // TODO: resolve module sub-imports like '@foo/bar/index.ts'
   let result = { url: undefined, format: undefined }
+
   // Only process file imports
   if (url.startsWith('file://') || url.startsWith('.')) {
     const resolvedURL  = resolveURL(parentURL||'', url)
@@ -85,21 +87,25 @@ export async function resolve (
     }
   } else {
     trace(`[resolved] default: ${url}`)
-    result = defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
+    result = await defaultResolve(url, { conditions, importAssertions, parentURL }, defaultResolve)
     if (result.url.startsWith('file://')) {
       result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
     }
   }
+
   if (!result.url) {
     throw new Error(`[@ganesha/node]: [from ${parentURL}] resolution failed: import '${url}'`)
   }
+
   if (!result.format) {
     trace(`[resolve] no format determined for: ${result.url}`)
     if (result.url && result.url.startsWith('file://')) {
       result.format = determineModuleFormat(fileURLToPath(result.url))
     }
   }
+
   trace(`[resolve] [from ${parentURL}] import '${url}' = ${result.url} (${result.format})`)
+
   return result
 }
 
@@ -114,18 +120,18 @@ export function makeResolverHelpful (defaultResolve) {
       if (e.code === 'ERR_MODULE_NOT_FOUND') {
         const notFoundModule = getNotFoundModule(e.message)
         if (notFoundModule) {
-          console.log('[@ganesha/node] Module not found:', notFoundModule)
+          console.error('[@ganesha/node] Module not found:', notFoundModule)
         }
         const notFoundPackage = getNotFoundPackage(e.message)
         if (notFoundPackage) {
-          console.log('[@ganesha/node] Package not found:', notFoundPackage)
+          console.error('[@ganesha/node] Package not found:', notFoundPackage)
           if (existsSync(notFoundPackage)) {
             e.notFoundPackage = notFoundPackage
             warnBrokenPackage(notFoundPackage)
           }
         }
       } else {
-        console.log('[@ganesha/node] Loader error:', e)
+        console.error('[@ganesha/node] Loader error:', e)
       }
       throw e
     }
@@ -134,17 +140,17 @@ export function makeResolverHelpful (defaultResolve) {
 
 const RE_CANNOT_FIND_MODULE  = /Cannot find module '(.+)'/
 function getNotFoundModule (message) {
-  const reNotFoundMatches = RE_CANNOT_FIND_MODULE.exec(message)
-  if (reNotFoundMatches) {
-    return reNotFoundMatches[1]
+  const matches = RE_CANNOT_FIND_MODULE.exec(message)
+  if (matches) {
+    return matches[1]
   }
 }
 
 const RE_CANNOT_FIND_PACKAGE = /Cannot find package '(.+)'/
 function getNotFoundPackage (message) {
-  const reNotFoundMatches = RE_CANNOT_FIND_MODULE.exec(message)
-  if (reNotFoundMatches) {
-    return reNotFoundMatches[1]
+  const matches = RE_CANNOT_FIND_MODULE.exec(message)
+  if (matches) {
+    return matches[1]
   }
 }
 
