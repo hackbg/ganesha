@@ -74,9 +74,15 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
     module:          ModuleKind.ESNext,
     ...sourceMapOptions
   }
-  trace(`[tscToMjs] ${fileName}`, compilerOptions)
+  trace(`[tscToMjs] ${fileName}`)//, compilerOptions)
   const { transpileModule } = require('typescript')
-  const result = transpileModule(code, { compilerOptions, fileName })
+  let result
+  try {
+    result = transpileModule(code, { compilerOptions, fileName })
+  } catch (e) {
+    console.error(`[tscToMjs] ${fileName} failed:`, e.message)
+    throw e
+  }
   const {
     outputText,
     diagnostics,
