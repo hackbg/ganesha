@@ -55,7 +55,7 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
     module: ModuleKind.CommonJS,
     ...sourceMapOptions
   }
-  trace(`[tscToCjs] ${fileName}`, compilerOptions)
+  trace(`[tscToCjs] ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   const {
     outputText,
@@ -74,7 +74,7 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
     module:          ModuleKind.ESNext,
     ...sourceMapOptions
   }
-  trace(`[tscToMjs] ${fileName}`)//, compilerOptions)
+  trace(`[tscToMjs] ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   let result
   try {
