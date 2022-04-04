@@ -5,7 +5,7 @@ import frontMatter from 'front-matter'
 
 import { parseString } from '@ganesha/core/parse.cjs'
 import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform.cjs'
-import { trace } from '@ganesha/core/trace.cjs'
+import { trace as _trace } from '@ganesha/core/trace.cjs'
 
 import { determineModuleFormat } from './determineModuleFormat.mjs'
 
@@ -18,7 +18,8 @@ export async function load (
     importAssertions
   }, defaultLoad
 ) {
-  trace(`[load] ${url}`)
+  const trace = (...args) => _trace('  LOAD', url, ...args)
+  trace()
 
   // Non-file imports (such as built-in modules)
   // are passed to the default loader.
@@ -57,8 +58,15 @@ export async function load (
     addSourceMap(id, map)
     source = compiled
   } else {
-    // All other file imports are passed to the default loader.
-    return defaultLoad(url, { format, importAssertions }, defaultLoad)
+    if (format) {
+      // Imports with known formats are passed to the default loader.
+      return await defaultLoad(url, { format, importAssertions }, defaultLoad)
+    } else {
+      // Imports with unknown formats are handled as data
+      format = 'module'
+      source = readFileSync(location, 'utf8')
+      source = `export default \`${source}\``
+    }
   }
 
   return { format, source }
@@ -84,6 +92,7 @@ export function installSourceMapSupport () {
 }
 
 export function addSourceMap (filename, sourceMap, loader) {
+  const trace = (...args) => _trace('  SMAP', filename, ...args)
   if (!sourceMaps[filename]) {
     trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
     sourceMaps[filename] = sourceMap

@@ -27,7 +27,7 @@ export function determineModuleFormat (location) {
         }
       }
     }
-  } else if ('.ts' === ext1) {
+  } else if ('.ts' === ext1 || '.js' === ext1) {
     return digForFormat(location)
   }
 }

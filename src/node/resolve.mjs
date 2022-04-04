@@ -2,7 +2,7 @@ import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
 import { existsSync } from 'fs'
 import { stat, realpath } from 'fs/promises'
 
-import { trace } from '@ganesha/core/trace.cjs'
+import { trace as _trace } from '@ganesha/core/trace.cjs'
 
 import { extensions } from './util.mjs'
 import { determineModuleFormat } from './determineModuleFormat.mjs'
@@ -18,6 +18,8 @@ export async function resolve (
 
   // TODO: resolve module sub-imports like '@foo/bar/index.ts'
   let result = { url: undefined, format: undefined }
+
+  const trace = (...args) => _trace('RSLV', url)
 
   switch (true) {
     case url.startsWith('file://'):
