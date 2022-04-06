@@ -1,3 +1,26 @@
+module.exports.main = function main ([node, ganesha, ...argv] = process.argv) {
+  const { settings, trace } = require('@ganesha/core')
+  trace(`[launch] PID ${process.pid} Node ${process.version}: ${JSON.stringify(settings)}`)
+  const {
+    initSupervisor,
+    initShim,
+    initStandalone
+  } = require('.')
+  if (settings.hide) (
+    process.argv = [node, ...argv] // remove Ganesha script
+  )
+  if (settings.live) {
+    trace(`[launch] Supervisor process will reload watched process on changes to imported modules`)
+    initSupervisor(argv)
+  } else if (settings.watched) {
+    trace(`[launch] Watched process will notify supervisor of what modules are imported`)
+    initShim(argv)
+  } else {
+    trace(`[launch] Standalone mode, no auto reloading.`)
+    initStandalone(argv)
+  }
+}
+
 // path resolver reexport
 const {resolve} = require('path')
 module.exports.resolve = resolve
