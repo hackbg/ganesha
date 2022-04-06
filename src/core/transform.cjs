@@ -44,7 +44,7 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
 const sourceMapOptions = {
   sourceMap:       true,
   inlineSources:   true,
-  inlineSourceMap: false
+  inlineSourceMap: true
 }
 
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
