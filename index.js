@@ -1,11 +1,6 @@
 module.exports.main = function main ([node, ganesha, ...argv] = process.argv) {
   const { settings, trace } = require('@ganesha/core')
   trace(`[launch] PID ${process.pid} Node ${process.version}: ${JSON.stringify(settings)}`)
-  const {
-    initSupervisor,
-    initShim,
-    initStandalone
-  } = require('.')
   if (settings.hide) (
     process.argv = [node, ...argv] // remove Ganesha script
   )
@@ -46,6 +41,8 @@ if (isLegacy()) {
 
 // arguments that need to be passed to Node to use Ganesha
 const nodeOptions = module.exports.nodeOptions = [
+  `--experimental-modules`,
+  `--experimental-wasm-modules`,
   // hide the experimental loader warning
   `--require=${module.exports.warnings}`,
   // https://nodejs.org/api/cli.html#--experimental-loadermodule
