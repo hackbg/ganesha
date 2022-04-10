@@ -53,6 +53,9 @@ async function runTests (suites, selected = []) {
         passed++
       } else {
         output += `${FAIL}  ${name}  ${data}\n`
+        if (data instanceof Error) {
+          output += ` ${data.stack.split('\n').slice(1).join('\n ')}\n`
+        }
         failed++
       }
     }
