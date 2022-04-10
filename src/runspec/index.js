@@ -25,9 +25,16 @@ async function runTests (suites, selected = []) {
     for (const [name, fn] of Object.entries(spec)) {
       if (name.length > longestName) longestName = name.length
       try {
-        tests[name] = () => Promise.resolve(fn(assert))
-          .then(data=>results[name] = [true, JSON.stringify(data)])
-          .catch(error=>results[name] = [false, error])
+        tests[name] = () => {
+          try {
+            const result = fn(assert)
+            return Promise.resolve(result)
+              .then(data=>results[name] = [true, JSON.stringify(data)])
+              .catch(error=>results[name] = [false, error])
+          } catch (error) {
+            results[name] = [false, error]
+          }
+        }
       } catch (error) {
         tests[name] = error.message
         results[name] = [false, error]
