@@ -7,7 +7,7 @@ importers:
       '@ganesha/core': workspace:^1.0.0
       '@ganesha/node': workspace:^2.0.0
       '@ganesha/node-legacy': workspace:^1.0.0
-      '@hackbg/komandi': ^2.0.0
+      '@hackbg/runspec': workspace:^1
       '@types/node': latest
       chokidar: ^3.5.3
       cross-spawn: ^7.0.3
@@ -22,7 +22,7 @@ importers:
       chokidar: 3.5.3
       cross-spawn: 7.0.3
     devDependencies:
-      '@hackbg/komandi': link:deps/toolbox/komandi
+      '@hackbg/runspec': link:deps/toolbox/runspec
       tap: 15.1.6
       vite: 2.8.4
       vsce: 2.7.0
@@ -33,8 +33,8 @@ importers:
       '@hackbg/kabinet': workspace:^1
       '@hackbg/komandi': workspace:^2
       '@hackbg/konzola': workspace:^1
+      '@hackbg/runspec': workspace:^1
       colors: ^1.4.0
-      dockerode: ^3.3.0
       exponential-backoff: ^3.1.0
       mkdirp: ^1.0.4
       open: ^8.0.2
@@ -52,8 +52,8 @@ importers:
       '@hackbg/kabinet': link:kabinet
       '@hackbg/komandi': link:komandi
       '@hackbg/konzola': link:konzola
+      '@hackbg/runspec': link:runspec
       colors: 1.4.0
-      dockerode: 3.3.1
       exponential-backoff: 3.1.0
       mkdirp: 1.0.4
       open: 8.4.0
@@ -69,8 +69,12 @@ importers:
 
   deps/toolbox/dokeres:
     specifiers:
+      '@hackbg/konzola': workspace:*
+      colors: ^1.4.0
       dockerode: ^3.3.1
     dependencies:
+      '@hackbg/konzola': link:../konzola
+      colors: 1.4.0
       dockerode: 3.3.1
 
   deps/toolbox/forkers:
@@ -106,6 +110,9 @@ importers:
       colors: 1.4.0
       prettyjson: github.com/slavaGanzin/prettyjson/d880b8af2973a1a1b277944c3b573d7d6a93ba8f
       table: 6.8.0
+
+  deps/toolbox/runspec:
+    specifiers: {}
 
   src/core:
     specifiers:
@@ -150,9 +157,6 @@ importers:
       '@ganesha/core': workspace:*
     dependencies:
       '@ganesha/core': link:../core
-
-  src/runspec:
-    specifiers: {}
 
   src/tsc:
     specifiers:

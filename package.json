@@ -1,25 +1,23 @@
 {
   "name": "@hackbg/ganesha",
   "version": "2.0.0",
-  "workspace": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hackbg/ganesha"
-  },
-  "dependencies": {
-    "@ganesha/core": "workspace:^1.0.0",
-    "@ganesha/node": "workspace:^2.0.0",
-    "@ganesha/node-legacy": "workspace:^1.0.0",
-    "@types/node": "latest",
-    "chokidar":    "^3.5.3",
-    "cross-spawn": "^7.0.3"
-  },
   "bin": {
     "ganesha-node": "ganesha-node"
   },
+  "main": "index.js",
+  "repository": {"type": "git", "url": "https://github.com/hackbg/ganesha"},
+  "dependencies": {
+    "@types/node": "latest",
+
+    "@ganesha/core":        "workspace:^1.0.0",
+    "@ganesha/node":        "workspace:^2.0.0",
+    "@ganesha/node-legacy": "workspace:^1.0.0",
+
+    "chokidar":    "^3.5.3",
+    "cross-spawn": "^7.0.3"
+  },
   "devDependencies": {
-    "@hackbg/komandi":  "^2.0.0",
-    "@ganesha/runspec": "workspace:*",
+    "@hackbg/runspec": "workspace:^1",
     "tap":  "^15.1.6",
     "vite": "^2.8.4",
     "vsce": "latest"
@@ -27,10 +25,10 @@
   "scripts": {
     "dev": "node dev.js"
   },
+  "workspace": true,
   "packages": [
     "./src/*",
     "./src/vsc/*",
     "./test"
-  ],
-  "main": "index.js"
+  ]
 }
