@@ -6,7 +6,7 @@ const { trace } = require('./trace.cjs')
 module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
   const dir = dirname(filename)
   const { target, jsxFactory, jsxFragment } = getOptions(dir)
-  format = format ?? inferPackageFormat(dir, filename)
+  format = format || inferPackageFormat(dir, filename)
   const loader = {
     '.js':  'js',
     '.jsx': 'jsx',
