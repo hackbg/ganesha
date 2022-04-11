@@ -1,6 +1,6 @@
 {
   "name": "@hackbg/ganesha",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "workspace": true,
   "repository": {
     "type": "git",
@@ -15,12 +15,12 @@
     "cross-spawn": "^7.0.3"
   },
   "bin": {
-    "ganesha-node": "ganesha-node",
-    "ganesha-tap": "ganesha-tap"
+    "ganesha-node": "ganesha-node"
   },
   "devDependencies": {
-    "@hackbg/komandi": "^2.0.0",
-    "tap": "^15.1.6",
+    "@hackbg/komandi":  "^2.0.0",
+    "@ganesha/runspec": "workspace:*",
+    "tap":  "^15.1.6",
     "vite": "^2.8.4",
     "vsce": "latest"
   },
