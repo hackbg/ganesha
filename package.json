@@ -17,12 +17,13 @@
     "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
-    "tap":  "^15.1.6",
+    "c8":   "^7.11.0",
     "vite": "^2.8.4",
     "vsce": "latest"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "cov":  "c8 --all -n src node test.js"
   },
   "workspace": true,
   "packages": [

@@ -31,3 +31,34 @@ for (const [language, args] of Object.entries({
   )
 
 }
+
+for (const [language, args] of Object.entries({
+
+  'CommonJS': [
+    '-r', '@ganesha/node-legacy/loader.cjs',
+    '-e', `process.exit(require('./examples/example_cjs.md'))`
+  ],
+
+  'ECMAScript': [
+    '--unhandled-rejections=throw',
+    '--experimental-loader', '@ganesha/node',
+    '--input-type=module',
+    '-e', `import('./examples/example_mjs.md').then(code=>process.exit(code.default))`
+  ],
+
+  'TypeScript': [
+    '--unhandled-rejections=throw',
+    '--experimental-loader', '@ganesha/node',
+    '--input-type=module',
+    '-e', `import('./examples/example_ts.md').then(code=>process.exit(code.default))`
+  ],
+
+})) {
+
+  const name = `Loader: identify literate ${language} from front matter`
+
+  module.exports[name] = async ({equal}) => equal(
+    require('child_process').spawnSync('node', args, context).status,
+    123
+  )
+}
