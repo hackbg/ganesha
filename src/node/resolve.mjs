@@ -19,7 +19,7 @@ export async function resolve (
   // TODO: resolve module sub-imports like '@foo/bar/index.ts'
   let result = { url: undefined, format: undefined }
 
-  const trace = (...args) => _trace('RSLV', url)
+  const trace = (...args) => _trace('RSLV', url, ...args)
 
   switch (true) {
     case url.startsWith('file://'):
@@ -74,7 +74,7 @@ export async function resolve (
         const realPath = await realpath(resolvedPath)
         trace(`[resolve path exact] realPath =`, resolvedPath)
         result.url    = pathToFileURL(realPath).href
-        result.format = determineModuleFormat(resolvedPath)
+        result.format = result.format || determineModuleFormat(resolvedPath)
         trace(`[resolve path exact] found ${result.url}, format: ${result.format}`)
       } else if (stats.isDirectory()) {
         trace(`[resolve path exact] found directory at ${resolvedURL}, using defaultResolve`)
@@ -112,7 +112,7 @@ export async function resolve (
       }
       const realPath = fulfilled[0].value
       result.url    = pathToFileURL(realPath).href
-      result.format = determineModuleFormat(realPath)
+      result.format = result.format || determineModuleFormat(realPath)
 
       async function tryVariant (variant) {
         try {

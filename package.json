@@ -17,13 +17,12 @@
     "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
-    "@hackbg/runspec": "workspace:^1",
     "tap":  "^15.1.6",
     "vite": "^2.8.4",
     "vsce": "latest"
   },
   "scripts": {
-    "dev": "node dev.js"
+    "test": "node test.js"
   },
   "workspace": true,
   "packages": [

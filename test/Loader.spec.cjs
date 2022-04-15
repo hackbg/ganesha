@@ -1,10 +1,9 @@
-const { test } = require('tap')
-const { spawnSync } = require('child_process')
+const context = { stdio: 'inherit', cwd: __dirname }
 
-const SCRIPTS = {
+for (const [language, args] of Object.entries({
 
   'CommonJS': [
-    '-r', '@ganesha/node/loader.cjs',
+    '-r', '@ganesha/node-legacy/loader.cjs',
     '-e', `process.exit(require('./examples/example.cjs.md'))`
   ],
 
@@ -22,10 +21,13 @@ const SCRIPTS = {
     '-e', `import('./examples/example.ts.md').then(code=>process.exit(code.default))`
   ],
 
-}
+})) {
 
-for (const [language, args] of Object.entries(SCRIPTS)) {
-  test(`Loader: support loading of ${language} modules`, async ({same}) => {
-    same(spawnSync('node', args, { stdio: 'inherit' }).status, 123)
-  })
+  const name = `Loader: support loading of ${language} modules`
+
+  module.exports[name] = async ({equal}) => equal(
+    require('child_process').spawnSync('node', args, context).status,
+    123
+  )
+
 }
