@@ -62,10 +62,14 @@ export async function load (
       // Imports with known formats are passed to the default loader.
       return await defaultLoad(url, { format, importAssertions }, defaultLoad)
     } else {
-      // Imports with unknown formats are handled as data
+      // Imports with other (unknown) formats are handled as data
       format = 'module'
       source = readFileSync(location, 'utf8')
-      source = `export default \`${source}\``
+      if ('.json' !== ext1) {
+        // If it's not JSON the data is quoted as a string
+        source = '`' + source + '`'
+      }
+      source = `export default ${source}`
     }
   }
 
