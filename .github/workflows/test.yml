@@ -18,15 +18,20 @@ jobs:
         with:
           version: 6.14.3
 
+      - name: Fetch sources
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          path: ./deps/ganesha
+
       - name: Create minimal project
         run: |
           ls -al
           echo '{}' > package.json
-          export COMMIT=$(git rev-parse HEAD)
-          pnpm add github:hackbg/ganesha#$COMMIT
+          pnpm add ./deps/ganesha
           ls -al node_modules
           pnpm i
-          node_modules/.bin/ganesha-node
+          pnpx ganesha-node
 
   test:
     name: Run tests & coverage
