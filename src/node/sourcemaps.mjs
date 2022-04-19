@@ -2,6 +2,7 @@ import { relative } from 'path'
 import { fileURLToPath } from 'url'
 
 import { trace as _trace } from '@ganesha/core/trace.cjs'
+import { settings } from '@ganesha/core/config.cjs'
 
 import sourceMapSupport from 'source-map-support'
 const  sourceMaps = {}
@@ -9,6 +10,7 @@ const  sourceMaps = {}
 let sourceMapSupportInstalled = false
 
 export function installSourceMapSupport () {
+  if (settings.noSourceMap) return
   if (sourceMapSupportInstalled) return
   sourceMapSupport.install({
     handleUncaughtExceptions: false,

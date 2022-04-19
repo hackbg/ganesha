@@ -2,6 +2,7 @@ const { dirname, extname } = require('path')
 const { readFileSync } = require('fs')
 const { joycon } = require('./config.cjs')
 const { trace } = require('./trace.cjs')
+const { settings } = require('./config.cjs')
 
 module.exports.esbuildToCjs = function esbuildToCjs (filename, code, format) {
   const dir = dirname(filename)
@@ -44,7 +45,7 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
 const sourceMapOptions = {
   sourceMap:       true,
   inlineSources:   true,
-  inlineSourceMap: false
+  inlineSourceMap: settings.noSourceMap // for coverage support
 }
 
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {

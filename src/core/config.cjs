@@ -1,8 +1,9 @@
 module.exports.settings = {
-  trace:   !!process.env['Ganesha_Trace'],
-  hide:    !!process.env['Ganesha_Hide'],
-  live:    !!process.env['Ganesha_Live'],
-  watched: !!process.env['Ganesha_Watched'],
+  trace:       !!process.env['Ganesha_Trace'],
+  hide:        !!process.env['Ganesha_Hide'],
+  live:        !!process.env['Ganesha_Live'],
+  watched:     !!process.env['Ganesha_Watched'],
+  noSourceMap: !!process.env['Ganesha_NoSourceMap'],
 }
 
 const { readFileSync } = require('fs')
