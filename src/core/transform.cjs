@@ -44,7 +44,7 @@ module.exports.esbuildToMjs = function esbuildToMjs (sourcefile, source, format)
 const sourceMapOptions = {
   sourceMap:       true,
   inlineSources:   true,
-  inlineSourceMap: true
+  inlineSourceMap: false
 }
 
 module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
@@ -57,11 +57,7 @@ module.exports.tscToCjs = function tscToCjs (fileName, code, format) {
   }
   trace(`T2C ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
-  const {
-    outputText,
-    diagnostics,
-    sourceMapText
-  } = transpileModule(code, { compilerOptions, fileName })
+  const { outputText, diagnostics, sourceMapText } = transpileModule(code, { compilerOptions, fileName })
   printWarnings(diagnostics)
   return { id: fileName, compiled: outputText, map: sourceMapText }
 }
@@ -83,11 +79,7 @@ module.exports.tscToMjs = function tscToMjs (fileName, code, format) {
     console.error(`   T2M compile ${fileName} to ESM failed:`, e.message)
     throw e
   }
-  const {
-    outputText,
-    diagnostics,
-    sourceMapText
-  } = result
+  const { outputText, diagnostics, sourceMapText } = result
   printWarnings(diagnostics)
   return { id: fileName, compiled: outputText, map: sourceMapText }
 }

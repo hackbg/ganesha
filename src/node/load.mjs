@@ -8,8 +8,8 @@ import { tscToMjs, esbuildToMjs } from '@ganesha/core/transform.cjs'
 import { trace as _trace } from '@ganesha/core/trace.cjs'
 
 import { determineModuleFormat } from './determineModuleFormat.mjs'
+import { installSourceMapSupport, addSourceMap } from './sourcemaps.mjs'
 
-let sourceMapSupportInstalled = false
 installSourceMapSupport()
 
 export async function load (
@@ -47,14 +47,16 @@ export async function load (
     source = parseString(source)
     if ('.ts' === ext2 || attributes.literate === 'typescript') {
       // And if the code in the Markdown file is TS, compile it to JS:
-      const { id, compiled, map } = tscToMjs(location, source, format)
+      const transformed = tscToMjs(location, source, format)
+      const { id, compiled, map } = transformed
       addSourceMap(id, map)
       source = compiled
     }
   } else if ('.ts' === ext1) {
     // When loading a TS file, compile it to JS:
     source = readFileSync(location, 'utf8')
-    const { id, compiled, map } = tscToMjs(location, source, format)
+    const transformed = tscToMjs(location, source, format)
+    const { id, compiled, map } = transformed
     addSourceMap(id, map)
     source = compiled
   } else {
@@ -74,31 +76,4 @@ export async function load (
   }
 
   return { format, source }
-}
-
-import sourceMapSupport from 'source-map-support'
-const  sourceMaps = {}
-
-export function installSourceMapSupport () {
-  if (sourceMapSupportInstalled) return
-  sourceMapSupport.install({
-    handleUncaughtExceptions: false,
-    environment:              'node',
-    retrieveSourceMap (url) {
-      if (sourceMaps[url]) {
-        return { url, map: sourceMaps[url], }
-      } else {
-        return null
-      }
-    }
-  })
-  sourceMapSupportInstalled = true
-}
-
-export function addSourceMap (filename, sourceMap, loader) {
-  const trace = (...args) => _trace('  SMAP', filename, ...args)
-  if (!sourceMaps[filename]) {
-    trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
-    sourceMaps[filename] = sourceMap
-  }
 }
