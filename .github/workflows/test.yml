@@ -22,7 +22,8 @@ jobs:
         run: |
           ls -al
           echo '{}' > package.json
-          pnpm add github:hackbg/ganesha
+          export COMMIT=$(git rev-parse HEAD)
+          pnpm add github:hackbg/ganesha#$COMMIT
           ls -al node_modules
           pnpm i
           node_modules/.bin/ganesha-node
@@ -30,6 +31,9 @@ jobs:
   test:
     name: Run tests & coverage
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14, 16, 17]
     steps:
 
       - name: Fetch sources
@@ -38,7 +42,7 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v2
-        with: { node-version: 17 }
+        with: { node-version: ${{ matrix.node }} }
 
       - name: Install PNPM and deps
         uses: pnpm/action-setup@v2.0.1
