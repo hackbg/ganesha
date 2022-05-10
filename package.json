@@ -1,6 +1,6 @@
 {
   "name": "@hackbg/ganesha",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "bin": {
     "ganesha-node": "ganesha-node"
   },

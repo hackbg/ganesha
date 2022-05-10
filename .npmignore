@@ -11,3 +11,9 @@ doc
 .gitattributes
 .github
 .gitmodules
+logo.png
+dev.js
+test.js
+pnpm-workspace.yaml
+pnpm-lock.yaml
+.vscode
