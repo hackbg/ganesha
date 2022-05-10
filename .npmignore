@@ -1,0 +1,13 @@
+*.tsbuildinfo
+*.vsix
+.nyc_output
+.pnpm-debug.log
+node_modules
+out
+coverage
+src
+test
+doc
+.gitattributes
+.github
+.gitmodules

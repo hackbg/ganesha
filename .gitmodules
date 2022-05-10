@@ -1,3 +1,0 @@
-[submodule "toolbox"]
-	path = deps/toolbox
-	url  = https://github.com/hackbg/toolbox
