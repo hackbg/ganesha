@@ -17,3 +17,6 @@ test.js
 pnpm-workspace.yaml
 pnpm-lock.yaml
 .vscode
+.vscodeignore
+README.md
+shell.nix
