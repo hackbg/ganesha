@@ -9,7 +9,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "@ganesha/core": "workspace:*",
+    "@ganesha/core": "workspace:^1.1",
     "@ganesha/node": "workspace:*"
   },
   "scripts": {

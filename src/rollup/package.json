@@ -2,6 +2,6 @@
   "name": "@ganesha/rollup",
   "version": "1.0.0",
   "dependencies": {
-    "@ganesha/core": "workspace:*"
+    "@ganesha/core": "workspace:^1.1"
   }
 }
