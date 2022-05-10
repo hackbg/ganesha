@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ganesha/core": "workspace:^1.1",
-    "@ganesha/node": "workspace:*"
+    "@ganesha/node": "workspace:^2.1"
   },
   "scripts": {
     "build": "tsc --outDir dist/ proxy.ts"
