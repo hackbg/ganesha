@@ -1,28 +1,42 @@
 #!/usr/bin/env node
-const fs = require('fs')
+/** This is the TypeScript Compiler launcher for Ganesha.
+  *
+  * In true Microsoft fashion, TypeScript is a non-extensible imperfect superset of JavaScript.
+  * There is no way to hook into the TypeScript compiler from the outside; the only way to apply
+  * the modifications needed to implement embedded TypeScript support is by patching readFileSync
+  * and modifying the code when it's first loaded.
+  *
+  * This is basically the same hack as vue-tsc from Volar, see:
+  *   https://github.com/johnsoncodehk/volar/blob/master/packages/vue-tsc/bin/vue-tsc.js
+  *
+  * Go figure! */
 
+const fs = require('fs')
 const readFileSync = fs.readFileSync
+
 const tscPath = require.resolve('typescript/lib/tsc')
 const proxy = require('path').resolve(__dirname, 'dist/proxy.js')
-
 fs.readFileSync = (...args) => {
+
   if (args[0] === tscPath) {
-    let tsc = readFileSync(...args);
+    let tsc = readFileSync(...args)
     tsc = tsc.replace(
       `function createIncrementalProgram(_a) {`,
-      `function createIncrementalProgram(_a) { console.error('incremental mode is not yet support'); throw 'incremental mode is not yet support';`,
-    );
+      `function createIncrementalProgram(_a) { console.error('ganesha-tsc: incremental mode is not yet support'); throw 'incremental mode is not yet support';`
+    )
     tsc = tsc.replace(
       `function createWatchProgram(host) {`,
-      `function createWatchProgram(host) { console.error('watch mode is not yet support'); throw 'watch mode is not yet support';`,
-    );
+      `function createWatchProgram(host) { console.error('ganesha-tsc: watch mode is not yet support'); throw 'watch mode is not yet support';`
+    )
     tsc = tsc.replace(
       `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) {`,
-      `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) { return require('${proxy}').createProgramProxy(...arguments);`,
-    );
-    return tsc;
+      `function createProgram(rootNamesOrOptions, _options, _host, _oldProgram, _configFileParsingDiagnostics) { return require('${proxy}').createProgramProxy(...arguments);`
+    )
+    return tsc
   }
-  return readFileSync(...args);
-};
 
-require(tscPath);
+  return readFileSync(...args)
+
+}
+
+require(tscPath)

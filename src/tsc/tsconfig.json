@@ -1,10 +1,10 @@
 {
-	"compilerOptions": {
-		"outDir": "out",
+  "compilerOptions": {
+    "outDir": "dist",
     "downlevelIteration": true
-	},
-	"exclude": [
-		"node_modules",
-		".vscode-test"
-	]
+  },
+  "exclude": [
+    "node_modules",
+    ".vscode-test"
+  ]
 }

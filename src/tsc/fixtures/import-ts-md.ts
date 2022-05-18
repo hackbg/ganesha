@@ -1,0 +1,1 @@
+import './standalone-ts-md'

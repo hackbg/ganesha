@@ -4,15 +4,16 @@
   "bin": {
     "ganesha-tsc": "./ganesha-tsc"
   },
-  "main": "loader.mjs",
-  "peerDependencies": {
-    "typescript": "*"
-  },
   "dependencies": {
     "@ganesha/core": "workspace:^1.1",
     "@ganesha/node": "workspace:^2.1"
   },
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "@hackbg/ganesha": "workspace:../.."
+  },
   "scripts": {
-    "build": "tsc --outDir dist/ proxy.ts"
+    "build": "tsc --outDir dist/ proxy.ts",
+    "test": "npm run build && ganesha-node README.md"
   }
 }
