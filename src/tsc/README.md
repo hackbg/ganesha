@@ -29,22 +29,22 @@ by Node.js.
 
 ## Implementation
 
-TODO: Describe the patches that are applied to TSC in order to fully support .TS.MD files.
-
-```
-// Normal:
-//    [tsc (self-contained)]
-// 
-// Patched:
-//    [tsc] -> [patch] -> [tsserverlibrary]
-```
-
 * The patch relies on the fact that `tsserverlibrary` and `tsc` mostly consist of the same code -
   they are (monolithic) JavaScript artifacts produced from the same (modular) TypeScript codebase.
 
   * The difference is that `tsserverlibrary` can be imported, while `tsc` is meant to be run.
     Therefore, when augmenting a function in `tsc`, the patch is implemented on top of the 
     identical function taken from `tsserverlibrary`, because it can't be taken from `tsc`.
+
+```
+/*
+ * Normal operation:
+ *    [tsc (self-contained)]
+ * 
+ * With the patch:
+ *    [tsc] -> [patch] -> [tsserverlibrary]
+ */
+```
 
 * **Entrypoint patch:** The entry point for the patch is `createProgram`.
   This is one of three `tsc` entrypoints, the other two being `createIncrementalProgram`
@@ -78,6 +78,8 @@ TODO: Describe the patches that are applied to TSC in order to fully support .TS
     the extra code will try the new extensions such as `.ts.md`, `.js.md`, `.md`
     (with `literate:` in the front matter), etc.
 
+    * [ ] TODO: support other `.ts.md` extensions
+
 * **Host patch**
 
   * The host is the interface to the underlying filesystem.
@@ -90,6 +92,8 @@ TODO: Describe the patches that are applied to TSC in order to fully support .TS
 
   * The `getScriptFileNames` function is overridden to also include files with
     the `.ts.ms` extension. 
+
+    * [ ] TODO: support other `.ts.md` extensions
 
 * **Program patch**
 
