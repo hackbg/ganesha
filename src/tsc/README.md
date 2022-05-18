@@ -31,6 +31,68 @@ by Node.js.
 
 TODO: Describe the patches that are applied to TSC in order to fully support .TS.MD files.
 
+```
+// Normal:
+//    [tsc (self-contained)]
+// 
+// Patched:
+//    [tsc] -> [patch] -> [tsserverlibrary]
+```
+
+* The patch relies on the fact that `tsserverlibrary` and `tsc` mostly consist of the same code -
+  they are (monolithic) JavaScript artifacts produced from the same (modular) TypeScript codebase.
+
+  * The difference is that `tsserverlibrary` can be imported, while `tsc` is meant to be run.
+    Therefore, when augmenting a function in `tsc`, the patch is implemented on top of the 
+    identical function taken from `tsserverlibrary`, because it can't be taken from `tsc`.
+
+* **Entrypoint patch:** The entry point for the patch is `createProgram`.
+  This is one of three `tsc` entrypoints, the other two being `createIncrementalProgram`
+  and `createWatchProgram`. Just like in Volar, those two are disabled, making incremental
+  and watched compilation unavailable.
+
+  * The contents of `createProgram` are replaced by a call to `createProgramProxy`.
+    It does the following:
+
+    * Apply the **compiler patch** to `ts: ts.TypeScript`, the compiler instance
+
+    * Apply the **host patch** to `options.host`, which must be present and have
+      a `readDirectory` property for the patch to work.
+
+    * Apply the **program patch** to a `ts.Program` instance obtained through
+      `ts.createLanguageService(host).getProgram`.
+
+      * This is a roundabout way to call the original `getProgram` - probably because
+        that way we get the program's `host` property populated for free by `createLanguageService`
+
+    * Apply **the program patch** to the `ts.Program` instance.
+
+    * With the **compiler patch**, **host patch**, and **program patch** in place,
+      all subsequent operations by `tsc` will be aware of literate modules, and "see"
+      TS "comments" and "code" where the TSMD source contains "prose" and "embedded code blocks".
+
+* **Compiler patch**
+
+  * This patch augments `TypeScript#resolveModuleName`. If the original function
+    fails to resolve the module specifier with the extensions known to baseline TypeScript,
+    the extra code will try the new extensions such as `.ts.md`, `.js.md`, `.md`
+    (with `literate:` in the front matter), etc.
+
+* **Host patch**
+
+  * The host is the interface to the underlying filesystem.
+    It provides the source code snapshots that are compiled.
+
+  * The `getScriptSnapshot` function is augmented to read `.ts.md` files
+    directly in their transformed form, using `parseString` from `@ganesha/core`.
+
+  * The `allowNonTsExtensions` and `allowJs` options are enforced to be always `true`.
+
+  * The `getScriptFileNames` function is overridden to also include files with
+    the `.ts.ms` extension. 
+
+* **Program patch**
+
 ## Test suite
 
 The remainder of this document is dedicated to test cases that validate the
@@ -53,9 +115,9 @@ const run = (command, ...args) => {
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const tsc       = `${resolve(__dirname, 'ganesha-tsc')}`
-const noEmit    = '--noEmit'
-const fixture   = (...args) => resolve(__dirname, 'fixtures', ...args)
+const tsc        = `${resolve(__dirname, 'ganesha-tsc')}`
+const tscOptions = ['--lib', 'es5', '--typeRoots', 'undefined', '--noEmit']
+const fixture    = (...args) => resolve(__dirname, 'fixtures', ...args)
 ```
 
 ## Examples
@@ -63,35 +125,35 @@ const fixture   = (...args) => resolve(__dirname, 'fixtures', ...args)
 ### Baseline: TS checking continues as normal
 
 ```javascript
-run(tsc, noEmit, fixture('standalone-ts.ts'))
+run(tsc, ...tscOptions, fixture('standalone-ts.ts'))
 ```
 
 ### Baseline: TS/TS imports continue as normal
 
 ```javascript
-run(tsc, noEmit, fixture('import-ts.ts'))
+run(tsc, ...tscOptions, fixture('import-ts.ts'))
 ```
 
 ### Feature: TSMD is type-checked
 
 ```javascript
-run(tsc, noEmit, fixture('standalone-ts-md.ts.md'))
+run(tsc, ...tscOptions, fixture('standalone-ts-md.ts.md'))
 ```
 
 ### Feature: TSMD can import TS
 
 ```javascript
-run(tsc, noEmit, fixture('import-ts.ts.md'))
+run(tsc, ...tscOptions, fixture('import-ts.ts.md'))
 ```
 
 ### Feature: TS can import TSMD
 
 ```javascript
-run(tsc, noEmit, fixture('import-ts-md.ts'))
+run(tsc, ...tscOptions, fixture('import-ts-md.ts'))
 ```
 
 ### Feature: TSMD can import TSMD
 
 ```javascript
-run(tsc, noEmit, fixture('import-ts-md.ts.md'))
+run(tsc, ...tscOptions, fixture('import-ts-md.ts.md'))
 ```

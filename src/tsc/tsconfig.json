@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "lib": []
   },
   "exclude": [
     "node_modules",
