@@ -33,14 +33,14 @@ export function patchCompiler (ts: TypeScript): TypeScript {
     redirectedReference?: ts.ResolvedProjectReference,
     resolutionMode?:      ts.ModuleKind.CommonJS | ts.ModuleKind.ESNext
   ): ts.ResolvedModuleWithFailedLookupLocations {
-    trace('patched resolveModuleName', moduleName, 'from', containingFile)
     const result = resolveModuleName(
       moduleName, containingFile, compilerOptions,
       host, cache, redirectedReference, resolutionMode
     )
+    trace('patched resolveModuleName', moduleName, 'from', containingFile, '->', result.resolvedModule)
     if (result.resolvedModule === undefined) {
       /* TODO: try all extensions here */
-      const literateModule = resolve(dirname(containingFile), moduleName)
+      const literateModule = resolve(dirname(containingFile), moduleName + '.ts.md')
       if (host.fileExists(literateModule)) {
         Object.assign(result, {
           resolvedModule: {
@@ -183,17 +183,6 @@ export function patchProgram (
       return result
     },
     GANESHA: true,
-    //getSourceFile (fileName: string) {
-      //if (!fileName.includes('node_modules')) {
-        //console.log('program.getSourceFile', fileName)
-      //}
-      //return getSourceFile(fileName)
-    //},
-    //getSourceFiles (...args: any) {
-      //console.log('program.getSourceFiles', args, Object.keys(getSourceFiles()))
-      //console.log(getSourceFiles.toString())
-      //throw new Error('program.getSourceFiles: unimplemented')
-    //},
   })
 }
 

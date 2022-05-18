@@ -155,3 +155,16 @@
         //isExternalLibraryImport: undefined
       //}))
     //}
+
+//// FROM PROGRAM PATCH
+    //getSourceFile (fileName: string) {
+      //if (!fileName.includes('node_modules')) {
+        //console.log('program.getSourceFile', fileName)
+      //}
+      //return getSourceFile(fileName)
+    //},
+    //getSourceFiles (...args: any) {
+      //console.log('program.getSourceFiles', args, Object.keys(getSourceFiles()))
+      //console.log(getSourceFiles.toString())
+      //throw new Error('program.getSourceFiles: unimplemented')
+    //},
