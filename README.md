@@ -6,7 +6,7 @@ and by that path have I sought wisdom ever since."
                                    - William Buck
 ```
 
-![](./doc/logo.svg)
+![](./doc/logo-centered.svg)
 
 # Ganesha
 
