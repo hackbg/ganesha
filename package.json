@@ -23,6 +23,7 @@
   },
   "scripts": {
     "test:node": "cd src/node && npm test",
+    "cov:node":  "cd src/node && npm run cov",
     "test": "cd test && node run.js",
     "cov":  "c8 --all -n src node test.js"
   },

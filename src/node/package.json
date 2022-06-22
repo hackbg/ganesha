@@ -11,9 +11,11 @@
     "source-map-support": "^0.5.20"
   },
   "devDependencies": {
-    "@hackbg/runspec": "^2.2"
+    "@hackbg/runspec": "^2.2",
+    "c8":              "^7.11.0"
   },
   "scripts": {
-    "test": "runspec ganesha-node.spec.mjs"
+    "test": "runspec ganesha-node.spec.mjs",
+    "cov":  "c8 runspec ganesha-node.spec.mjs"
   }
 }
