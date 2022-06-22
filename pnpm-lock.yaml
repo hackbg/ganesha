@@ -9,7 +9,6 @@ importers:
       '@ganesha/node-legacy': workspace:^1
       '@hackbg/runspec': ^2.2
       '@types/node': latest
-      c8: ^7.11.0
       chokidar: ^3.5.3
       cross-spawn: ^7.0.3
       vite: ^2.8.4
@@ -23,7 +22,6 @@ importers:
       cross-spawn: 7.0.3
     devDependencies:
       '@hackbg/runspec': 2.2.1
-      c8: 7.11.0
       vite: 2.8.4
       vsce: 2.9.2
 
@@ -40,6 +38,7 @@ importers:
   src/node:
     specifiers:
       '@ganesha/core': workspace:^1.1
+      '@hackbg/runspec': ^2.2
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
@@ -50,6 +49,8 @@ importers:
       joycon: 3.1.1
       jsonc-parser: 3.0.0
       source-map-support: 0.5.21
+    devDependencies:
+      '@hackbg/runspec': 2.2.1
 
   src/node-legacy:
     specifiers:
@@ -134,7 +135,7 @@ importers:
       '@ganesha/core': workspace:*
       '@ganesha/node': workspace:*
       '@ganesha/rollup': workspace:*
-      '@hackbg/runspec': ^2.1
+      '@hackbg/runspec': ^2.2
       mkdirp: ^1.0.4
       tap: ^15.0.9
       typescript: ^4.7
@@ -143,14 +144,11 @@ importers:
       '@ganesha/core': link:../src/core
       '@ganesha/node': link:../src/node
       '@ganesha/rollup': link:../src/rollup
-      '@hackbg/runspec': 2.1.0
+      '@hackbg/runspec': 2.2.1
       mkdirp: 1.0.4
       tap: 15.1.6_typescript@4.7.4
       typescript: 4.7.4
       vite: 2.7.13
-
-  test/examples/example:
-    specifiers: {}
 
 packages:
 
@@ -358,15 +356,6 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bcoe/v8-coverage/0.2.3:
-    resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
-    dev: true
-
-  /@hackbg/runspec/2.1.0:
-    resolution: {integrity: sha512-hpTSPPlspbUl6bhT5p6XCI51L11wf840eRU7Xt1ZO3LBF6fr+AVRG39a/qpLSt9MBF0Z7hnORrfxgxsoJVjd9A==}
-    hasBin: true
-    dev: true
-
   /@hackbg/runspec/2.2.1:
     resolution: {integrity: sha512-A0RNBw6GqdTv3PMhGuuWN3U6E4EfwvgViQBqAS4EIJBR0izu4L63cAirVEg+JVlh0VIiuO6EKEocRoyrlb9qlQ==}
     hasBin: true
@@ -424,10 +413,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: false
-
-  /@types/istanbul-lib-coverage/2.0.4:
-    resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
-    dev: true
 
   /@types/node/18.0.0:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
@@ -629,25 +614,6 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    dev: true
-
-  /c8/7.11.0:
-    resolution: {integrity: sha512-XqPyj1uvlHMr+Y1IeRndC2X5P7iJzJlEJwBpCdBbq2JocXOgJfr+JVfJkyNMGROke5LfKrhSFXGFXnwnRJAUJw==}
-    engines: {node: '>=10.12.0'}
-    hasBin: true
-    dependencies:
-      '@bcoe/v8-coverage': 0.2.3
-      '@istanbuljs/schema': 0.1.3
-      find-up: 5.0.0
-      foreground-child: 2.0.0
-      istanbul-lib-coverage: 3.2.0
-      istanbul-lib-report: 3.0.0
-      istanbul-reports: 3.1.4
-      rimraf: 3.0.2
-      test-exclude: 6.0.0
-      v8-to-istanbul: 8.1.1
-      yargs: 16.2.0
-      yargs-parser: 20.2.9
     dev: true
 
   /caching-transform/4.0.0:
@@ -1426,14 +1392,6 @@ packages:
       path-exists: 4.0.0
     dev: true
 
-  /find-up/5.0.0:
-    resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
-    engines: {node: '>=10'}
-    dependencies:
-      locate-path: 6.0.0
-      path-exists: 4.0.0
-    dev: true
-
   /findit/2.0.0:
     resolution: {integrity: sha1-ZQnwEmr0wXhVHPqZOU4DLhOk1W4=}
     dev: true
@@ -1920,13 +1878,6 @@ packages:
       p-locate: 4.1.0
     dev: true
 
-  /locate-path/6.0.0:
-    resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
-    engines: {node: '>=10'}
-    dependencies:
-      p-locate: 5.0.0
-    dev: true
-
   /lodash.flattendeep/4.4.0:
     resolution: {integrity: sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=}
     dev: true
@@ -2184,25 +2135,11 @@ packages:
       p-try: 2.2.0
     dev: true
 
-  /p-limit/3.1.0:
-    resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      yocto-queue: 0.1.0
-    dev: true
-
   /p-locate/4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
     engines: {node: '>=8'}
     dependencies:
       p-limit: 2.3.0
-    dev: true
-
-  /p-locate/5.0.0:
-    resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
-    engines: {node: '>=10'}
-    dependencies:
-      p-limit: 3.1.0
     dev: true
 
   /p-map/3.0.0:
@@ -2596,11 +2533,6 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  /source-map/0.7.3:
-    resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
-    engines: {node: '>= 8'}
-    dev: true
-
   /spawn-wrap/2.0.0:
     resolution: {integrity: sha512-EeajNjfN9zMnULLwhZZQU3GWBoFNkbngTUPfaawT4RkMiviTxcX0qfhVbGey39mfctfDHkWtuecgQ8NJcyQWHg==}
     engines: {node: '>=8'}
@@ -2949,15 +2881,6 @@ packages:
     hasBin: true
     dev: true
 
-  /v8-to-istanbul/8.1.1:
-    resolution: {integrity: sha512-FGtKtv3xIpR6BYhvgH8MI/y78oT7d8Au3ww4QIxymrCtZEh5b8gCw2siywE+puhEmuWKDtmfrvF5UlB298ut3w==}
-    engines: {node: '>=10.12.0'}
-    dependencies:
-      '@types/istanbul-lib-coverage': 2.0.4
-      convert-source-map: 1.8.0
-      source-map: 0.7.3
-    dev: true
-
   /verror/1.10.0:
     resolution: {integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=}
     engines: {'0': node >=0.6.0}
@@ -3173,11 +3096,6 @@ packages:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
     dev: true
 
-  /y18n/5.0.8:
-    resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
-    engines: {node: '>=10'}
-    dev: true
-
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
@@ -3198,11 +3116,6 @@ packages:
       decamelize: 1.2.0
     dev: true
 
-  /yargs-parser/20.2.9:
-    resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
-    engines: {node: '>=10'}
-    dev: true
-
   /yargs/15.4.1:
     resolution: {integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==}
     engines: {node: '>=8'}
@@ -3220,19 +3133,6 @@ packages:
       yargs-parser: 18.1.3
     dev: true
 
-  /yargs/16.2.0:
-    resolution: {integrity: sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==}
-    engines: {node: '>=10'}
-    dependencies:
-      cliui: 7.0.4
-      escalade: 3.1.1
-      get-caller-file: 2.0.5
-      require-directory: 2.1.1
-      string-width: 4.2.3
-      y18n: 5.0.8
-      yargs-parser: 20.2.9
-    dev: true
-
   /yauzl/2.10.0:
     resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
     dependencies:
@@ -3244,9 +3144,4 @@ packages:
     resolution: {integrity: sha512-phENi2PLiHnHb6QBVot+dJnaAZ0xosj7p3fWl+znIjBDlnMI2PsZCJZ306BPTFOaHf5qdDEI8x5qFrSOBN5vrw==}
     dependencies:
       buffer-crc32: 0.2.13
-    dev: true
-
-  /yocto-queue/0.1.0:
-    resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
-    engines: {node: '>=10'}
     dev: true

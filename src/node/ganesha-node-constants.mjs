@@ -30,14 +30,14 @@ export const FORMATS = {
 }
 
 export const LITERATE = {
-  COMMONJS:   'commonjs'
+  COMMONJS:   'commonjs',
   MODULE:     'module',
   ECMASCRIPT: 'ecmascript',
   TYPESCRIPT: 'typescript',
 }
 
 export const FILES = {
-  PACKAGE_JSON:  'package.json'
+  PACKAGE_JSON:  'package.json',
   TSCONFIG_JSON: 'tsconfig.json'
 }
 
@@ -49,7 +49,7 @@ export const RE = {
   LITERATE_TYPESCRIPT: /\.ts.md$/,
 
   CANNOT_FIND_MODULE:  /Cannot find module '(.+)'/,
-  CANNOT_FIND_PACKAGE: /Cannot find package '(.+)'/
+  CANNOT_FIND_PACKAGE: /Cannot find package '(.+)'/,
 
   /** Matches an import specifier pointing to a path
     * inside a non-namespaced node module.

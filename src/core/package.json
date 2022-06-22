@@ -1,7 +1,7 @@
 {
   "name":    "@ganesha/core",
   "version": "1.1.0",
-  "main":    "core.cjs",
+  "main":    "ganesha-core.cjs",
   "dependencies": {
     "joycon":       "^3.0.1",
     "jsonc-parser": "^3.0.0",

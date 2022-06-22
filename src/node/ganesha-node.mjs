@@ -1,9 +1,9 @@
 import { basename, extname, dirname, resolve, relative } from 'path'
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
-import { stat, realpath, readFile, realpath } from 'fs/promises'
+import { stat, realpath, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 
-import { _trace, parseString, tscToMjs, esbuildToMjs, settings } from '@ganesha/core'
+import { trace as _trace, parseString, tscToMjs, esbuildToMjs, settings } from '@ganesha/core'
 
 import JSONC from 'jsonc-parser'
 import frontMatter from 'front-matter'
@@ -18,7 +18,7 @@ import {
   FILES,
   RE,
   ERR
-} from './ganesha-node-constants'
+} from './ganesha-node-constants.mjs'
 
 const sourceMaps = {}
 let sourceMapSupportInstalled = false
