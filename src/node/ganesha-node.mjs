@@ -1,7 +1,7 @@
-import { basename, extname, dirname, resolve as resolvePath, relative } from 'path'
-import { readFileSync, existsSync, statSync, realpathSync } from 'fs'
-import { stat, realpath } from 'fs/promises'
+import { basename, extname, dirname, resolve, relative } from 'path'
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
+import { stat, realpath, readFile, realpath } from 'fs/promises'
+import { existsSync } from 'fs'
 
 import { _trace, parseString, tscToMjs, esbuildToMjs, settings } from '@ganesha/core'
 
@@ -20,33 +20,37 @@ import {
   ERR
 } from './ganesha-node-constants'
 
-const warnedBrokenPackages = []
 const sourceMaps = {}
 let sourceMapSupportInstalled = false
 installSourceMapSupport()
 
+/** Node's experimental ESM loader API consists of two functions, "resolve" and "load". */
 export {
   ganeshaResolve as resolve,
   ganeshaLoad    as load
 }
 
-/** TODO: resolve module sub-imports like '@foo/bar/index.ts' */
+/** This function takes over Node's module resolver, adding support for
+  * identifying TypeScript and Literate modules as importable.
+  * TODO: resolve module sub-imports like '@foo/bar/index.ts' */
 async function ganeshaResolve (url, context, defaultResolve) {
   const trace = (...args) => _trace('RSLV', url, ...args)
-  const { conditions, importAssertions, parentURL } = context
   defaultResolve = makeResolverHelpful(defaultResolve)
-  let result = { url: undefined, format: undefined }
 
+  // Populate the result object.
+  let result
   if (url.startsWith(PREFIXES.FILE_URL) || url.startsWith(PREFIXES.RELATIVE_PATH)) {
-    await resolvePathImport()
+    result = await ganeshaResolvePath(url, context, defaultResolve)
   } else {
-    await resolveDefaultImport()
+    result = await ganeshaResolvePackage(url, context, defaultResolve)
   }
 
+  // If the result object still has no URL, resolution failed.
   if (!result.url) {
     throw ERR.E01(parentUrl, url)
   }
 
+  // If the result object has no format, try to determine the format.
   if (!result.format) {
     trace(`[resolve] no format determined for: ${result.url}`)
     if (result.url && result.url.startsWith('file://')) {
@@ -54,94 +58,115 @@ async function ganeshaResolve (url, context, defaultResolve) {
     }
   }
 
+  // Return the resolution result.
   trace(`[resolve] [from ${parentURL}] import '${url}' = ${result.url} (${result.format})`)
   return result
-
-  async function resolveDefaultImport () {
-    trace(`[resolve default] ${url}`)
-    result = await defaultResolve(url, context, defaultResolve)
-    if (result.url.startsWith(PREFIXES.FILE_URL)) {
-      result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
-    }
-  }
-
-  async function resolvePathImport () {
-
-    const resolvedURL  = resolveURL(parentURL||'', url)
-    const resolvedPath = fileURLToPath(resolvedURL)
-    trace(`[resolve path] `, resolvedPath)
-    try {
-      await resolvePathImportExact()
-    } catch (e) {
-      if (e.code === 'ENOENT') {
-        await resolvePathImportFuzzy()
-      } else {
-        throw e
-      }
-    }
-
-    async function resolvePathImportExact () {
-      const stats = await stat(resolvedPath)
-      if (stats.isFile()) {
-        const realPath = await realpath(resolvedPath)
-        trace(`[resolve path exact] realPath =`, resolvedPath)
-        result.url    = pathToFileURL(realPath).href
-        result.format = result.format || determineModuleFormat(resolvedPath)
-        trace(`[resolve path exact] found ${result.url}, format: ${result.format}`)
-      } else if (stats.isDirectory()) {
-        trace(`[resolve path exact] found directory at ${resolvedURL}, using defaultResolve`)
-        result = defaultResolve(url, context, defaultResolve)
-      } else {
-        throw ERR.E02()
-      }
-    }
-
-    async function resolvePathImportFuzzy () {
-      trace(`[resolve path fuzzy] no ${resolvedPath}, trying extensions`)
-      const variants = EXTENSION_ORDER.map(extension=>`${resolvedPath}${extension}`)
-      let found = false
-      const results = await Promise.allSettled(variants.map(tryVariant))
-      const rejected = results.filter(x=>x.status==='rejected').map(x=>x.reason)
-      for (const [variant, error] of rejected) {
-        console.warn(
-          `[@ganesha/node] Trying import "${variant}" failed with error: ${error.message}`
-        )
-      }
-      const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
-      if (fulfilled.length > 1) {
-        throw ERR.E03(resolvedPath, fulfilled)
-      }
-      if (fulfilled.length < 1) {
-        throw ERR.E04(url, parentUrl) 
-      }
-      const realPath = fulfilled[0].value
-      result.url    = pathToFileURL(realPath).href
-      result.format = result.format || determineModuleFormat(realPath)
-
-      async function tryVariant (variant) {
-        try {
-          const realPath = await realpath(variant)
-          trace(`[resolve path fuzzy] exists: ${realPath}`)
-          return realPath
-        } catch (error) {
-          if (error.code === 'ENOENT') {
-            //trace(`[resolve fuzzy] does not exist: ${variant}`)
-            return null
-          } else {
-            throw [variant, error]
-          }
-        }
-      }
-    }
-  }
-
 }
 
-// This function wraps the `defaultResolve` callback
-// provided by Node to add more helpful error messages.
-function makeResolverHelpful (defaultResolve) {
+/** This function finds the filesystem path corresponding to an import statement. */
+export async function ganeshaResolvePath (url, context, defaultResolve) {
+  const trace = (...args) => _trace('RSLV PATH', url, ...args)
+  const resolvedURL  = resolveURL(context.parentURL||'', url)
+  const resolvedPath = fileURLToPath(resolvedURL)
+  trace(`[resolve path] `, resolvedPath)
+  let result
+  try {
+    // Try an exact match
+    result = await ganeshaResolvePathExact(url, context, defaultResolve)
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      // If there is no exact match, try adding different extensions.
+      result = await ganeshaResolvePathFuzzy(url, context, defaultResolve)
+    } else {
+      throw e
+    }
+  }
+  return result
+}
+
+/** This function tries to find a filesystem path that exactly matches an import statement,
+  * i.e. when an extension is present. */
+export async function ganeshaResolvePathExact (url, context, defaultResolve) {
+  let result = { url: undefined, format: undefined }
+  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
+  const stats = await stat(resolvedPath)
+  if (stats.isFile()) {
+    const realPath = await realpath(resolvedPath)
+    trace(`[resolve path exact] realPath =`, resolvedPath)
+    result.url    = pathToFileURL(realPath).href
+    result.format = result.format || determineModuleFormat(resolvedPath)
+    trace(`[resolve path exact] found ${result.url}, format: ${result.format}`)
+  } else if (stats.isDirectory()) {
+    trace(`[resolve path exact] found directory at ${resolvedPath}, using defaultResolve`)
+    result = defaultResolve(url, context, defaultResolve)
+  } else {
+    throw ERR.E02()
+  }
+  return result
+}
+
+/** This function tries to find a filesystem path corresponding to an import statement
+  * that does not contain an extension. It tries all known extensions in parallel. */
+export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
+  let result = { url: undefined, format: undefined }
+  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
+  trace(`[resolve path fuzzy] no ${resolvedPath}, trying extensions`)
+  const variants = EXTENSION_ORDER.map(extension=>`${resolvedPath}${extension}`)
+  let found = false
+  const results = await Promise.allSettled(variants.map(async function tryVariant (variant) {
+    try {
+      const realPath = await realpath(variant)
+      trace(`[resolve path fuzzy] exists: ${realPath}`)
+      return realPath
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        //trace(`[resolve fuzzy] does not exist: ${variant}`)
+        return null
+      } else {
+        throw [variant, error]
+      }
+    }
+  }))
+  const rejected = results.filter(x=>x.status==='rejected').map(x=>x.reason)
+  for (const [variant, error] of rejected) {
+    console.warn(
+      `[@ganesha/node] Trying import "${variant}" failed with error: ${error.message}`
+    )
+  }
+  const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
+  if (fulfilled.length > 1) {
+    throw ERR.E03(resolvedPath, fulfilled)
+  }
+  if (fulfilled.length < 1) {
+    throw ERR.E04(url, parentUrl) 
+  }
+  const realPath = fulfilled[0].value
+  result.url    = pathToFileURL(realPath).href
+  result.format = result.format || determineModuleFormat(realPath)
+  return result
+}
+
+export async function ganeshaResolvePackage (url, context, defaultResolve) {
+  const trace = (...args) => _trace('RSLV PKG ', url, ...args)
+  trace(`[resolve pkg] ${url}`)
+  const result = await defaultResolve(url, context, defaultResolve)
+  if (result.url.startsWith(PREFIXES.FILE_URL)) {
+    result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
+  }
+  return result
+}
+
+/** This function wraps the `defaultResolve` callback
+  * provided by Node to add more helpful error messages. */
+export function makeResolverHelpful (defaultResolve) {
+  // This function needs to be called only once; subsequent calls are no-ops.
   if (defaultResolve.isHelpful) return defaultResolve
-  return Object.assign(function helpfulDefaultResolve (...args) {
+
+  const warnedBrokenPackages = []
+  helpfulDefaultResolve.isHelpful = true
+  return helpfulDefaultResolve
+
+  function helpfulDefaultResolve (...args) {
     try {
       return defaultResolve(...args)
     } catch (e) {
@@ -163,29 +188,29 @@ function makeResolverHelpful (defaultResolve) {
       }
       throw e
     }
-  }, { isHelpful: true })
-}
-
-function getNotFoundPackage (message) {
-  const matches = RE.CANNOT_FIND_PACKAGE.exec(message)
-  if (matches) {
-    return matches[1]
   }
-}
 
-// This function warns about packages with missing entrypoints
-// (as defined by the "main" property of their package.json),
-// but only once per package.
-function warnBrokenPackage (notFoundPackage) {
-  if (!warnedBrokenPackages.includes(notFoundPackage)) {
-    console.warn(
-      `The default module resolver failed to find ${notFoundPackage}, ` +
-      `but the directory exists. This usually means that the file `     +
-      `specified by the "main" key of ${notFoundPackage}package.json ` +
-      `does not exist, which is a sign that the package either requires a `  +
-      `build step, or is misconfigured.\n`
-    )
-    warnedBrokenPackages.push(notFoundPackage)
+  function getNotFoundPackage (message) {
+    const matches = RE.CANNOT_FIND_PACKAGE.exec(message)
+    if (matches) {
+      return matches[1]
+    }
+  }
+
+  // This function warns about packages with missing entrypoints
+  // (as defined by the "main" property of their package.json),
+  // but only once per package.
+  function warnBrokenPackage (notFoundPackage) {
+    if (!warnedBrokenPackages.includes(notFoundPackage)) {
+      console.warn(
+        `The default module resolver failed to find ${notFoundPackage}, ` +
+        `but the directory exists. This usually means that the file `     +
+        `specified by the "main" key of ${notFoundPackage}package.json ` +
+        `does not exist, which is a sign that the package either requires a `  +
+        `build step, or is misconfigured.\n`
+      )
+      warnedBrokenPackages.push(notFoundPackage)
+    }
   }
 }
 
@@ -197,16 +222,15 @@ export async function ganeshaLoad (
   const trace = (...args) => _trace('  LOAD', url, ...args)
   trace()
 
-  // Non-file imports (such as built-in modules)
-  // are passed to the default loader.
+  // At this point all file imports should be converted to file URLs.
+  // Non-file imports (such as built-in modules) are passed to the default loader.
   if (!url.startsWith(PREFIXES.FILE_URL)) {
     return defaultLoad(url, { format, importAssertions }, defaultLoad)
   }
 
   // Everything else is fair game.
   let source
-  let result
-  const location = realpathSync(fileURLToPath(url))
+  const location = await realpath(fileURLToPath(url))
 
   // If live mode is enabled, add this file to the watcher:
   if (process.send) {
@@ -217,8 +241,23 @@ export async function ganeshaLoad (
   const ext1 = extname(location)
   const ext2 = extname(basename(url, ext1))
   if (EXTENSIONS.MD === ext1) {
+    await loadMarkdown()
+  } else if (EXTENSIONS.TS === ext1) {
+    await loadTypeScript()
+  } else {
+    if (format) {
+      // Imports with known formats are passed to the default loader.
+      return await defaultLoad(url, { format, importAssertions }, defaultLoad)
+    } else {
+      await loadData()
+    }
+  }
+
+  return { format, source }
+
+  async function loadMarkdown () {
     // When loading a Markdown file, extract the code from it:
-    source = readFileSync(location, 'utf8')
+    source = await readFile(location, 'utf8')
     const {attributes} = frontMatter(source)
     source = parseString(source)
     if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
@@ -228,33 +267,30 @@ export async function ganeshaLoad (
       addSourceMap(id, map)
       source = compiled
     }
-  } else if (EXTENSIONS.TS === ext1) {
+  }
+
+  async function loadTypeScript () {
     // When loading a TS file, compile it to JS:
-    source = readFileSync(location, 'utf8')
+    source = await readFile(location, 'utf8')
     const transformed = tscToMjs(location, source, format)
     const { id, compiled, map } = transformed
     addSourceMap(id, map)
     source = compiled
-  } else {
-    if (format) {
-      // Imports with known formats are passed to the default loader.
-      return await defaultLoad(url, { format, importAssertions }, defaultLoad)
-    } else {
-      // Imports with other (unknown) formats are handled as data
-      format = FORMATS.MODULE
-      source = readFileSync(location, 'utf8')
-      if (EXTENSIONS.JSON !== ext1) {
-        // If it's not JSON the data is quoted as a string
-        source = '`' + source + '`'
-      }
-      source = `export default ${source}`
-    }
   }
 
-  return { format, source }
+  async function loadData () {
+    // Imports with other (unknown) formats are handled as data
+    format = FORMATS.MODULE
+    source = await readFile(location, 'utf8')
+    if (EXTENSIONS.JSON !== ext1) {
+      // If it's not JSON the data is quoted as a string
+      source = '`' + source + '`'
+    }
+    source = `export default ${source}`
+  }
 }
 
-export function determineModuleFormat (location) {
+export async function determineModuleFormat (location) {
   const ext1 = extname(location)
   if (MJS === ext1) return FORMATS.MODULE
   if (CJS === ext1) return FORMATS.COMMONJS
@@ -263,7 +299,7 @@ export function determineModuleFormat (location) {
     if (MJS === ext2) return FORMATS.MODULE
     if (CJS === ext2) return FORMATS.COMMONJS
     if (ext2) return digForFormat(location)
-    const content = readFileSync(location, 'utf8')
+    const content = await readFile(location, 'utf8')
     const {attributes} = frontMatter(content)
     if (attributes.literate) {
       if (attributes.literate === LITERATE.COMMONJS) return FORMATS.COMMONJS
@@ -275,17 +311,17 @@ export function determineModuleFormat (location) {
   }
 }
 
-export function digForFormat (location) {
+export async function digForFormat (location) {
   while (location !== dirname(location)) {
     location = dirname(location)
-    const packageJsonPath = resolvePath(location, FILES.PACKAGE_JSON)
+    const packageJsonPath = resolve(location, FILES.PACKAGE_JSON)
     if (existsSync(packageJsonPath)) {
-      const packageJson = JSON.parse(readFileSync(packageJsonPath, UTF8))
+      const packageJson = JSON.parse(await readFile(packageJsonPath, UTF8))
       if (packageJson.type === FORMATS.MODULE) return FORMATS.MODULE
     }
-    const tsconfigJsonPath = resolvePath(location, FILES.TSCONFIG_JSON)
+    const tsconfigJsonPath = resolve(location, FILES.TSCONFIG_JSON)
     if (existsSync(tsconfigJsonPath)) {
-      const tsconfigJson = JSONC.parse(readFileSync(tsconfigJsonPath, UTF8))
+      const tsconfigJson = JSONC.parse(await readFile(tsconfigJsonPath, UTF8))
       if (tsconfigJson.compilerOptions.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
       return FORMATS.MODULE
     }
