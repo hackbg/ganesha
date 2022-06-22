@@ -309,7 +309,7 @@ export async function ganeshaLoadTypeScript (location, format) {
   const { id, compiled, map } = transformed
   addSourceMap(id, map)
   source = compiled
-  return { sourc, format }
+  return { source, format }
 }
 
 export async function ganeshaLoadData (location, ext1) {
