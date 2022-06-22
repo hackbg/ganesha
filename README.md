@@ -24,8 +24,8 @@ intermediate compilation step (no more running `tsc` on every change!)
 `````markdown
 # My literate program
 
-This text will be ignored
-but this code will be executed:
+The text will be ignored
+and the code will be executed:
   
 ```typescript
 console.log("Hello world!")
@@ -35,6 +35,7 @@ console.log("Hello world!")
 ## Module loading
 
 Use `ganesha-node` to run a Node.js process with Ganesha support.
+* **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
 * This allows **TypeScript files** to be compiled on demand
   to the appropriate JavaScript module format.
 * **Markdown files** can be loaded as if they were regular source files.
