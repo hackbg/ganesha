@@ -1,4 +1,4 @@
 require('@hackbg/runspec')(
-  require('./test/index.js'),
+  require('./index.js'),
   process.argv.slice(2)
 )
