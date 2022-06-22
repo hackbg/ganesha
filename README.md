@@ -6,7 +6,7 @@ and by that path have I sought wisdom ever since."
                                    - William Buck
 ```
 
-![](./logo.png)
+![](./doc/logo.svg)
 
 # Ganesha
 
@@ -17,16 +17,11 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 </div>
 
-<table>
-<tr><td>
-
 ## File format
 
 Ganesha extracts [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)
 from Markdown files. It also supports loading regular TypeScript without an
 intermediate compilation step (no more running `tsc` on every change!)
-
-</td><td>
 
 `````markdown
 # My literate program
@@ -39,10 +34,6 @@ console.log("Hello world!")
 ```
 `````
 
-</td></tr>
-<tr><!--spacer--></tr>
-<tr><td>
-
 ## Module loading
 
 Use `ganesha-node` to run a Node.js process with Ganesha support.
@@ -51,24 +42,16 @@ Use `ganesha-node` to run a Node.js process with Ganesha support.
 * **Markdown files** can be loaded as if they were regular source files.
   The embedded code blocks are compiled and the surrounding text is ignored.
 
-</td><td>
-
 ```sh
 npm install --save @hackbg/ganesha
 ganesha-node my-typescript-program.ts
 ganesha-node my-literate-program.ts.md
 ```
 
-</td></tr>
-<tr><!--spacer--></tr>
-<tr><td>
-
 ## Frontend bundling
 
 Ganesha currently provides a [**Rollup plugin**](./src/rollup)
 that can be used in Rollup or Vite to compile literate modules for the browser.
-
-</td><td>
 
 `index.html`:
 ```html
@@ -89,27 +72,12 @@ import { defineConfig } from 'vite'
 import ganesha from '@ganesha/rollup'
 export default defineConfig({ plugins: [ ganesha() ] })
 ```
-  
-</td></tr>
-<tr><!--spacer--></tr>
-<tr><td>
 
 ## IDE integration
 
 **Help wanted!**
 
 **A language server** is currently in development.
-
-</td><td>
-
-(LSP sounds is a great idea,
-but I found the implementation
-to be obfuscated beyond belief)
-
-</td></tr>
-</table>
-
-<div align="center">
 
 ## Comparison with alternatives
 
@@ -125,5 +93,3 @@ to be obfuscated beyond belief)
 ## Known issues
 
 See [doc/GRIPES.md](./doc/GRIPES.md)
-
-</div>
