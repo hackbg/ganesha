@@ -65,9 +65,9 @@ export const RE = {
 }
 
 export const ERR = {
-  E01 (parentUrl, url) {
+  E01 (parentURL, url) {
     return new Error(
-      `[@ganesha/node]: [from ${parentURL}] resolution failed: import '${url}'`
+      `[@ganesha/node]: resolution failed: import '${url}' (from ${parentURL})`
     )
   },
   E02 () {

@@ -47,7 +47,7 @@ export async function ganeshaResolve (url, context, defaultResolve) {
 
   // If the result object still has no URL, resolution failed.
   if (!result.url) {
-    throw ERR.E01(parentUrl, url)
+    throw ERR.E01(context.parentURL, url)
   }
 
   // If the result object has no format, try to determine the format.
@@ -59,15 +59,14 @@ export async function ganeshaResolve (url, context, defaultResolve) {
   }
 
   // Return the resolution result.
-  trace(`[resolve] [from ${parentURL}] import '${url}' = ${result.url} (${result.format})`)
+  trace(`[resolve] [from ${context.parentURL}] import '${url}' = ${result.url} (${result.format})`)
   return result
 }
 
 /** This function finds the filesystem path corresponding to an import statement. */
 export async function ganeshaResolvePath (url, context, defaultResolve) {
   const trace = (...args) => _trace('RSLV PATH', url, ...args)
-  const resolvedURL  = resolveURL(context.parentURL||'', url)
-  const resolvedPath = fileURLToPath(resolvedURL)
+  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
   trace(`[resolve path] `, resolvedPath)
   let result
   try {
@@ -87,17 +86,18 @@ export async function ganeshaResolvePath (url, context, defaultResolve) {
 /** This function tries to find a filesystem path that exactly matches an import statement,
   * i.e. when an extension is present. */
 export async function ganeshaResolvePathExact (url, context, defaultResolve) {
+  const trace = (...args) => _trace('RSLV PATH EXACT', url, ...args)
   let result = { url: undefined, format: undefined }
   const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
   const stats = await stat(resolvedPath)
   if (stats.isFile()) {
     const realPath = await realpath(resolvedPath)
-    trace(`[resolve path exact] realPath =`, resolvedPath)
+    trace(`realPath =`, resolvedPath)
     result.url    = pathToFileURL(realPath).href
     result.format = result.format || determineModuleFormat(resolvedPath)
-    trace(`[resolve path exact] found ${result.url}, format: ${result.format}`)
+    trace(`found ${result.url}, format: ${result.format}`)
   } else if (stats.isDirectory()) {
-    trace(`[resolve path exact] found directory at ${resolvedPath}, using defaultResolve`)
+    trace(`found directory at ${resolvedPath}, using defaultResolve`)
     result = defaultResolve(url, context, defaultResolve)
   } else {
     throw ERR.E02()
@@ -108,15 +108,16 @@ export async function ganeshaResolvePathExact (url, context, defaultResolve) {
 /** This function tries to find a filesystem path corresponding to an import statement
   * that does not contain an extension. It tries all known extensions in parallel. */
 export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
+  const trace = (...args) => _trace('RSLV PATH FUZZY', url, ...args)
   let result = { url: undefined, format: undefined }
   const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  trace(`[resolve path fuzzy] no ${resolvedPath}, trying extensions`)
+  trace(`no ${resolvedPath}, trying extensions`)
   const variants = EXTENSION_ORDER.map(extension=>`${resolvedPath}${extension}`)
   let found = false
   const results = await Promise.allSettled(variants.map(async function tryVariant (variant) {
     try {
       const realPath = await realpath(variant)
-      trace(`[resolve path fuzzy] exists: ${realPath}`)
+      trace(`exists: ${realPath}`)
       return realPath
     } catch (error) {
       if (error.code === 'ENOENT') {
@@ -148,7 +149,7 @@ export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
 
 export async function ganeshaResolvePackage (url, context, defaultResolve) {
   const trace = (...args) => _trace('RSLV PKG ', url, ...args)
-  trace(`[resolve pkg] ${url}`)
+  trace(`${url}`)
   const result = await defaultResolve(url, context, defaultResolve)
   if (result.url.startsWith(PREFIXES.FILE_URL)) {
     result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
@@ -158,12 +159,12 @@ export async function ganeshaResolvePackage (url, context, defaultResolve) {
 
 export async function determineModuleFormat (location) {
   const ext1 = extname(location)
-  if (MJS === ext1) return FORMATS.MODULE
-  if (CJS === ext1) return FORMATS.COMMONJS
+  if (EXTENSIONS.MJS === ext1) return FORMATS.MODULE
+  if (EXTENSIONS.CJS === ext1) return FORMATS.COMMONJS
   const ext2 = extname(basename(location, ext1))
-  if (MD === ext1) {
-    if (MJS === ext2) return FORMATS.MODULE
-    if (CJS === ext2) return FORMATS.COMMONJS
+  if (EXTENSIONS.MD === ext1) {
+    if (EXTENSIONS.MJS === ext2) return FORMATS.MODULE
+    if (EXTENSIONS.CJS === ext2) return FORMATS.COMMONJS
     if (ext2) return await digForFormat(location)
     const content = await readFile(location, 'utf8')
     const {attributes} = frontMatter(content)
@@ -172,7 +173,7 @@ export async function determineModuleFormat (location) {
       if (attributes.literate === LITERATE.ECMASCRIPT) return FORMATS.MODULE
       return await digForFormat(location)
     }
-  } else if (TS === ext1 || JS === ext1) {
+  } else if (EXTENSIONS.TS === ext1 || EXTENSIONS.JS === ext1) {
     return await digForFormat(location)
   }
 
