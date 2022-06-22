@@ -33,7 +33,7 @@ export {
 /** This function takes over Node's module resolver, adding support for
   * identifying TypeScript and Literate modules as importable.
   * TODO: resolve module sub-imports like '@foo/bar/index.ts' */
-async function ganeshaResolve (url, context, defaultResolve) {
+export async function ganeshaResolve (url, context, defaultResolve) {
   const trace = (...args) => _trace('RSLV', url, ...args)
   defaultResolve = makeResolverHelpful(defaultResolve)
 
@@ -156,6 +156,45 @@ export async function ganeshaResolvePackage (url, context, defaultResolve) {
   return result
 }
 
+export async function determineModuleFormat (location) {
+  const ext1 = extname(location)
+  if (MJS === ext1) return FORMATS.MODULE
+  if (CJS === ext1) return FORMATS.COMMONJS
+  const ext2 = extname(basename(location, ext1))
+  if (MD === ext1) {
+    if (MJS === ext2) return FORMATS.MODULE
+    if (CJS === ext2) return FORMATS.COMMONJS
+    if (ext2) return await digForFormat(location)
+    const content = await readFile(location, 'utf8')
+    const {attributes} = frontMatter(content)
+    if (attributes.literate) {
+      if (attributes.literate === LITERATE.COMMONJS) return FORMATS.COMMONJS
+      if (attributes.literate === LITERATE.ECMASCRIPT) return FORMATS.MODULE
+      return await digForFormat(location)
+    }
+  } else if (TS === ext1 || JS === ext1) {
+    return await digForFormat(location)
+  }
+
+  async function digForFormat (location) {
+    while (location !== dirname(location)) {
+      location = dirname(location)
+      const packageJsonPath = resolve(location, FILES.PACKAGE_JSON)
+      if (existsSync(packageJsonPath)) {
+        const packageJson = JSON.parse(await readFile(packageJsonPath, UTF8))
+        if (packageJson.type === FORMATS.MODULE) return FORMATS.MODULE
+      }
+      const tsconfigJsonPath = resolve(location, FILES.TSCONFIG_JSON)
+      if (existsSync(tsconfigJsonPath)) {
+        const tsconfigJson = JSONC.parse(await readFile(tsconfigJsonPath, UTF8))
+        if (tsconfigJson.compilerOptions.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
+        return FORMATS.MODULE
+      }
+    }
+    return FORMATS.COMMONJS
+  }
+}
+
 /** This function wraps the `defaultResolve` callback
   * provided by Node to add more helpful error messages. */
 export function makeResolverHelpful (defaultResolve) {
@@ -221,112 +260,66 @@ export async function ganeshaLoad (
 ) {
   const trace = (...args) => _trace('  LOAD', url, ...args)
   trace()
-
   // At this point all file imports should be converted to file URLs.
   // Non-file imports (such as built-in modules) are passed to the default loader.
   if (!url.startsWith(PREFIXES.FILE_URL)) {
     return defaultLoad(url, { format, importAssertions }, defaultLoad)
   }
-
-  // Everything else is fair game.
-  let source
   const location = await realpath(fileURLToPath(url))
-
   // If live mode is enabled, add this file to the watcher:
-  if (process.send) {
-    process.send({"Ganesha_Watch": location})
-  }
-
-  // Count extensions from the back: `name.ext2.ext1`
+  if (process.send) process.send({"Ganesha_Watch": location})
+  // Extensions are counted from the back: `name.ext2.ext1`
   const ext1 = extname(location)
   const ext2 = extname(basename(url, ext1))
   if (EXTENSIONS.MD === ext1) {
-    await loadMarkdown()
+    // Files ending in .md are loaded as literate modules.
+    return await ganeshaLoadMarkdown(location, format, ext2)
   } else if (EXTENSIONS.TS === ext1) {
-    await loadTypeScript()
+    // Files ending in .ts are loaded as TypeScript modules.
+    return await ganeshaLoadTypeScript(location, format)
+  } else if (format) {
+    // Imports with known formats are passed to the default loader.
+    return await defaultLoad(url, { format, importAssertions }, defaultLoad)
   } else {
-    if (format) {
-      // Imports with known formats are passed to the default loader.
-      return await defaultLoad(url, { format, importAssertions }, defaultLoad)
-    } else {
-      await loadData()
-    }
+    // Imports with unspecified formats are loaded as data modules.
+    return await ganeshaLoadData(location, ext1)
   }
+}
 
-  return { format, source }
-
-  async function loadMarkdown () {
-    // When loading a Markdown file, extract the code from it:
-    source = await readFile(location, 'utf8')
-    const {attributes} = frontMatter(source)
-    source = parseString(source)
-    if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
-      // And if the code in the Markdown file is TS, compile it to JS:
-      const transformed = tscToMjs(location, source, format)
-      const { id, compiled, map } = transformed
-      addSourceMap(id, map)
-      source = compiled
-    }
-  }
-
-  async function loadTypeScript () {
-    // When loading a TS file, compile it to JS:
-    source = await readFile(location, 'utf8')
+export async function ganeshaLoadMarkdown (location, format, ext2) {
+  // When loading a Markdown file, extract the code from it:
+  let source = await readFile(location, 'utf8')
+  const {attributes} = frontMatter(source)
+  source = parseString(source)
+  if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
+    // And if the code in the Markdown file is TS, compile it to JS:
     const transformed = tscToMjs(location, source, format)
     const { id, compiled, map } = transformed
     addSourceMap(id, map)
     source = compiled
   }
-
-  async function loadData () {
-    // Imports with other (unknown) formats are handled as data
-    format = FORMATS.MODULE
-    source = await readFile(location, 'utf8')
-    if (EXTENSIONS.JSON !== ext1) {
-      // If it's not JSON the data is quoted as a string
-      source = '`' + source + '`'
-    }
-    source = `export default ${source}`
-  }
+  return { source, format }
 }
 
-export async function determineModuleFormat (location) {
-  const ext1 = extname(location)
-  if (MJS === ext1) return FORMATS.MODULE
-  if (CJS === ext1) return FORMATS.COMMONJS
-  const ext2 = extname(basename(location, ext1))
-  if (MD === ext1) {
-    if (MJS === ext2) return FORMATS.MODULE
-    if (CJS === ext2) return FORMATS.COMMONJS
-    if (ext2) return digForFormat(location)
-    const content = await readFile(location, 'utf8')
-    const {attributes} = frontMatter(content)
-    if (attributes.literate) {
-      if (attributes.literate === LITERATE.COMMONJS) return FORMATS.COMMONJS
-      if (attributes.literate === LITERATE.ECMASCRIPT) return FORMATS.MODULE
-      return digForFormat(location)
-    }
-  } else if (TS === ext1 || JS === ext1) {
-    return digForFormat(location)
-  }
+export async function ganeshaLoadTypeScript (location, format) {
+  // When loading a TS file, compile it to JS:
+  let source = await readFile(location, 'utf8')
+  const transformed = tscToMjs(location, source, format)
+  const { id, compiled, map } = transformed
+  addSourceMap(id, map)
+  source = compiled
+  return { sourc, format }
 }
 
-export async function digForFormat (location) {
-  while (location !== dirname(location)) {
-    location = dirname(location)
-    const packageJsonPath = resolve(location, FILES.PACKAGE_JSON)
-    if (existsSync(packageJsonPath)) {
-      const packageJson = JSON.parse(await readFile(packageJsonPath, UTF8))
-      if (packageJson.type === FORMATS.MODULE) return FORMATS.MODULE
-    }
-    const tsconfigJsonPath = resolve(location, FILES.TSCONFIG_JSON)
-    if (existsSync(tsconfigJsonPath)) {
-      const tsconfigJson = JSONC.parse(await readFile(tsconfigJsonPath, UTF8))
-      if (tsconfigJson.compilerOptions.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
-      return FORMATS.MODULE
-    }
+export async function ganeshaLoadData (location, ext1) {
+  // Imports with other (unknown) formats are handled as data
+  let source = await readFile(location, 'utf8')
+  if (EXTENSIONS.JSON !== ext1) {
+    // If it's not JSON the data is quoted as a string
+    source = '`' + source + '`'
   }
-  return FORMATS.COMMONJS
+  source = `export default ${source}`
+  return { source, format: FORMATS.MODULE }
 }
 
 export function installSourceMapSupport () {
@@ -355,13 +348,6 @@ export function addSourceMap (filename, sourceMap) {
     trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
     sourceMaps[filename] = sourceMap
   }
-}
-
-let align = 0
-export function mkTrace (prefix, ...args1) {
-  if (prefix.length > align) align = prefix.length
-  prefix = prefix.padEnd(align)
-  return (...args2) => _trace(prefix, ...args1, ...args2)
 }
 
 // based on https://github.com/nodejs/node/issues/30810
