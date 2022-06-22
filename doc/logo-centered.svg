@@ -5,7 +5,7 @@
    viewBox="0 0 1920 1080"
    version="1.1"
    id="svg27"
-   sodipodi:docname="logo.svg"
+   sodipodi:docname="logo-centered.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -21,9 +21,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="9.8383518"
-     inkscape:cx="1269.6741"
-     inkscape:cy="177.31629"
+     inkscape:zoom="0.61489699"
+     inkscape:cx="781.4317"
+     inkscape:cy="161.81572"
      inkscape:window-width="2560"
      inkscape:window-height="1440"
      inkscape:window-x="0"
@@ -92,7 +92,7 @@
   <g
      id="Ganesha-logo"
      clip-path="url(#clip-Ganesha-logo)"
-     transform="matrix(0.86158628,0,0,0.86158628,470.67031,-4.5471607)">
+     transform="matrix(1.0887779,0,0,1.0887779,341.639,-148.13708)">
     <g
        id="Group_144"
        data-name="Group 144"

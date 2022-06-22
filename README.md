@@ -6,12 +6,10 @@ and by that path have I sought wisdom ever since."
                                    - William Buck
 ```
 
-![](./doc/logo-centered.svg)
-
-# Ganesha
+![Ganesha](./doc/logo-centered.svg)
 
 **Tools for modern [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
-with ECMAScript-based languages and Markdown**
+with JS/TS and Markdown**
 
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
