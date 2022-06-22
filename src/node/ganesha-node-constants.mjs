@@ -88,3 +88,5 @@ export const ERR = {
     )
   }
 }
+
+export const UTF8 = 'utf8'

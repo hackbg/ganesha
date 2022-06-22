@@ -17,7 +17,8 @@ import {
   LITERATE,
   FILES,
   RE,
-  ERR
+  ERR,
+  UTF8
 } from './ganesha-node-constants.mjs'
 
 const sourceMaps = {}
@@ -54,7 +55,7 @@ export async function ganeshaResolve (url, context, defaultResolve) {
   if (!result.format) {
     trace(`[resolve] no format determined for: ${result.url}`)
     if (result.url && result.url.startsWith('file://')) {
-      result.format = determineModuleFormat(fileURLToPath(result.url))
+      result.format = await determineModuleFormat(fileURLToPath(result.url))
     }
   }
 
@@ -94,7 +95,7 @@ export async function ganeshaResolvePathExact (url, context, defaultResolve) {
     const realPath = await realpath(resolvedPath)
     trace(`realPath =`, resolvedPath)
     result.url    = pathToFileURL(realPath).href
-    result.format = result.format || determineModuleFormat(resolvedPath)
+    result.format = result.format || await determineModuleFormat(resolvedPath)
     trace(`found ${result.url}, format: ${result.format}`)
   } else if (stats.isDirectory()) {
     trace(`found directory at ${resolvedPath}, using defaultResolve`)
@@ -143,7 +144,7 @@ export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
   }
   const realPath = fulfilled[0].value
   result.url    = pathToFileURL(realPath).href
-  result.format = result.format || determineModuleFormat(realPath)
+  result.format = result.format || await determineModuleFormat(realPath)
   return result
 }
 
@@ -349,14 +350,4 @@ export function addSourceMap (filename, sourceMap) {
     trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
     sourceMaps[filename] = sourceMap
   }
-}
-
-// based on https://github.com/nodejs/node/issues/30810
-const {emitWarning} = process
-process.emitWarning = (warning, ...args) => {
-  if (typeof warning === 'string') {
-    if (warning.includes('experimental-loader')) return
-    if (warning.includes('Node.js specifier resolution in ESM is experimental')) return
-  }
-  return emitWarning(warning, ...args)
 }
