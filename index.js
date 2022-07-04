@@ -1,19 +1,28 @@
-module.exports.main = function main ([node, ganesha, ...argv] = process.argv) {
+/** Entry point of `ganesha-node` command. Launches Node.js with the appropriate augmentations */
+const main = module.exports.main = function main ([node, ganesha, ...argv] = process.argv) {
+
+  // Load settings and debug print function from core
   const { settings, trace } = require('@ganesha/core')
   trace(`[launch] PID ${process.pid} Node ${process.version}: ${JSON.stringify(settings)}`)
+
+  // Remove Ganesha from the command line of the process.
   if (settings.hide) (
     process.argv = [node, ...argv] // remove Ganesha script
   )
-  if (settings.live) {
-    trace(`[launch] Supervisor process will reload watched process on changes to imported modules`)
-    initSupervisor(argv)
-  } else if (settings.watched) {
-    trace(`[launch] Watched process will notify supervisor of what modules are imported`)
-    initShim(argv)
-  } else {
-    trace(`[launch] Standalone mode, no auto reloading.`)
-    initStandalone(argv)
+
+  // Launch the process in the appropriate mode as specified by the settings.
+  switch (true) {
+    case settings.live:
+      trace(`[launch] Supervisor process will reload watched process on changes to imported modules`)
+      return initSupervisor(argv)
+    case settings.watched:
+      trace(`[launch] Watched process will notify supervisor of what modules are imported`)
+      return initShim(argv)
+    default:
+      trace(`[launch] Standalone mode, no auto reloading.`)
+      return initStandalone(argv)
   }
+
 }
 
 // path resolver reexport
@@ -25,23 +34,11 @@ module.exports.spawn     = require('cross-spawn').spawn
 module.exports.spawnSync = require('cross-spawn').sync
 module.exports.fork      = require('child_process').fork
 
-// ES module loader API changes in Node 16
-function isLegacy () {
-  return Number(process.versions.node.split('.')[0]) < 16
-}
-if (isLegacy()) {
-  // use @ganesha/node-legacy for <16
-  module.exports.loader   = require.resolve('@ganesha/node-legacy/loader.mjs')
-  module.exports.warnings = require.resolve('@ganesha/node-legacy/warning.cjs')
-} else {
-  // use @ganesha/node for 16+
-  module.exports.loader   = require.resolve('@ganesha/node')
-  module.exports.warnings = require.resolve('@ganesha/node/ganesha-warn.cjs')
-}
-
 // arguments that need to be passed to Node to use Ganesha
 const nodeOptions = module.exports.nodeOptions = [
-  `--experimental-modules`,
+  // https://nodejs.org/dist/latest-v16.x/docs/api/packages.html#resolving-user-conditions
+  '--conditions=ganesha',
+  // https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#wasm-modules
   `--experimental-wasm-modules`,
   // hide the experimental loader warning
   `--require=${module.exports.warnings}`,
@@ -51,7 +48,30 @@ const nodeOptions = module.exports.nodeOptions = [
   '--experimental-specifier-resolution=node',
 ]
 
-function initSupervisor (argv) {
+// ES module loader API changes in Node 16
+function isLegacy () {
+  return Number(process.versions.node.split('.')[0]) < 16
+}
+if (isLegacy()) {
+  // use @ganesha/node-legacy for <16
+  module.exports.loader   = require.resolve('@ganesha/node-legacy/loader.mjs')
+  module.exports.warnings = require.resolve('@ganesha/node-legacy/warning.cjs')
+  nodeOptions.unshift('--experimental-modules')
+} else {
+  // use @ganesha/node for 16+
+  module.exports.loader   = require.resolve('@ganesha/node')
+  module.exports.warnings = require.resolve('@ganesha/node/ganesha-warn.cjs')
+}
+
+const initStandalone = module.exports.initStandalone = function initStandalone (argv) {
+  // spawn Node.js with Ganesha loader enabled
+  const args = [ ...nodeOptions, ...argv ]
+  const opts = { stdio: 'inherit' }
+  const proc = module.exports.spawnSync(process.execPath, args, opts)
+  process.exit(proc.status)
+}
+
+const initSupervisor = module.exports.initSupervisor = function initSupervisor (argv) {
 
   process.title = 'Ganesha Live Supervisor'
 
@@ -96,9 +116,8 @@ function initSupervisor (argv) {
   }
 
 }
-module.exports.initSupervisor = initSupervisor
 
-function initShim (argv) {
+const initShim = module.exports.initShim = function initShim (argv) {
   process.title = 'Ganesha Live Shim'
   // spawn Node.js with Ganesha loader enabled
   const args = [ ...nodeOptions, ...argv ]
@@ -116,16 +135,6 @@ function initShim (argv) {
   })
   //process.exit(proc.status)
 }
-module.exports.initShim = initShim
-
-function initStandalone (argv) {
-  // spawn Node.js with Ganesha loader enabled
-  const args = [ ...nodeOptions, ...argv ]
-  const opts = { stdio: 'inherit' }
-  const proc = module.exports.spawnSync(process.execPath, args, opts)
-  process.exit(proc.status)
-}
-module.exports.initStandalone = initStandalone
 
 function onExit (code, signal, pid) {
   if (pid) pid = `${pid} `
