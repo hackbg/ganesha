@@ -103,8 +103,8 @@ to compile literate modules for the browser.
 <script type="module" src="./script"></script>
 ```
 
-<!-- script.ts.md -->
 `````markdown
+<!-- script.ts.md -->
 This is an example literate frontend script:
 ```typescript
 console.log('Hello, world!')
