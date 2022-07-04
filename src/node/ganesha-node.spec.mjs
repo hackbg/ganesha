@@ -18,7 +18,7 @@ import { parentURL } from '../../.fixtures/index.mjs'
 
 const GaneshaNode = {
   async 'resolve' () {
-    await ganeshaResolve('', { parentURL }, ()=>({url:''}))
+    await ganeshaResolve('../src/node', { parentURL }, ()=>({url:''}))
   },
   async 'resolvePath' () {
     await ganeshaResolvePath('', { parentURL }, ()=>({}))

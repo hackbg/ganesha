@@ -68,29 +68,35 @@ export async function ganeshaResolve (url, context, defaultResolve) {
 export async function ganeshaResolvePath (url, context, defaultResolve) {
   const trace = (...args) => _trace('RSLV PATH', url, ...args)
   const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  trace(`[resolve path] `, resolvedPath)
-  let result
-  try {
+  trace(resolvedPath)
+  return (
     // Try an exact match
-    result = await ganeshaResolvePathExact(url, context, defaultResolve)
-  } catch (e) {
-    if (e.code === 'ENOENT') {
-      // If there is no exact match, try adding different extensions.
-      result = await ganeshaResolvePathFuzzy(url, context, defaultResolve)
-    } else {
-      throw e
-    }
-  }
-  return result
+    await ganeshaResolvePathExact(url, context, defaultResolve) ||
+    // If there is no exact match, try adding different extensions.
+    await ganeshaResolvePathFuzzy(url, context, defaultResolve)
+  )
 }
 
 /** This function tries to find a filesystem path that exactly matches an import statement,
   * i.e. when an extension is present. */
 export async function ganeshaResolvePathExact (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV PATH EXACT', url, ...args)
+  const trace = (...args) => _trace('RSLV PATH EXACT', context.parentURL, '->', url, ...args)
   let result = { url: undefined, format: undefined }
+  // Convert URL to filesystem path
   const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  const stats = await stat(resolvedPath)
+  // Get info about the file at the specified path
+  let stats
+  try {
+    stats = await stat(resolvedPath)
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      // If it doesnt exist, return false so caller knows to try different extensions next
+      return false
+    } else {
+      // All other errors are unexpected and should be rethrown
+      throw e
+    }
+  }
   if (stats.isFile()) {
     const realPath = await realpath(resolvedPath)
     trace(`realPath =`, resolvedPath)
@@ -140,7 +146,7 @@ export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
     throw ERR.E03(resolvedPath, fulfilled)
   }
   if (fulfilled.length < 1) {
-    throw ERR.E04(url, parentUrl) 
+    throw ERR.E04(url, context.parentURL, variants)
   }
   const realPath = fulfilled[0].value
   result.url    = pathToFileURL(realPath).href

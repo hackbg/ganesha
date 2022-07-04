@@ -80,7 +80,7 @@ export const ERR = {
       + fulfilled.map(x=>x.value).join('\n')
     )
   },
-  E04 (url, parentURL) {
+  E04 (url, parentURL, variants) {
     throw new Error(
       `[@ganesha/node] Failed to resolve import:\n  "${url}" (from ${parentURL})`
       + `\nTried the following paths:\n  `
