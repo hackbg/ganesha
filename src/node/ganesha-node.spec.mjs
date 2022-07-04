@@ -1,3 +1,5 @@
+import { TODO } from '@hackbg/runspec'
+
 import {
   ganeshaResolve,
   ganeshaResolvePath,
@@ -18,6 +20,7 @@ import { parentURL } from '../../.fixtures/index.mjs'
 
 const GaneshaNode = {
   async 'resolve' () {
+    throw TODO
     await ganeshaResolve('../src/node', { parentURL }, ()=>({url:''}))
   },
   async 'resolvePath' () {
@@ -41,12 +44,15 @@ const GaneshaNode = {
     await ganeshaLoad('', {}, ()=>({}))
   },
   async 'loadMarkdown' () {
+    throw TODO
     await ganeshaLoadMarkdown('', '', '')
   },
   async 'loadTypeScript' () {
+    throw TODO
     await ganeshaLoadTypeScript('', '')
   },
   async 'loadData' () {
+    throw TODO
     await ganeshaLoadData('', '')
   },
   async 'installSourceMapSupport' () {

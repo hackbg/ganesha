@@ -10,7 +10,7 @@ on:
 jobs:
 
   sanity-check:
-    name: Check that the library can be installed
+    name: Check that the library can be installed and CLI tool runs
     runs-on: ubuntu-latest
     steps:
       - name: Install PNPM
@@ -34,11 +34,11 @@ jobs:
           pnpx ganesha-node
 
   test:
-    name: Run tests & coverage
+    name: Run tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 14, 16, 17]
+        node: [16, 18]
     steps:
 
       - name: Fetch sources
@@ -59,7 +59,7 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Run tests
-        run: pnpm -w dev test all
+        run: pnpm test:node
 
       #- name: Coverage
         #run: pnpm run coverage
