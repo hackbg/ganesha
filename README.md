@@ -24,9 +24,9 @@ to run a Node.js process with Ganesha support.
 **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
 
 ```sh
-npm i --save @hackbg/ganesha
-node_modules/.bin/ganesha-node my-typescript-program.ts
-node_modules/.bin/ganesha-node my-literate-program.ts.md
+npm i -g @hackbg/ganesha
+ganesha-node my-typescript-program.ts
+ganesha-node my-literate-program.ts.md
 ```
 
 ## What it does
