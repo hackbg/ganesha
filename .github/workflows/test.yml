@@ -29,7 +29,7 @@ jobs:
           echo '{}' > package.json
           touch pnpm-workspace.yaml
           pnpm add -W ./deps/ganesha
-          pnpm i --force
+          pnpm --no-prefer-frozen-lockfile
           pnpx ganesha-node
 
   test:
