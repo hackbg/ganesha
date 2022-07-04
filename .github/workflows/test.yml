@@ -26,11 +26,11 @@ jobs:
 
       - name: Create minimal project
         run: |
-          echo '{}' > package.json
+          echo '{"scripts":{"hello":"ganesha-node"}}' > package.json
           touch pnpm-workspace.yaml
           pnpm add -w ./deps/ganesha
           pnpm i --no-frozen-lockfile
-          pnpx ganesha-node
+          node_modules/.bin/ganesha-node -e 'console.log("hello world")'
 
   test:
     name: Run tests
