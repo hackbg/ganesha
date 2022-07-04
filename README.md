@@ -17,12 +17,12 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 </div>
 
-## Basic usage
+## How to use
 
-Use `ganesha-node` to run a Node.js process with Ganesha support. **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
+Install `@hackbg/ganesha` and use the `ganesha-node` command
+to run a Node.js process with Ganesha support.
+**Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
 
-* Ganesha allows Node.js to load **TypeScript files**,
-  compiling them on demand to the appropriate JavaScript module format.
 * Ganesha allows Node.js to load **Markdown files** that contain embedded
   JavaScript or TypeScript. The code is treated as a single module, and the
   text is converted to comments.
@@ -33,11 +33,29 @@ node_modules/.bin/ganesha-node my-typescript-program.ts
 node_modules/.bin/ganesha-node my-literate-program.ts.md
 ```
 
-## File format
+## What it does
 
-Ganesha extracts [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)
-from Markdown files. It also supports loading regular TypeScript without an
-intermediate compilation step (no more running `tsc` on every change!)
+### Compile TypeScript on demand
+
+Having to run `tsc` on every change is a speed bump.
+Ganesha allows Node.js to load **TypeScript files**,
+compiling them on demand to the appropriate JavaScript module format.
+
+```typescript
+const hello = (what: string) => console.log("hello", what)
+hello("world")
+```
+
+### Run code that is embedded in Markdown
+
+Automatically generated documentation is often insufficient,
+and when your code and docs live in different places,
+it's easy to overlook writing high-level documentation.
+
+Ganesha allows Node.js to load **Markdown files** by extracting
+the contents of [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks).
+This is an implementation of Don Knuth's [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
+concept, using the tools of the Web age - Markdown and JS/TS.
 
 `````markdown
 # My literate program
@@ -50,10 +68,11 @@ console.log("Hello world!")
 ```
 `````
 
-## Frontend bundling
+### Frontend bundling of literate modules
 
-Ganesha currently provides a [**Rollup plugin**](./src/rollup)
-that can be used in Rollup or Vite to compile literate modules for the browser.
+Ganesha provides a [**Rollup plugin**](./src/rollup)
+that can be used in [Rollup](https://www.rollupjs.org/guide/en/) or [Vite](https://vitejs.dev/)
+to compile literate modules for the browser.
 
 `index.html`:
 ```html
