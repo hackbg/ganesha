@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@ganesha/core': workspace:^1.1
-      '@ganesha/node': workspace:^2.1
+      '@ganesha/node': workspace:^2.2.2
       '@ganesha/node-legacy': workspace:^1
       '@hackbg/runspec': ^2.2
       '@types/node': latest
