@@ -17,6 +17,22 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 </div>
 
+## Basic usage
+
+Use `ganesha-node` to run a Node.js process with Ganesha support. **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
+
+* Ganesha allows Node.js to load **TypeScript files**,
+  compiling them on demand to the appropriate JavaScript module format.
+* Ganesha allows Node.js to load **Markdown files** that contain embedded
+  JavaScript or TypeScript. The code is treated as a single module, and the
+  text is converted to comments.
+
+```sh
+npm i --save @hackbg/ganesha
+node_modules/.bin/ganesha-node my-typescript-program.ts
+node_modules/.bin/ganesha-node my-literate-program.ts.md
+```
+
 ## File format
 
 Ganesha extracts [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks)
@@ -28,26 +44,11 @@ intermediate compilation step (no more running `tsc` on every change!)
 
 The text will be ignored
 and the code will be executed:
-  
+
 ```typescript
 console.log("Hello world!")
 ```
 `````
-
-## Module loading
-
-Use `ganesha-node` to run a Node.js process with Ganesha support.
-* **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
-* This allows **TypeScript files** to be compiled on demand
-  to the appropriate JavaScript module format.
-* **Markdown files** can be loaded as if they were regular source files.
-  The embedded code blocks are compiled and the surrounding text is ignored.
-
-```sh
-npm install --save @hackbg/ganesha
-ganesha-node my-typescript-program.ts
-ganesha-node my-literate-program.ts.md
-```
 
 ## Frontend bundling
 
