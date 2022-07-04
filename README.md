@@ -48,8 +48,26 @@ import { hello } from './hello'
 hello('world')
 ```
 
+```package.json
+{
+  "type": "module",
+  "exports": {
+    "ganesha": "./main.ts",
+    "default": "./dist/main.js"
+  },
+  "devDependencies": {
+    "@hackbg/ganesha": "^2",
+    "typescript":      "^4"
+  }
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "start": "ganesha-node ./hello.ts"
+  }
+}
+```
+
 ```sh
-ganesha-node main.ts # hello world!
+npm start # no need to run tsc unless you're publishing to NPM!
 ```
 
 ### Run code that is embedded in Markdown
