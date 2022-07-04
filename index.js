@@ -34,21 +34,6 @@ module.exports.spawn     = require('cross-spawn').spawn
 module.exports.spawnSync = require('cross-spawn').sync
 module.exports.fork      = require('child_process').fork
 
-// arguments that need to be passed to Node to use Ganesha
-const nodeOptions = module.exports.nodeOptions = [
-  ...(isLegacy() ? ['--experimental-modules'] : []),
-  // https://nodejs.org/dist/latest-v16.x/docs/api/packages.html#resolving-user-conditions
-  '--conditions=ganesha',
-  // https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#wasm-modules
-  `--experimental-wasm-modules`,
-  // hide the experimental loader warning
-  `--require=${module.exports.warnings}`,
-  // https://nodejs.org/api/cli.html#--experimental-loadermodule
-  `--experimental-loader=${module.exports.loader}`,
-  // https://nodejs.org/api/cli.html#--experimental-specifier-resolutionmode
-  '--experimental-specifier-resolution=node',
-]
-
 /** The ES module loader API was changed in Node 16 */
 function isLegacy () {
   const [major, minor, patch] = process.versions.node.split('.')
@@ -66,6 +51,21 @@ if (isLegacy()) {
   module.exports.loader   = require.resolve('@ganesha/node')
   module.exports.warnings = require.resolve('@ganesha/node/ganesha-warn.cjs')
 }
+
+/** Arguments that need to be passed to Node to enable Ganesha */
+const nodeOptions = module.exports.nodeOptions = [
+  ...(isLegacy() ? ['--experimental-modules'] : []),
+  // https://nodejs.org/dist/latest-v16.x/docs/api/packages.html#resolving-user-conditions
+  '--conditions=ganesha',
+  // https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#wasm-modules
+  `--experimental-wasm-modules`,
+  // hide the experimental loader warning
+  `--require=${module.exports.warnings}`,
+  // https://nodejs.org/api/cli.html#--experimental-loadermodule
+  `--experimental-loader=${module.exports.loader}`,
+  // https://nodejs.org/api/cli.html#--experimental-specifier-resolutionmode
+  '--experimental-specifier-resolution=node',
+]
 
 const initStandalone = module.exports.initStandalone = function initStandalone (argv) {
   // spawn Node.js with Ganesha loader enabled
