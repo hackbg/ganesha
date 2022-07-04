@@ -17,7 +17,7 @@ importers:
       '@ganesha/core': link:src/core
       '@ganesha/node': link:src/node
       '@ganesha/node-legacy': link:src/node-legacy
-      '@types/node': 18.0.0
+      '@types/node': 18.0.1
       chokidar: 3.5.3
       cross-spawn: 7.0.3
     devDependencies:
@@ -106,7 +106,7 @@ importers:
       '@ganesha/vscode-shared': link:../shared
       vscode-languageclient: 7.1.0-next.5
     devDependencies:
-      '@types/vscode': 1.68.0
+      '@types/vscode': 1.68.1
 
   src/vsc/server:
     specifiers:
@@ -431,12 +431,12 @@ packages:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
 
-  /@types/node/18.0.0:
-    resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
+  /@types/node/18.0.1:
+    resolution: {integrity: sha512-CmR8+Tsy95hhwtZBKJBs0/FFq4XX7sDZHlGGf+0q+BRZfMbOTkzkj0AFAuTyXbObDIoanaBBW0+KEW+m3N16Wg==}
     dev: false
 
-  /@types/vscode/1.68.0:
-    resolution: {integrity: sha512-duBwEK5ta/eBBMJMQ7ECMEsMvlE3XJdRGh3xoS1uOO4jl2Z4LPBl5vx8WvBP10ERAgDRmIt/FaSD4RHyBGbChw==}
+  /@types/vscode/1.68.1:
+    resolution: {integrity: sha512-fXlaq13NT5yHh6yZ3c+UxXloTSk34mIvsNFYyQCeO5Po2BLFAwz7EZT4kQ43B64/aPcnAenyWy3QasrTofBOnQ==}
     dev: true
 
   /@volar/shared/0.27.24:
