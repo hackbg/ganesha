@@ -2,6 +2,9 @@
   "name":    "@ganesha/node-legacy",
   "version": "1.0.0",
   "main":    "loader.mjs",
+  "engines": {
+    "node": "<16.12"
+  },
   "dependencies": {
     "@ganesha/core":        "workspace:^1.1",
     "front-matter":         "^4.0.2",

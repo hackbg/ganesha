@@ -96,9 +96,9 @@ export async function ganeshaResolvePathExact (url, context, defaultResolve) {
     trace(`realPath =`, resolvedPath)
     result.url    = pathToFileURL(realPath).href
     result.format = result.format || await determineModuleFormat(resolvedPath)
-    trace(`found ${result.url}, format: ${result.format}`)
+    trace(`${result.url} is file, format: ${result.format}`)
   } else if (stats.isDirectory()) {
-    trace(`found directory at ${resolvedPath}, using defaultResolve`)
+    trace(`${resolvedPath} is dir, using defaultResolve`)
     result = defaultResolve(url, context, defaultResolve)
   } else {
     throw ERR.E02()
