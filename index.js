@@ -36,6 +36,7 @@ module.exports.fork      = require('child_process').fork
 
 // arguments that need to be passed to Node to use Ganesha
 const nodeOptions = module.exports.nodeOptions = [
+  ...(isLegacy() ? ['--experimental-modules'] : []),
   // https://nodejs.org/dist/latest-v16.x/docs/api/packages.html#resolving-user-conditions
   '--conditions=ganesha',
   // https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#wasm-modules
@@ -48,15 +49,18 @@ const nodeOptions = module.exports.nodeOptions = [
   '--experimental-specifier-resolution=node',
 ]
 
-// ES module loader API changes in Node 16
+/** The ES module loader API was changed in Node 16 */
 function isLegacy () {
-  return Number(process.versions.node.split('.')[0]) < 16
+  const [major, minor, patch] = process.versions.node.split('.')
+  if (major  <  16) return true
+  if (major === 16) return minor < 12
+  if (major  >  16) return false
 }
+
 if (isLegacy()) {
   // use @ganesha/node-legacy for <16
   module.exports.loader   = require.resolve('@ganesha/node-legacy/loader.mjs')
   module.exports.warnings = require.resolve('@ganesha/node-legacy/warning.cjs')
-  nodeOptions.unshift('--experimental-modules')
 } else {
   // use @ganesha/node for 16+
   module.exports.loader   = require.resolve('@ganesha/node')
