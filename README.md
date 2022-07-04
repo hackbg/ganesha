@@ -23,10 +23,6 @@ Install `@hackbg/ganesha` and use the `ganesha-node` command
 to run a Node.js process with Ganesha support.
 **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
 
-* Ganesha allows Node.js to load **Markdown files** that contain embedded
-  JavaScript or TypeScript. The code is treated as a single module, and the
-  text is converted to comments.
-
 ```sh
 npm i --save @hackbg/ganesha
 node_modules/.bin/ganesha-node my-typescript-program.ts
@@ -42,8 +38,18 @@ Ganesha allows Node.js to load **TypeScript files**,
 compiling them on demand to the appropriate JavaScript module format.
 
 ```typescript
-const hello = (what: string) => console.log("hello", what)
-hello("world")
+// hello.ts
+export const hello = (what: string) => console.log('hello', what)
+```
+
+```typescript
+// main.ts
+import { hello } from './hello'
+hello('world')
+```
+
+```sh
+ganesha-node main.ts # hello world!
 ```
 
 ### Run code that is embedded in Markdown
@@ -74,12 +80,12 @@ Ganesha provides a [**Rollup plugin**](./src/rollup)
 that can be used in [Rollup](https://www.rollupjs.org/guide/en/) or [Vite](https://vitejs.dev/)
 to compile literate modules for the browser.
 
-`index.html`:
 ```html
+<!-- index.html -->
 <script type="module" src="./script"></script>
 ```
 
-`script.ts.md`:
+<!-- script.ts.md -->
 `````markdown
 This is an example literate frontend script:
 ```typescript
@@ -87,20 +93,22 @@ console.log('Hello, world!')
 ```
 `````
  
-`vite.config.js`:
 ```javascript
+// vite.config.js
 import { defineConfig } from 'vite'
 import ganesha from '@ganesha/rollup'
 export default defineConfig({ plugins: [ ganesha() ] })
 ```
 
-## IDE integration
+### Type checking of literate modules
 
-**Help wanted!**
-
-**A language server** is currently in development.
+Use [`ganesha-tsc`](./src/tsc) to type check literate modules.
+A [VSCode plugin](./src/vsc) and LSP server are currently in development
+(help wanted, VSCode and LSP are hell!)
 
 ## Comparison with alternatives
+
+<div align="center">
 
 |Feature                           |**Ganesha**             |esmo/esno|ts-esnode|ts-node|
 |----------------------------------|------------------------|---------|---------|-------|
@@ -111,6 +119,4 @@ export default defineConfig({ plugins: [ ganesha() ] })
 |Depends on `esbuild` binary module|🟩 no                   |❌ yes   |🟩 no    |🟩 no  |
 |Built-in hot reloader             |[⏳ WIP](./doc/LIVE.md) |❌ no    |❌ no    |❌ no  |
 
-## Known issues
-
-See [doc/GRIPES.md](./doc/GRIPES.md)
+</div>
