@@ -28,7 +28,8 @@ jobs:
         run: |
           ls -al
           echo '{}' > package.json
-          pnpm add ./deps/ganesha
+          touch pnpm-workspace.yaml
+          pnpm add -W ./deps/ganesha
           ls -al node_modules
           pnpm i
           pnpx ganesha-node
