@@ -26,12 +26,9 @@ jobs:
 
       - name: Create minimal project
         run: |
-          ls -al
           echo '{}' > package.json
           touch pnpm-workspace.yaml
           pnpm add -W ./deps/ganesha
-          ls -al node_modules
-          pnpm i
           pnpx ganesha-node
 
   test:
