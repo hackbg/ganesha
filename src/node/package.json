@@ -1,6 +1,6 @@
 {
   "name":    "@ganesha/node",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "main":    "ganesha-node.mjs",
   "type":    "module",
   "dependencies": {
@@ -18,6 +18,5 @@
     "test":    "runspec ganesha-node.spec.mjs",
     "cov":     "c8 runspec ganesha-node.spec.mjs",
     "release": "pnpm publish"
-  },
-  "exclude": ["coverage"]
+  }
 }

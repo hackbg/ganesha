@@ -5,6 +5,7 @@
 node_modules
 out
 coverage
+**/coverage
 src
 test
 doc
