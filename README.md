@@ -13,6 +13,8 @@ with JS/TS and Markdown.**
 
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
+![![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f17433&label=%20&logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@hackbg/ganesha)
+
 </div>
 
 ## File format
