@@ -10,7 +10,7 @@
     "@types/node": "latest",
 
     "@ganesha/core":        "workspace:^1.1",
-    "@ganesha/node":        "workspace:^2.2",
+    "@ganesha/node":        "workspace:^2.2.2",
     "@ganesha/node-legacy": "workspace:^1",
 
     "chokidar":    "^3.5.3",

@@ -21,3 +21,4 @@ pnpm-lock.yaml
 .vscodeignore
 README.md
 shell.nix
+.fixtures
