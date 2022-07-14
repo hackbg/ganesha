@@ -61,7 +61,7 @@ export async function ganeshaResolve (url, context, defaultResolve) {
 
   // Return the resolution result.
   trace(`[resolve] [from ${context.parentURL}] import '${url}' = ${result.url} (${result.format})`)
-  return result
+  return Object.assign(result, { shortCircuit: true })
 }
 
 /** This function finds the filesystem path corresponding to an import statement. */
