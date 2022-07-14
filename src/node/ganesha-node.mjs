@@ -280,19 +280,22 @@ export async function ganeshaLoad (
   // Extensions are counted from the back: `name.ext2.ext1`
   const ext1 = extname(location)
   const ext2 = extname(basename(url, ext1))
+  let result = {}
   if (EXTENSIONS.MD === ext1) {
     // Files ending in .md are loaded as literate modules.
-    return await ganeshaLoadMarkdown(location, format, ext2)
+    result = await ganeshaLoadMarkdown(location, format, ext2)
   } else if (EXTENSIONS.TS === ext1) {
     // Files ending in .ts are loaded as TypeScript modules.
-    return await ganeshaLoadTypeScript(location, format)
+    result = await ganeshaLoadTypeScript(location, format)
   } else if (format) {
     // Imports with known formats are passed to the default loader.
-    return await defaultLoad(url, { format, importAssertions }, defaultLoad)
+    result = await defaultLoad(url, { format, importAssertions }, defaultLoad)
   } else {
     // Imports with unspecified formats are loaded as data modules.
-    return await ganeshaLoadData(location, ext1)
+    result = await ganeshaLoadData(location, ext1)
   }
+  result.shortCircuit = true
+  return result
 }
 
 export async function ganeshaLoadMarkdown (location, format, ext2) {
