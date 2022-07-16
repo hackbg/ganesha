@@ -1,11 +1,5 @@
 <div align="center">
 
-```
-"The very day I was born I made my first mistake,
-and by that path have I sought wisdom ever since."
-                                   - William Buck
-```
-
 ![Ganesha](./doc/banner.svg)
 
 **Tools for modern [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
@@ -140,3 +134,7 @@ A [VSCode plugin](./src/vsc/README.md) and LSP server are currently in developme
 |Built-in hot reloader             |[⏳ WIP](./doc/LIVE.md) |❌ no    |❌ no    |❌ no  |
 
 </div>
+
+>*The very day I was born I made my first mistake,
+>and by that path have I sought wisdom ever since.
+>                                     - **William Buck***
