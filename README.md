@@ -11,11 +11,9 @@ and by that path have I sought wisdom ever since."
 **Tools for modern [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
 with JS/TS and Markdown.**
 
-![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f68f21&style=for-the-badge)
+[![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f68f21&style=for-the-badge&label=@hackbg/ganesha)](https://fadroma.tech)
 
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
-
-![![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f17433&label=%20&logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@hackbg/ganesha)
 
 </div>
 
