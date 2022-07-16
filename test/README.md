@@ -2,8 +2,8 @@
 # Test matrix results
 
 
-|Source module|Import type|Relation type|Target module|[TSC](../tsc)|[Node](../node)|[Vite](../rollup)|
-|-------------|-----------|-------------|-------------|---|---|---|
+|Source module|Import type|Relation type|Target module|TSC|Node|Vite / Rollup|
+|-------------|-----------|-------------|-------------|---|----|-------------|
 |Bare CJS|require|sibling|Bare CJS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_cjs)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|sibling|Bare ESM|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_esm)|🟩 PASS|🟩 PASS|
 |Bare CJS|require|sibling|Bare TS|[❌ FAIL](./FAIL.md#tsc_bare_cjs_require_sibling_bare_ts)|[❌ FAIL](./FAIL.md#node_bare_cjs_require_sibling_bare_ts)|🟩 PASS|

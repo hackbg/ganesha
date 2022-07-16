@@ -50,7 +50,9 @@ import { hello } from './hello'
 hello('world')
 ```
 
-```package.json
+* `package.json`:
+
+```json
 {
   "type": "module",
   "exports": {
@@ -60,7 +62,7 @@ hello('world')
   "devDependencies": {
     "@hackbg/ganesha": "^2",
     "typescript":      "^4"
-  }
+  },
   "scripts": {
     "prepublishOnly": "tsc",
     "start": "ganesha-node ./hello.ts"
@@ -96,7 +98,7 @@ console.log("Hello world!")
 
 ### Frontend bundling of literate modules
 
-Ganesha provides a [**Rollup plugin**](./src/rollup)
+Ganesha provides a [**Rollup plugin**](./src/rollup/README.md)
 that can be used in [Rollup](https://www.rollupjs.org/guide/en/) or [Vite](https://vitejs.dev/)
 to compile literate modules for the browser.
 
@@ -122,8 +124,8 @@ export default defineConfig({ plugins: [ ganesha() ] })
 
 ### Type checking of literate modules
 
-Use [`ganesha-tsc`](./src/tsc) to type check literate modules.
-A [VSCode plugin](./src/vsc) and LSP server are currently in development
+Use [`ganesha-tsc`](./src/tsc/README.md) to type check literate modules.
+A [VSCode plugin](./src/vsc/README.md) and LSP server are currently in development
 (help wanted, VSCode and LSP are hell!)
 
 ## Comparison with alternatives
