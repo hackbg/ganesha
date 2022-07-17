@@ -1,8 +1,9 @@
 {
   "name":    "@ganesha/node",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "main":    "ganesha-node.mjs",
   "type":    "module",
+  "description": "Literate module loader for Node.js >=16.12",
   "dependencies": {
     "@ganesha/core":      "workspace:^1.1",
     "front-matter":       "^4.0.2",
@@ -10,13 +11,10 @@
     "jsonc-parser":       "^3.0.0",
     "source-map-support": "^0.5.20"
   },
-  "devDependencies": {
-    "@hackbg/runspec": "^2.2",
-    "c8":              "^7.11.0"
-  },
   "scripts": {
-    "test":    "runspec ganesha-node.spec.mjs",
-    "cov":     "c8 runspec ganesha-node.spec.mjs",
-    "release": "pnpm publish"
+    "test":        "runspec ganesha-node.spec.mjs",
+    "test:cov":    "c8 runspec ganesha-node.spec.mjs",
+    "release:dry": "npm publish --dry-run",
+    "release:wet": "npm publish"
   }
 }

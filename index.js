@@ -44,8 +44,8 @@ function isLegacy () {
 
 if (isLegacy()) {
   // use @ganesha/node-legacy for <16
-  module.exports.loader   = require.resolve('@ganesha/node-legacy/loader.mjs')
-  module.exports.warnings = require.resolve('@ganesha/node-legacy/warning.cjs')
+  module.exports.loader   = require.resolve('@ganesha/node-legacy/ganesha-node-esm.mjs')
+  module.exports.warnings = require.resolve('@ganesha/node-legacy/ganesha-node-cjs-warning.cjs')
 } else {
   // use @ganesha/node for 16+
   module.exports.loader   = require.resolve('@ganesha/node')

@@ -1,7 +1,11 @@
 {
   "name":    "@ganesha/core",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main":    "ganesha-core.cjs",
+  "scripts": {
+    "release:dry":  "npm publish --dry-run",
+    "release:wet":  "npm publish"
+  },
   "dependencies": {
     "joycon":       "^3.0.1",
     "jsonc-parser": "^3.0.0",

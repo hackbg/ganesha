@@ -9,61 +9,78 @@ on:
 
 jobs:
 
-  sanity-check:
-    name: Check that the library can be installed and CLI tool runs
+  can-publish:
+    name:    Can publish
     runs-on: ubuntu-latest
     steps:
-      - name: Install PNPM
-        uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v2
+        with: { submodules: recursive }
+      - uses: actions/setup-node@v1
+        with: { node-version: 16 }
+      - uses: pnpm/action-setup@v2.0.1
         with:
           version: 7.5.0
-
-      - name: Fetch sources
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-          path: ./deps/ganesha
-
-      - name: Create minimal project
-        run: |
-          echo '{"scripts":{"hello":"ganesha-node"}}' > package.json
-          touch pnpm-workspace.yaml
-          pnpm add -w ./deps/ganesha
-          pnpm i --no-frozen-lockfile
-          node_modules/.bin/ganesha-node -e 'console.log("hello world")'
-
-  test:
-    name: Run tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16, 18]
-    steps:
-
-      - name: Fetch sources
-        uses: actions/checkout@v2
-        with: { submodules: recursive }
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install PNPM and deps
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.14.3
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
+      - name: pnpm release:dry
+        run: pnpm release:dry
 
-      - name: Run tests
-        run: pnpm test:node
+  #can-install:
+    #name: Check that the library can be installed and CLI tool runs
+    #runs-on: ubuntu-latest
+    #steps:
+      #- name: Install PNPM
+        #uses: pnpm/action-setup@v2.0.1
+        #with:
+          #version: 7.5.0
 
-      #- name: Coverage
-        #run: pnpm run coverage
+      #- name: Fetch sources
+        #uses: actions/checkout@v2
+        #with:
+          #submodules: recursive
+          #path: ./deps/ganesha
 
-      #- uses: codecov/codecov-action@v2 
-        #with: 
-          #token: ${{ secrets.CODECOV_TOKEN }}
-          #
+      #- name: Create minimal project
+        #run: |
+          #echo '{"scripts":{"hello":"ganesha-node"}}' > package.json
+          #touch pnpm-workspace.yaml
+          #pnpm add -w ./deps/ganesha
+          #pnpm i --no-frozen-lockfile
+          #node_modules/.bin/ganesha-node -e 'console.log("hello world")'
+
+  #test:
+    #name: Run tests
+    #runs-on: ubuntu-latest
+    #strategy:
+      #matrix:
+        #node: [16, 18]
+    #steps:
+
+      #- name: Fetch sources
+        #uses: actions/checkout@v2
+        #with: { submodules: recursive }
+
+      #- name: Setup Node
+        #uses: actions/setup-node@v3
+        #with:
+          #node-version: ${{ matrix.node }}
+
+      #- name: Install PNPM and deps
+        #uses: pnpm/action-setup@v2.0.1
+        #with:
+          #version: 6.14.3
+          #run_install: |
+            #- recursive: true
+              #args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      #- name: Run tests
+        #run: pnpm test:node
+
+      ##- name: Coverage
+        ##run: pnpm run coverage
+
+      ##- uses: codecov/codecov-action@v2 
+        ##with: 
+          ##token: ${{ secrets.CODECOV_TOKEN }}
+          ##

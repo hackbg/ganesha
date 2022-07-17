@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@ganesha/core": "workspace:^1.1"
+  },
+  "scripts": {
+    "release:dry": "echo TODO",
+    "release:wet": "echo TODO"
   }
 }

@@ -1,32 +1,32 @@
 {
-  "name": "@hackbg/ganesha",
-  "description": "Tools for modern literate programming with JS/TS, ESM and Markdown",
-  "version": "2.1.0",
-  "author": "Adam Avramov <adam@hack.bg>",
-  "bin": { "ganesha-node": "ganesha-node" },
-  "main": "index.js",
-  "repository": {"type": "git", "url": "https://github.com/hackbg/ganesha"},
+  "name":         "@hackbg/ganesha",
+  "description":  "Tools for modern literate programming with JS/TS, ESM and Markdown",
+  "version":      "2.2.0",
+  "author":       "Adam Avramov <adam@hack.bg>",
+  "bin":          { "ganesha-node": "ganesha-node" },
+  "main":         "index.js",
+  "repository":   { "type": "git", "url": "https://github.com/hackbg/ganesha" },
+  "scripts": {
+    "release:dry": "pnpm -r release:dry && npm publish --dry-run",
+    "release:wet": "pnpm -r release:wet && npm publish --access=public || true",
+
+    "test":          "cd test && node run.js",
+    "test:cov":      "c8 --all -n src node test.js",
+    "test:cov:node": "cd src/node && npm run cov",
+    "test:node":     "cd src/node && npm test"
+  },
   "dependencies": {
-    "@types/node": "latest",
-
-    "@ganesha/core":        "workspace:^1.1",
-    "@ganesha/node":        "workspace:^2.2.2",
-    "@ganesha/node-legacy": "workspace:^1",
-
-    "chokidar":    "^3.5.3",
-    "cross-spawn": "^7.0.3"
+    "@ganesha/core":        "workspace:^2",
+    "@ganesha/node":        "workspace:^2.3",
+    "@ganesha/node-legacy": "workspace:^3",
+    "cross-spawn":          "^7.0.3"
   },
   "devDependencies": {
-    "vite": "^2.8.4",
-    "vsce": "latest",
-    "@hackbg/runspec": "^2.2"
-  },
-  "scripts": {
-    "test:node": "cd src/node && npm test",
-    "cov:node":  "cd src/node && npm run cov",
-    "test":      "cd test && node run.js",
-    "cov":       "c8 --all -n src node test.js",
-    "release":   "pnpm publish"
+    "chokidar":        "^3.5.3",
+    "@hackbg/runspec": "^2.2",
+    "c8":              "^7.11.0",
+    "typescript":      "^4.7",
+    "vite":            "^2.8.4"
   },
   "workspace": true,
   "packages": [
