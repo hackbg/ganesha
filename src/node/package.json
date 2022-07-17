@@ -1,6 +1,6 @@
 {
   "name":    "@ganesha/node",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "main":    "ganesha-node.mjs",
   "type":    "module",
   "description": "Literate module loader for Node.js >=16.12",
@@ -12,9 +12,10 @@
     "source-map-support": "^0.5.20"
   },
   "scripts": {
+    "release:dry": "pnpm publish --dry-run",
+    "release:wet": "pnpm publish --access=public || true",
+
     "test":        "runspec ganesha-node.spec.mjs",
-    "test:cov":    "c8 runspec ganesha-node.spec.mjs",
-    "release:dry": "npm publish --dry-run",
-    "release:wet": "npm publish"
+    "test:cov":    "c8 runspec ganesha-node.spec.mjs"
   }
 }

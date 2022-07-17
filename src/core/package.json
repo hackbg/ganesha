@@ -1,10 +1,10 @@
 {
   "name":    "@ganesha/core",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main":    "ganesha-core.cjs",
   "scripts": {
-    "release:dry":  "npm publish --dry-run",
-    "release:wet":  "npm publish"
+    "release:dry": "pnpm publish --dry-run",
+    "release:wet": "pnpm publish --access=public || true"
   },
   "dependencies": {
     "joycon":       "^3.0.1",
