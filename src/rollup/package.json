@@ -1,8 +1,8 @@
 {
   "name": "@ganesha/rollup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
-    "@ganesha/core": "workspace:^1.1"
+    "@ganesha/core": "workspace:^2"
   },
   "scripts": {
     "release:dry": "echo TODO",

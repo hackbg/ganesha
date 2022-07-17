@@ -4,9 +4,9 @@ importers:
 
   .:
     specifiers:
-      '@ganesha/core': workspace:^1.1
-      '@ganesha/node': workspace:^2.2.2
-      '@ganesha/node-legacy': workspace:^1
+      '@ganesha/core': workspace:^2
+      '@ganesha/node': workspace:^2.3.2
+      '@ganesha/node-legacy': workspace:^3.0.2
       '@hackbg/runspec': ^2.2
       c8: ^7.11.0
       chokidar: ^3.5.3
@@ -17,11 +17,11 @@ importers:
       '@ganesha/core': link:src/core
       '@ganesha/node': link:src/node
       '@ganesha/node-legacy': link:src/node-legacy
-      chokidar: 3.5.3
       cross-spawn: 7.0.3
     devDependencies:
       '@hackbg/runspec': 2.2.1
       c8: 7.11.3
+      chokidar: 3.5.3
       typescript: 4.7.4
       vite: 2.8.4
 
@@ -37,7 +37,7 @@ importers:
 
   src/node:
     specifiers:
-      '@ganesha/core': workspace:^1.1
+      '@ganesha/core': workspace:^2
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
@@ -51,7 +51,7 @@ importers:
 
   src/node-legacy:
     specifiers:
-      '@ganesha/core': workspace:^1.1
+      '@ganesha/core': workspace:^2
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
@@ -67,14 +67,14 @@ importers:
 
   src/rollup:
     specifiers:
-      '@ganesha/core': workspace:^1.1
+      '@ganesha/core': workspace:^2
     dependencies:
       '@ganesha/core': link:../core
 
   src/tsc:
     specifiers:
-      '@ganesha/core': workspace:^1.1
-      '@ganesha/node': workspace:^2.1
+      '@ganesha/core': workspace:^2
+      '@ganesha/node': workspace:^2.3
       '@hackbg/ganesha': workspace:../..
       typescript: ^4.6.4
     dependencies:
@@ -485,6 +485,7 @@ packages:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+    dev: true
 
   /append-transform/2.0.0:
     resolution: {integrity: sha512-7yeyCEurROLQJFv5Xj4lEGTy0borxepjFv1g22oAdqFu//SrAlDl1O1Nxx15SH1RoliUml6p8dwJW9jvZughhg==}
@@ -568,6 +569,7 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
+    dev: true
 
   /bind-obj-methods/3.0.0:
     resolution: {integrity: sha512-nLEaaz3/sEzNSyPWRsN9HNsqwk1AUyECtGj+XwGdIi3xABnEqecvXtIJ0wehQXuuER5uZ/5fTs2usONgYjG+iw==}
@@ -718,6 +720,7 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -1479,6 +1482,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -1672,6 +1676,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       binary-extensions: 2.2.0
+    dev: true
 
   /is-core-module/2.8.1:
     resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
@@ -2079,6 +2084,7 @@ packages:
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /npmlog/4.1.2:
     resolution: {integrity: sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==}
@@ -2406,6 +2412,7 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: true
 
   /release-zalgo/1.0.0:
     resolution: {integrity: sha1-CXALflB0Mpc5Mw5TXFqQ+2eFFzA=}

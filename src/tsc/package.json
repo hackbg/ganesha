@@ -5,8 +5,8 @@
     "ganesha-tsc": "./ganesha-tsc"
   },
   "dependencies": {
-    "@ganesha/core": "workspace:^1.1",
-    "@ganesha/node": "workspace:^2.1"
+    "@ganesha/core": "workspace:^2",
+    "@ganesha/node": "workspace:^2.3"
   },
   "devDependencies": {
     "typescript": "^4.6.4",
