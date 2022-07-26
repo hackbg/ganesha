@@ -1,7 +1,7 @@
 {
   "name":         "@hackbg/ganesha",
   "description":  "Tools for modern literate programming with JS/TS, ESM and Markdown",
-  "version":      "2.2.4",
+  "version":      "2.2.5",
   "author":       "Adam Avramov <adam@hack.bg>",
   "bin":          { "ganesha-node": "ganesha-node" },
   "main":         "index.js",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@ganesha/core":        "workspace:^2",
-    "@ganesha/node":        "workspace:^2.3.2",
+    "@ganesha/node":        "workspace:^2.3.3",
     "@ganesha/node-legacy": "workspace:^3.0.2",
     "cross-spawn":          "^7.0.3"
   },

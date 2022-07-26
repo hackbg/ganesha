@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@ganesha/core': workspace:^2
-      '@ganesha/node': workspace:^2.3.2
+      '@ganesha/node': workspace:^2.3.3
       '@ganesha/node-legacy': workspace:^3.0.2
       '@hackbg/runspec': ^2.2
       c8: ^7.11.0
@@ -90,7 +90,7 @@ importers:
       vsce: latest
     devDependencies:
       typescript: 4.7.4
-      vsce: 2.9.3
+      vsce: 2.10.0
 
   src/vsc/client:
     specifiers:
@@ -3010,8 +3010,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vsce/2.9.3:
-    resolution: {integrity: sha512-hOLsxbev7Khho+bzDV/TV3jeTClzt8gFfkJvE1c5HidrgFsyE5aEg+e7XssaEU7LYLXDnWnpMt298UP7P/4Ycw==}
+  /vsce/2.10.0:
+    resolution: {integrity: sha512-b+wB3XMapEi368g64klSM6uylllZdNutseqbNY+tUoHYSy6g2NwnlWuAGKDQTYc0IqfDUjUFRQBpPgA89Q+Fyw==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:

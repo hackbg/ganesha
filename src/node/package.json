@@ -1,6 +1,6 @@
 {
   "name":    "@ganesha/node",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "main":    "ganesha-node.mjs",
   "type":    "module",
   "description": "Literate module loader for Node.js >=16.12",

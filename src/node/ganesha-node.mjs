@@ -219,10 +219,8 @@ export function makeResolverHelpful (defaultResolve) {
       return defaultResolve(...args)
     } catch (e) {
       if (e.code === 'ERR_MODULE_NOT_FOUND') {
-        const notFoundModule = RE.CANNOT_FIND_MODULE.exec(message)[1]
-        if (notFoundModule) {
-          console.error('[@ganesha/node] Module not found:', notFoundModule)
-        }
+        const notFoundModule = getNotFoundModule(e.message)
+        if (notFoundModule) console.error('[@ganesha/node] Module not found:', notFoundModule)
         const notFoundPackage = getNotFoundPackage(e.message)
         if (notFoundPackage) {
           console.error('[@ganesha/node] Package not found:', notFoundPackage)
@@ -238,11 +236,13 @@ export function makeResolverHelpful (defaultResolve) {
     }
   }
 
+  function getNotFoundModule (message) {
+    const matches = RE.CANNOT_FIND_MODULE.exec(message)
+    if (matches) return matches[1]
+  }
   function getNotFoundPackage (message) {
     const matches = RE.CANNOT_FIND_PACKAGE.exec(message)
-    if (matches) {
-      return matches[1]
-    }
+    if (matches) return matches[1]
   }
 
   // This function warns about packages with missing entrypoints
