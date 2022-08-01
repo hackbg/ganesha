@@ -57,6 +57,7 @@ const nodeOptions = module.exports.nodeOptions = [
   ...(isLegacy() ? ['--experimental-modules'] : []),
   // https://nodejs.org/dist/latest-v16.x/docs/api/packages.html#resolving-user-conditions
   '--conditions=ganesha',
+  '--conditions=source',
   // https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#wasm-modules
   `--experimental-wasm-modules`,
   // hide the experimental loader warning

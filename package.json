@@ -1,7 +1,7 @@
 {
   "name":         "@hackbg/ganesha",
   "description":  "Tools for modern literate programming with JS/TS, ESM and Markdown",
-  "version":      "2.2.5",
+  "version":      "2.3.0",
   "author":       "Adam Avramov <adam@hack.bg>",
   "bin":          { "ganesha-node": "ganesha-node" },
   "main":         "index.js",
