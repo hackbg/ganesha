@@ -22,11 +22,11 @@
     "cross-spawn":          "^7.0.3"
   },
   "devDependencies": {
-    "chokidar":        "^3.5.3",
-    "@hackbg/runspec": "^2.2",
-    "c8":              "^7.11.0",
-    "typescript":      "^4.7",
-    "vite":            "^2.8.4"
+    "chokidar":     "^3.5.3",
+    "@hackbg/spec": "^1",
+    "c8":           "^7.11.0",
+    "typescript":   "^4.7",
+    "vite":         "^2.8.4"
   },
   "workspace": true,
   "packages": [

@@ -1,4 +1,4 @@
-import { TODO } from '@hackbg/runspec'
+import { TODO } from '@hackbg/spec'
 
 import {
   ganeshaResolve,

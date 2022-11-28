@@ -2,7 +2,7 @@
   "name": "@ganesha/tests",
   "private": true,
   "devDependencies": {
-    "@hackbg/runspec": "^2.2",
+    "@hackbg/spec":    "^1",
     "@ganesha/core":   "workspace:*",
     "@ganesha/node":   "workspace:*",
     "@ganesha/rollup": "workspace:*",
