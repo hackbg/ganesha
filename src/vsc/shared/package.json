@@ -4,6 +4,6 @@
   "main":    "out/index.js",
   "files":   ["out"],
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "^4.9"
   }
 }

@@ -53,7 +53,7 @@ hello('world')
   },
   "devDependencies": {
     "@hackbg/ganesha": "^2",
-    "typescript":      "^4"
+    "typescript":      "^4.9"
   },
   "scripts": {
     "prepublishOnly": "tsc",

@@ -9,6 +9,6 @@
   "dependencies": {
     "joycon":       "^3.0.1",
     "jsonc-parser": "^3.0.0",
-    "typescript":   "^4.7"
+    "typescript":   "^4.9"
   }
 }

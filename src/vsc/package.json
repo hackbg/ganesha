@@ -19,7 +19,7 @@
   ],
   "devDependencies": {
     "vsce":       "latest",
-    "typescript": "latest"
+    "typescript": "^4.9"
   },
   "engines": {
     "vscode": "^1.58.0"

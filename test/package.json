@@ -9,7 +9,7 @@
     "mkdirp":          "^1.0.4",
     "vite":            "^2.7.6",
     "tap":             "^15.0.9",
-    "typescript":      "^4.7"
+    "typescript":      "^4.9"
   },
   "scripts": {
     "test:core":   "tap test-core.cjs",

@@ -9,7 +9,7 @@
     "@ganesha/node": "workspace:^2.3"
   },
   "devDependencies": {
-    "typescript": "^4.6.4",
+    "typescript": "^4.9",
     "@hackbg/ganesha": "workspace:../.."
   },
   "scripts": {

@@ -25,7 +25,7 @@
     "chokidar":     "^3.5.3",
     "@hackbg/spec": "^1",
     "c8":           "^7.11.0",
-    "typescript":   "^4.7",
+    "typescript":   "^4.9",
     "vite":         "^2.8.4"
   },
   "workspace": true,
