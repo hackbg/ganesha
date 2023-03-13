@@ -15,8 +15,8 @@ importers:
       vite: ^2.8.4
     dependencies:
       '@ganesha/core': link:core
-      '@ganesha/node': link:src/node
-      '@ganesha/node-legacy': link:src/node-legacy
+      '@ganesha/node': link:node
+      '@ganesha/node-legacy': link:node-legacy
       cross-spawn: 7.0.3
     devDependencies:
       '@hackbg/spec': 1.0.0
@@ -35,7 +35,7 @@ importers:
       jsonc-parser: 3.0.0
       typescript: 4.9.5
 
-  src/node:
+  node:
     specifiers:
       '@ganesha/core': workspace:^2
       front-matter: ^4.0.2
@@ -43,13 +43,13 @@ importers:
       jsonc-parser: ^3.0.0
       source-map-support: ^0.5.20
     dependencies:
-      '@ganesha/core': link:../../core
+      '@ganesha/core': link:../core
       front-matter: 4.0.2
       joycon: 3.1.1
       jsonc-parser: 3.0.0
       source-map-support: 0.5.21
 
-  src/node-legacy:
+  node-legacy:
     specifiers:
       '@ganesha/core': workspace:^2
       front-matter: ^4.0.2
@@ -58,74 +58,18 @@ importers:
       pirates: ^4.0.1
       source-map-support: ^0.5.20
     dependencies:
-      '@ganesha/core': link:../../core
+      '@ganesha/core': link:../core
       front-matter: 4.0.2
       joycon: 3.1.1
       jsonc-parser: 3.0.0
       pirates: 4.0.4
       source-map-support: 0.5.21
 
-  src/rollup:
+  rollup:
     specifiers:
       '@ganesha/core': workspace:^2
     dependencies:
-      '@ganesha/core': link:../../core
-
-  src/tsc:
-    specifiers:
-      '@ganesha/core': workspace:^2
-      '@ganesha/node': workspace:^2.3
-      '@hackbg/ganesha': workspace:../..
-      typescript: ^4.9
-    dependencies:
-      '@ganesha/core': link:../../core
-      '@ganesha/node': link:../node
-    devDependencies:
-      '@hackbg/ganesha': link:../..
-      typescript: 4.9.5
-
-  src/vsc:
-    specifiers:
-      typescript: ^4.9
-      vsce: latest
-    devDependencies:
-      typescript: 4.9.5
-      vsce: 2.15.0
-
-  src/vsc/client:
-    specifiers:
-      '@ganesha/vscode-shared': workspace:*
-      '@types/vscode': latest
-      vscode-languageclient: ^7.1.0-next.4
-    dependencies:
-      '@ganesha/vscode-shared': link:../shared
-      vscode-languageclient: 7.1.0-next.5
-    devDependencies:
-      '@types/vscode': 1.76.0
-
-  src/vsc/server:
-    specifiers:
-      '@ganesha/core': workspace:*
-      '@ganesha/vscode-shared': workspace:*
-      fast-glob: ^3.2.7
-      vscode-languageserver: ^8.0.0-next.1
-      vscode-languageserver-textdocument: ^1.0.1
-      vscode-typescript-languageservice: ^0.27.7
-      vscode-uri: ^3.0.2
-    dependencies:
-      '@ganesha/core': link:../../../core
-      '@ganesha/vscode-shared': link:../shared
-      fast-glob: 3.2.11
-      vscode-languageserver: 8.0.0-next.6
-      vscode-languageserver-textdocument: 1.0.3
-      vscode-typescript-languageservice: 0.27.25
-      vscode-uri: 3.0.3
-
-  src/vsc/shared:
-    specifiers:
-      typescript: ^4.9
-    devDependencies:
-      typescript: 4.9.5
+      '@ganesha/core': link:../core
 
   test:
     specifiers:
@@ -139,13 +83,69 @@ importers:
       vite: ^2.7.6
     devDependencies:
       '@ganesha/core': link:../core
-      '@ganesha/node': link:../src/node
-      '@ganesha/rollup': link:../src/rollup
+      '@ganesha/node': link:../node
+      '@ganesha/rollup': link:../rollup
       '@hackbg/spec': 1.0.0
       mkdirp: 1.0.4
       tap: 15.1.6_typescript@4.9.5
       typescript: 4.9.5
       vite: 2.7.13
+
+  tsc:
+    specifiers:
+      '@ganesha/core': workspace:^2
+      '@ganesha/node': workspace:^2.3
+      '@hackbg/ganesha': workspace:../..
+      typescript: ^4.9
+    dependencies:
+      '@ganesha/core': link:../core
+      '@ganesha/node': link:../node
+    devDependencies:
+      '@hackbg/ganesha': link:../..
+      typescript: 4.9.5
+
+  vsc:
+    specifiers:
+      typescript: ^4.9
+      vsce: latest
+    devDependencies:
+      typescript: 4.9.5
+      vsce: 2.15.0
+
+  vsc/client:
+    specifiers:
+      '@ganesha/vscode-shared': workspace:*
+      '@types/vscode': latest
+      vscode-languageclient: ^7.1.0-next.4
+    dependencies:
+      '@ganesha/vscode-shared': link:../shared
+      vscode-languageclient: 7.1.0-next.5
+    devDependencies:
+      '@types/vscode': 1.76.0
+
+  vsc/server:
+    specifiers:
+      '@ganesha/core': workspace:*
+      '@ganesha/vscode-shared': workspace:*
+      fast-glob: ^3.2.7
+      vscode-languageserver: ^8.0.0-next.1
+      vscode-languageserver-textdocument: ^1.0.1
+      vscode-typescript-languageservice: ^0.27.7
+      vscode-uri: ^3.0.2
+    dependencies:
+      '@ganesha/core': link:../../core
+      '@ganesha/vscode-shared': link:../shared
+      fast-glob: 3.2.11
+      vscode-languageserver: 8.0.0-next.6
+      vscode-languageserver-textdocument: 1.0.3
+      vscode-typescript-languageservice: 0.27.25
+      vscode-uri: 3.0.3
+
+  vsc/shared:
+    specifiers:
+      typescript: ^4.9
+    devDependencies:
+      typescript: 4.9.5
 
 packages:
 
@@ -1998,17 +1998,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /minimatch/3.0.4:
-    resolution: {integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==}
-    dependencies:
-      brace-expansion: 1.1.11
-    dev: false
-
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
-    dev: true
 
   /minimist/1.2.5:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
@@ -3046,7 +3039,7 @@ packages:
     resolution: {integrity: sha512-TpzpAhpdCNJHaLzptFRs54xsU6xTmaiVPCse0W0rRB5jJBPjOBKilrFPMMm/sJA0y8Yxa9sOvZaNu6WPg3dYAw==}
     engines: {vscode: ^1.53.0}
     dependencies:
-      minimatch: 3.0.4
+      minimatch: 3.1.2
       semver: 7.3.5
       vscode-languageserver-protocol: 3.17.0-next.6
     dev: false
@@ -3086,6 +3079,7 @@ packages:
 
   /vscode-typescript-languageservice/0.27.25:
     resolution: {integrity: sha512-nxpJI9MnF2rn5rKL/032Qrsq3T9DgM3slK5fwZp3suNdo90JG2zFTs3Ola8n62k7+KWu4A775obxyb4wLIW6Gw==}
+    deprecated: 'WARNING: This project has been renamed to @volar/typescript-language-service. Install using @volar/typescript-language-service instead.'
     dependencies:
       '@volar/shared': 0.27.24
       semver: 7.3.5
