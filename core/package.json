@@ -2,9 +2,14 @@
   "name": "@ganesha/core",
   "version": "3.0.0",
   "main": "ganesha-core.cjs",
-  "bin": { "ganesha": "./ganesha-core.cjs" },
+  "bin": {
+    "ganesha": "./ganesha-core.cjs"
+  },
   "scripts": {
     "release:dry": "pnpm publish --dry-run",
     "release:wet": "pnpm publish --access=public || true"
+  },
+  "dependencies": {
+    "marked": "^4.2.12"
   }
 }
