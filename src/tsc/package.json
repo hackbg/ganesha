@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc --outDir dist/ proxy.ts",
-    "test": "npm run build && ganesha-node README.md",
+    "test": "npm run build && ganesha-run README.md",
     "release:dry": "echo TODO",
     "release:wet": "echo TODO"
   }

@@ -1,4 +1,4 @@
-/** Entry point of `ganesha-node` command. Launches Node.js with the appropriate augmentations */
+/** Entry point of `ganesha-run` command. Launches Node.js with the appropriate augmentations */
 const main = module.exports.main = function main ([node, ganesha, ...argv] = process.argv) {
 
   // Load settings and debug print function from core
@@ -104,7 +104,7 @@ const initSupervisor = module.exports.initSupervisor = function initSupervisor (
     if (proc) {
       proc.kill(9)
     }
-    const entry = resolve(__dirname, 'ganesha-node')
+    const entry = resolve(__dirname, 'ganesha-run')
     proc = module.exports.fork(entry, args, opts)
     proc.on('error', (...args) => {
       console.error('Error when forking:', ...args)

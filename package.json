@@ -1,9 +1,9 @@
 {
   "name":         "@hackbg/ganesha",
   "description":  "Tools for modern literate programming with JS/TS, ESM and Markdown",
-  "version":      "2.3.0",
+  "version":      "3.0.0",
   "author":       "Adam Avramov <adam@hack.bg>",
-  "bin":          { "ganesha-node": "ganesha-node" },
+  "bin":          { "ganesha-run": "ganesha-run" },
   "main":         "index.js",
   "repository":   { "type": "git", "url": "https://github.com/hackbg/ganesha" },
   "scripts": {
@@ -30,9 +30,10 @@
   },
   "workspace": true,
   "packages": [
+    "./core",
     "./src/*",
     "./src/vsc/*",
     "./test"
   ],
-  "files": [ "ganesha-node", "index.js" ]
+  "files": [ "ganesha-run", "index.js" ]
 }

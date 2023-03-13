@@ -71,7 +71,7 @@ in the directory of the particular test case.
 
 ```javascript
 const { resolve } = require('path')
-const node = `${resolve(__dirname, '..', 'src', 'node', 'ganesha-node')} --unhandled-rejections=throw`
+const node = `${resolve(__dirname, '..', 'src', 'node', 'ganesha-run')} --unhandled-rejections=throw`
 const tsc  = `rm -rf dist && mkdir -p dist && ${resolve(__dirname, '../src/tsc/ganesha-tsc')} --outDir dist`
 const packageJSON = main => JSON.stringify({
   name: "source",

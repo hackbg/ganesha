@@ -13,14 +13,14 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 ## How to use
 
-Install `@hackbg/ganesha` and use the `ganesha-node` command
+Install `@hackbg/ganesha` and use the `ganesha-run` command
 to run a Node.js process with Ganesha support.
 **Requires [Node 16.12+](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#experimental-esm-loader-hooks-api)**.
 
 ```sh
 npm i -g @hackbg/ganesha
-ganesha-node my-typescript-program.ts
-ganesha-node my-literate-program.ts.md
+ganesha-run my-typescript-program.ts
+ganesha-run my-literate-program.ts.md
 ```
 
 ## What it does
@@ -57,7 +57,7 @@ hello('world')
   },
   "scripts": {
     "prepublishOnly": "tsc",
-    "start": "ganesha-node ./hello.ts"
+    "start": "ganesha-run ./hello.ts"
   }
 }
 ```
