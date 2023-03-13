@@ -15,11 +15,19 @@ joycon.addLoader({
 })
 
 const settings = {
+  // Print tracing output
   trace:       !!process.env['Ganesha_Trace'],
+  // Hide Ganesha from process.argv
   hide:        !!process.env['Ganesha_Hide'],
-  live:        !!process.env['Ganesha_Live'],
-  watched:     !!process.env['Ganesha_Watched'],
+  // Don't generate source map
   noSourceMap: !!process.env['Ganesha_NoSourceMap'],
+  // Languages (in header of code blocks) to accept.
+  // By default, accepts all code blocks.
+  languages:   (process.env['Ganesha_Languages']??'').split(',').map(x=>x.trim()),
+  // TODO
+  live:        !!process.env['Ganesha_Live'],
+  // TODO
+  watched:     !!process.env['Ganesha_Watched'],
 }
 
 const T0 = + new Date()
