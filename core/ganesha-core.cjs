@@ -4,19 +4,28 @@ const { dirname, extname } = require('path')
 const { readFileSync } = require('fs')
 
 const settings = {
+
   // Print tracing output
-  trace:       !!process.env['Ganesha_Trace'],
+  trace:
+    !!process.env['Ganesha_Trace'],
+
+  // Code blocks with no language default to this language.
+  defaultLanguage:
+    process.env['Ganesha_Language_Default'],
+
+  // Code blocks with language outside of this list are kept as comments.
+  allowedLanguages:
+    (process.env['Ganesha_Language_Allow']??'js,javascript,ts,typescript').split(',').map(x=>x.trim()).filter(Boolean),
+
+  // TODO
+  live:
+    !!process.env['Ganesha_Live'],
+  // TODO
+  watched:
+    !!process.env['Ganesha_Watched'],
   // Hide Ganesha from process.argv
-  hide:        !!process.env['Ganesha_Hide'],
-  // Don't generate source map
-  noSourceMap: !!process.env['Ganesha_NoSourceMap'],
-  // Languages (in header of code blocks) to accept.
-  // By default, accepts all code blocks.
-  languages:   (process.env['Ganesha_Languages']??'').split(',').map(x=>x.trim()),
-  // TODO
-  live:        !!process.env['Ganesha_Live'],
-  // TODO
-  watched:     !!process.env['Ganesha_Watched'],
+  hide:
+    !!process.env['Ganesha_Hide'],
 }
 
 const T0 = + new Date()
@@ -45,17 +54,32 @@ function parseFile (name) {
 }
 
 function parseString (source = "") {
-  let target = ''
+
   const tokens = require('marked').lexer(source)
+
+  let output = ''
+
   for (const token of tokens) {
-    if (token.type === 'code') {
-      target += `\n${token.text}\n`
+
+    const isCode = token.type === 'code' && (
+      settings.allowedLanguages.length === 0 ||
+      settings.allowedLanguages.includes(token.lang ?? settings.defaultLanguage)
+    )
+
+    if (isCode) {
+      const language = token.lang ?? settings.defaultLanguage
+      output += `${token.text}\n`
     } else {
-      const text = (token.raw??'').split('\n').join(`\n/// `)
-      target += text
+      let text = token.raw
+      if (text[0] === '\n') text = text.slice(1) // `${(token.raw??'').split('\n').join(`\n/// `)}`
+      text = text.split('\n').join('\n/// ')
+      output += `/// ${text}\n`//${text}\n`
     }
+
   }
-  return target
+
+  return output
+
 }
 
 if (require.main === module) {
