@@ -1,7 +1,11 @@
+const { trace } = require('@ganesha/core')
+const { dirname, extname } = require('path')
+const { readFileSync } = require('fs')
+
 const sourceMapOptions = {
   sourceMap:       true,
   inlineSources:   true,
-  inlineSourceMap: settings.noSourceMap // for coverage support
+  inlineSourceMap: !!process.env['Ganesha_NoSourceMap'] // for coverage support
 }
 
 const joycon = new (require('joycon'))().addLoader({
@@ -12,7 +16,6 @@ const joycon = new (require('joycon'))().addLoader({
 })
 
 module.exports = {
-  ...require('@ganesha/core'),
   esbuildToCjs,
   esbuildToMjs,
   tscToCjs,

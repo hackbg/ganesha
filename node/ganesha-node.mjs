@@ -3,7 +3,8 @@ import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
 import { stat, realpath, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 
-import { trace as _trace, parseString, tscToMjs, esbuildToMjs, settings } from '@ganesha/core'
+import { trace as _trace, parseString, settings } from '@ganesha/core'
+import { tscToMjs, esbuildToMjs } from '@ganesha/ts'
 
 import JSONC from 'jsonc-parser'
 import frontMatter from 'front-matter'
