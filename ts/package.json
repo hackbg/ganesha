@@ -1,0 +1,16 @@
+{
+  "name": "@ganesha/ts",
+  "version": "1.0.0",
+  "main": "ganesha-ts.cjs",
+  "bin": { "ganesha-ts": "./ganesha-ts.cjs" },
+  "scripts": {
+    "release:dry": "pnpm publish --dry-run",
+    "release:wet": "pnpm publish --access=public || true"
+  },
+  "dependencies": {
+    "@ganesha/core": "workspace:^3",
+    "joycon":        "^3.0.1",
+    "jsonc-parser":  "^3.0.0",
+    "typescript":    "^4.9"
+  }
+}

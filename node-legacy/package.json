@@ -7,7 +7,9 @@
     "release:wet": "pnpm publish --access=public || true"
   },
   "dependencies": {
-    "@ganesha/core":        "workspace:^2",
+    "@ganesha/core": "workspace:^3",
+    "@ganesha/ts":   "workspace:^1",
+
     "front-matter":         "^4.0.2",
     "joycon":               "^3.0.1",
     "jsonc-parser":         "^3.0.0",

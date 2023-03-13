@@ -17,7 +17,8 @@
     "release:wet": "pnpm -r release:wet && pnpm publish --access=public || true"
   },
   "dependencies": {
-    "@ganesha/core":        "workspace:^2",
+    "@ganesha/core":        "workspace:^3",
+    "@ganesha/ts":          "workspace:^1",
     "@ganesha/node":        "workspace:^2.3.3",
     "@ganesha/node-legacy": "workspace:^3.0.2",
     "cross-spawn":          "^7.0.3"

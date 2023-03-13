@@ -2,7 +2,7 @@
   "name": "@ganesha/rollup",
   "version": "1.0.1",
   "dependencies": {
-    "@ganesha/core": "workspace:^2"
+    "@ganesha/core": "workspace:^3"
   },
   "scripts": {
     "release:dry": "echo TODO",

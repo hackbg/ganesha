@@ -5,7 +5,7 @@
     "ganesha-tsc": "./ganesha-tsc"
   },
   "dependencies": {
-    "@ganesha/core": "workspace:^2",
+    "@ganesha/core": "workspace:^3",
     "@ganesha/node": "workspace:^2.3"
   },
   "devDependencies": {

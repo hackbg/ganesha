@@ -4,9 +4,10 @@ importers:
 
   .:
     specifiers:
-      '@ganesha/core': workspace:^2
+      '@ganesha/core': workspace:^3
       '@ganesha/node': workspace:^2.3.3
       '@ganesha/node-legacy': workspace:^3.0.2
+      '@ganesha/ts': workspace:^1
       '@hackbg/spec': ^1
       c8: ^7.11.0
       chokidar: ^3.5.3
@@ -17,6 +18,7 @@ importers:
       '@ganesha/core': link:core
       '@ganesha/node': link:node
       '@ganesha/node-legacy': link:node-legacy
+      '@ganesha/ts': link:ts
       cross-spawn: 7.0.3
     devDependencies:
       '@hackbg/spec': 1.0.0
@@ -26,32 +28,26 @@ importers:
       vite: 2.8.4
 
   core:
-    specifiers:
-      joycon: ^3.0.1
-      jsonc-parser: ^3.0.0
-      typescript: ^4.9
-    dependencies:
-      joycon: 3.1.1
-      jsonc-parser: 3.0.0
-      typescript: 4.9.5
+    specifiers: {}
 
   node:
     specifiers:
-      '@ganesha/core': workspace:^2
+      '@ganesha/core': workspace:^3
+      '@ganesha/ts': workspace:^1
       front-matter: ^4.0.2
-      joycon: ^3.0.1
       jsonc-parser: ^3.0.0
       source-map-support: ^0.5.20
     dependencies:
       '@ganesha/core': link:../core
+      '@ganesha/ts': link:../ts
       front-matter: 4.0.2
-      joycon: 3.1.1
       jsonc-parser: 3.0.0
       source-map-support: 0.5.21
 
   node-legacy:
     specifiers:
-      '@ganesha/core': workspace:^2
+      '@ganesha/core': workspace:^3
+      '@ganesha/ts': workspace:^1
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
@@ -59,6 +55,7 @@ importers:
       source-map-support: ^0.5.20
     dependencies:
       '@ganesha/core': link:../core
+      '@ganesha/ts': link:../ts
       front-matter: 4.0.2
       joycon: 3.1.1
       jsonc-parser: 3.0.0
@@ -67,7 +64,7 @@ importers:
 
   rollup:
     specifiers:
-      '@ganesha/core': workspace:^2
+      '@ganesha/core': workspace:^3
     dependencies:
       '@ganesha/core': link:../core
 
@@ -91,9 +88,21 @@ importers:
       typescript: 4.9.5
       vite: 2.7.13
 
+  ts:
+    specifiers:
+      '@ganesha/core': workspace:^3
+      joycon: ^3.0.1
+      jsonc-parser: ^3.0.0
+      typescript: ^4.9
+    dependencies:
+      '@ganesha/core': link:../core
+      joycon: 3.1.1
+      jsonc-parser: 3.0.0
+      typescript: 4.9.5
+
   tsc:
     specifiers:
-      '@ganesha/core': workspace:^2
+      '@ganesha/core': workspace:^3
       '@ganesha/node': workspace:^2.3
       '@hackbg/ganesha': workspace:../..
       typescript: ^4.9
