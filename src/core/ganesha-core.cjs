@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { dirname, extname } = require('path')
 const { readFileSync } = require('fs')
 const JSONC = require('jsonc-parser')
@@ -202,5 +204,19 @@ function printWarnings (warnings = []) {
       console.log(warning.location)
       console.log(warning.text)
     }
+  }
+}
+
+if (require.main === module) {
+  const [source] = process.argv.slice(2)
+  if (source) {
+    try {
+      process.stdout.write(parseFile(source))
+    } catch (e) {
+      process.stderr.write(e.stack)
+    }
+  } else {
+    process.stderr.write('\nUsage:\n  ganesha FILENAME.md\n\n')
+    process.exit(1)
   }
 }

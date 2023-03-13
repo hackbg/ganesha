@@ -7,11 +7,11 @@ importers:
       '@ganesha/core': workspace:^2
       '@ganesha/node': workspace:^2.3.3
       '@ganesha/node-legacy': workspace:^3.0.2
-      '@hackbg/runspec': ^2.2
+      '@hackbg/spec': ^1
       c8: ^7.11.0
       chokidar: ^3.5.3
       cross-spawn: ^7.0.3
-      typescript: ^4.7
+      typescript: ^4.9
       vite: ^2.8.4
     dependencies:
       '@ganesha/core': link:src/core
@@ -19,21 +19,21 @@ importers:
       '@ganesha/node-legacy': link:src/node-legacy
       cross-spawn: 7.0.3
     devDependencies:
-      '@hackbg/runspec': 2.2.1
+      '@hackbg/spec': 1.0.0
       c8: 7.11.3
       chokidar: 3.5.3
-      typescript: 4.7.4
+      typescript: 4.9.5
       vite: 2.8.4
 
   src/core:
     specifiers:
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
-      typescript: ^4.7
+      typescript: ^4.9
     dependencies:
       joycon: 3.1.1
       jsonc-parser: 3.0.0
-      typescript: 4.7.4
+      typescript: 4.9.5
 
   src/node:
     specifiers:
@@ -76,21 +76,21 @@ importers:
       '@ganesha/core': workspace:^2
       '@ganesha/node': workspace:^2.3
       '@hackbg/ganesha': workspace:../..
-      typescript: ^4.6.4
+      typescript: ^4.9
     dependencies:
       '@ganesha/core': link:../core
       '@ganesha/node': link:../node
     devDependencies:
       '@hackbg/ganesha': link:../..
-      typescript: 4.6.4
+      typescript: 4.9.5
 
   src/vsc:
     specifiers:
-      typescript: latest
+      typescript: ^4.9
       vsce: latest
     devDependencies:
-      typescript: 4.7.4
-      vsce: 2.10.0
+      typescript: 4.9.5
+      vsce: 2.15.0
 
   src/vsc/client:
     specifiers:
@@ -101,7 +101,7 @@ importers:
       '@ganesha/vscode-shared': link:../shared
       vscode-languageclient: 7.1.0-next.5
     devDependencies:
-      '@types/vscode': 1.69.0
+      '@types/vscode': 1.76.0
 
   src/vsc/server:
     specifiers:
@@ -123,28 +123,28 @@ importers:
 
   src/vsc/shared:
     specifiers:
-      typescript: latest
+      typescript: ^4.9
     devDependencies:
-      typescript: 4.7.4
+      typescript: 4.9.5
 
   test:
     specifiers:
       '@ganesha/core': workspace:*
       '@ganesha/node': workspace:*
       '@ganesha/rollup': workspace:*
-      '@hackbg/runspec': ^2.2
+      '@hackbg/spec': ^1
       mkdirp: ^1.0.4
       tap: ^15.0.9
-      typescript: ^4.7
+      typescript: ^4.9
       vite: ^2.7.6
     devDependencies:
       '@ganesha/core': link:../src/core
       '@ganesha/node': link:../src/node
       '@ganesha/rollup': link:../src/rollup
-      '@hackbg/runspec': 2.2.1
+      '@hackbg/spec': 1.0.0
       mkdirp: 1.0.4
-      tap: 15.1.6_typescript@4.7.4
-      typescript: 4.7.4
+      tap: 15.1.6_typescript@4.9.5
+      typescript: 4.9.5
       vite: 2.7.13
 
 packages:
@@ -357,8 +357,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@hackbg/runspec/2.2.1:
-    resolution: {integrity: sha512-A0RNBw6GqdTv3PMhGuuWN3U6E4EfwvgViQBqAS4EIJBR0izu4L63cAirVEg+JVlh0VIiuO6EKEocRoyrlb9qlQ==}
+  /@hackbg/spec/1.0.0:
+    resolution: {integrity: sha512-YlruR8UORlr9YF1a6eSMEVRSXrUGK397xErPSKkJnJ6VCQK35ULp3Hkf1HCc7wptZZI1+oRl1QG5wFwYOkET1w==}
     hasBin: true
     dev: true
 
@@ -426,8 +426,8 @@ packages:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
 
-  /@types/vscode/1.69.0:
-    resolution: {integrity: sha512-RlzDAnGqUoo9wS6d4tthNyAdZLxOIddLiX3djMoWk29jFfSA1yJbIwr0epBYqqYarWB6s2Z+4VaZCQ80Jaa3kA==}
+  /@types/vscode/1.76.0:
+    resolution: {integrity: sha512-CQcY3+Fe5hNewHnOEAVYj4dd1do/QHliXaknAEYSXx2KEHUzFibDZSKptCon+HPgK55xx20pR+PBJjf0MomnBA==}
     dev: true
 
   /@volar/shared/0.27.24:
@@ -1536,7 +1536,7 @@ packages:
     dev: true
 
   /github-from-package/0.0.0:
-    resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
+    resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
     dev: true
 
   /glob-parent/5.1.2:
@@ -2740,7 +2740,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap/15.1.6_typescript@4.7.4:
+  /tap/15.1.6_typescript@4.9.5:
     resolution: {integrity: sha512-TN7xH6Q2tUPTd6qwmkhuFJcx1vUR8e4dDUpBKc61G0krOzne7Ia6aKIFb8O/0kVazachSSuVME1V8nQ2xwWL8w==}
     engines: {node: '>=10'}
     hasBin: true
@@ -2777,7 +2777,7 @@ packages:
       tap-parser: 10.1.0
       tap-yaml: 1.0.0
       tcompare: 5.0.7
-      typescript: 4.7.4
+      typescript: 4.9.5
       which: 2.0.2
     transitivePeerDependencies:
       - supports-color
@@ -2893,14 +2893,8 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.6.4:
-    resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
-
-  /typescript/4.7.4:
-    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
+  /typescript/4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
 
@@ -3010,9 +3004,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vsce/2.10.0:
-    resolution: {integrity: sha512-b+wB3XMapEi368g64klSM6uylllZdNutseqbNY+tUoHYSy6g2NwnlWuAGKDQTYc0IqfDUjUFRQBpPgA89Q+Fyw==}
+  /vsce/2.15.0:
+    resolution: {integrity: sha512-P8E9LAZvBCQnoGoizw65JfGvyMqNGlHdlUXD1VAuxtvYAaHBKLBdKPnpy60XKVDAkQCfmMu53g+gq9FM+ydepw==}
     engines: {node: '>= 14'}
+    deprecated: vsce has been renamed to @vscode/vsce. Install using @vscode/vsce instead.
     hasBin: true
     dependencies:
       azure-devops-node-api: 11.1.1
