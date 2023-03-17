@@ -12,7 +12,7 @@ importers:
       c8: ^7.11.0
       chokidar: ^3.5.3
       cross-spawn: ^7.0.3
-      typescript: ^4.9
+      typescript: ^5
       vite: ^2.8.4
     dependencies:
       '@ganesha/core': link:core
@@ -24,7 +24,7 @@ importers:
       '@hackbg/spec': 1.0.0
       c8: 7.11.3
       chokidar: 3.5.3
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 2.8.4
 
   core:
@@ -79,7 +79,7 @@ importers:
       '@hackbg/spec': ^1
       mkdirp: ^1.0.4
       tap: ^15.0.9
-      typescript: ^4.9
+      typescript: ^5
       vite: ^2.7.6
     devDependencies:
       '@ganesha/core': link:../core
@@ -87,8 +87,8 @@ importers:
       '@ganesha/rollup': link:../rollup
       '@hackbg/spec': 1.0.0
       mkdirp: 1.0.4
-      tap: 15.1.6_typescript@4.9.5
-      typescript: 4.9.5
+      tap: 15.1.6_typescript@5.0.2
+      typescript: 5.0.2
       vite: 2.7.13
 
   ts:
@@ -96,32 +96,32 @@ importers:
       '@ganesha/core': workspace:^3
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
-      typescript: ^4.9
+      typescript: ^5
     dependencies:
       '@ganesha/core': link:../core
       joycon: 3.1.1
       jsonc-parser: 3.0.0
-      typescript: 4.9.5
+      typescript: 5.0.2
 
   tsc:
     specifiers:
       '@ganesha/core': workspace:^3
       '@ganesha/node': workspace:^2.3
       '@hackbg/ganesha': workspace:../..
-      typescript: ^4.9
+      typescript: ^5
     dependencies:
       '@ganesha/core': link:../core
       '@ganesha/node': link:../node
     devDependencies:
       '@hackbg/ganesha': link:../..
-      typescript: 4.9.5
+      typescript: 5.0.2
 
   vsc:
     specifiers:
-      typescript: ^4.9
+      typescript: ^5
       vsce: latest
     devDependencies:
-      typescript: 4.9.5
+      typescript: 5.0.2
       vsce: 2.15.0
 
   vsc/client:
@@ -155,9 +155,9 @@ importers:
 
   vsc/shared:
     specifiers:
-      typescript: ^4.9
+      typescript: ^5
     devDependencies:
-      typescript: 4.9.5
+      typescript: 5.0.2
 
 packages:
 
@@ -2751,7 +2751,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap/15.1.6_typescript@4.9.5:
+  /tap/15.1.6_typescript@5.0.2:
     resolution: {integrity: sha512-TN7xH6Q2tUPTd6qwmkhuFJcx1vUR8e4dDUpBKc61G0krOzne7Ia6aKIFb8O/0kVazachSSuVME1V8nQ2xwWL8w==}
     engines: {node: '>=10'}
     hasBin: true
@@ -2788,7 +2788,7 @@ packages:
       tap-parser: 10.1.0
       tap-yaml: 1.0.0
       tcompare: 5.0.7
-      typescript: 4.9.5
+      typescript: 5.0.2
       which: 2.0.2
     transitivePeerDependencies:
       - supports-color
@@ -2904,9 +2904,9 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
     hasBin: true
 
   /uc.micro/1.0.6:

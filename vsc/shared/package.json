@@ -4,6 +4,6 @@
   "main":    "out/index.js",
   "files":   ["out"],
   "devDependencies": {
-    "typescript": "^4.9"
+    "typescript": "^5"
   }
 }
