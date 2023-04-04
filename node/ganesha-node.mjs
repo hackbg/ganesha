@@ -197,7 +197,7 @@ export async function determineModuleFormat (location) {
       const tsconfigJsonPath = resolve(location, FILES.TSCONFIG_JSON)
       if (existsSync(tsconfigJsonPath)) {
         const tsconfigJson = JSONC.parse(await readFile(tsconfigJsonPath, UTF8))
-        if (tsconfigJson.compilerOptions.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
+        if (tsconfigJson?.compilerOptions?.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
         return FORMATS.MODULE
       }
     }
