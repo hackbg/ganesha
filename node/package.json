@@ -1,12 +1,12 @@
 {
   "name":    "@ganesha/node",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main":    "ganesha-node.mjs",
   "type":    "module",
   "description": "Literate module loader for Node.js >=16.12",
   "dependencies": {
     "@ganesha/core": "workspace:^3",
-    "@ganesha/ts":   "workspace:^2",
+    "@ganesha/ts":   "workspace:^2.0.1",
 
     "front-matter":       "^4.0.2",
     "jsonc-parser":       "^3.0.0",

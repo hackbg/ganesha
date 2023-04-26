@@ -1,6 +1,6 @@
 {
   "name": "@ganesha/ts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "ganesha-ts.cjs",
   "bin": { "ganesha-ts": "./ganesha-ts.cjs" },
   "scripts": {
@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@ganesha/core": "workspace:^3",
-    "joycon":        "^3.0.1",
-    "jsonc-parser":  "^3.0.0"
+    "joycon": "^3.0.1",
+    "jsonc-parser": "^3.0.0"
   },
   "peerDependencies": {
-    "typescript":    "^4|^5"
+    "typescript": "^5"
   }
 }

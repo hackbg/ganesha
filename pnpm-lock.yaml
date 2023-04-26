@@ -5,9 +5,9 @@ importers:
   .:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/node': workspace:^3
-      '@ganesha/node-legacy': workspace:^4
-      '@ganesha/ts': workspace:^2
+      '@ganesha/node': workspace:^3.0.1
+      '@ganesha/node-legacy': workspace:^4.0.1
+      '@ganesha/ts': workspace:^2.0.1
       '@hackbg/spec': ^1
       c8: ^7.11.0
       chokidar: ^3.5.3
@@ -36,7 +36,7 @@ importers:
   node:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/ts': workspace:^2
+      '@ganesha/ts': workspace:^2.0.1
       front-matter: ^4.0.2
       jsonc-parser: ^3.0.0
       source-map-support: ^0.5.20
@@ -50,7 +50,7 @@ importers:
   node-legacy:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/ts': workspace:^2
+      '@ganesha/ts': workspace:^2.0.1
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
