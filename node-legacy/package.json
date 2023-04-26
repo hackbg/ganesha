@@ -1,6 +1,6 @@
 {
   "name":    "@ganesha/node-legacy",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "main":    "ganesha-node-esm.mjs",
   "scripts": {
     "release:dry": "pnpm publish --dry-run",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@ganesha/core": "workspace:^3",
-    "@ganesha/ts":   "workspace:^1",
+    "@ganesha/ts":   "workspace:^2",
 
     "front-matter":         "^4.0.2",
     "joycon":               "^3.0.1",

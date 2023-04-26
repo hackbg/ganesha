@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "@ganesha/core": "workspace:^3",
-    "@ganesha/node": "workspace:^2.3"
+    "@ganesha/node": "workspace:^3"
   },
   "devDependencies": {
     "typescript": "^5",

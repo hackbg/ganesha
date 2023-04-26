@@ -5,9 +5,9 @@ importers:
   .:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/node': workspace:^2.3.3
-      '@ganesha/node-legacy': workspace:^3.0.2
-      '@ganesha/ts': workspace:^1
+      '@ganesha/node': workspace:^3
+      '@ganesha/node-legacy': workspace:^4
+      '@ganesha/ts': workspace:^2
       '@hackbg/spec': ^1
       c8: ^7.11.0
       chokidar: ^3.5.3
@@ -36,7 +36,7 @@ importers:
   node:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/ts': workspace:^1
+      '@ganesha/ts': workspace:^2
       front-matter: ^4.0.2
       jsonc-parser: ^3.0.0
       source-map-support: ^0.5.20
@@ -50,7 +50,7 @@ importers:
   node-legacy:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/ts': workspace:^1
+      '@ganesha/ts': workspace:^2
       front-matter: ^4.0.2
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
@@ -96,17 +96,15 @@ importers:
       '@ganesha/core': workspace:^3
       joycon: ^3.0.1
       jsonc-parser: ^3.0.0
-      typescript: ^5
     dependencies:
       '@ganesha/core': link:../core
       joycon: 3.1.1
       jsonc-parser: 3.0.0
-      typescript: 5.0.2
 
   tsc:
     specifiers:
       '@ganesha/core': workspace:^3
-      '@ganesha/node': workspace:^2.3
+      '@ganesha/node': workspace:^3
       '@hackbg/ganesha': workspace:../..
       typescript: ^5
     dependencies:
@@ -133,7 +131,7 @@ importers:
       '@ganesha/vscode-shared': link:../shared
       vscode-languageclient: 7.1.0-next.5
     devDependencies:
-      '@types/vscode': 1.76.0
+      '@types/vscode': 1.77.0
 
   vsc/server:
     specifiers:
@@ -438,8 +436,8 @@ packages:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
 
-  /@types/vscode/1.76.0:
-    resolution: {integrity: sha512-CQcY3+Fe5hNewHnOEAVYj4dd1do/QHliXaknAEYSXx2KEHUzFibDZSKptCon+HPgK55xx20pR+PBJjf0MomnBA==}
+  /@types/vscode/1.77.0:
+    resolution: {integrity: sha512-MWFN5R7a33n8eJZJmdVlifjig3LWUNRrPeO1xemIcZ0ae0TEQuRc7G2xV0LUX78RZFECY1plYBn+dP/Acc3L0Q==}
     dev: true
 
   /@volar/shared/0.27.24:
@@ -1862,7 +1860,7 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
     dependencies:
-      minimist: 1.2.5
+      minimist: 1.2.6
     dev: true
 
   /jsonc-parser/3.0.0:
@@ -2908,6 +2906,7 @@ packages:
     resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
     engines: {node: '>=12.20'}
     hasBin: true
+    dev: true
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
