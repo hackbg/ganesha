@@ -54,18 +54,13 @@ function parseFile (name) {
 }
 
 function parseString (source = "") {
-
   const tokens = require('marked').lexer(source)
-
   let output = ''
-
   for (const token of tokens) {
-
     const isCode = token.type === 'code' && (
       settings.allowedLanguages.length === 0 ||
       settings.allowedLanguages.includes(token.lang ?? settings.defaultLanguage)
     )
-
     if (isCode) {
       const language = token.lang ?? settings.defaultLanguage
       output += `${token.text}\n`
@@ -75,11 +70,8 @@ function parseString (source = "") {
       text = text.split('\n').join('\n/// ')
       output += `/// ${text}\n`//${text}\n`
     }
-
   }
-
   return output
-
 }
 
 if (require.main === module) {

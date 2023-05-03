@@ -3,7 +3,7 @@ const context = { stdio: 'inherit', cwd: __dirname }
 for (const [language, args] of Object.entries({
 
   'CommonJS': [
-    '-r', '@ganesha/node-legacy/loader.cjs',
+    '-r', '@ganesha/node-legacy/ganesha-node-cjs.cjs',
     '-e', `process.exit(require('./examples/example.cjs.md'))`
   ],
 
@@ -35,7 +35,7 @@ for (const [language, args] of Object.entries({
 for (const [language, args] of Object.entries({
 
   'CommonJS': [
-    '-r', '@ganesha/node-legacy/loader.cjs',
+    '-r', '@ganesha/node-legacy/ganesha-node-cjs.cjs',
     '-e', `process.exit(require('./examples/example_cjs.md'))`
   ],
 

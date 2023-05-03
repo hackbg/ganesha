@@ -68,7 +68,7 @@ function tscToCjs (fileName, code, format) {
     module: ModuleKind.CommonJS,
     ...sourceMapOptions
   }
-  trace(`T2C ${fileName}`, JSON.stringify(compilerOptions))
+  trace(`tscToCommonjs ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   const { outputText, diagnostics, sourceMapText } = transpileModule(code, { compilerOptions, fileName })
   printWarnings(diagnostics)
@@ -83,13 +83,13 @@ function tscToMjs (fileName, code, format) {
     module:          ModuleKind.ESNext,
     ...sourceMapOptions
   }
-  trace(`   T2M ${fileName}`, JSON.stringify(compilerOptions))
+  trace(`tscToMjs ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   let result
   try {
     result = transpileModule(code, { compilerOptions, fileName })
   } catch (e) {
-    console.error(`   T2M compile ${fileName} to ESM failed:`, e.message)
+    console.error(`tscToMjs compile ${fileName} to ESM failed:`, e.message)
     throw e
   }
   const { outputText, diagnostics, sourceMapText } = result

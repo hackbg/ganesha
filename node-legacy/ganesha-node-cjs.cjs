@@ -1,14 +1,6 @@
 const { addHook } = require('pirates')
-
-const {
-  parseString,
-  extensions
-} = require('@ganesha/core/parse.cjs')
-
-const {
-  installSourceMapSupport,
-  addSourceMap
-} = require('./sourcemaps.cjs')
+const { parseString, extensions } = require('@ganesha/core')
+const { installSourceMapSupport, addSourceMap } = require('./ganesha-node-cjs-sourcemaps.cjs')
 
 const USAGE = `
   This module cannot be run as the main module.

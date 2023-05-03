@@ -1,4 +1,4 @@
-import { basename, extname, dirname, resolve, relative } from 'path'
+import { basename, extname, dirname, resolve as resolvePath, relative } from 'path'
 import { fileURLToPath, pathToFileURL, resolve as resolveURL } from 'url'
 import { stat, realpath, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
@@ -22,149 +22,241 @@ import {
   UTF8
 } from './ganesha-node-constants.mjs'
 
-const sourceMaps = {}
-let sourceMapSupportInstalled = false
-installSourceMapSupport()
+export class Ganesha {
 
-/** Node's experimental ESM loader API consists of two functions, "resolve" and "load". */
-export {
-  ganeshaResolve as resolve,
-  ganeshaLoad    as load
-}
+  sourceMaps = {}
 
-/** This function takes over Node's module resolver, adding support for
-  * identifying TypeScript and Literate modules as importable.
-  * TODO: resolve module sub-imports like '@foo/bar/index.ts' */
-export async function ganeshaResolve (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV', url, ...args)
-  defaultResolve = makeResolverHelpful(defaultResolve)
-
-  // Populate the result object.
-  let result
-  if (url.startsWith(PREFIXES.FILE_URL) || url.startsWith(PREFIXES.RELATIVE_PATH)) {
-    result = await ganeshaResolvePath(url, context, defaultResolve)
-  } else {
-    result = await ganeshaResolvePackage(url, context, defaultResolve)
+  constructor () {
+    if (!settings.noSourceMap) sourceMapSupport.install({
+      environment: 'node',
+      handleUncaughtExceptions: false,
+      retrieveSourceMap: (url) => {
+        if (url.startsWith('file://')) {
+          url = fileURLToPath(url)
+        }
+        if (this.sourceMaps[url]) {
+          return { url, map: this.sourceMaps[url], }
+        } else {
+          return null
+        }
+      }
+    })
   }
 
-  // If the result object still has no URL, resolution failed.
-  if (!result.url) {
-    throw ERR.E01(context.parentURL, url)
-  }
-
-  // If the result object has no format, try to determine the format.
-  if (!result.format) {
-    trace(`[resolve] no format determined for: ${result.url}`)
-    if (result.url && result.url.startsWith('file://')) {
-      result.format = await determineModuleFormat(fileURLToPath(result.url))
+  addSourceMap (filename, sourceMap) {
+    const trace = (...args) => _trace('addSourceMap', filename, ...args)
+    if (!this.sourceMaps[filename]) {
+      trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
+      this.sourceMaps[filename] = sourceMap
     }
   }
 
-  // Return the resolution result.
-  trace(`[resolve] [from ${context.parentURL}] import '${url}' = ${result.url} (${result.format})`)
-  result.shortCircuit = true
-  return result
-}
+  /** Resolve TypeScript and Literate modules as importable. */
+  resolve = async (url, context, defaultResolve) => {
+    const trace = (...args) => _trace('resolve', url, ...args)
+    defaultResolve = makeResolverHelpful(defaultResolve)
 
-/** This function finds the filesystem path corresponding to an import statement. */
-export async function ganeshaResolvePath (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV PATH', url, ...args)
-  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  trace(resolvedPath)
-  return (
-    // Try an exact match
-    await ganeshaResolvePathExact(url, context, defaultResolve) ||
-    // If there is no exact match, try adding different extensions.
-    await ganeshaResolvePathFuzzy(url, context, defaultResolve)
-  )
-}
-
-/** This function tries to find a filesystem path that exactly matches an import statement,
-  * i.e. when an extension is present. */
-export async function ganeshaResolvePathExact (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV PATH EXACT', context.parentURL, '->', url, ...args)
-  let result = { url: undefined, format: undefined }
-  // Convert URL to filesystem path
-  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  // Get info about the file at the specified path
-  let stats
-  try {
-    stats = await stat(resolvedPath)
-  } catch (e) {
-    if (e.code === 'ENOENT') {
-      // If it doesnt exist, return false so caller knows to try different extensions next
-      return false
+    // Populate the result object.
+    let result
+    if (url.startsWith(PREFIXES.FILE_URL) || url.startsWith(PREFIXES.RELATIVE_PATH)) {
+      result = await this.resolvePath(url, context, defaultResolve)
     } else {
-      // All other errors are unexpected and should be rethrown
-      throw e
+      result = await this.resolvePackage(url, context, defaultResolve)
     }
-  }
-  if (stats.isFile()) {
-    const realPath = await realpath(resolvedPath)
-    trace(`realPath =`, resolvedPath)
-    result.url    = pathToFileURL(realPath).href
-    result.format = result.format || await determineModuleFormat(resolvedPath)
-    trace(`${result.url} is file, format: ${result.format}`)
-  } else if (stats.isDirectory()) {
-    trace(`${resolvedPath} is dir, using defaultResolve`)
-    result = defaultResolve(url, context, defaultResolve)
-  } else {
-    throw ERR.E02()
-  }
-  return result
-}
 
-/** This function tries to find a filesystem path corresponding to an import statement
-  * that does not contain an extension. It tries all known extensions in parallel. */
-export async function ganeshaResolvePathFuzzy (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV PATH FUZZY', url, ...args)
-  let result = { url: undefined, format: undefined }
-  const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
-  trace(`no ${resolvedPath}, trying extensions`)
-  const variants = EXTENSION_ORDER.map(extension=>`${resolvedPath}${extension}`)
-  let found = false
-  const results = await Promise.allSettled(variants.map(async function tryVariant (variant) {
-    try {
-      const realPath = await realpath(variant)
-      trace(`exists: ${realPath}`)
-      return realPath
-    } catch (error) {
-      if (error.code === 'ENOENT') {
-        //trace(`[resolve fuzzy] does not exist: ${variant}`)
-        return null
-      } else {
-        throw [variant, error]
+    // If the result object still has no URL, resolution failed.
+    if (!result.url) {
+      throw ERR.E01(context.parentURL, url)
+    }
+
+    // If the result object has no format, try to determine the format.
+    if (!result.format) {
+      trace(`[resolve] no format determined for: ${result.url}`)
+      if (result.url && result.url.startsWith('file://')) {
+        result.format = await determineModuleFormat(fileURLToPath(result.url))
       }
     }
-  }))
-  const rejected = results.filter(x=>x.status==='rejected').map(x=>x.reason)
-  for (const [variant, error] of rejected) {
-    console.warn(
-      `[@ganesha/node] Trying import "${variant}" failed with error: ${error.message}`
+
+    // Return the resolution result.
+    trace(`[resolve] [from ${context.parentURL}] import '${url}' = ${result.url} (${result.format})`)
+    result.shortCircuit = true
+    return result
+  }
+
+  /** Find the filesystem path corresponding to an import statement. */
+  async resolvePath (url, context, defaultResolve) {
+    const trace = (...args) => _trace('resolvePath', url, ...args)
+    const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
+    trace(resolvedPath)
+    return (
+      // Try an exact match
+      await this.resolvePathExact(url, context, defaultResolve) ||
+      // If there is no exact match, try adding different extensions.
+      await this.resolvePathFuzzy(url, context, defaultResolve)
     )
   }
-  const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
-  if (fulfilled.length > 1) {
-    throw ERR.E03(resolvedPath, fulfilled)
+
+  /** Try to to find a filesystem path that exactly matches an import statement,
+    * i.e. when an extension is present. */
+  async resolvePathExact (url, context, defaultResolve) {
+    const trace = (...args) => _trace('resolvePathExact', context.parentURL, '->', url, ...args)
+    let result = { url: undefined, format: undefined }
+    // Convert URL to filesystem path
+    const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
+    // Get info about the file at the specified path
+    let stats
+    try {
+      stats = await stat(resolvedPath)
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        // If it doesnt exist, return false so caller knows to try different extensions next
+        return false
+      } else {
+        // All other errors are unexpected and should be rethrown
+        throw e
+      }
+    }
+    if (stats.isFile()) {
+      const realPath = await realpath(resolvedPath)
+      trace(`realPath =`, resolvedPath)
+      result.url    = pathToFileURL(realPath).href
+      result.format = result.format || await determineModuleFormat(resolvedPath)
+      trace(`${result.url} is file, format: ${result.format}`)
+    } else if (stats.isDirectory()) {
+      trace(`${resolvedPath} is dir, using defaultResolve`)
+      result = defaultResolve(url, context, defaultResolve)
+    } else {
+      throw ERR.E02()
+    }
+    return result
   }
-  if (fulfilled.length < 1) {
-    throw ERR.E04(url, context.parentURL, variants)
+
+  /** Try to find filesystem path matching import statement without extension.
+    * Tries all known extensions in parallel. */
+  async resolvePathFuzzy (url, context, defaultResolve) {
+    const trace = (...args) => _trace('resolvePathFuzzy', url, ...args)
+    let result = { url: undefined, format: undefined }
+    const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
+    trace(`no ${resolvedPath}, trying extensions`)
+    const variants = EXTENSION_ORDER.map(extension=>`${resolvedPath}${extension}`)
+    let found = false
+    const results = await Promise.allSettled(variants.map(async function tryVariant (variant) {
+      try {
+        const realPath = await realpath(variant)
+        trace(`exists: ${realPath}`)
+        return realPath
+      } catch (error) {
+        if (error.code === 'ENOENT') {
+          //trace(`[resolve fuzzy] does not exist: ${variant}`)
+          return null
+        } else {
+          throw [variant, error]
+        }
+      }
+    }))
+    const rejected = results.filter(x=>x.status==='rejected').map(x=>x.reason)
+    for (const [variant, error] of rejected) {
+      console.warn(
+        `[@ganesha/node] Trying import "${variant}" failed with error: ${error.message}`
+      )
+    }
+    const fulfilled = results.filter(x=>x.status==='fulfilled'&&x.value!==null)
+    if (fulfilled.length > 1) {
+      throw ERR.E03(resolvedPath, fulfilled)
+    }
+    if (fulfilled.length < 1) {
+      throw ERR.E04(url, context.parentURL, variants)
+    }
+    const realPath = fulfilled[0].value
+    result.url    = pathToFileURL(realPath).href
+    result.format = result.format || await determineModuleFormat(realPath)
+    return result
   }
-  const realPath = fulfilled[0].value
-  result.url    = pathToFileURL(realPath).href
-  result.format = result.format || await determineModuleFormat(realPath)
-  return result
+
+  async resolvePackage (url, context, defaultResolve) {
+    const trace = (...args) => _trace('resolvePackage', url, ...args)
+    trace(`${url}`)
+    const result = await defaultResolve(url, context, defaultResolve)
+    if (result.url.startsWith(PREFIXES.FILE_URL)) {
+      result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
+    }
+    return result
+  }
+
+  load = async (url, { format, importAssertions }, defaultLoad) => {
+    const trace = (...args) => _trace('load', url, ...args)
+    trace()
+    // At this point all file imports should be converted to file URLs.
+    // Non-file imports (such as built-in modules) are passed to the default loader.
+    if (!url.startsWith(PREFIXES.FILE_URL)) {
+      return defaultLoad(url, { format, importAssertions }, defaultLoad)
+    }
+    const location = await realpath(fileURLToPath(url))
+    // If live mode is enabled, add this file to the watcher:
+    if (process.send) process.send({"Ganesha_Watch": location})
+    // Extensions are counted from the back: `name.ext2.ext1`
+    const ext1 = extname(location)
+    const ext2 = extname(basename(url, ext1))
+    let result = {}
+    if (EXTENSIONS.MD === ext1) {
+      // Files ending in .md are loaded as literate modules.
+      result = await this.loadMarkdown(location, format, ext2)
+    } else if (EXTENSIONS.TS === ext1) {
+      // Files ending in .ts are loaded as TypeScript modules.
+      result = await this.loadTypeScript(location, format)
+    } else if (format) {
+      // Imports with known formats are passed to the default loader.
+      result = await defaultLoad(url, { format, importAssertions }, defaultLoad)
+    } else {
+      // Imports with unspecified formats are loaded as data modules.
+      result = await this.loadData(location, ext1)
+    }
+    result.shortCircuit = true
+    return result
+  }
+
+  async loadMarkdown (location, format, ext2) {
+    // When loading a Markdown file, extract the code from it:
+    let source = await readFile(location, 'utf8')
+    const {attributes} = frontMatter(source)
+    source = parseString(source)
+    if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
+      // And if the code in the Markdown file is TS, compile it to JS:
+      const transformed = tscToMjs(location, source, format)
+      const { id, compiled, map } = transformed
+      this.addSourceMap(id, map)
+      source = compiled
+    }
+    return { source, format }
+  }
+
+  async loadTypeScript (location, format) {
+    // When loading a TS file, compile it to JS:
+    let source = await readFile(location, 'utf8')
+    const transformed = tscToMjs(location, source, format)
+    const { id, compiled, map } = transformed
+    this.addSourceMap(id, map)
+    source = compiled
+    return { source, format }
+  }
+
+  async loadData (location, ext1) {
+    // Imports with other (unknown) formats are handled as data
+    let source = await readFile(location, 'utf8')
+    if (EXTENSIONS.JSON !== ext1) {
+      // If it's not JSON the data is quoted as a string
+      source = '`' + source + '`'
+    }
+    source = `export default ${source}`
+    return { source, format: FORMATS.MODULE }
+  }
+
 }
 
-export async function ganeshaResolvePackage (url, context, defaultResolve) {
-  const trace = (...args) => _trace('RSLV PKG ', url, ...args)
-  trace(`${url}`)
-  const result = await defaultResolve(url, context, defaultResolve)
-  if (result.url.startsWith(PREFIXES.FILE_URL)) {
-    result.url = pathToFileURL(await realpath(fileURLToPath(result.url))).href
-  }
-  return result
-}
+const loader = new Ganesha()
+export default loader
+export const resolve = loader.resolve
+export const load    = loader.load
 
 export async function determineModuleFormat (location) {
   const ext1 = extname(location)
@@ -189,12 +281,12 @@ export async function determineModuleFormat (location) {
   async function digForFormat (location) {
     while (location !== dirname(location)) {
       location = dirname(location)
-      const packageJsonPath = resolve(location, FILES.PACKAGE_JSON)
+      const packageJsonPath = resolvePath(location, FILES.PACKAGE_JSON)
       if (existsSync(packageJsonPath)) {
         const packageJson = JSON.parse(await readFile(packageJsonPath, UTF8))
         if (packageJson.type === FORMATS.MODULE) return FORMATS.MODULE
       }
-      const tsconfigJsonPath = resolve(location, FILES.TSCONFIG_JSON)
+      const tsconfigJsonPath = resolvePath(location, FILES.TSCONFIG_JSON)
       if (existsSync(tsconfigJsonPath)) {
         const tsconfigJson = JSONC.parse(await readFile(tsconfigJsonPath, UTF8))
         if (tsconfigJson?.compilerOptions?.target === FORMATS.COMMONJS) return FORMATS.COMMONJS
@@ -215,9 +307,9 @@ export function makeResolverHelpful (defaultResolve) {
   helpfulDefaultResolve.isHelpful = true
   return helpfulDefaultResolve
 
-  function helpfulDefaultResolve (...args) {
+  async function helpfulDefaultResolve (...args) {
     try {
-      return defaultResolve(...args)
+      return await defaultResolve(...args)
     } catch (e) {
       if (e.code === 'ERR_MODULE_NOT_FOUND') {
         const notFoundModule = getNotFoundModule(e.message)
@@ -241,6 +333,7 @@ export function makeResolverHelpful (defaultResolve) {
     const matches = RE.CANNOT_FIND_MODULE.exec(message)
     if (matches) return matches[1]
   }
+
   function getNotFoundPackage (message) {
     const matches = RE.CANNOT_FIND_PACKAGE.exec(message)
     if (matches) return matches[1]
@@ -260,105 +353,5 @@ export function makeResolverHelpful (defaultResolve) {
       )
       warnedBrokenPackages.push(notFoundPackage)
     }
-  }
-}
-
-export async function ganeshaLoad (
-  url,
-  { format, importAssertions },
-  defaultLoad
-) {
-  const trace = (...args) => _trace('  LOAD', url, ...args)
-  trace()
-  // At this point all file imports should be converted to file URLs.
-  // Non-file imports (such as built-in modules) are passed to the default loader.
-  if (!url.startsWith(PREFIXES.FILE_URL)) {
-    return defaultLoad(url, { format, importAssertions }, defaultLoad)
-  }
-  const location = await realpath(fileURLToPath(url))
-  // If live mode is enabled, add this file to the watcher:
-  if (process.send) process.send({"Ganesha_Watch": location})
-  // Extensions are counted from the back: `name.ext2.ext1`
-  const ext1 = extname(location)
-  const ext2 = extname(basename(url, ext1))
-  let result = {}
-  if (EXTENSIONS.MD === ext1) {
-    // Files ending in .md are loaded as literate modules.
-    result = await ganeshaLoadMarkdown(location, format, ext2)
-  } else if (EXTENSIONS.TS === ext1) {
-    // Files ending in .ts are loaded as TypeScript modules.
-    result = await ganeshaLoadTypeScript(location, format)
-  } else if (format) {
-    // Imports with known formats are passed to the default loader.
-    result = await defaultLoad(url, { format, importAssertions }, defaultLoad)
-  } else {
-    // Imports with unspecified formats are loaded as data modules.
-    result = await ganeshaLoadData(location, ext1)
-  }
-  result.shortCircuit = true
-  return result
-}
-
-export async function ganeshaLoadMarkdown (location, format, ext2) {
-  // When loading a Markdown file, extract the code from it:
-  let source = await readFile(location, 'utf8')
-  const {attributes} = frontMatter(source)
-  source = parseString(source)
-  if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
-    // And if the code in the Markdown file is TS, compile it to JS:
-    const transformed = tscToMjs(location, source, format)
-    const { id, compiled, map } = transformed
-    addSourceMap(id, map)
-    source = compiled
-  }
-  return { source, format }
-}
-
-export async function ganeshaLoadTypeScript (location, format) {
-  // When loading a TS file, compile it to JS:
-  let source = await readFile(location, 'utf8')
-  const transformed = tscToMjs(location, source, format)
-  const { id, compiled, map } = transformed
-  addSourceMap(id, map)
-  source = compiled
-  return { source, format }
-}
-
-export async function ganeshaLoadData (location, ext1) {
-  // Imports with other (unknown) formats are handled as data
-  let source = await readFile(location, 'utf8')
-  if (EXTENSIONS.JSON !== ext1) {
-    // If it's not JSON the data is quoted as a string
-    source = '`' + source + '`'
-  }
-  source = `export default ${source}`
-  return { source, format: FORMATS.MODULE }
-}
-
-export function installSourceMapSupport () {
-  if (settings.noSourceMap) return
-  if (sourceMapSupportInstalled) return
-  sourceMapSupport.install({
-    handleUncaughtExceptions: false,
-    environment:              'node',
-    retrieveSourceMap (url) {
-      if (url.startsWith('file://')) {
-        url = fileURLToPath(url)
-      }
-      if (sourceMaps[url]) {
-        return { url, map: sourceMaps[url], }
-      } else {
-        return null
-      }
-    }
-  })
-  sourceMapSupportInstalled = true
-}
-
-export function addSourceMap (filename, sourceMap) {
-  const trace = (...args) => _trace('  SMAP', filename, ...args)
-  if (!sourceMaps[filename]) {
-    trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
-    sourceMaps[filename] = sourceMap
   }
 }

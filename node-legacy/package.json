@@ -1,6 +1,6 @@
 {
   "name":    "@ganesha/node-legacy",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "main":    "ganesha-node-esm.mjs",
   "scripts": {
     "release:dry": "pnpm publish --dry-run",

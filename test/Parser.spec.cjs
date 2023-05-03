@@ -8,7 +8,7 @@ for (const [language, [literate, parsed]] of Object.entries({
   module.exports[
     `Parser: extract ${language} module from Markdown, preserving line numbers`
   ] = async ({equal}) => equal(
-    require('@ganesha/core/parse.cjs').parseFile($(literate)),
+    require('@ganesha/core').parseFile($(literate)),
     require('fs').readFileSync($(parsed), 'utf8')
   )
 }

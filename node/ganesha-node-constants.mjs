@@ -21,7 +21,8 @@ export const EXTENSION_ORDER = [
   '.mjs',
   '.js',
   '.cjs',
-  '.md'
+  '.md',
+  //''
 ]
 
 export const FORMATS = {
