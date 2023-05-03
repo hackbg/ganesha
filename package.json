@@ -1,7 +1,7 @@
 {
   "name":         "@hackbg/ganesha",
   "description":  "Tools for modern literate programming with TS/JS, ESM and Markdown",
-  "version":      "4.1.1",
+  "version":      "4.2.0",
   "author":       "Adam Avramov <adam@hack.bg>",
   "bin":          { "ganesha-run": "ganesha-run.cli.cjs" },
   "main":         "ganesha-run.cli.cjs",
@@ -19,9 +19,9 @@
     "release:wet": "pnpm -r release:wet && pnpm publish --access=public || true"
   },
   "dependencies": {
-    "@ganesha/core":        "workspace:^3",
+    "@ganesha/core":        "workspace:^3.0.1",
     "@ganesha/ts":          "workspace:^2.0.1",
-    "@ganesha/node":        "workspace:^3.1.0",
+    "@ganesha/node":        "workspace:^3.2.0",
     "@ganesha/node-legacy": "workspace:^4.0.2",
     "cross-spawn":          "^7.0.3",
     "pkg-up":               "^4.0.0"

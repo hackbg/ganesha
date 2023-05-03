@@ -4,8 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@ganesha/core': workspace:^3
-      '@ganesha/node': workspace:^3.1.0
+      '@ganesha/core': workspace:^3.0.1
+      '@ganesha/node': workspace:^3.2.0
       '@ganesha/node-legacy': workspace:^4.0.2
       '@ganesha/ts': workspace:^2.0.1
       '@hackbg/spec': ^1

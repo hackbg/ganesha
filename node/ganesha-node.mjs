@@ -198,10 +198,10 @@ export class Ganesha {
     const ext1 = extname(location)
     const ext2 = extname(basename(url, ext1))
     let result = {}
-    if (EXTENSIONS.MD === ext1) {
+    if (ext1 === EXTENSIONS.MD) {
       // Files ending in .md are loaded as literate modules.
       result = await this.loadMarkdown(location, format, ext2)
-    } else if (EXTENSIONS.TS === ext1) {
+    } else if (ext1 === EXTENSIONS.TS) {
       // Files ending in .ts are loaded as TypeScript modules.
       result = await this.loadTypeScript(location, format)
     } else if (format) {
@@ -216,18 +216,27 @@ export class Ganesha {
   }
 
   async loadMarkdown (location, format, ext2) {
+    const trace = (...args) => _trace('loadMarkdown', location, ...args)
+    trace()
     // When loading a Markdown file, extract the code from it:
     let source = await readFile(location, 'utf8')
-    const {attributes} = frontMatter(source)
+    const {attributes:{literate}={}} = frontMatter(source)
+    const {defaultLanguage} = settings
     source = parseString(source)
-    if (EXTENSIONS.TS === ext2 || attributes.literate === LITERATE.TYPESCRIPT) {
+    trace('checking for TS:', {ext2, literate, defaultLanguage})
+    if (
+      ext2            === EXTENSIONS.TS       ||
+      literate        === LITERATE.TYPESCRIPT ||
+      defaultLanguage === 'ts'                ||
+      defaultLanguage === 'typescript'
+    ) {
       // And if the code in the Markdown file is TS, compile it to JS:
       const transformed = tscToMjs(location, source, format)
       const { id, compiled, map } = transformed
       this.addSourceMap(id, map)
       source = compiled
     }
-    return { source, format }
+    return { source, format: FORMATS.MODULE }
   }
 
   async loadTypeScript (location, format) {

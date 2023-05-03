@@ -6,27 +6,29 @@ const { readFileSync } = require('fs')
 const settings = {
 
   // Print tracing output
-  trace:
-    !!process.env['Ganesha_Trace'],
+  trace: !!process.env['Ganesha_Trace'],
 
   // Code blocks with no language default to this language.
-  defaultLanguage:
-    process.env['Ganesha_Language_Default'],
+  defaultLanguage: process.env['Ganesha_Language_Default'] || 'ts',
 
   // Code blocks with language outside of this list are kept as comments.
-  allowedLanguages:
-    (process.env['Ganesha_Language_Allow']??'js,javascript,ts,typescript').split(',').map(x=>x.trim()).filter(Boolean),
+  allowedLanguages: (process.env['Ganesha_Language_Allow']??'js,javascript,ts,typescript')
+    .split(',')
+    .map(x=>x.trim())
+    .filter(Boolean),
+
+  // Hide Ganesha from process.argv
+  hide: !!process.env['Ganesha_Hide'],
 
   // TODO
-  live:
-    !!process.env['Ganesha_Live'],
+  live: !!process.env['Ganesha_Live'],
+
   // TODO
-  watched:
-    !!process.env['Ganesha_Watched'],
-  // Hide Ganesha from process.argv
-  hide:
-    !!process.env['Ganesha_Hide'],
+  watched: !!process.env['Ganesha_Watched'],
+
 }
+
+if (settings.live || settings.watched) console.warn('Live mode: unsupported')
 
 const T0 = + new Date()
 

@@ -1,6 +1,6 @@
 {
   "name": "@ganesha/core",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "ganesha-core.cjs",
   "bin": {
     "ganesha": "./ganesha-core.cjs"
