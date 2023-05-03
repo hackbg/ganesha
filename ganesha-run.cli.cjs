@@ -100,7 +100,7 @@ function initSupervisor (argv) {
   bootstrap()
   function bootstrap () {
     if (proc) proc.kill(9)
-    const entry = resolve(__dirname, 'ganesha-run')
+    const entry = resolve(__dirname, 'ganesha-run.cli.cjs')
     proc = module.exports.fork(entry, args, opts)
     proc.on('error', (...args) => console.error('Error when forking:', ...args))
     proc.on('exit', (code, signal) => {
