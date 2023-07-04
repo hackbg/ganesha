@@ -1,43 +1,50 @@
 {
-  "name":         "@hackbg/ganesha",
-  "description":  "Tools for modern literate programming with TS/JS, ESM and Markdown",
-  "version":      "4.2.0",
-  "author":       "Adam Avramov <adam@hack.bg>",
-  "bin":          { "ganesha-run": "ganesha-run.cli.cjs" },
-  "main":         "ganesha-run.cli.cjs",
-  "repository":   { "type": "git", "url": "https://github.com/hackbg/ganesha" },
+  "name": "@hackbg/ganesha",
+  "description": "Tools for modern literate programming with TS/JS, ESM and Markdown",
+  "version": "4.2.0",
+  "author": "Adam Avramov <adam@hack.bg>",
+  "bin": {
+    "ganesha-run": "ganesha-run.cli.cjs"
+  },
+  "main": "ganesha-run.cli.cjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hackbg/ganesha"
+  },
   "files": [
     "ganesha-run.cli.cjs"
   ],
   "scripts": {
-    "test":          "cd test && node run.js",
-    "test:cov":      "c8 --all -n src node test.js",
+    "test": "cd test && node run.js",
+    "test:cov": "c8 --all -n src node test.js",
     "test:cov:node": "cd src/node && npm run cov",
-    "test:node":     "cd src/node && npm test",
-
+    "test:node": "cd src/node && npm test",
     "release:dry": "pnpm -r release:dry && pnpm publish --dry-run",
     "release:wet": "pnpm -r release:wet && pnpm publish --access=public || true"
   },
   "dependencies": {
-    "@ganesha/core":        "workspace:^3.0.1",
-    "@ganesha/ts":          "workspace:^2.0.1",
-    "@ganesha/node":        "workspace:^3.2.0",
+    "@ganesha/core": "workspace:^3.0.1",
+    "@ganesha/node": "workspace:^3.2.0",
     "@ganesha/node-legacy": "workspace:^4.0.2",
-    "cross-spawn":          "^7.0.3",
-    "pkg-up":               "^4.0.0"
+    "@ganesha/ts": "workspace:^2.0.1",
+    "cross-spawn": "^7.0.3",
+    "pkg-up": "^4.0.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5 || ^4.9"
   },
   "peerDependenciesMeta": {
-    "typescript": { "optional": true, "description": "for @ganesha/ts" }
+    "typescript": {
+      "optional": true,
+      "description": "for @ganesha/ts"
+    }
   },
   "devDependencies": {
-    "chokidar":     "^3.5.3",
     "@hackbg/spec": "^1",
-    "c8":           "^7.11.0",
-    "typescript":   "^5",
-    "vite":         "^2.8.4"
+    "c8": "^7.11.0",
+    "chokidar": "^3.5.3",
+    "typescript": "^5",
+    "vite": "^2.8.4"
   },
   "workspace": true
 }

@@ -2,7 +2,9 @@
   "name": "@ganesha/ts",
   "version": "2.0.1",
   "main": "ganesha-ts.cjs",
-  "bin": { "ganesha-ts": "./ganesha-ts.cjs" },
+  "bin": {
+    "ganesha-ts": "./ganesha-ts.cjs"
+  },
   "scripts": {
     "release:dry": "pnpm publish --dry-run",
     "release:wet": "pnpm publish --access=public || true"
@@ -13,6 +15,6 @@
     "jsonc-parser": "^3.0.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5 || ^4.9"
   }
 }
