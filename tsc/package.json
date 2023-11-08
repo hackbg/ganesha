@@ -1,6 +1,6 @@
 {
   "name": "@ganesha/tsc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": {
     "ganesha-tsc": "./ganesha-tsc"
   },
@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "typescript": "^5",
-    "@hackbg/ganesha": "workspace:../.."
+    "@ganesha/core": "workspace:../core"
   },
   "scripts": {
     "build": "tsc --outDir dist/ proxy.ts",
