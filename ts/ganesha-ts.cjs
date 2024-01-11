@@ -68,7 +68,7 @@ function tscToCjs (fileName, code, format) {
     module: ModuleKind.CommonJS,
     ...sourceMapOptions
   }
-  trace(`tscToCommonjs ${fileName}`, JSON.stringify(compilerOptions))
+  trace(`tscToCjs         ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   const { outputText, diagnostics, sourceMapText } = transpileModule(code, { compilerOptions, fileName })
   printWarnings(diagnostics)
@@ -83,7 +83,7 @@ function tscToMjs (fileName, code, format) {
     module:          ModuleKind.ESNext,
     ...sourceMapOptions
   }
-  trace(`tscToMjs ${fileName}`, JSON.stringify(compilerOptions))
+  trace(`tscToMjs         ${fileName}`, JSON.stringify(compilerOptions))
   const { transpileModule } = require('typescript')
   let result
   try {

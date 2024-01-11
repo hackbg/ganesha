@@ -44,7 +44,7 @@ export class Ganesha {
   }
 
   addSourceMap (filename, sourceMap) {
-    const trace = (...args) => _trace('addSourceMap', filename, ...args)
+    const trace = (...args) => _trace('addSourceMap    ', filename, ...args)
     if (!this.sourceMaps[filename]) {
       trace(`[addSourceMap] ${relative(process.cwd(), filename)}`)
       this.sourceMaps[filename] = sourceMap
@@ -53,7 +53,7 @@ export class Ganesha {
 
   /** Resolve TypeScript and Literate modules as importable. */
   resolve = async (url, context, defaultResolve) => {
-    const trace = (...args) => _trace('resolve', url, ...args)
+    const trace = (...args) => _trace('resolve         ', url, ...args)
     defaultResolve = makeResolverHelpful(defaultResolve)
 
     // Populate the result object.
@@ -85,7 +85,7 @@ export class Ganesha {
 
   /** Find the filesystem path corresponding to an import statement. */
   async resolvePath (url, context, defaultResolve) {
-    const trace = (...args) => _trace('resolvePath', url, ...args)
+    const trace = (...args) => _trace('resolvePath     ', url, ...args)
     const resolvedPath = fileURLToPath(resolveURL(context.parentURL||'', url))
     trace(resolvedPath)
     return (
@@ -174,7 +174,7 @@ export class Ganesha {
   }
 
   async resolvePackage (url, context, defaultResolve) {
-    const trace = (...args) => _trace('resolvePackage', url, ...args)
+    const trace = (...args) => _trace('resolvePackage  ', url, ...args)
     trace(`${url}`)
     const result = await defaultResolve(url, context, defaultResolve)
     if (result.url.startsWith(PREFIXES.FILE_URL)) {
@@ -184,7 +184,7 @@ export class Ganesha {
   }
 
   load = async (url, { format, importAssertions }, defaultLoad) => {
-    const trace = (...args) => _trace('load', url, ...args)
+    const trace = (...args) => _trace('load            ', url, ...args)
     trace()
     // At this point all file imports should be converted to file URLs.
     // Non-file imports (such as built-in modules) are passed to the default loader.
