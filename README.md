@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ganesha](./doc/banner.svg)
+![Ganesha](./ganesha.svg)
 
 **Fast TypeScript loader based on a WASM build of [OXC](https://github.com/oxc-project/oxc).**
 
@@ -39,6 +39,7 @@ await import("./my-program.ts")
 
 >*The very day I was born I made my first mistake,
 >and by that path have I sought wisdom ever since.
->                                     - **William Buck***
+>
+>                              - **William Buck***
 
 </div>

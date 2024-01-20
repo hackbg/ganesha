@@ -2,9 +2,11 @@
   "name": "@hackbg/ganesha",
   "type": "module",
   "main": "register.mjs",
-  "version": "5.0.0-rc.1",
+  "version": "5.0.0-rc.2",
   "description": "Fast TypeScript loader based on a WASM build of OXC.",
+  "keywords": [ "oxc", "wasm", "typescript", "loader" ],
   "files": [
+    "ganesha.svg",
     "register.mjs",
     "loader.mjs",
     "pkg/ganesha_oxc.js",
