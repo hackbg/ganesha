@@ -1,16 +1,26 @@
 {
-  "name": "@ganesha/oxc",
+  "name": "@hackbg/ganesha",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0-rc.1",
+  "version": "5.0.0-rc.1",
+  "description": "Fast TypeScript loader based on a WASM build of OXC.",
+  "files": [
+    "register.mjs",
+    "loader.mjs",
+    "pkg/ganesha_oxc.js",
+    "pkg/ganesha_oxc_bg.wasm"
+  ],
   "scripts": {
     "build:rs:dev":     "wasm-pack build --dev --target nodejs",
     "build:rs:release": "wasm-pack build --release --target nodejs",
     "test:rs":          "cargo test",
-    "test:loader":      "node --import ./register.mjs tests/typescript.test.ts"
+    "test:loader":      "node --import ./register.mjs tests/typescript.test.ts",
+    "release":          "npm run build:rs:release && npm run test:loader && ubik release --otp 000000"
   },
   "dependencies": {
-    "@hackbg/logs": "^2.2.0",
     "get-tsconfig": "^4.7.2"
+  },
+  "devDependencies": {
+    "@hackbg/ubik": "^3.0.1"
   }
 }
