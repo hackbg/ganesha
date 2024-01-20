@@ -1,3 +1,4 @@
 import { register } from 'node:module'
-register('./loader.mjs', import.meta.url)
-console.log({ register })
+register('./loader.mjs', {
+  parentURL: import.meta.url
+})

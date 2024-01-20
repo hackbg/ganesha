@@ -5,12 +5,14 @@ extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::wasm_bindgen;
 use js_sys::Error;
+use web_sys::console;
 use oxc_allocator::Allocator;
 use oxc_codegen::{Codegen, CodegenOptions};
 use oxc_parser::Parser;
 use oxc_semantic::SemanticBuilder;
 use oxc_span::SourceType;
 use oxc_transformer::{Transformer, TransformOptions, TransformTarget};
+use tsconfig::TsConfig;
 
 #[wasm_bindgen]
 pub struct ModuleTransformer(ModuleTransformerImpl);
@@ -21,8 +23,13 @@ pub struct ModuleTransformer(ModuleTransformerImpl);
         Self(ModuleTransformerImpl::new())
     }
     #[wasm_bindgen]
-    pub fn transform (&self, path: String, source: String) -> Result<String, js_sys::Error> {
-        self.0.transform(path, source)
+    pub fn transform (
+        &self,
+        path: String,
+        source: String,
+        tsconfig: Option<String>
+    ) -> Result<String, js_sys::Error> {
+        self.0.transform(path, source, tsconfig)
     }
 }
 
@@ -32,7 +39,14 @@ impl ModuleTransformerImpl {
     pub fn new () -> ModuleTransformerImpl {
         Self(Allocator::default())
     }
-    pub fn transform (&self, path: String, source: String) -> Result<String, js_sys::Error> {
+    pub fn transform (
+        &self,
+        path: String,
+        source: String,
+        tsconfig: Option<String>
+    ) -> Result<String, js_sys::Error> {
+        let tsconfig = tsconfig.map(|src|TsConfig::parse_str(&src).unwrap());
+        console::log_1(&format!("{tsconfig:#?}").into());
         let source_type = SourceType::from_path(&path).unwrap();
         let ret = Parser::new(&self.0, &source, source_type).parse();
         if !ret.errors.is_empty() {

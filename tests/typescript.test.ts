@@ -1,11 +1,5 @@
-import * as Typedefs from './typedef.example.tjs'
-import * as Typed from './typed.example.tjs'
+type Foo = string
 
-const decorator = x => x
+interface Bar = { foo: Foo }
 
-@decorator const decorated = "foo"
-
-console.log({
-  Typedefs,
-  Typed
-})
+const baz: Bar = { foo: "123" }

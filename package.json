@@ -4,7 +4,7 @@
   "main": "register.mjs",
   "version": "1.0.0-rc.1",
   "scripts": {
-    "build:rs":         "wasm-pack build --dev --target nodejs",
+    "build:rs:dev":     "wasm-pack build --dev --target nodejs",
     "build:rs:release": "wasm-pack build --release --target nodejs",
     "test:rs":          "cargo test",
     "test:loader":      "node --import ./register.mjs tests/typescript.test.ts"
