@@ -2,17 +2,19 @@ extern crate console_error_panic_hook;
 extern crate js_sys;
 extern crate wasm_bindgen;
 #[cfg(test)] extern crate wasm_bindgen_test;
+#[cfg(test)] mod test;
+
+pub(crate) use js_sys::Error;
+pub(crate) use oxc_allocator::Allocator;
+pub(crate) use oxc_codegen::{Codegen, CodegenOptions};
+pub(crate) use oxc_parser::Parser;
+pub(crate) use oxc_semantic::SemanticBuilder;
+pub(crate) use oxc_span::SourceType;
+pub(crate) use oxc_transformer::{Transformer, TransformOptions, TransformTarget};
+pub(crate) use tsconfig::{TsConfig, Target};
+#[cfg(feature = "debug")] pub(crate) use web_sys::console;
 
 use wasm_bindgen::prelude::wasm_bindgen;
-use js_sys::Error;
-use oxc_allocator::Allocator;
-use oxc_codegen::{Codegen, CodegenOptions};
-use oxc_parser::Parser;
-use oxc_semantic::SemanticBuilder;
-use oxc_span::SourceType;
-use oxc_transformer::{Transformer, TransformOptions, TransformTarget};
-use tsconfig::{TsConfig, Target};
-#[cfg(feature = "debug")] use web_sys::console;
 
 #[wasm_bindgen]
 pub struct ModuleTransformer(ModuleTransformerImpl);
@@ -99,20 +101,9 @@ impl ModuleTransformerImpl {
         Transformer::new(&self.0, source_type, semantic, transform_options)
             .build(program)
             .unwrap();
-        #[cfg(feature = "debug")] console::log_1(&format!("{}\n{}", &ret.program, &program).into());
         // JS AST -> Output
         let output = Codegen::<false>::new(source.len(), CodegenOptions)
             .build(program);
         Ok(output)
-    }
-}
-
-#[cfg(test)] mod test {
-    use super::*;
-    #[test] fn test_transform () {
-        let transformer = ModuleTransformerImpl::new();
-        let path = "foo.mjs".to_string();
-        let source = "console.log('hello world');\n".to_string();
-        assert_eq!(transformer.transform(path, source.clone(), None), Ok(source.clone()));
     }
 }

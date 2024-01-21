@@ -13,7 +13,7 @@
     "pkg/ganesha_oxc_bg.wasm"
   ],
   "scripts": {
-    "build:rs:dev":     "wasm-pack build --dev --target nodejs -- -F debug",
+    "build:rs:dev":     "wasm-pack build --dev --target nodejs --features debug",
     "build:rs:release": "wasm-pack build --release --target nodejs",
     "test:rs":          "cargo test",
     "test:loader":      "node --import ./register.mjs tests/typescript.test.ts",
