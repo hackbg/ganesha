@@ -28,8 +28,14 @@ use crate::*;
     Transformer::new(&allocator, source_type, semantic, transform_options)
         .build(program)
         .unwrap();
-    let output = Codegen::<false>::new(source.len(), CodegenOptions)
-        .build(program);
+    let codegen = Codegen::<false>::new(&source, CodegenOptions);
+    let (output, sourcemap) = codegen.build_with_sourcemap(program);
     println!("\n---TARGET---\n{}\n{:#?}", &output, &program);
+    println!("\n---SOURCEMAP---\n{}", &sourcemap);
+    println!(
+        "\n---TARGET+SOURCEMAP---\n{}\n//# sourceMappingURL=data:application/json;base64,{}",
+        &output,
+        &sourcemap
+    );
     assert_eq!(true, false);
 }

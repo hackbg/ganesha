@@ -102,7 +102,7 @@ impl ModuleTransformerImpl {
             .build(program)
             .unwrap();
         // JS AST -> Output
-        let output = Codegen::<false>::new(source.len(), CodegenOptions)
+        let output = Codegen::<false>::new(&source, CodegenOptions)
             .build(program);
         Ok(output)
     }
