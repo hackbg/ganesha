@@ -1,0 +1,12 @@
+{
+  "name": "@ganesha/node",
+  "type": "module",
+  "main": "stub.mjs",
+  "version": "4.0.0",
+  "description": "🚫 Legacy, don't use. See @hackbg/ganesha instead.",
+  "files": [ "stub.mjs" ],
+  "scripts": {
+    "release": "ubik release --otp 000000"
+  }
+}
+
