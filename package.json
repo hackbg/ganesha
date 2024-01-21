@@ -7,8 +7,9 @@
   "keywords": [ "esbuild", "oxc", "ezno", "wasm", "typescript", "loader" ],
   "files": [ "stub.mjs", "ganesha.svg" ],
   "scripts": {
-    "test:all": "node test.js",
-    "benchmark": "echo TODO; exit 1"
+    "test:all":  "node test.js",
+    "benchmark": "echo TODO; exit 1",
+    "release":   "ubik release --otp 000000"
   },
   "devDependencies": {
     "@hackbg/ubik":     "^3.0.1",
