@@ -29,7 +29,7 @@ use crate::*;
         .build(program)
         .unwrap();
     let codegen = Codegen::<false>::new(&source, CodegenOptions);
-    let (output, sourcemap) = codegen.build_with_sourcemap(program);
+    let (output, sourcemap) = codegen.build(program);
     println!("\n---TARGET---\n{}\n{:#?}", &output, &program);
     println!("\n---SOURCEMAP---\n{}", &sourcemap);
     println!(
