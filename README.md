@@ -36,7 +36,7 @@ npm i --save @ganesha/oxc # or @ganesha/esbuild
 Use from shell:
 
 ```sh
-node --import @ganesha/oxc # or @ganesha/esbuild
+node --import @ganesha/oxc ./my-program.ts # or @ganesha/esbuild
 ```
 
 Use from script:
@@ -46,10 +46,19 @@ await import("@ganesha/oxc") // or @ganesha/esbuild
 await import("./my-program") // note that it works with no extension
 ```
 
+The TypeScript program in question:
+
 ```ts
 // my-program.ts
 import { Foo } from './another-ts-module' // no extension required!
-import { Bar } from './a-raw-js-module.mjs' // import from JS with extension
+import { Bar } from './a-raw-js-module.js' // import from JS with extension
+```
+
+And it works both ways:
+
+```js
+// my-program.js
+import { Foo } from './another-ts-module.ts' // extension optional but preferred
 ```
 
 ### Switching between backends
