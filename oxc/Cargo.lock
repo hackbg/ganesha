@@ -12,22 +12,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "assert-unchecked"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7330592adf847ee2e3513587b4db2db410a0d751378654e7e993d9adcbe5c795"
-
-[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
-
-[[package]]
-name = "base64"
-version = "0.21.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d297deb1925b89f2ccc13d7635fa0714f12c87adce1c75356b39ca9b7178567"
 
 [[package]]
 name = "bitflags"
@@ -322,6 +310,8 @@ checksum = "c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f"
 [[package]]
 name = "oxc_allocator"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6af07742198b0033124a2deeb7095414af37cba8f670cb91599436b1bfce629b"
 dependencies = [
  "bumpalo",
  "serde",
@@ -330,6 +320,8 @@ dependencies = [
 [[package]]
 name = "oxc_ast"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0bce81ea180801e40f7a9b7c2eeea16f28d3405b7f5f3395ae3094f73d584743"
 dependencies = [
  "bitflags 2.4.2",
  "num-bigint",
@@ -343,20 +335,22 @@ dependencies = [
 [[package]]
 name = "oxc_codegen"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81d0e5b617790e17b7ba7ad75807e5ad4ef753a220df300df9f8d417f0a1669c"
 dependencies = [
- "base64",
  "bitflags 2.4.2",
  "num-bigint",
  "oxc_allocator",
  "oxc_ast",
  "oxc_span",
  "oxc_syntax",
- "source-map",
 ]
 
 [[package]]
 name = "oxc_diagnostics"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2f0b55d4af3da3130ca9d0011afe0c791b88de6e2c072bcc62872b5996d640d"
 dependencies = [
  "is-terminal",
  "miette",
@@ -369,6 +363,8 @@ dependencies = [
 [[package]]
 name = "oxc_index"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "221324076f492fb36416cb4e80149b75dfa2b061b73fc60c0f10a22858fd7705"
 dependencies = [
  "index_vec",
  "static_assertions",
@@ -377,8 +373,9 @@ dependencies = [
 [[package]]
 name = "oxc_parser"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b8ad996ad3056e2383e8675417231d8c6a24d16f5487eea6aa3c15593627bc5e"
 dependencies = [
- "assert-unchecked",
  "bitflags 2.4.2",
  "num-bigint",
  "oxc_allocator",
@@ -393,6 +390,8 @@ dependencies = [
 [[package]]
 name = "oxc_semantic"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73818ab732b8cf75adc382775b9c3620fecf8c66264ce3e1f855c58a7c3e5127"
 dependencies = [
  "bitflags 2.4.2",
  "indexmap",
@@ -409,6 +408,8 @@ dependencies = [
 [[package]]
 name = "oxc_span"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4acf5411d1cb936465632d3b5b5b6405d4621a9055153990415e747e6c7f72c3"
 dependencies = [
  "compact_str",
  "miette",
@@ -417,6 +418,8 @@ dependencies = [
 [[package]]
 name = "oxc_syntax"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "20b52c9bc623226b36f79eecd74d1faa3404be91d050e1f0c6db3a6298371f19"
 dependencies = [
  "bitflags 2.4.2",
  "dashmap",
@@ -431,6 +434,8 @@ dependencies = [
 [[package]]
 name = "oxc_transformer"
 version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ff9d0b24f9bb648606d23e709e20fb9040bea46c82c2da9a1d575c314de7c7b3"
 dependencies = [
  "oxc_allocator",
  "oxc_ast",
@@ -660,12 +665,6 @@ name = "smawk"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7c388c1b5e93756d0c740965c41e8822f866621d41acbdf6336a6a168f8840c"
-
-[[package]]
-name = "source-map"
-version = "0.14.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1c87aed86fe881b9427c79b2278f2e70b81dac06996dc789de58f2c1d79f7ec"
 
 [[package]]
 name = "static_assertions"

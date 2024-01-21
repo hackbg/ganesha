@@ -23,7 +23,7 @@ pub struct ModuleTransformer(ModuleTransformerImpl);
     #[wasm_bindgen(constructor)]
     pub fn new () -> ModuleTransformer {
         console_error_panic_hook::set_once();
-        Self(ModuleTransformerImpl::new())
+        Self(ModuleTransformerImpl)
     }
     #[wasm_bindgen]
     pub fn transform (
@@ -36,13 +36,9 @@ pub struct ModuleTransformer(ModuleTransformerImpl);
     }
 }
 
-pub(crate) struct ModuleTransformerImpl(Allocator);
+pub(crate) struct ModuleTransformerImpl;
 
 impl ModuleTransformerImpl {
-
-    pub fn new () -> ModuleTransformerImpl {
-        Self(Allocator::default())
-    }
 
     pub fn transform (
         &self,
@@ -50,6 +46,7 @@ impl ModuleTransformerImpl {
         source: String,
         tsconfig: Option<String>
     ) -> Result<String, js_sys::Error> {
+        let allocator = Allocator::default();
         // Parse tsconfig if passed
         let tsconfig = tsconfig.map(|src|TsConfig::parse_str(&src).unwrap());
         let target = tsconfig
@@ -74,7 +71,6 @@ impl ModuleTransformerImpl {
                 },
             }))
             .unwrap_or(TransformTarget::ES3);
-
         let transform_options = TransformOptions {
             target,
             instanceof: false,
@@ -85,7 +81,7 @@ impl ModuleTransformerImpl {
             .with_module(true)
             .with_typescript(true);
         // Source -> TS AST
-        let ret = Parser::new(&self.0, &source, source_type).parse();
+        let ret = Parser::new(&allocator, &source, source_type).parse();
         if !ret.errors.is_empty() {
             for error in ret.errors {
                 let error = error.with_source_code(source.clone());
@@ -97,12 +93,12 @@ impl ModuleTransformerImpl {
             .with_trivias(ret.trivias)
             .build(&ret.program)
             .semantic;
-        let program = self.0.alloc(ret.program);
-        Transformer::new(&self.0, source_type, semantic, transform_options)
+        let program = allocator.alloc(ret.program);
+        Transformer::new(&allocator, source_type, semantic, transform_options)
             .build(program)
             .unwrap();
         // JS AST -> Output
-        let output = Codegen::<false>::new(&source, CodegenOptions)
+        let output = Codegen::<false>::new(source.len(), CodegenOptions)
             .build(program);
         Ok(output)
     }

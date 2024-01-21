@@ -1,13 +1,13 @@
 use crate::*;
 
 #[test] fn test_transform () {
-    let transformer = ModuleTransformerImpl::new();
+    let transformer = ModuleTransformerImpl;
     let path = "foo.mjs".to_string();
     let source = "console.log('hello world');\n".to_string();
     assert_eq!(transformer.transform(path, source.clone(), None), Ok(source.clone()));
 }
 
-#[test] fn test_source_map () {
+#[cfg(feature = "sourcemap")] #[test] fn test_source_map () {
     let allocator = Allocator::default();
     let source = include_str!("../../tests/typescript.test.ts");
     let transform_options = TransformOptions {

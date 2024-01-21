@@ -12,18 +12,18 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 ---
 
-## How to use
+## Backends
 
-## Supported backends
-
-* [x] `@ganesha/oxc`: based on Oxc, the Oxidation Compiler.
+* [x] `@ganesha/oxc`: based on [Oxc, the Oxidation Compiler](https://github.com/oxc-project/oxc).
   Fast but no source maps yet (see [oxc#1045](https://github.com/oxc-project/oxc/issues/1045))
-* [x] `@ganesha/esbuild`: based on esbuild.
+* [x] `@ganesha/esbuild`: based on [esbuild](https://github.com/evanw/esbuild).
   Slower (~2.5x), but source maps work out of the box.
+* [ ] `@ganesha/ezno`: possible future support for [ezno](https://github.com/kaleidawave/ezno)
+  is under consideration.
 
 ### Benchmarks
 
-**TODO**
+**TODO**, contributions welcome.
 
 ## How to use
 
@@ -54,7 +54,7 @@ import { Bar } from './a-raw-js-module.mjs' // import from JS with extension
 
 ### Switching between backends
 
-**TODO**
+**TODO**, contributions welcome.
 
 ## Caching
 
