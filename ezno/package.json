@@ -1,16 +1,16 @@
 {
-  "name": "@ganesha/oxc",
+  "name": "@ganesha/ezno",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.1",
   "description": "Fast TypeScript loader based on a WASM build of Ezno.",
-  "keywords": [ "oxc", "wasm", "typescript", "loader" ],
+  "keywords": [ "ezno", "wasm", "typescript", "loader" ],
   "files": [
     "ganesha.svg",
     "register.mjs",
     "loader.mjs",
-    "pkg/ganesha_oxc.js",
-    "pkg/ganesha_oxc_bg.wasm"
+    "pkg/ganesha_ezno.js",
+    "pkg/ganesha_ezno_bg.wasm"
   ],
   "scripts": {
     "build:rs:dev":     "wasm-pack build --dev --target nodejs --features debug",

@@ -5,22 +5,8 @@
   "version": "5.0.0-rc.3",
   "description": "Fast TypeScript loader based on a WASM build of OXC.",
   "keywords": [ "oxc", "wasm", "typescript", "loader" ],
-  "files": [
-    "ganesha.svg",
-    "register.mjs",
-    "loader.mjs",
-    "pkg/ganesha_oxc.js",
-    "pkg/ganesha_oxc_bg.wasm"
-  ],
   "scripts": {
-    "build:rs:dev":     "wasm-pack build --dev --target nodejs --features debug",
-    "build:rs:release": "wasm-pack build --release --target nodejs",
-    "test:rs":          "cargo test",
-    "test:loader":      "node --import ./register.mjs tests/typescript.test.ts",
-    "release":          "npm run build:rs:release && npm run test:loader && ubik release --otp 000000"
-  },
-  "dependencies": {
-    "get-tsconfig": "^4.7.2"
+    "benchmark": "echo TODO; exit 1"
   },
   "devDependencies": {
     "@hackbg/ubik": "^3.0.1"

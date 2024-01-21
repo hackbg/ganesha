@@ -1,3 +1,6 @@
 [submodule "oxc"]
 	path = oxc/oxc
 	url = https://github.com/egasimus/oxc.git
+[submodule "ezno/ezno"]
+	path = ezno/ezno
+	url = https://github.com/kaleidawave/ezno
