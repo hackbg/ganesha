@@ -12,6 +12,7 @@ use oxc_semantic::SemanticBuilder;
 use oxc_span::SourceType;
 use oxc_transformer::{Transformer, TransformOptions, TransformTarget};
 use tsconfig::{TsConfig, Target};
+#[cfg(feature = "debug")] use web_sys::console;
 
 #[wasm_bindgen]
 pub struct ModuleTransformer(ModuleTransformerImpl);
@@ -98,6 +99,7 @@ impl ModuleTransformerImpl {
         Transformer::new(&self.0, source_type, semantic, transform_options)
             .build(program)
             .unwrap();
+        #[cfg(feature = "debug")] console::log_1(&format!("{}\n{}", &ret.program, &program).into());
         // JS AST -> Output
         let output = Codegen::<false>::new(source.len(), CodegenOptions)
             .build(program);
