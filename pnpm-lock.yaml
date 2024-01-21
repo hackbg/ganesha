@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@ganesha/esbuild':
+        specifier: workspace:^
+        version: link:esbuild
+      '@ganesha/oxc':
+        specifier: workspace:^
+        version: link:oxc
       '@hackbg/ubik':
         specifier: ^3.0.1
         version: 3.0.1

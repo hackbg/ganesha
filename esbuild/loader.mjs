@@ -4,7 +4,7 @@ import { extname } from 'node:path'
 import { readFile, stat } from 'node:fs/promises'
 import { getTsconfig, parseTsconfig } from 'get-tsconfig'
 
-await esbuild.initialize({ wasmURL: './node_modules/esbuild-wasm/esbuild.wasm' })
+await esbuild.initialize()
 
 const typeScriptExtensions = ['.ts', '.mts', '.cts']
 

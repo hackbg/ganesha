@@ -6,9 +6,12 @@
   "description": "A collection of fast, no-nonsense WASM-based TypeScript loaders for Node 20+",
   "keywords": [ "esbuild", "oxc", "ezno", "wasm", "typescript", "loader" ],
   "scripts": {
+    "test:all": "node test.js",
     "benchmark": "echo TODO; exit 1"
   },
   "devDependencies": {
-    "@hackbg/ubik": "^3.0.1"
+    "@hackbg/ubik":     "^3.0.1",
+    "@ganesha/esbuild": "workspace:^",
+    "@ganesha/oxc":     "workspace:^"
   }
 }
