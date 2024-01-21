@@ -2,9 +2,9 @@
 
 ![Ganesha](./ganesha.svg)
 
-**Collection of fast TypeScript loaders.**
+**Fast TypeScript loader based on a WASM build of Oxc, the Oxidation Compiler.**
 
-[![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f68f21&style=for-the-badge&label=@hackbg/ganesha)](https://fadroma.tech)
+[![](https://img.shields.io/npm/v/@ganesha/oxc?color=%23f68f21&style=for-the-badge&label=@ganesha/oxc)](https://fadroma.tech)
 
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
@@ -17,19 +17,19 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 Install with:
 
 ```sh
-npm i --save @hackbg/ganesha
+npm i --save @ganesha/oxc
 ```
 
 Use from shell:
 
 ```sh
-node --import @hackbg/ganesha my-program.ts
+node --import @ganesha/oxc my-program.ts
 ```
 
 Use from script:
 
 ```js
-await import("@hackbg/ganesha")
+await import("@ganesha/oxc")
 await import("./my-program.ts")
 ```
 
