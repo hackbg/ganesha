@@ -16,7 +16,7 @@
     "build:rs:dev":     "wasm-pack build --dev --target nodejs --features debug",
     "build:rs:release": "wasm-pack build --release --target nodejs",
     "test:rs":          "cargo test",
-    "test:loader":      "node --import ./register.mjs tests/typescript.test.ts",
+    "test:loader":      "node --import ./register.mjs ../tests/typescript.test.ts",
     "release":          "npm run build:rs:release && npm run test:loader && ubik release --otp 000000"
   },
   "dependencies": {
