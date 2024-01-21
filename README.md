@@ -14,24 +14,61 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 ## How to use
 
+## Supported backends
+
+* [x] `@ganesha/oxc`: based on Oxc, the Oxidation Compiler.
+  Fast but no source maps yet (see [oxc#1045](https://github.com/oxc-project/oxc/issues/1045))
+* [x] `@ganesha/esbuild`: based on esbuild.
+  Slower (~2.5x), but source maps work out of the box.
+
+### Benchmarks
+
+**TODO**
+
+## How to use
+
 Install with:
 
 ```sh
-npm i --save @hackbg/ganesha
+npm i --save @ganesha/oxc # or @ganesha/esbuild
 ```
 
 Use from shell:
 
 ```sh
-node --import @hackbg/ganesha my-program.ts
+node --import @ganesha/oxc # or @ganesha/esbuild
 ```
 
 Use from script:
 
 ```js
-await import("@hackbg/ganesha")
-await import("./my-program.ts")
+await import("@ganesha/oxc") // or @ganesha/esbuild
+await import("./my-program") // note that it works with no extension
 ```
+
+```ts
+// my-program.ts
+import { Foo } from './another-ts-module' // no extension required!
+import { Bar } from './a-raw-js-module.mjs' // import from JS with extension
+```
+
+### Switching between backends
+
+**TODO**
+
+## Caching
+
+**TODO**
+
+## See also
+
+At [Hack.bg](https://hack.bg), we primarily use Ganesha for developing
+[Fadroma](https://fadroma.tech), a cross-chain framework for the CosmWasm ecosystem.
+
+When it's time to publish a package, we switch over to **[Ubik](https://github.com/hackbg/ubik)**,
+a complementary tool for publishing well-formed ESM packages from TypeScript while avoiding
+the nastiness of how `tsc` chooses to (more like "refuses to") handle extensions
+of `import`ed modules.
 
 ---
 
