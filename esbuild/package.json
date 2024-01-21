@@ -1,16 +1,16 @@
 {
-  "name": "@ganesha/oxc",
+  "name": "@ganesha/esbuild",
   "type": "module",
   "main": "register.mjs",
   "version": "1.0.0-rc.1",
-  "description": "Fast TypeScript loader based on a WASM build of Oxc, the Oxidation Compiler.",
-  "keywords": [ "oxc", "wasm", "typescript", "loader" ],
+  "description": "Fast TypeScript loader based on the WASM build of esbuild.",
+  "keywords": [ "esbuild", "esbuild-wasm", "wasm", "typescript", "loader" ],
   "files": [
     "ganesha.svg",
     "register.mjs",
     "loader.mjs",
-    "pkg/ganesha_oxc.js",
-    "pkg/ganesha_oxc_bg.wasm"
+    "pkg/ganesha_ezno.js",
+    "pkg/ganesha_ezno_bg.wasm"
   ],
   "scripts": {
     "build:rs:dev":     "wasm-pack build --dev --target nodejs --features debug",
@@ -20,7 +20,8 @@
     "release":          "npm run build:rs:release && npm run test:loader && ubik release --otp 000000"
   },
   "dependencies": {
-    "get-tsconfig": "^4.7.2"
+    "get-tsconfig": "^4.7.2",
+    "esbuild-wasm": "^0.19.11"
   },
   "devDependencies": {
     "@hackbg/ubik": "^3.0.1"
