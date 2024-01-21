@@ -66,14 +66,16 @@ impl ModuleTransformerImpl {
                 Target::EsNext => TransformTarget::ESNext,
                 Target::Other(other) => match other.to_lowercase().as_str() {
                     "es2021" => TransformTarget::ES2021,
-                    "es2022" => TransformTarget::ES2021,
+                    "es2022" => TransformTarget::ES2022,
                     _ => TransformTarget::ES3
                 },
             }))
             .unwrap_or(TransformTarget::ES3);
 
         let transform_options = TransformOptions {
-            target, ..TransformOptions::default()
+            target,
+            instanceof: false,
+            ..TransformOptions::default()
         };
         // Currently we only support TS modules.
         let source_type = SourceType::default()

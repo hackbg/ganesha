@@ -755,8 +755,7 @@ dependencies = [
 [[package]]
 name = "tsconfig"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7c89ed286b13fd7e343eb628d8511fb4fdc99053acccb2263897e0d89526462b"
+source = "git+https://github.com/egasimus/tsconfig#9765cfb0d8fac4750ed195d4776f3e1ce7bd15f8"
 dependencies = [
  "json_comments",
  "regex",
