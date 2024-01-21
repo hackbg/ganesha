@@ -54,11 +54,11 @@ import { Bar } from './a-raw-js-module.mjs' // import from JS with extension
 
 ### Switching between backends
 
-**TODO**, contributions welcome.
+**TODO**.
 
 ## Caching
 
-**TODO**
+**TODO**.
 
 ## See also
 
@@ -72,11 +72,10 @@ of `import`ed modules.
 
 ---
 
-<div align="center">
+<div align="right">
 
->*The very day I was born I made my first mistake,
->and by that path have I sought wisdom ever since.
->
->                              - **William Buck***
+*"The very day I was born I made my first mistake,
+and by that path have I sought wisdom ever since."<br>
+\- **William Buck**'s retelling of the **Mahabharata** ([source](https://hinduism.stackexchange.com/questions/16719/))*
 
 </div>
