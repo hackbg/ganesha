@@ -2,7 +2,7 @@
   "name": "@ganesha/oxc",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Fast TypeScript loader based on a WASM build of Oxc, the Oxidation Compiler.",
   "keywords": [ "oxc", "wasm", "typescript", "loader" ],
   "files": [

@@ -5,6 +5,9 @@
   "version": "1.0.0-rc.1",
   "description": "xxHash-addressable cacache for transpiled code in your XDG data dir.",
   "keywords": [ "cache", "cacache", "xdg", "xxhash" ],
+  "scripts": {
+    "release": "ubik release --otp 000000"
+  },
   "dependencies": {
     "cacache":     "^18.0.2",
     "@folder/xdg": "^4.0.1",

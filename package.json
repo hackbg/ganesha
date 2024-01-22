@@ -2,7 +2,7 @@
   "name": "@hackbg/ganesha",
   "type": "module",
   "main": "stub.mjs",
-  "version": "5.0.0-rc.4",
+  "version": "5.0.0-rc.5",
   "description": "A collection of fast, no-nonsense WASM-based TypeScript loaders for Node 20+",
   "keywords": [ "esbuild", "oxc", "ezno", "wasm", "typescript", "loader" ],
   "files": [ "stub.mjs", "ganesha.svg" ],

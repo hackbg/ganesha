@@ -41,6 +41,9 @@ importers:
 
   esbuild:
     dependencies:
+      '@ganesha/caching':
+        specifier: workspace:^
+        version: link:../caching
       esbuild-wasm:
         specifier: ^0.19.11
         version: 0.19.11
@@ -54,6 +57,9 @@ importers:
 
   oxc:
     dependencies:
+      '@ganesha/caching':
+        specifier: workspace:^
+        version: link:../caching
       get-tsconfig:
         specifier: ^4.7.2
         version: 4.7.2
