@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@hackbg/ubik":     "^3.0.1",
+    "@ganesha/caching": "workspace:^",
     "@ganesha/esbuild": "workspace:^",
     "@ganesha/oxc":     "workspace:^"
   }

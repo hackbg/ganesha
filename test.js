@@ -1,6 +1,12 @@
 import { spawnSync } from 'node:child_process'
 import { ok, equal } from 'node:assert'
 
+import createCache from '@ganesha/caching'
+const cache = await createCache({ path: '.temp' })
+equal(await cache.get("foo"), null)
+equal(await cache.put("foo", "bar"), null)
+equal(await cache.get("foo"), bar)
+
 for (const pkg of [
   '@ganesha/esbuild',
   '@ganesha/oxc'

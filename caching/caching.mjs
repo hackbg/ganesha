@@ -2,10 +2,10 @@ import XDG from '@folder/xdg'
 import { mkdirp } from 'mkdirp'
 import { xxhash3 } from 'hash-wasm'
 import { stat } from 'node:fs/promises'
+import cacache from 'cacache'
 
 export default async function createCache ({
   path = XDG({ expanded: true, subdir: 'ganesha-v5' }).cache.home
-  hash = xxhash3
 } = {}) {
 
   try {
@@ -17,7 +17,7 @@ export default async function createCache ({
       return {
         async get (source) {
           return null
-        }
+        },
         async put (source, output) {
           return null
         }
@@ -36,13 +36,20 @@ export default async function createCache ({
   // Caching implementation.
   return {
     async get (source) {
-      const key = xxhash3(source)
-      return await cacache.get(this.path, key)
-    }
+      const key = await xxhash3(source)
+      try {
+        return await cacache.get(path, key)
+      } catch (e) {
+        if (e.code === 'ENOENT') {
+          return null
+        }
+        throw e
+      }
+    },
     async put (source, output) {
-      const key = xxhash3(source)
+      const key = await xxhash3(source)
       const integrity = `xxhash3-${xxhash3(output)}`
-      return await cacache.put(this.path, key, output, { integrity })
+      return await cacache.put(path, key, output, { integrity })
     }
   }
 

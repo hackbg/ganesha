@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@ganesha/caching':
+        specifier: workspace:^
+        version: link:caching
       '@ganesha/esbuild':
         specifier: workspace:^
         version: link:esbuild
