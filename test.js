@@ -1,11 +1,13 @@
 import { spawnSync } from 'node:child_process'
 import { ok, equal } from 'node:assert'
-
+import { rimraf } from 'rimraf'
 import createCache from '@ganesha/caching'
+
+await rimraf('.temp')
 const cache = await createCache({ path: '.temp' })
 equal(await cache.get("foo"), null)
-equal(await cache.put("foo", "bar"), null)
-equal(await cache.get("foo"), bar)
+ok(await cache.put("foo", "bar"))
+equal((await cache.get("foo")).data.toString(), "bar")
 
 for (const pkg of [
   '@ganesha/esbuild',

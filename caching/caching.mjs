@@ -26,7 +26,7 @@ export default async function createCache ({
   } catch (e) {
     // If the cache directory does not exist, create it.
     if (e.code === 'ENOENT') {
-      console.log('Creating', path)
+      console.log('Creating cache in', path)
       await mkdirp(path)
     } else {
       throw e
@@ -48,8 +48,7 @@ export default async function createCache ({
     },
     async put (source, output) {
       const key = await xxhash3(source)
-      const integrity = `xxhash3-${xxhash3(output)}`
-      return await cacache.put(path, key, output, { integrity })
+      return await cacache.put(path, key, output)
     }
   }
 

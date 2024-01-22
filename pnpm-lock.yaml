@@ -20,6 +20,9 @@ importers:
       '@hackbg/ubik':
         specifier: ^3.0.1
         version: 3.0.1
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.5
 
   caching:
     dependencies:
