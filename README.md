@@ -18,9 +18,15 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 * [x] `@ganesha/oxc`: based on [Oxc, the Oxidation Compiler](https://github.com/oxc-project/oxc).
   Fast but no source maps yet (see [oxc#1045](https://github.com/oxc-project/oxc/issues/1045))
+* [x] `@ganesha/esbuild-wasm`: based on [esbuild](https://github.com/evanw/esbuild).
+  Slower (~2.5x), but source maps work out of the box. May dump Go stack trace to console
+  (see [esbuild#1662](https://github.com/evanw/esbuild/issues/1662) and
+  [go#59099](https://github.com/golang/go/issues/59099))
 * [x] `@ganesha/esbuild`: based on [esbuild](https://github.com/evanw/esbuild).
-  Slower (~2.5x), but source maps work out of the box.
+  Depends on native binary, but unaffected by esbuild#116 and go#59099.
 * [ ] `@ganesha/ezno`: possible future support for [ezno](https://github.com/kaleidawave/ezno)
+  is under consideration.
+* [ ] `@ganesha/swc`: possible future support for [swc](https://github.com/swc-project/swc)
   is under consideration.
 
 ### Benchmarks
