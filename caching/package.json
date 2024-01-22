@@ -1,0 +1,14 @@
+{
+  "name": "@ganesha/caching",
+  "type": "module",
+  "main": "caching.mjs",
+  "version": "1.0.0-rc.1",
+  "description": "xxHash-addressable cacache for transpiled code in your XDG data dir.",
+  "keywords": [ "cache", "cacache", "xdg", "xxhash" ],
+  "dependencies": {
+    "cacache":     "^18.0.2",
+    "@folder/xdg": "^4.0.1",
+    "hash-wasm":   "^4.11.0",
+    "mkdirp":      "^3.0.1"
+  }
+}
