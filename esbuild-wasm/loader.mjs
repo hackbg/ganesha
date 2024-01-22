@@ -1,4 +1,4 @@
-import * as esbuild from 'esbuild'
+import * as esbuild from 'esbuild-wasm'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { extname } from 'node:path'
 import { readFile, stat } from 'node:fs/promises'
@@ -7,6 +7,8 @@ import createCache from '@ganesha/caching'
 
 const debug = (...args) => process.env.GANESHA_DEBUG &&
   process.stderr.write(args.join(' ') + '\n')
+
+await esbuild.initialize()
 
 const typeScriptExtensions = ['.ts', '.mts', '.cts']
 

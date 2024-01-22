@@ -12,10 +12,12 @@
     "release":   "ubik release --otp 000000"
   },
   "devDependencies": {
-    "@hackbg/ubik":     "^3.0.1",
-    "@ganesha/caching": "workspace:^",
-    "@ganesha/esbuild": "workspace:^",
-    "@ganesha/oxc":     "workspace:^",
-    "rimraf":           "^5.0.5"
+    "@ganesha/caching":      "workspace:^",
+    "@ganesha/esbuild":      "workspace:^",
+    "@ganesha/esbuild-wasm": "workspace:^",
+    "@ganesha/oxc":          "workspace:^",
+
+    "@hackbg/ubik": "^3.0.1",
+    "rimraf": "^5.0.5"
   }
 }

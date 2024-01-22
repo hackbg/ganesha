@@ -1,9 +1,9 @@
 {
-  "name": "@ganesha/esbuild",
+  "name": "@ganesha/esbuild-wasm",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0-rc.3",
-  "description": "🐘 Fast TypeScript loader based on the native build of esbuild.",
+  "version": "1.0.0-rc.1",
+  "description": "🐘 Fast TypeScript loader based on the WASM build of esbuild.",
   "keywords": [ "esbuild", "esbuild-wasm", "wasm", "typescript", "loader" ],
   "files": [
     "ganesha.svg",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@ganesha/caching": "workspace:^",
     "get-tsconfig": "^4.7.2",
-    "esbuild": "^0.19.11"
+    "esbuild-wasm": "^0.19.11"
   },
   "devDependencies": {
     "@hackbg/ubik": "^3.0.1"

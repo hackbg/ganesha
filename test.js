@@ -18,6 +18,7 @@ for (const GANESHA_CACHE_PATH_OFF of ['1', '']) {
 
   for (const pkg of [
     '@ganesha/esbuild',
+    '@ganesha/esbuild-wasm',
     '@ganesha/oxc'
   ]) {
 
