@@ -67,6 +67,30 @@ import { Foo } from './another-ts-module.ts' // extension optional but preferred
 
 ## Caching
 
+For faster loading, Ganesha provides a cache based on `cacache`.
+This cache is controlled by the following environment variables:
+
+* `GANESHA_CACHE_PATH`: path to cache store
+* `GANESHA_CACHE_OFF`: set this to a non-empty value to disable caching
+
+The cache store path defaults to a subdirectory of the user's cache root,
+as returned by [`@folder/xdg`](https://www.npmjs.com/package/@folder/xdg).
+For example, on desktop Linux, this would be `~/.cache/ganesha-v5`
+
+To disable caching globally (for a given store path),
+you can write a file in place of the caching directory, e.g.:
+
+```sh
+rm -rf ~/.cache/ganesha-v5
+echo "delete this file to reenable caching" > ~/.cache/ganesha-v5
+```
+
+## Troubleshooting
+
+To see what Ganesha is doing:
+
+* `GANESHA_DEBUG`: set this environment variable to enable logging to stderr.
+
 **TODO**.
 
 ## See also

@@ -17,6 +17,7 @@
     "release":     "npm run test:loader && ubik release --otp 000000"
   },
   "dependencies": {
+    "@ganesha/caching": "workspace:^",
     "get-tsconfig": "^4.7.2",
     "esbuild-wasm": "^0.19.11"
   },

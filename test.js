@@ -3,39 +3,62 @@ import { ok, equal } from 'node:assert'
 import { rimraf } from 'rimraf'
 import createCache from '@ganesha/caching'
 
-await rimraf('.temp')
+const GANESHA_CACHE_PATH = '.temp'
+await rimraf(GANESHA_CACHE_PATH)
 const cache = await createCache({ path: '.temp' })
 equal(await cache.get("foo"), null)
-ok(await cache.put("foo", "bar"))
-equal((await cache.get("foo")).data.toString(), "bar")
+equal(await cache.put("foo", "bar"), 'ab6e5f64077e7d8a')
+equal((await cache.get("foo")).output, "bar")
 
-for (const pkg of [
-  '@ganesha/esbuild',
-  '@ganesha/oxc'
-]) {
+const t0 = performance.now()
 
-  console.log('Testing', pkg)
+for (const GANESHA_CACHE_PATH_OFF of ['1', '']) {
 
-  let output
+  console.log(`Testing with GANESHA_CACHE_PATH_OFF=${GANESHA_CACHE_PATH_OFF}`)
 
-  output = spawnSync(`node`, [`--import`, pkg, `tests/typescript.test.ts`])
-  equal(
-    output.stdout.toString(),
-    "{ baz: { foo: '123' } }\n",
-    "output should match"
-  )
+  for (const pkg of [
+    '@ganesha/esbuild',
+    '@ganesha/oxc'
+  ]) {
 
-  output = spawnSync(`node`, [`--import`, pkg, `tests/stack.test.ts`])
-  equal(
-    output.status,
-    1,
-    'should exit with code 1'
-  )
-  if (pkg !== '@ganesha/oxc') { // oxc does not have source map support yet
-    ok(
-      output.stderr.toString().split('\n')[5].endsWith('stack.test.ts:2:7'),
-      'should report correct error location'
+    console.log('Testing', pkg)
+
+    let t1
+    let output
+
+    t1 = performance.now()
+    output = spawnSync(`node`, [`--import`, pkg, `tests/typescript.test.ts`], {
+      env: { GANESHA_CACHE_PATH, GANESHA_CACHE_PATH_OFF, GANESHA_DEBUG: "1" }
+    })
+    console.log('stdout:\n'+output.stdout.toString())
+    console.log('stderr:\n'+output.stderr.toString())
+    equal(
+      output.stdout.toString(),
+      "{ baz: { foo: '123' } }\n",
+      "output should match"
     )
-  }
+    console.log('Tested in', performance.now() - t1)
 
+    t1 = performance.now()
+    output = spawnSync(`node`, [`--import`, pkg, `tests/stack.test.ts`], {
+      env: { GANESHA_CACHE_PATH, GANESHA_CACHE_PATH_OFF, GANESHA_DEBUG: "1" }
+    })
+    equal(
+      output.status,
+      1,
+      'should exit with code 1'
+    )
+    console.log('stdout:\n'+output.stdout.toString())
+    console.log('stderr:\n'+output.stderr.toString())
+    if (pkg !== '@ganesha/oxc') { // oxc does not have source map support yet
+      ok(
+        output.stderr.toString().split('\n')[9].endsWith('stack.test.ts:2:7'),
+        'should report correct error location'
+      )
+    }
+    console.log('Tested in', performance.now() - t1)
+
+  }
 }
+
+console.log('Tests passed in', performance.now() - t0)

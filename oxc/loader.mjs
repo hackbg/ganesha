@@ -3,17 +3,21 @@ import { extname } from 'node:path'
 import { readFile, stat } from 'node:fs/promises'
 import { getTsconfig, parseTsconfig } from 'get-tsconfig'
 import * as OXCLoader from './pkg/ganesha_oxc.js'
+import createCache from '@ganesha/caching'
+
+const debug = (...args) => process.env.GANESHA_DEBUG &&
+  process.stderr.write(args.join(' ') + '\n')
 
 const transformer = new OXCLoader.ModuleTransformer()
 
 const typeScriptExtensions = ['.ts', '.mts', '.cts']
 
+const cache = await createCache()
+
 export async function initialize (context) {}
 
 export async function resolve (specifier, context, next) {
-  if (process.env.GANESHA_DEBUG) {
-    console.debug('Resolve:  ', specifier)
-  }
+  debug('Resolve:  ', specifier)
   try {
     return await next(specifier, context, next)
   } catch (e) {
@@ -37,19 +41,26 @@ export async function resolve (specifier, context, next) {
 }
 
 export async function load (url, context, next) {
-  if (process.env.GANESHA_DEBUG) {
-    console.debug('Load:     ', url)
-  }
+  debug('Load:     ', url)
   if (url.startsWith('file://')) {
     const path = fileURLToPath(url)
     const extension = extname(path).toLowerCase()
     if (typeScriptExtensions.includes(extension)) {
-      if (process.env.GANESHA_DEBUG) {
-        console.debug('Transform:', url)
-      }
+      debug('Transform:', url)
       const source = await readFile(path, 'utf8')
+      if (!process.env.GANESHA_CACHE_OFF) {
+        const cached = await cache.get(source)
+        if (cached) {
+          debug('Cached:   ', cached.key)
+          return { format: 'module', shortCircuit: true, source: cached.output }
+        }
+      }
       const config = await readFile(getTsconfig(path).path, 'utf8')
       const transformed = transformer.transform(path, source, config)
+      if (!process.env.GANESHA_CACHE_OFF) {
+        const key = await cache.put(source, transformed)
+        debug('Caching:  ', key)
+      }
       return { format: 'module', shortCircuit: true, source: transformed }
     }
   }
