@@ -1,6 +1,6 @@
 <div align="center">
 
-![Ganesha](./ganesha.svg)
+![Ganesha](ganesha.svg)
 
 **Fast TypeScript loader based on a WASM build of esbuild.**
 

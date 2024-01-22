@@ -1,10 +1,12 @@
 <div align="center">
 
-![Ganesha](./ganesha.svg)
+![Ganesha](ganesha.svg)
 
 **Collection of fast TypeScript loaders.**
 
-[![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f68f21&style=for-the-badge&label=@hackbg/ganesha)](https://fadroma.tech)
+[![](https://img.shields.io/npm/v/@hackbg/ganesha?color=%23f68f21&style=for-the-badge&label=@hackbg/ganesha)](https://www.npmjs.com/package/@hackbg/ganesha)
+[![](https://img.shields.io/npm/v/@ganesha/esbuild?color=%23f68f21&style=for-the-badge&label=@ganesha/esbuild)](https://www.npmjs.com/package/@ganesha/esbuild)
+[![](https://img.shields.io/npm/v/@ganesha/oxc?color=%23f68f21&style=for-the-badge&label=@ganesha/oxc)](https://www.npmjs.com/package/@ganesha/oxc)
 
 Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
