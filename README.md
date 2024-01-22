@@ -23,7 +23,7 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
   (see [esbuild#1662](https://github.com/evanw/esbuild/issues/1662) and
   [go#59099](https://github.com/golang/go/issues/59099))
 * [x] `@ganesha/esbuild`: based on [esbuild](https://github.com/evanw/esbuild).
-  Depends on native binary, but unaffected by esbuild#116 and go#59099.
+  Depends on native binary, but unaffected by the above esbuild-wasm issue.
 * [ ] `@ganesha/ezno`: possible future support for [ezno](https://github.com/kaleidawave/ezno)
   is under consideration.
 * [ ] `@ganesha/swc`: possible future support for [swc](https://github.com/swc-project/swc)
