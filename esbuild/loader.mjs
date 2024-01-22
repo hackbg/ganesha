@@ -53,7 +53,14 @@ export async function load (url, context, next) {
           return { format: 'module', shortCircuit: true, source: cached.output }
         }
       }
-      const config = await readFile(getTsconfig(path).path, 'utf8')
+      let tsconfig
+      try {
+        tsconfig = getTsconfig(path).path
+      } catch (e) {
+        e.path = path
+        throw e
+      }
+      const config = await readFile(tsconfig, 'utf8')
       const { code, warnings, map } = await esbuild.transform(source, {
         sourcefile: path,
         sourcemap: 'both',

@@ -2,7 +2,7 @@
   "name": "@ganesha/esbuild",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "🐘 Fast TypeScript loader based on the native build of esbuild.",
   "keywords": [ "esbuild", "esbuild-wasm", "wasm", "typescript", "loader" ],
   "files": [
