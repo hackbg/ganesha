@@ -60,6 +60,7 @@ export async function load (url, context, next) {
         e.path = path
         throw e
       }
+      debug('TSConfig: ', tsconfig)
       const config = await readFile(tsconfig, 'utf8')
       const { code, warnings, map } = await esbuild.transform(source, {
         sourcefile: path,

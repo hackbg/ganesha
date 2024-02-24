@@ -62,6 +62,7 @@ export async function load (url, context, next) {
         e.path = path
         throw e
       }
+      debug('TSConfig: ', tsconfig)
       const config = await readFile(tsconfig, 'utf8')
       const transformed = transformer.transform(path, source, config)
       if (!process.env.GANESHA_CACHE_OFF) {
