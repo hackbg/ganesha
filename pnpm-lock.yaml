@@ -87,8 +87,6 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
 
-  oxc/pkg: {}
-
 packages:
 
   /@babel/helper-string-parser@7.23.4:

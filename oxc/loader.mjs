@@ -8,13 +8,17 @@ import createCache from '@ganesha/caching'
 const debug = (...args) => process.env.GANESHA_DEBUG &&
   process.stderr.write(args.join(' ') + '\n')
 
-const transformer = new OXCLoader.ModuleTransformer()
+let transformer
 
 const typeScriptExtensions = ['.ts', '.mts', '.cts']
 
 const cache = await createCache()
 
-export async function initialize (context) {}
+export async function initialize (context) {
+  const wasmPath = fileURLToPath(new URL('pkg/ganesha_oxc_bg.wasm', import.meta.url))
+  await OXCLoader.default(await readFile(wasmPath))
+  transformer = new OXCLoader.ModuleTransformer()
+}
 
 export async function resolve (specifier, context, next) {
   debug('Resolve:  ', specifier)
