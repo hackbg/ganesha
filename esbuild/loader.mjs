@@ -57,6 +57,7 @@ export async function load (url, context, next) {
       try {
         tsconfig = getTsconfig(path).path
       } catch (e) {
+        e.message = 'Failed to get tsconfig: ' + e.message
         e.path = path
         throw e
       }
