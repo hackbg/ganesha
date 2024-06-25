@@ -2,11 +2,12 @@
   "name": "@hackbg/ganesha",
   "type": "module",
   "main": "stub.mjs",
-  "version": "5.0.0-rc.7",
-  "description": "🐘 A collection of fast, no-nonsense TypeScript loaders for Node 20+",
+  "version": "5.0.0",
+  "description": "🐘 Run Node.js with various TypeScript module loaders.",
   "keywords": [ "esbuild", "oxc", "ezno", "wasm", "typescript", "loader" ],
-  "files": [ "stub.mjs", "ganesha.svg" ],
+  "files": [ "cli.mjs", "ganesha.svg" ],
   "scripts": {
+    "start":     "cli.mjs",
     "test:all":  "node test.js",
     "benchmark": "echo TODO; exit 1",
     "release":   "ubik release --otp 000000"
@@ -18,6 +19,16 @@
     "@ganesha/oxc":          "workspace:^",
 
     "@hackbg/ubik": "^3.0.1",
-    "rimraf": "^5.0.5"
+    "rimraf":       "^5.0.5"
+  },
+  "peerDependencies": {
+    "@ganesha/esbuild":      "workspace:^",
+    "@ganesha/esbuild-wasm": "workspace:^",
+    "@ganesha/oxc":          "workspace:^"
+  },
+  "peerDependenciesMeta": {
+    "@ganesha/esbuild":      { "optional": true },
+    "@ganesha/esbuild-wasm": { "optional": true },
+    "@ganesha/oxc":          { "optional": true }
   }
 }
