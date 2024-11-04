@@ -17,7 +17,7 @@
   "dependencies": {
     "@ganesha/caching": "workspace:^",
     "get-tsconfig": "^4.7.2",
-    "esbuild": "^0.19.11"
+    "esbuild": "^0.24.0"
   },
   "devDependencies": {
     "@hackbg/ubik": "^3.0.1"
