@@ -1,0 +1,6 @@
+packages:
+  - '.'
+  - './caching'
+  - './esbuild'
+  - './esbuild-wasm'
+  - './oxc'
