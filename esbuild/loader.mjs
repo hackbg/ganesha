@@ -26,10 +26,11 @@ export async function resolve (specifier, context, next) {
       if (!(typeScriptExtensions.includes(extension))) {
         const [asFile, asDir] = [`${path}.ts`, `${path}/index.ts`]
         const notFound = e => { if (e.code ==='ENOENT') return false; throw e }
+        let isFile, isDir
         try {
-          const [isFile, isDir] = await Promise.all([
+          [isFile, isDir] = await Promise.all([
             stat(asFile).then(stat=>stat.isFile()).catch(notFound),
-            stat(asFile).then(stat=>stat.isFile()).catch(notFound),
+            stat(asDir).then(stat=>stat.isFile()).catch(notFound),
           ])
         } catch (e) {
           throw Object.assign(e, { parentURL: context?.parentURL })
