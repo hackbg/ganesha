@@ -17,6 +17,7 @@ const cache = await createCache()
 export async function initialize (context) {}
 
 export async function resolve (specifier, context, next) {
+  context.conditions = ['source', ...context.conditions.filter(x=>x!=='source')]
   debug('Resolve:  ', specifier)
   try {
     return await next(specifier, context, next)
@@ -52,7 +53,7 @@ export async function resolve (specifier, context, next) {
         })
       }
     }
-    throw e
+    throw Object.assign(e, { specifier, context })
   }
 }
 

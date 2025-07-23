@@ -61,7 +61,7 @@ importers:
   esbuild-wasm:
     dependencies:
       '@ganesha/caching':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../caching
       esbuild-wasm:
         specifier: ^0.24.0
