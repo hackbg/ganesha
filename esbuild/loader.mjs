@@ -23,15 +23,30 @@ export async function resolve (specifier, context, next) {
       const path = fileURLToPath(new URL(specifier, context?.parentURL).href)
       const extension = extname(path).toLowerCase()
       if (!(typeScriptExtensions.includes(extension))) {
-        const extended = path + '.ts'
+        const [asFile, asDir] = [`${path}.ts`, `${path}/index.ts`]
+        const notFound = e => { if (e.code ==='ENOENT') return false; throw e }
         try {
-          if (await stat(extended)) {
-            return { shortCircuit: true, url: pathToFileURL(extended).href }
-          }
+          const [isFile, isDir] = await Promise.all([
+            stat(asFile).then(stat=>stat.isFile()).catch(notFound),
+            stat(asFile).then(stat=>stat.isFile()).catch(notFound),
+          ])
         } catch (e) {
-          e.parentURL = context?.parentURL
-          throw e
+          throw Object.assign(e, { parentURL: context?.parentURL })
         }
+        if (isFile && isDir) {
+          throw Object.assign(new Error(`Ambiguous import: "${path}"\n is "${asFile}"\n or "${asDir}"?`), {
+            path, asFile, asDir, specifier, parentURL: context?.parentURL
+          })
+        }
+        if (isFile) {
+          return { shortCircuit: true, url: pathToFileURL(asFile).href }
+        }
+        if (isDir) {
+          return { shortCircuit: true, url: pathToFileURL(asDir).href }
+        }
+        throw Object.assign(new Error(`Not found: "${path}"\n at "${asFile}"\n or "${asDir}"?`), {
+          path, asFile, asDir, specifier, parentURL: context?.parentURL
+        })
       }
     }
     throw e

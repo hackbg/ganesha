@@ -2,7 +2,7 @@
   "name": "@ganesha/esbuild",
   "type": "module",
   "main": "register.mjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🐘 Fast TypeScript loader based on the native build of esbuild.",
   "keywords": [ "esbuild", "esbuild-wasm", "wasm", "typescript", "loader" ],
   "files": [
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@ganesha/caching": "workspace:^",
-    "get-tsconfig": "^4.7.2",
-    "esbuild": "^0.24.0"
+    "get-tsconfig": "^4.10.1",
+    "esbuild": "^0.25.8"
   },
   "devDependencies": {
     "@hackbg/ubik": "^3.0.1"
