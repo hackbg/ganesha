@@ -2,7 +2,7 @@
   "name": "@hackbg/ganesha",
   "type": "module",
   "main": "stub.mjs",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "🐘 Run Node.js with various TypeScript module loaders.",
   "keywords": [
     "esbuild",

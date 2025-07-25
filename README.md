@@ -14,64 +14,51 @@ Made with [🧡](mailto:hello@hack.bg) at [Hack.bg](https://hack.bg).
 
 ---
 
-## Backends
-
-* [x] `@ganesha/oxc`: based on [Oxc, the Oxidation Compiler](https://github.com/oxc-project/oxc).
-  Fast but no source maps yet (see [oxc#1045](https://github.com/oxc-project/oxc/issues/1045))
-* [x] `@ganesha/esbuild-wasm`: based on [esbuild](https://github.com/evanw/esbuild).
-  Slower (~2.5x), but source maps work out of the box. May dump Go stack trace to console
-  (see [esbuild#1662](https://github.com/evanw/esbuild/issues/1662) and
-  [go#59099](https://github.com/golang/go/issues/59099))
-* [x] `@ganesha/esbuild`: based on [esbuild](https://github.com/evanw/esbuild).
-  Depends on native binary, but unaffected by the above esbuild-wasm issue.
-* [ ] `@ganesha/ezno`: possible future support for [ezno](https://github.com/kaleidawave/ezno)
-  is under consideration.
-* [ ] `@ganesha/swc`: possible future support for [swc](https://github.com/swc-project/swc)
-  is under consideration.
-
-### Benchmarks
-
-**TODO**, contributions welcome.
-
 ## How to use
 
-Install with:
+### Install
 
 ```sh
-npm i --save @ganesha/oxc # or @ganesha/esbuild
+npm i --save @ganesha/esbuild-wasm
+# and/or:
+npm i --save @ganesha/esbuild
 ```
 
-Use from shell:
+### Use from shell
 
 ```sh
-node --import @ganesha/oxc ./my-program.ts # or @ganesha/esbuild
+node --import @ganesha/esbuild ./my-program.ts
 ```
 
-Use from script:
+### Use with shebang/hashbang
+
+```sh
+#!/usr/bin/env -S node --import @ganesha/esbuild
+```
+
+*Note that [`env -S` is unavailable in Busybox environments such as Alpine Linux](https://bugs.busybox.net/show_bug.cgi?id=15371).*
+
+### Use from JS
 
 ```js
-await import("@ganesha/oxc") // or @ganesha/esbuild
-await import("./my-program") // note that it works with no extension
+await import("@ganesha/esbuild")
+await import("./my-program")
+// supports extensionless imports, unlike raw Node
 ```
 
-The TypeScript program in question:
+And now `my-program.ts` can look like this:
 
 ```ts
-// my-program.ts
-import { Foo } from './another-ts-module' // no extension required!
-import { Bar } from './a-raw-js-module.js' // import from JS with extension
+import { Foo } from './another-ts-module'  // extension optional but preferred
+import { Bar } from './a-raw-js-module.ts' // import from TS with extension
+import { Bar } from './a-raw-js-module.js' // import from *existing* JS with extension
 ```
 
-And it works both ways:
+Conversely a `my-program.js` running in the same process would also work:
 
 ```js
-// my-program.js
 import { Foo } from './another-ts-module.ts' // extension optional but preferred
 ```
-
-### Switching between backends
-
-**TODO**.
 
 ## Caching
 
@@ -93,6 +80,26 @@ rm -rf ~/.cache/ganesha-v5
 echo "delete this file to reenable caching" > ~/.cache/ganesha-v5
 ```
 
+## Available backends
+
+Ganesha can perform type stripping useing one of several available tools:
+
+* [x] `@ganesha/oxc`: based on [Oxc, the Oxidation Compiler](https://github.com/oxc-project/oxc).
+  Fast but no source maps yet (see [oxc#1045](https://github.com/oxc-project/oxc/issues/1045))
+* [x] `@ganesha/esbuild-wasm`: based on [esbuild](https://github.com/evanw/esbuild).
+  Slower (~2.5x), but source maps work out of the box. May dump Go stack trace to console
+  (see [esbuild#1662](https://github.com/evanw/esbuild/issues/1662) and
+  [go#59099](https://github.com/golang/go/issues/59099))
+* [x] `@ganesha/esbuild`: based on [esbuild](https://github.com/evanw/esbuild).
+  Depends on native binary, but unaffected by the above esbuild-wasm issue.
+* [ ] `@ganesha/ezno`: possible future support for [ezno](https://github.com/kaleidawave/ezno)
+  is under consideration.
+* [ ] `@ganesha/swc`: possible future support for [swc](https://github.com/swc-project/swc)
+  is under consideration.
+* [ ] **TODO:** Use env var to switch between backends?
+* [ ] **TODO:** Benchmark various backends
+* [ ] **TODO:** Optional load-time type checking?
+
 ## Troubleshooting
 
 To see what Ganesha is doing:
@@ -106,17 +113,21 @@ To see what Ganesha is doing:
 At [Hack.bg](https://hack.bg), we primarily use Ganesha for developing
 [Fadroma](https://fadroma.tech), a cross-chain framework for the CosmWasm ecosystem.
 
-When it's time to publish a package, we switch over to **[Ubik](https://github.com/hackbg/ubik)**,
-a complementary tool for publishing well-formed ESM packages from TypeScript while avoiding
-the nastiness of how `tsc` chooses to (more like "refuses to") handle extensions
-of `import`ed modules.
+When it's time to publish your package, try **[Ubik](https://github.com/hackbg/ubik)**,
+a complementary tool for publishing well-formed isomorphic ESM/CJS packages from TypeScript --
+while avoiding all sorts of cruft that tends to accumulate at the interface boundary between
+JS and TS (the kind of stuff that frontend bundlers shield you from, but raw Node doesn't).
+
+## Benchmarks
+
+**TODO**, contributions welcome.
 
 ---
 
 <div align="right">
 
-*"The very day I was born I made my first mistake,
+*"The very day I was born I made my first mistake,<br>
 and by that path have I sought wisdom ever since."<br>
-\- **William Buck**'s retelling of the **Mahabharata** ([source](https://hinduism.stackexchange.com/questions/16719/))*
+\- **William Buck**'s retelling of the **Mahabharata**<br>([source](https://hinduism.stackexchange.com/questions/16719/))*
 
 </div>
