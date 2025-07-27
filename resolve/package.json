@@ -1,0 +1,6 @@
+{
+  "name": "@ganesha/resolve",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "resolve.mjs"
+}

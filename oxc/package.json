@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ganesha/caching": "workspace:^",
+    "@ganesha/resolve": "workspace:^",
     "get-tsconfig": "^4.7.2"
   },
   "devDependencies": {
