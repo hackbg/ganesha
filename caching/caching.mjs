@@ -1,42 +1,59 @@
+import { stat } from 'node:fs/promises'
+import { env, stderr } from 'node:process'
 import XDG from '@folder/xdg'
 import { mkdirp } from 'mkdirp'
 import { xxhash3 } from 'hash-wasm'
-import { stat } from 'node:fs/promises'
 import cacache from 'cacache'
 
-const debug = (...args) => process.env.GANESHA_DEBUG &&
-  process.stderr.write(args.join(' ') + '\n')
+const debug = (...args) => env.GANESHA_DEBUG && stderr.write(args.join(' ') + '\n')
 
+/** Create a cache at a given path. If there's already a
+ * non-directory there, return a non-cache instead. */
 export default async function createCache ({
-  path = process.env.GANESHA_CACHE_PATH || XDG({ expanded: true, subdir: 'ganesha-v5' }).cache.home
+  name = 'ganesha',
+  path = process.env.GANESHA_CACHE_PATH || XDG({ expanded: true, subdir: name }).cache.home
 } = {}) {
+  // Putting a file in place of the cache directory disables the cache.
+  const stats = await stat(path)
+  if (!(await stats.isDirectory())) {
+    debug('Cache is disabled. To enable, remove', path)
+    return makeNullCache()
+  }
+  return makeRealCache(path)
+}
 
+/** Check if the cache path is a directory or non-existent (in which case, create it) */
+async function ensureCacheDirectory (path) {
   try {
     // Putting a file in place of the cache directory disables the cache.
     const stats = await stat(path)
-    if (stats.isFile()) {
-      debug('Cache is disabled. To enable, delete', path)
-      // Non-caching implementation.
-      return {
-        async get (source) {
-          return null
-        },
-        async put (source, output) {
-          return null
-        }
-      }
-    }
+    return stats.isDirectory()
   } catch (e) {
     // If the cache directory does not exist, create it.
     if (e.code === 'ENOENT') {
       debug('Creating cache in', path)
       await mkdirp(path)
+      return true
     } else {
       throw e
     }
   }
+}
 
-  // Caching implementation.
+/** Stub implementation (non-caching) */
+function makeNullCache () {
+  return {
+    async get (source) {
+      return null
+    },
+    async put (source, output) {
+      return null
+    }
+  }
+}
+
+/** Caching implementation. */
+function makeRealCache (path) {
   return {
     async get (source) {
       const key = await xxhash3(source)
@@ -56,5 +73,4 @@ export default async function createCache ({
       return key
     }
   }
-
 }
