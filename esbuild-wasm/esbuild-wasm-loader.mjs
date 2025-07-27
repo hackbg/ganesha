@@ -1,32 +1,24 @@
 import * as esbuild from 'esbuild-wasm'
+import { env } from 'node:process'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { extname } from 'node:path'
 import { readFile, stat } from 'node:fs/promises'
 import { getTsconfig, parseTsconfig } from 'get-tsconfig'
+import { debug, rethrow, TS_EXTENSIONS } from '@ganesha/resolve'
 import createCache from '@ganesha/caching'
-
-const debug = (...args) => process.env.GANESHA_DEBUG &&
-  process.stderr.write(args.join(' ') + '\n')
-
+const cache = await createCache({ name: 'ganesha-esbuild-wasm' })
 await esbuild.initialize()
-
-const typeScriptExtensions = ['.ts', '.mts', '.cts']
-
-const cache = await createCache()
-
-export async function initialize (context) {}
-
+export async function initialize (context) { /* init esbuild here instead? */ }
 export { resolve } from '@ganesha/resolve'
-
 export async function load (url, context, next) {
   debug('Load:     ', url)
   if (url.startsWith('file://')) {
     const path = fileURLToPath(url)
     const extension = extname(path).toLowerCase()
-    if (typeScriptExtensions.includes(extension)) {
+    if (TS_EXTENSIONS.includes(extension)) {
       debug('Transform:', url)
       const source = await readFile(path, 'utf8')
-      if (!process.env.GANESHA_CACHE_OFF) {
+      if (!env.GANESHA_CACHE_OFF) {
         const cached = await cache.get(source)
         if (cached) {
           debug('Cached:   ', cached.key)
@@ -54,7 +46,7 @@ export async function load (url, context, next) {
           console.warn(`${warning.location}: ${warning.text}`)
         }
       }
-      if (!process.env.GANESHA_CACHE_OFF) {
+      if (!env.GANESHA_CACHE_OFF) {
         const key = await cache.put(source, code)
         debug('Caching:  ', key)
       }

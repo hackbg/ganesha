@@ -1,27 +1,19 @@
-import * as esbuild from 'esbuild'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { extname } from 'node:path'
 import { readFile, stat } from 'node:fs/promises'
+import * as esbuild from 'esbuild'
 import { getTsconfig, parseTsconfig } from 'get-tsconfig'
+import { debug, rethrow, TS_EXTENSIONS } from '@ganesha/resolve'
 import createCache from '@ganesha/caching'
-
-const debug = (...args) => process.env.GANESHA_DEBUG &&
-  process.stderr.write(args.join(' ') + '\n')
-
-const typeScriptExtensions = ['.ts', '.mts', '.cts']
-
-const cache = await createCache()
-
+const cache = await createCache({ name: 'ganesha-esbuild' })
 export async function initialize (context) {}
-
 export { resolve } from '@ganesha/resolve'
-
 export async function load (url, context, next) {
   debug('Load:     ', url)
   if (url.startsWith('file://')) {
     const path = fileURLToPath(url)
     const extension = extname(path).toLowerCase()
-    if (typeScriptExtensions.includes(extension)) {
+    if (TS_EXTENSIONS.includes(extension)) {
       debug('Transform:', url)
       const source = await readFile(path, 'utf8')
       if (!process.env.GANESHA_CACHE_OFF) {

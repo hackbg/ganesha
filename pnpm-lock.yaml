@@ -45,8 +45,11 @@ importers:
   esbuild:
     dependencies:
       '@ganesha/caching':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../caching
+      '@ganesha/resolve':
+        specifier: workspace:^
+        version: link:../resolve
       esbuild:
         specifier: ^0.25.8
         version: 0.25.8
@@ -63,6 +66,9 @@ importers:
       '@ganesha/caching':
         specifier: workspace:*
         version: link:../caching
+      '@ganesha/resolve':
+        specifier: workspace:*
+        version: link:../resolve
       esbuild-wasm:
         specifier: ^0.24.0
         version: 0.24.0
@@ -79,6 +85,9 @@ importers:
       '@ganesha/caching':
         specifier: workspace:^
         version: link:../caching
+      '@ganesha/resolve':
+        specifier: workspace:^
+        version: link:../resolve
       get-tsconfig:
         specifier: ^4.7.2
         version: 4.7.2
@@ -86,6 +95,8 @@ importers:
       '@hackbg/ubik':
         specifier: ^3.0.1
         version: 3.0.1
+
+  resolve: {}
 
 packages:
 

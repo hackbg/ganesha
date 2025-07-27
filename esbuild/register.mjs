@@ -1,2 +1,2 @@
 import { register } from 'node:module'
-register('./loader.mjs', { parentURL: import.meta.url })
+register('./esbuild-loader.mjs', { parentURL: import.meta.url })

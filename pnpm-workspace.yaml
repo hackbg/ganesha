@@ -1,6 +1,9 @@
 packages:
   - '.'
+
   - './caching'
+  - './resolve'
+
   - './esbuild'
   - './esbuild-wasm'
   - './oxc'

@@ -1,4 +1,2 @@
 import { register } from 'node:module'
-register('./loader.mjs', {
-  parentURL: import.meta.url
-})
+register('./oxc-loader.mjs', { parentURL: import.meta.url })

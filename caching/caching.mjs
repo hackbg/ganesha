@@ -4,9 +4,7 @@ import XDG from '@folder/xdg'
 import { mkdirp } from 'mkdirp'
 import { xxhash3 } from 'hash-wasm'
 import cacache from 'cacache'
-
 const debug = (...args) => env.GANESHA_DEBUG && stderr.write(args.join(' ') + '\n')
-
 /** Create a cache at a given path. If there's already a
  * non-directory there, return a non-cache instead. */
 export default async function createCache ({
@@ -14,14 +12,12 @@ export default async function createCache ({
   path = process.env.GANESHA_CACHE_PATH || XDG({ expanded: true, subdir: name }).cache.home
 } = {}) {
   // Putting a file in place of the cache directory disables the cache.
-  const stats = await stat(path)
-  if (!(await stats.isDirectory())) {
+  if (!(await ensureCacheDirectory(path))) {
     debug('Cache is disabled. To enable, remove', path)
     return makeNullCache()
   }
   return makeRealCache(path)
 }
-
 /** Check if the cache path is a directory or non-existent (in which case, create it) */
 async function ensureCacheDirectory (path) {
   try {
@@ -39,7 +35,6 @@ async function ensureCacheDirectory (path) {
     }
   }
 }
-
 /** Stub implementation (non-caching) */
 function makeNullCache () {
   return {
